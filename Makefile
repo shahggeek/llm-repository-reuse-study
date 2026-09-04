@@ -10,7 +10,7 @@ export PATH := $(TOOL_BIN):$(PATH)
 export UV_CACHE_DIR
 export UV_PYTHON_INSTALL_DIR
 
-.PHONY: bootstrap check prepare doctor tasks export smoke-dry-run smoke smoke-all pilot-a pilot-a-all
+.PHONY: bootstrap check prepare doctor tasks export smoke-dry-run smoke smoke-all pilot-a pilot-a-all test-pilot-a
 
 bootstrap:
 	bash scripts/bootstrap_tools.sh
@@ -45,3 +45,6 @@ pilot-a:
 
 pilot-a-all:
 	$(PYTHON) scripts/pilot_a.py --all
+
+test-pilot-a:
+	uv run --python "$(SR_EVAL_PYTHON)" --no-project --with "docker==7.1.0" python scripts/evaluate_pilot_a.py --container "$(CONTAINER)" --all

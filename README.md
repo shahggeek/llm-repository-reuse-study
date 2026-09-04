@@ -91,6 +91,15 @@ prompt, raw response, and event stream under the ignored
 `data/generated-trajectories/` tree, and never retries a model response. Use
 `make pilot-a-all` only after validating the first trajectory's records.
 
+After generation closes, run the cumulative functional evaluation separately:
+
+```bash
+make test-pilot-a
+```
+
+This tests each generated checkpoint against its current and all earlier tests,
+updates the ignored run record, and does not send test results back to the model.
+
 Smoke reports use `pass` when every cumulative check succeeds, `partial` when
 all same-turn checks execute but one or more earlier-turn checks conflict, and
 `fail` when any same-turn reference check is not executable. `partial` exits

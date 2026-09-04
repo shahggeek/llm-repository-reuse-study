@@ -116,3 +116,11 @@ frozen system prompt using `model_instructions_file`, disable web search, and
 use a read-only empty session directory so the model cannot inspect benchmark
 solutions or tests. Record raw CLI events and the unmodified final response for
 every turn. Do not retry a model response or provide test feedback.
+
+## 2026-09-04 — Pilot A generation closed
+
+Pilot A batch `pilot-a-20260904T213806Z` completed all 18 independent
+trajectories and all 70 planned turns. Each run has a unique Codex session ID;
+every turn has a raw response, one extracted Java code block, and a usage
+record. No model response was retried. These batch invariants were checked
+before generated code was functionally tested or its contents were inspected.
