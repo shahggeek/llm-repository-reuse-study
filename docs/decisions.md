@@ -106,3 +106,13 @@ The eight ineligible checkpoints are confined to five trajectories:
 `loadDocuments` checkpoints 2–3. Their nine failed test executions are retained
 for regression analysis. No model output was generated or inspected before
 these decisions were frozen.
+
+## 2026-09-04 — Pilot A execution interface
+
+Freeze Pilot A batch `pilot-a-20260904T213806Z`. Execute each trajectory in a
+fresh resumable Codex CLI 0.153.0 session with explicit model slug
+`gpt-5.6-sol`, High reasoning, and automatic routing disabled. Deliver the
+frozen system prompt using `model_instructions_file`, disable web search, and
+use a read-only empty session directory so the model cannot inspect benchmark
+solutions or tests. Record raw CLI events and the unmodified final response for
+every turn. Do not retry a model response or provide test feedback.

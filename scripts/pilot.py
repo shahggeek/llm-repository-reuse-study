@@ -238,6 +238,10 @@ def command_export(args: argparse.Namespace) -> int:
     _, matches = selected_matches(args)
     output = Path(args.output).resolve()
     output.mkdir(parents=True, exist_ok=True)
+    expected_names = {f"{task['slug']}.json" for task, _ in matches}
+    for stale_path in output.glob("*.json"):
+        if stale_path.name not in expected_names:
+            stale_path.unlink()
     for task, row in matches:
         packet = {
             "study_task": task,
@@ -251,7 +255,7 @@ def command_export(args: argparse.Namespace) -> int:
         }
         path = output / f"{task['slug']}.json"
         path.write_text(json.dumps(packet, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
-    print(f"Exported {len(matches)} task packets to {output}")
+    print(f"Exported {len(matches)} task packets to {output}; stale packets removed")
     return 0
 
 

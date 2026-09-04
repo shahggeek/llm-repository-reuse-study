@@ -1,7 +1,12 @@
 # Pilot Protocol
 
-Status: **frozen for smoke testing**. No LLM generations have been recorded in
-this repository at the time of this freeze.
+Status: **Pilot A frozen**. Batch `pilot-a-20260904T213806Z` may begin under the
+committed protocol. No LLM generations had been recorded at this freeze.
+
+Pilot A uses Codex CLI 0.153.0 with explicit model slug `gpt-5.6-sol`, High
+reasoning, automatic routing disabled, web search disabled, and a read-only
+empty working directory. The frozen system prompt is supplied as the model
+instructions file. Every task starts in a fresh resumable session.
 
 ## Purpose
 

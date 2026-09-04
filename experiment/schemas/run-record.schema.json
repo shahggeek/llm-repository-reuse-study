@@ -6,11 +6,13 @@
   "additionalProperties": false,
   "required": [
     "schema_version",
+    "batch_id",
     "run_id",
     "task_hash",
     "task_slug",
     "condition",
     "benchmark_commit",
+    "product_interface",
     "model",
     "started_at",
     "prompt_sha256",
@@ -18,18 +20,21 @@
   ],
   "properties": {
     "schema_version": {"const": 1},
+    "batch_id": {"type": "string", "minLength": 1},
     "run_id": {"type": "string", "minLength": 1},
     "task_hash": {"type": "string", "pattern": "^[0-9a-f]{24}$"},
     "task_slug": {"type": "string", "minLength": 1},
     "condition": {"enum": ["baseline", "engineering-guardrails"]},
     "benchmark_commit": {"type": "string", "pattern": "^[0-9a-f]{40}$"},
     "product_interface": {"type": ["string", "null"]},
+    "session_id": {"type": ["string", "null"]},
     "model": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["display_name", "reasoning_effort", "automatic_routing"],
+      "required": ["display_name", "slug", "reasoning_effort", "automatic_routing"],
       "properties": {
         "display_name": {"type": "string"},
+        "slug": {"type": "string"},
         "reasoning_effort": {"type": "string"},
         "automatic_routing": {"type": "boolean"},
         "snapshot": {"type": ["string", "null"]}

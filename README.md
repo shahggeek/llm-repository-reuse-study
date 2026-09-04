@@ -80,6 +80,17 @@ Run all 18 reference trajectories only after the one-task smoke test succeeds:
 make smoke-all
 ```
 
+After the protocol is frozen and committed, generate one Pilot A trajectory:
+
+```bash
+make pilot-a TASK=copyToTarget
+```
+
+The runner starts a fresh isolated Codex session for each task, retains every
+prompt, raw response, and event stream under the ignored
+`data/generated-trajectories/` tree, and never retries a model response. Use
+`make pilot-a-all` only after validating the first trajectory's records.
+
 Smoke reports use `pass` when every cumulative check succeeds, `partial` when
 all same-turn checks execute but one or more earlier-turn checks conflict, and
 `fail` when any same-turn reference check is not executable. `partial` exits
