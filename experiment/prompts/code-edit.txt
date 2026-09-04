@@ -1,0 +1,9 @@
+I will provide you with a code snippet and an edit instruction. Your task is to edit the code to suit the needs.
+
+## Previous code
+```java
+{{PREVIOUS_CODE}}
+```
+
+## New edit instruction
+{{INSTRUCTION}}

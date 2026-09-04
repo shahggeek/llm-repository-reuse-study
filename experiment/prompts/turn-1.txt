@@ -1,0 +1,7 @@
+## The contexts above the function
+```java
+{{CONTEXT}}
+```
+
+## Programming problem
+{{INSTRUCTION}}

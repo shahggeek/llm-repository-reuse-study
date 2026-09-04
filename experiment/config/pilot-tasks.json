@@ -1,0 +1,186 @@
+{
+  "schema_version": 1,
+  "benchmark_commit": "6cf948d69427687bf61042640223d5b318f7bc4c",
+  "tasks": [
+    {
+      "slug": "between",
+      "hash_id": "895990b3a5c56f093bdb72e6",
+      "repo": "langchain4j",
+      "function": "between",
+      "turns": 4,
+      "stratum": "primary",
+      "pilot_b": false,
+      "rationale": "Validation, dimensional checks, computation, and zero-vector handling."
+    },
+    {
+      "slug": "invert",
+      "hash_id": "38770cee6b092a934344568e",
+      "repo": "jvector",
+      "function": "invert",
+      "turns": 4,
+      "stratum": "primary",
+      "pilot_b": false,
+      "rationale": "Numerical algorithm gains validation, pivoting, and singularity handling."
+    },
+    {
+      "slug": "nodeArrayMerge",
+      "hash_id": "29066589401870d85f4e87b3",
+      "repo": "jvector",
+      "function": "merge",
+      "turns": 5,
+      "stratum": "primary",
+      "pilot_b": true,
+      "rationale": "Five-turn branching and candidate-merging trajectory with reuse potential."
+    },
+    {
+      "slug": "refine",
+      "hash_id": "fa45139dab549d317045f5c4",
+      "repo": "jvector",
+      "function": "refine",
+      "turns": 4,
+      "stratum": "primary",
+      "pilot_b": false,
+      "rationale": "Substantial algorithmic evolution across four turns."
+    },
+    {
+      "slug": "encodeAnisotropic",
+      "hash_id": "de0fedd9a18a6ee04611cd53",
+      "repo": "jvector",
+      "function": "encodeAnisotropic",
+      "turns": 4,
+      "stratum": "primary",
+      "pilot_b": false,
+      "rationale": "Complex iterative numerical logic."
+    },
+    {
+      "slug": "removeDeletedNodes",
+      "hash_id": "21dcaa4767c22bb361a2b693",
+      "repo": "jvector",
+      "function": "removeDeletedNodes",
+      "turns": 5,
+      "stratum": "primary",
+      "pilot_b": false,
+      "rationale": "Large graph operation with strong structural signal."
+    },
+    {
+      "slug": "writeInline",
+      "hash_id": "efdbcbf31edb2be45f57c55b",
+      "repo": "jvector",
+      "function": "writeInline",
+      "turns": 5,
+      "stratum": "primary",
+      "pilot_b": false,
+      "rationale": "Five-turn state and I/O evolution."
+    },
+    {
+      "slug": "randomAccessScoreProvider",
+      "hash_id": "a3045dd878c9235e7d26de84",
+      "repo": "jvector",
+      "function": "randomAccessScoreProvider",
+      "turns": 5,
+      "stratum": "primary",
+      "pilot_b": true,
+      "rationale": "Helper reuse, thread-local state, and concurrency."
+    },
+    {
+      "slug": "calculatePhaseTimeGradient",
+      "hash_id": "e5d0241661065416a4e451e1",
+      "repo": "timefold-solver",
+      "function": "calculatePhaseTimeGradient",
+      "turns": 4,
+      "stratum": "primary",
+      "pilot_b": false,
+      "rationale": "Progressive composite termination logic; exact four-turn overload selected."
+    },
+    {
+      "slug": "getCyclesForPermutation",
+      "hash_id": "73b5560db41ec359450f1ff1",
+      "repo": "timefold-solver",
+      "function": "getCyclesForPermutation",
+      "turns": 4,
+      "stratum": "primary",
+      "pilot_b": false,
+      "rationale": "Permutation algorithm becomes structurally involved."
+    },
+    {
+      "slug": "diff",
+      "hash_id": "dcb5dab97ac7ba282aeed44a",
+      "repo": "timefold-solver",
+      "function": "diff",
+      "turns": 4,
+      "stratum": "primary",
+      "pilot_b": true,
+      "rationale": "Progressive filtering and stream logic with reuse opportunities."
+    },
+    {
+      "slug": "summarize",
+      "hash_id": "ed043aa2b7edbdb82b5c8faf",
+      "repo": "timefold-solver",
+      "function": "summarize",
+      "turns": 4,
+      "stratum": "primary",
+      "pilot_b": false,
+      "rationale": "Formatting, sorting, and exceptional cases; exact ScoreAnalysis task selected."
+    },
+    {
+      "slug": "ensureCapacity",
+      "hash_id": "b4e1056e5ea2a627db586be4",
+      "repo": "jvector",
+      "function": "ensureCapacity",
+      "turns": 3,
+      "stratum": "control",
+      "pilot_b": true,
+      "rationale": "Focused allocation and underlying-array reuse case."
+    },
+    {
+      "slug": "mergeBeans",
+      "hash_id": "c9d7e4ce8c67c1b9e7740119",
+      "repo": "spring-ai",
+      "function": "mergeBeans",
+      "turns": 3,
+      "stratum": "control",
+      "pilot_b": true,
+      "rationale": "Existing reflection/conversion helpers create a strong reuse context."
+    },
+    {
+      "slug": "stream",
+      "hash_id": "cf95a66e04f941a76d4b3552",
+      "repo": "spring-ai",
+      "function": "stream",
+      "turns": 3,
+      "stratum": "control",
+      "pilot_b": false,
+      "rationale": "Focused framework and API composition."
+    },
+    {
+      "slug": "set",
+      "hash_id": "4959408a29d07ab85f1fdf99",
+      "repo": "timefold-solver",
+      "function": "set",
+      "turns": 3,
+      "stratum": "control",
+      "pilot_b": false,
+      "rationale": "Compact concurrency and state-preservation control."
+    },
+    {
+      "slug": "underlineToCamel",
+      "hash_id": "4c84a38cf9b090d553a8095e",
+      "repo": "mybatis-flex",
+      "function": "underlineToCamel",
+      "turns": 3,
+      "stratum": "control",
+      "pilot_b": false,
+      "rationale": "Deliberately simple string-transformation control."
+    },
+    {
+      "slug": "loadDocuments",
+      "hash_id": "6712ca73ea1cb5649aa72a63",
+      "repo": "langchain4j",
+      "function": "loadDocuments",
+      "turns": 3,
+      "stratum": "control",
+      "pilot_b": true,
+      "rationale": "Surrounding class already contains reusable document-loading helpers."
+    }
+  ]
+}

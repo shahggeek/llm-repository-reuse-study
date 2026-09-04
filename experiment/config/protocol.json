@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "protocol_status": "frozen-for-smoke-test",
+  "benchmark": {
+    "name": "SR-Eval",
+    "repository": "https://github.com/AjaxZhan/SR-Eval.git",
+    "commit": "6cf948d69427687bf61042640223d5b318f7bc4c",
+    "dataset": "dataset/java_repository.jsonl",
+    "language": "java-repo"
+  },
+  "pilot_a": {
+    "task_count": 18,
+    "condition": "baseline",
+    "runs_per_task": 1
+  },
+  "pilot_b": {
+    "task_count": 6,
+    "conditions": ["baseline", "engineering-guardrails"],
+    "runs_per_task_condition": 1
+  },
+  "model": {
+    "display_name": "GPT-5.6 Sol",
+    "reasoning_effort": "High",
+    "automatic_routing": false
+  },
+  "prompting": {
+    "context_setting": "base",
+    "prompt_setting": "edit",
+    "system_prompt": "experiment/prompts/system.txt",
+    "turn_1_template": "experiment/prompts/turn-1.txt",
+    "later_turn_template": "experiment/prompts/code-edit.txt",
+    "guardrails": "experiment/prompts/engineering-guardrails.txt"
+  },
+  "functional_gate": "checkpoint t passes tests 1..t",
+  "epsilon": 1e-9
+}
