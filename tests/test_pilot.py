@@ -68,6 +68,11 @@ class PilotHarnessTests(unittest.TestCase):
         self.assertEqual(6, len(plan))
         self.assertEqual((3, 3), (plan[-1]["checkpoint_turn"], plan[-1]["test_turn"]))
 
+    def test_smoke_status_distinguishes_cross_turn_from_executability_failures(self):
+        self.assertEqual("pass", pilot.smoke_status(0, 0))
+        self.assertEqual("partial", pilot.smoke_status(2, 0))
+        self.assertEqual("fail", pilot.smoke_status(2, 1))
+
 
 if __name__ == "__main__":
     unittest.main()

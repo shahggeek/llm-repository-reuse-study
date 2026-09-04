@@ -38,7 +38,7 @@ method name.
 2. Prepare the pinned benchmark with `make prepare`.
 3. Load and start a disposable Java environment container.
 4. Run `make doctor` and `make tasks`.
-5. Run `make smoke TASK=between`.
+5. Run `make smoke TASK=copyToTarget`.
 6. If successful, run `make smoke-all`.
 7. Record any benchmark failures in `docs/decisions.md` before replacements.
 8. Freeze prompt SHA-256 hashes and the run-record schema.
@@ -66,8 +66,12 @@ For each `(task, condition)`:
 
 ## Smoke-test pass criteria
 
-A task is executable when all reference checkpoints pass their cumulative tests
-in the pinned Java environment. A failure triggers diagnosis in this order:
+A task is executable when every reference checkpoint passes its same-turn test
+in the pinned Java environment. A checkpoint is eligible for primary analysis
+only when it also passes every earlier test from turns `1..t`. The harness
+reports `pass` when all cumulative checks pass, `partial` when only cross-turn
+checks fail, and `fail` when a same-turn check fails. A failure triggers
+diagnosis in this order:
 
 1. environment/container problem;
 2. dependency or build problem;
@@ -75,8 +79,10 @@ in the pinned Java environment. A failure triggers diagnosis in this order:
 4. genuine inconsistency between a later reference solution and an earlier
    test.
 
-Only categories 2–4 can justify replacement, and the reason must be decided
-without viewing an LLM generation for that task.
+Categories 2–3 can justify replacement when they prevent same-turn execution.
+Category 4 makes the affected checkpoint ineligible but does not by itself
+remove the trajectory. Every decision must be made without viewing an LLM
+generation for that task.
 
 ## Pilot decision rules
 

@@ -52,3 +52,57 @@ discussed as an implication, not evaluated as a treatment.
 Report structural dimensions individually rather than constructing a composite
 quality score. Compare each generated checkpoint to its same-turn SR-Eval
 reference implementation and calculate absolute and normalized overhead.
+
+## 2026-09-04 — Pre-generation replacement of `between`
+
+Exclude SR-Eval task `895990b3a5c56f093bdb72e6` (`between`) after its pinned
+reference trajectory failed 5 of 10 cumulative checks in the smoke test. This
+is a genuine cross-turn inconsistency: turn 1 requires a placeholder return of
+`0.0`, later turns require computed cosine similarity, and turn 4 restores
+exception messages that contradict turns 2 and 3. The same-turn checks all
+passed, ruling out the container, build, and line-range mechanisms.
+
+Replace it before any model generation with four-turn Java task
+`6f8e8f1f18bd0ff1f3419f91` (`copyToTarget`). It preserves the primary stratum,
+turn count, and progressive structural profile. Keep the failed smoke report as
+an ignored local artifact and record its aggregate result here so the exclusion
+remains auditable.
+
+## 2026-09-04 — Reference-screen eligibility
+
+Apply the cumulative functional gate at checkpoint level. A trajectory remains
+in the pilot when every same-turn reference check is executable, but any
+checkpoint that fails one or more tests from turns `1..t` is ineligible for the
+primary structural and reuse analyses. Report those failures as benchmark
+cross-turn incompatibilities and retain them for the regression analysis. This
+clarifies the earlier task-level smoke criterion and avoids replacing useful
+trajectories with leftover tasks whose supplied tests do not exercise the target
+method.
+
+## 2026-09-04 — Pre-generation replacement of `stream`
+
+Exclude SR-Eval task `cf95a66e04f941a76d4b3552` (`stream`) after all six
+reference checks failed, including every same-turn check. The pinned Spring AI
+module fails compilation because `OpenAiChatModel` calls a protected
+`AssistantMessage` constructor, independently of the injected method and test.
+
+Replace it before model generation with three-turn control task
+`3311fcb30839fc3620dccd19` (`methodToProperty`). The replacement keeps the
+control stratum and turn count and supplies directly targeted, progressively
+extended tests. Its pre-generation screen passes all three same-turn checks and
+four of six cumulative checks; the two incompatible earlier-turn checks are
+retained as ineligible checkpoints under the eligibility rule above.
+
+## 2026-09-04 — Final pre-generation reference screen
+
+The final 18-task sample passes 167 of 176 cumulative reference checks. All 70
+same-turn checks pass, so every selected trajectory is executable. Sixty-two of
+70 checkpoints pass every test from turns `1..t` and are eligible for the
+primary structural and reuse analyses.
+
+The eight ineligible checkpoints are confined to five trajectories:
+`nodeArrayMerge` checkpoint 5, `randomAccessScoreProvider` checkpoint 4,
+`methodToProperty` checkpoints 2–3, `underlineToCamel` checkpoints 2–3, and
+`loadDocuments` checkpoints 2–3. Their nine failed test executions are retained
+for regression analysis. No model output was generated or inspected before
+these decisions were frozen.

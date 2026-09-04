@@ -3,14 +3,14 @@
   "benchmark_commit": "6cf948d69427687bf61042640223d5b318f7bc4c",
   "tasks": [
     {
-      "slug": "between",
-      "hash_id": "895990b3a5c56f093bdb72e6",
-      "repo": "langchain4j",
-      "function": "between",
+      "slug": "copyToTarget",
+      "hash_id": "6f8e8f1f18bd0ff1f3419f91",
+      "repo": "spring-ai",
+      "function": "copyToTarget",
       "turns": 4,
       "stratum": "primary",
       "pilot_b": false,
-      "rationale": "Validation, dimensional checks, computation, and zero-vector handling."
+      "rationale": "Reflection-based copying gains interface filtering, validation, identity preservation, and exception handling."
     },
     {
       "slug": "invert",
@@ -143,14 +143,14 @@
       "rationale": "Existing reflection/conversion helpers create a strong reuse context."
     },
     {
-      "slug": "stream",
-      "hash_id": "cf95a66e04f941a76d4b3552",
-      "repo": "spring-ai",
-      "function": "stream",
+      "slug": "methodToProperty",
+      "hash_id": "3311fcb30839fc3620dccd19",
+      "repo": "mybatis-flex",
+      "function": "methodToProperty",
       "turns": 3,
       "stratum": "control",
       "pilot_b": false,
-      "rationale": "Focused framework and API composition."
+      "rationale": "Focused prefix parsing that progresses from getter support to setters, predicates, and locale-stable conversion."
     },
     {
       "slug": "set",

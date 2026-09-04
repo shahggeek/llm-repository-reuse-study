@@ -1,9 +1,19 @@
 PYTHON ?= python3
 SR_EVAL_DIR ?= .cache/SR-Eval
 CONTAINER ?= mrgbench_container_1
-TASK ?= between
+TASK ?= copyToTarget
+SR_EVAL_PYTHON ?= 3.13
+TOOL_BIN := $(CURDIR)/.tools/bin
+UV_CACHE_DIR ?= $(CURDIR)/.cache/uv
+UV_PYTHON_INSTALL_DIR ?= $(CURDIR)/.tools/python
+export PATH := $(TOOL_BIN):$(PATH)
+export UV_CACHE_DIR
+export UV_PYTHON_INSTALL_DIR
 
-.PHONY: check prepare doctor tasks export smoke-dry-run smoke smoke-all
+.PHONY: bootstrap check prepare doctor tasks export smoke-dry-run smoke smoke-all
+
+bootstrap:
+	bash scripts/bootstrap_tools.sh
 
 check:
 	$(PYTHON) -m unittest discover -s tests -v
@@ -25,7 +35,7 @@ smoke-dry-run:
 	$(PYTHON) scripts/pilot.py smoke-test --sr-eval "$(SR_EVAL_DIR)" --container "$(CONTAINER)" --task "$(TASK)" --dry-run
 
 smoke:
-	uv run --project "$(SR_EVAL_DIR)" python scripts/pilot.py smoke-test --sr-eval "$(SR_EVAL_DIR)" --container "$(CONTAINER)" --task "$(TASK)"
+	uv run --python "$(SR_EVAL_PYTHON)" --no-project --with "docker==7.1.0" python scripts/pilot.py smoke-test --sr-eval "$(SR_EVAL_DIR)" --container "$(CONTAINER)" --task "$(TASK)"
 
 smoke-all:
-	uv run --project "$(SR_EVAL_DIR)" python scripts/pilot.py smoke-test --sr-eval "$(SR_EVAL_DIR)" --container "$(CONTAINER)" --all
+	uv run --python "$(SR_EVAL_PYTHON)" --no-project --with "docker==7.1.0" python scripts/pilot.py smoke-test --sr-eval "$(SR_EVAL_DIR)" --container "$(CONTAINER)" --all

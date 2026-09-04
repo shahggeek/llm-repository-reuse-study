@@ -49,10 +49,12 @@ paper may be committed after review.
 
 ## Quick start
 
-Prerequisites: Python 3.12+, Docker, Git LFS, `uv`, Maven (inside the SR-Eval
-image), and enough disk space for the benchmark's Java environment.
+Prerequisites: Python 3.12+, Docker, Maven (inside the SR-Eval image), and enough
+disk space for the benchmark's Java environment. The bootstrap target installs
+pinned Git LFS and `uv` binaries locally under the ignored `.tools/` directory.
 
 ```bash
+make bootstrap
 make check
 make prepare
 make doctor
@@ -69,7 +71,7 @@ and start a disposable container named `mrgbench_container_1`.
 When the container is ready:
 
 ```bash
-make smoke TASK=between
+make smoke TASK=copyToTarget
 ```
 
 Run all 18 reference trajectories only after the one-task smoke test succeeds:
@@ -77,6 +79,11 @@ Run all 18 reference trajectories only after the one-task smoke test succeeds:
 ```bash
 make smoke-all
 ```
+
+Smoke reports use `pass` when every cumulative check succeeds, `partial` when
+all same-turn checks execute but one or more earlier-turn checks conflict, and
+`fail` when any same-turn reference check is not executable. `partial` exits
+successfully while preserving the incompatible checkpoints in the report.
 
 ## Research boundaries
 

@@ -6,6 +6,7 @@ from __future__ import annotations
 import argparse
 import datetime as dt
 import hashlib
+import importlib.util
 import json
 import shutil
 import subprocess
@@ -324,6 +325,14 @@ def run_smoke_item(client: Any, row: dict[str, Any], item: dict[str, Any]) -> tu
     )
 
 
+def smoke_status(failed_checks: int, same_turn_failures: int) -> str:
+    if same_turn_failures:
+        return "fail"
+    if failed_checks:
+        return "partial"
+    return "pass"
+
+
 def command_smoke_test(args: argparse.Namespace) -> int:
     _, matches = selected_matches(args)
     chosen = choose_matches(matches, args.task, args.all)
@@ -340,13 +349,23 @@ def command_smoke_test(args: argparse.Namespace) -> int:
         return 0
 
     sr_eval = Path(args.sr_eval).resolve()
-    sys.path.insert(0, str(sr_eval))
+    client_module_path = (
+        sr_eval / "data_construction/data/seed/mrgbench/java_repo_client.py"
+    )
     try:
-        from data_construction.data.seed.mrgbench.java_repo_client import JavaRepoClient
+        spec = importlib.util.spec_from_file_location(
+            "sr_eval_java_repo_client", client_module_path
+        )
+        if spec is None or spec.loader is None:
+            raise ImportError(f"Cannot load module specification from {client_module_path}")
+        client_module = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(client_module)
+        JavaRepoClient = client_module.JavaRepoClient
     except Exception as exc:
         raise PilotError(
-            "Cannot import SR-Eval JavaRepoClient. Run through the pinned SR-Eval uv environment: "
-            "uv run --project .cache/SR-Eval python scripts/pilot.py smoke-test ..."
+            "Cannot import SR-Eval JavaRepoClient. Run through the pinned minimal environment: "
+            "uv run --no-project --with docker==7.1.0 python scripts/pilot.py smoke-test ... "
+            f"({exc})"
         ) from exc
 
     client = JavaRepoClient(args.container)
@@ -358,7 +377,9 @@ def command_smoke_test(args: argparse.Namespace) -> int:
         "started_at": started.isoformat(),
         "tasks": [],
     }
-    all_pass = True
+    passed_checks = 0
+    failed_checks = 0
+    same_turn_failures = 0
     for task, row, plan in plans:
         task_report: dict[str, Any] = {
             "slug": task["slug"],
@@ -368,13 +389,17 @@ def command_smoke_test(args: argparse.Namespace) -> int:
         print(f"[{task['slug']}] {len(plan)} cumulative test executions")
         for item in plan:
             success, detail = run_smoke_item(client, row, item)
-            all_pass = all_pass and success
+            is_same_turn = item["checkpoint_turn"] == item["test_turn"]
+            passed_checks += int(success)
+            failed_checks += int(not success)
+            same_turn_failures += int(not success and is_same_turn)
             status = "PASS" if success else "FAIL"
             print(f"  {status} checkpoint {item['checkpoint_turn']} vs test {item['test_turn']}")
             task_report["checks"].append(
                 {
                     "checkpoint_turn": item["checkpoint_turn"],
                     "test_turn": item["test_turn"],
+                    "same_turn": is_same_turn,
                     "status": "pass" if success else "fail",
                     "detail": detail,
                 }
@@ -382,18 +407,27 @@ def command_smoke_test(args: argparse.Namespace) -> int:
             if not success and args.fail_fast:
                 break
         report["tasks"].append(task_report)
-        if not all_pass and args.fail_fast:
+        if failed_checks and args.fail_fast:
             break
 
     report["completed_at"] = dt.datetime.now(dt.timezone.utc).isoformat()
-    report["status"] = "pass" if all_pass else "fail"
+    report["summary"] = {
+        "passed_checks": passed_checks,
+        "failed_checks": failed_checks,
+        "same_turn_failures": same_turn_failures,
+    }
+    report["status"] = smoke_status(failed_checks, same_turn_failures)
     output_dir = Path(args.output).resolve()
     output_dir.mkdir(parents=True, exist_ok=True)
     stamp = started.strftime("%Y%m%dT%H%M%SZ")
     output_path = output_dir / f"reference-smoke-{stamp}.json"
     output_path.write_text(json.dumps(report, indent=2) + "\n", encoding="utf-8")
+    print(
+        f"Summary: {passed_checks} passed, {failed_checks} failed, "
+        f"{same_turn_failures} same-turn failures ({report['status']})"
+    )
     print(f"Report: {output_path}")
-    return 0 if all_pass else 1
+    return 1 if same_turn_failures else 0
 
 
 def build_parser() -> argparse.ArgumentParser:

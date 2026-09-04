@@ -6,9 +6,11 @@ script creates an ignored checkout at the exact revision recorded in
 
 ## Prepare the benchmark
 
-Install Docker Desktop, Git LFS, `uv`, and Python 3.12+, then run:
+Install Docker Desktop, then install the remaining tools locally and prepare the
+benchmark:
 
 ```bash
+make bootstrap
 make prepare
 ```
 
@@ -42,18 +44,22 @@ and test ranges temporarily; concurrent replacements can interfere.
 ```bash
 make doctor
 make tasks
-make smoke-dry-run TASK=between
-make smoke TASK=between
+make smoke-dry-run TASK=copyToTarget
+make smoke TASK=copyToTarget
 ```
 
-The harness imports SR-Eval's `JavaRepoClient` and therefore runs through the
-benchmark's `uv` environment. It restores the source and test files after each
-test. Use disposable containers regardless, because Spring AI formatting may
-touch additional files inside the container.
+The harness imports the pinned SR-Eval `JavaRepoClient` directly and uses a
+minimal Python 3.13 environment with the same Docker SDK version locked by
+SR-Eval. This avoids unrelated model-serving dependencies that do not build on
+macOS. It restores the source and test files after each test. Use disposable
+containers regardless, because Spring AI formatting may touch additional files
+inside the container.
 
 ## Known upstream limitations
 
 - The Java image is distributed as split Git LFS objects and is large.
+- The published Java image targets `linux/amd64`; Docker Desktop emulates it on
+  Apple Silicon, so Maven checks run more slowly.
 - The upstream Java setup document does not publish a stable image tag; use the
   tag reported by `docker load`.
 - The benchmark's default evaluator checks each checkpoint only against that
