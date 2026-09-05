@@ -124,3 +124,16 @@ trajectories and all 70 planned turns. Each run has a unique Codex session ID;
 every turn has a raw response, one extracted Java code block, and a usage
 record. No model response was retried. These batch invariants were checked
 before generated code was functionally tested or its contents were inspected.
+
+## 2026-09-04 — Pilot A cumulative functional evaluation complete
+
+Execute all 176 planned tests across the 70 generated checkpoints in batch
+`pilot-a-20260904T213806Z`. Sixty checks pass and 116 fail. Twenty-two
+checkpoints are cumulatively correct, spanning nine of the 18 trajectories.
+Twenty-seven of 70 same-turn checks pass. All run records now contain complete
+per-test outcomes and no checkpoint has an unknown cumulative status.
+
+These counts are the unfiltered generated-code results. Apply the separately
+frozen reference-eligibility screen before selecting checkpoints for structural
+or reuse analysis. No structural analysis or Pilot B generation had begun when
+this functional result was recorded.
