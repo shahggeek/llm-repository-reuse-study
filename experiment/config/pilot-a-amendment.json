@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "status": "selected-not-generated",
+  "parent_batch_id": "pilot-a-20260904T213806Z",
+  "benchmark_commit": "6cf948d69427687bf61042640223d5b318f7bc4c",
+  "reason": "Replace two trajectories whose supplied method signatures are incompatible with their repository callers and tests.",
+  "replacements": [
+    {
+      "replaces": {
+        "slug": "copyToTarget",
+        "hash_id": "6f8e8f1f18bd0ff1f3419f91"
+      },
+      "task": {
+        "slug": "rerank",
+        "hash_id": "697f7351aaff39abd8dd4696",
+        "repo": "jvector",
+        "function": "rerank",
+        "turns": 4,
+        "stratum": "primary",
+        "pilot_b": false,
+        "rationale": "A structurally rich ranking trajectory that adds threshold filtering, a mandatory fallback, and preservation of approximate scores across exact reranking."
+      },
+      "reference_screen": {
+        "cumulative_checks": 10,
+        "passed": 10,
+        "failed": 0,
+        "same_turn_failures": 0
+      }
+    },
+    {
+      "replaces": {
+        "slug": "mergeBeans",
+        "hash_id": "c9d7e4ce8c67c1b9e7740119"
+      },
+      "task": {
+        "slug": "addInOrder",
+        "hash_id": "892c3ff660b30a2824182053",
+        "repo": "jvector",
+        "function": "addInOrder",
+        "turns": 3,
+        "stratum": "control",
+        "pilot_b": true,
+        "rationale": "A focused collection-evolution task with an explicit opportunity to reuse the existing growArrays() helper before adding an ordering invariant."
+      },
+      "reference_screen": {
+        "cumulative_checks": 6,
+        "passed": 6,
+        "failed": 0,
+        "same_turn_failures": 0
+      }
+    }
+  ]
+}

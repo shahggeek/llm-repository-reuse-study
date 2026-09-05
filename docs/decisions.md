@@ -137,3 +137,25 @@ These counts are the unfiltered generated-code results. Apply the separately
 frozen reference-eligibility screen before selecting checkpoints for structural
 or reuse analysis. No structural analysis or Pilot B generation had begun when
 this functional result was recorded.
+
+## 2026-09-04 — Pilot A amendment replacements selected
+
+Preserve the original Pilot A manifest and batch unchanged. Select two unused
+SR-Eval tasks for a separate amendment after identifying supplied-signature
+defects that confound every checkpoint of `copyToTarget` and `mergeBeans`.
+
+Replace four-turn primary task `copyToTarget` with JVector task `rerank`
+(`697f7351aaff39abd8dd4696`). Its evolving threshold, fallback, ranking, and
+approximate-score requirements preserve the primary structural stratum. All 10
+cumulative reference checks pass.
+
+Replace three-turn reuse-sensitive control `mergeBeans` with JVector task
+`addInOrder` (`892c3ff660b30a2824182053`). It has a stable signature and an
+explicit opportunity to reuse `growArrays()` before adding an ordering
+invariant, so it remains suitable for the Pilot B pair. All six cumulative
+reference checks pass.
+
+Reject Spring AI task `mergeOptions` (`9c74edf900020dff2741ee21`) after all six
+reference checks fail compilation because the pinned module's tests import a
+missing `EmbeddingOptionsBuilder`. No model output was generated for any
+replacement during selection. The amendment remains selected but not generated.
