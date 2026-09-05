@@ -27,6 +27,9 @@ The full rationale and predeclared decision rules are in
 [`docs/pilot-protocol.md`](docs/pilot-protocol.md). The decision history is in
 [`docs/decisions.md`](docs/decisions.md).
 
+To resume the current research state after a break, start with
+[`docs/resume-handoff.md`](docs/resume-handoff.md).
+
 ## Repository layout
 
 ```text
