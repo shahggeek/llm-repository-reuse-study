@@ -175,3 +175,33 @@ existing run. Use Codex CLI 0.153.0, matching the original Pilot A execution
 interface; stage that exact version locally because the desktop-bundled CLI has
 advanced to 0.153.1. No amendment model output had been generated when this
 execution configuration was frozen.
+
+## 2026-09-23 — Pilot A amendment closed and functional gate passed
+
+Close amendment batch `pilot-a-amendment-20260923T012647Z` after generating all
+seven planned turns in two unique, fresh Codex sessions. No model response was
+retried and no test feedback was provided. Preserve one failed startup trace
+under `work/infrastructure-failures`; it occurred before model contact because
+the Codex state database was initially read-only and therefore qualifies as an
+infrastructure retry under the frozen protocol.
+
+The amendment passes 5 of 16 cumulative checks and produces 2 of 7
+cumulatively correct checkpoints. `rerank` fails all ten checks because its
+generated implementations do not compile against the pinned repository APIs.
+`addInOrder` passes checkpoints 1 and 2; checkpoint 3 preserves the earlier
+tests but fails its new ordering-validation test at runtime.
+
+Substituting these two runs for `copyToTarget` and `mergeBeans` yields 65 of 176
+passed checks, 24 of 70 cumulatively correct checkpoints, 29 of 70 passed
+same-turn checks, and 10 of 18 trajectories with at least one correct
+checkpoint. After the eight frozen reference-ineligible checkpoints and
+prompt-confounded `set` checkpoint 1 are removed, the primary pool contains 61
+eligible checkpoints and 151 checks. Twenty-four checkpoints across ten
+trajectories are cumulatively correct and eligible for structural/reuse
+analysis.
+
+The functional gate outcome is **PROCEED**: begin structural measurement and
+reuse-feasibility analysis on those 24 checkpoints. Do not yet assign the final
+GO/NARROW/PIVOT outcome; the frozen decision rule also requires evidence that
+structural metrics vary meaningfully and missed-reuse judgments are
+operationalizable.

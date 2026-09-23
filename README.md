@@ -27,6 +27,9 @@ The full rationale and predeclared decision rules are in
 [`docs/pilot-protocol.md`](docs/pilot-protocol.md). The decision history is in
 [`docs/decisions.md`](docs/decisions.md).
 
+The completed clean functional view is in
+[`results/pilot/pilot-a-adjusted-functional-summary.json`](results/pilot/pilot-a-adjusted-functional-summary.json).
+
 To resume the current research state after a break, start with
 [`docs/resume-handoff.md`](docs/resume-handoff.md).
 

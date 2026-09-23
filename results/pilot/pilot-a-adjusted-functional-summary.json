@@ -1,0 +1,731 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-09-23T01:57:23.672013+00:00",
+  "original_batch_id": "pilot-a-20260904T213806Z",
+  "amendment_batch_id": "pilot-a-amendment-20260923T012647Z",
+  "substitutions": [
+    {
+      "removed": "copyToTarget",
+      "added": "rerank"
+    },
+    {
+      "removed": "mergeBeans",
+      "added": "addInOrder"
+    }
+  ],
+  "raw_adjusted": {
+    "checkpoints": 70,
+    "cumulatively_correct_checkpoints": 24,
+    "checks": 176,
+    "passed_checks": 65,
+    "failed_checks": 111,
+    "same_turn_passed": 29,
+    "same_turn_failed": 41,
+    "tasks": 18,
+    "trajectories_with_correct_checkpoint": 10
+  },
+  "primary_eligible": {
+    "checkpoints": 61,
+    "cumulatively_correct_checkpoints": 24,
+    "checks": 151,
+    "passed_checks": 55,
+    "failed_checks": 96,
+    "same_turn_passed": 25,
+    "same_turn_failed": 36,
+    "tasks": 18,
+    "trajectories_with_correct_checkpoint": 10
+  },
+  "exclusions": [
+    {
+      "slug": "nodeArrayMerge",
+      "turn": 5,
+      "reason": "reference-ineligible",
+      "checks_removed": 5
+    },
+    {
+      "slug": "randomAccessScoreProvider",
+      "turn": 4,
+      "reason": "reference-ineligible",
+      "checks_removed": 4
+    },
+    {
+      "slug": "methodToProperty",
+      "turn": 2,
+      "reason": "reference-ineligible",
+      "checks_removed": 2
+    },
+    {
+      "slug": "methodToProperty",
+      "turn": 3,
+      "reason": "reference-ineligible",
+      "checks_removed": 3
+    },
+    {
+      "slug": "set",
+      "turn": 1,
+      "reason": "prompt-confounded",
+      "checks_removed": 1
+    },
+    {
+      "slug": "underlineToCamel",
+      "turn": 2,
+      "reason": "reference-ineligible",
+      "checks_removed": 2
+    },
+    {
+      "slug": "underlineToCamel",
+      "turn": 3,
+      "reason": "reference-ineligible",
+      "checks_removed": 3
+    },
+    {
+      "slug": "loadDocuments",
+      "turn": 2,
+      "reason": "reference-ineligible",
+      "checks_removed": 2
+    },
+    {
+      "slug": "loadDocuments",
+      "turn": 3,
+      "reason": "reference-ineligible",
+      "checks_removed": 3
+    }
+  ],
+  "eligible_by_repository": {
+    "jvector": {
+      "checkpoints": 40,
+      "cumulatively_correct_checkpoints": 15,
+      "checks": 103,
+      "passed_checks": 34,
+      "failed_checks": 69,
+      "same_turn_passed": 15,
+      "same_turn_failed": 25
+    },
+    "timefold-solver": {
+      "checkpoints": 18,
+      "cumulatively_correct_checkpoints": 7,
+      "checks": 45,
+      "passed_checks": 19,
+      "failed_checks": 26,
+      "same_turn_passed": 8,
+      "same_turn_failed": 10
+    },
+    "mybatis-flex": {
+      "checkpoints": 2,
+      "cumulatively_correct_checkpoints": 1,
+      "checks": 2,
+      "passed_checks": 1,
+      "failed_checks": 1,
+      "same_turn_passed": 1,
+      "same_turn_failed": 1
+    },
+    "langchain4j": {
+      "checkpoints": 1,
+      "cumulatively_correct_checkpoints": 1,
+      "checks": 1,
+      "passed_checks": 1,
+      "failed_checks": 0,
+      "same_turn_passed": 1,
+      "same_turn_failed": 0
+    }
+  },
+  "eligible_by_turn": {
+    "1": {
+      "checkpoints": 17,
+      "cumulatively_correct_checkpoints": 9,
+      "checks": 17,
+      "passed_checks": 9,
+      "failed_checks": 8,
+      "same_turn_passed": 9,
+      "same_turn_failed": 8
+    },
+    "2": {
+      "checkpoints": 15,
+      "cumulatively_correct_checkpoints": 7,
+      "checks": 30,
+      "passed_checks": 15,
+      "failed_checks": 15,
+      "same_turn_passed": 7,
+      "same_turn_failed": 8
+    },
+    "3": {
+      "checkpoints": 15,
+      "cumulatively_correct_checkpoints": 5,
+      "checks": 45,
+      "passed_checks": 17,
+      "failed_checks": 28,
+      "same_turn_passed": 5,
+      "same_turn_failed": 10
+    },
+    "4": {
+      "checkpoints": 11,
+      "cumulatively_correct_checkpoints": 3,
+      "checks": 44,
+      "passed_checks": 14,
+      "failed_checks": 30,
+      "same_turn_passed": 4,
+      "same_turn_failed": 7
+    },
+    "5": {
+      "checkpoints": 3,
+      "cumulatively_correct_checkpoints": 0,
+      "checks": 15,
+      "passed_checks": 0,
+      "failed_checks": 15,
+      "same_turn_passed": 0,
+      "same_turn_failed": 3
+    }
+  },
+  "tasks": [
+    {
+      "slug": "invert",
+      "repo": "jvector",
+      "source_batch_id": "pilot-a-20260904T213806Z",
+      "replaces": null,
+      "raw": {
+        "checkpoints": 4,
+        "cumulatively_correct_checkpoints": 4,
+        "checks": 10,
+        "passed_checks": 10,
+        "failed_checks": 0,
+        "same_turn_passed": 4,
+        "same_turn_failed": 0
+      },
+      "eligible": {
+        "checkpoints": 4,
+        "cumulatively_correct_checkpoints": 4,
+        "checks": 10,
+        "passed_checks": 10,
+        "failed_checks": 0,
+        "same_turn_passed": 4,
+        "same_turn_failed": 0
+      }
+    },
+    {
+      "slug": "nodeArrayMerge",
+      "repo": "jvector",
+      "source_batch_id": "pilot-a-20260904T213806Z",
+      "replaces": null,
+      "raw": {
+        "checkpoints": 5,
+        "cumulatively_correct_checkpoints": 4,
+        "checks": 15,
+        "passed_checks": 14,
+        "failed_checks": 1,
+        "same_turn_passed": 4,
+        "same_turn_failed": 1
+      },
+      "eligible": {
+        "checkpoints": 4,
+        "cumulatively_correct_checkpoints": 4,
+        "checks": 10,
+        "passed_checks": 10,
+        "failed_checks": 0,
+        "same_turn_passed": 4,
+        "same_turn_failed": 0
+      }
+    },
+    {
+      "slug": "refine",
+      "repo": "jvector",
+      "source_batch_id": "pilot-a-20260904T213806Z",
+      "replaces": null,
+      "raw": {
+        "checkpoints": 4,
+        "cumulatively_correct_checkpoints": 0,
+        "checks": 10,
+        "passed_checks": 0,
+        "failed_checks": 10,
+        "same_turn_passed": 0,
+        "same_turn_failed": 4
+      },
+      "eligible": {
+        "checkpoints": 4,
+        "cumulatively_correct_checkpoints": 0,
+        "checks": 10,
+        "passed_checks": 0,
+        "failed_checks": 10,
+        "same_turn_passed": 0,
+        "same_turn_failed": 4
+      }
+    },
+    {
+      "slug": "encodeAnisotropic",
+      "repo": "jvector",
+      "source_batch_id": "pilot-a-20260904T213806Z",
+      "replaces": null,
+      "raw": {
+        "checkpoints": 4,
+        "cumulatively_correct_checkpoints": 2,
+        "checks": 10,
+        "passed_checks": 3,
+        "failed_checks": 7,
+        "same_turn_passed": 2,
+        "same_turn_failed": 2
+      },
+      "eligible": {
+        "checkpoints": 4,
+        "cumulatively_correct_checkpoints": 2,
+        "checks": 10,
+        "passed_checks": 3,
+        "failed_checks": 7,
+        "same_turn_passed": 2,
+        "same_turn_failed": 2
+      }
+    },
+    {
+      "slug": "removeDeletedNodes",
+      "repo": "jvector",
+      "source_batch_id": "pilot-a-20260904T213806Z",
+      "replaces": null,
+      "raw": {
+        "checkpoints": 5,
+        "cumulatively_correct_checkpoints": 0,
+        "checks": 15,
+        "passed_checks": 0,
+        "failed_checks": 15,
+        "same_turn_passed": 0,
+        "same_turn_failed": 5
+      },
+      "eligible": {
+        "checkpoints": 5,
+        "cumulatively_correct_checkpoints": 0,
+        "checks": 15,
+        "passed_checks": 0,
+        "failed_checks": 15,
+        "same_turn_passed": 0,
+        "same_turn_failed": 5
+      }
+    },
+    {
+      "slug": "writeInline",
+      "repo": "jvector",
+      "source_batch_id": "pilot-a-20260904T213806Z",
+      "replaces": null,
+      "raw": {
+        "checkpoints": 5,
+        "cumulatively_correct_checkpoints": 0,
+        "checks": 15,
+        "passed_checks": 0,
+        "failed_checks": 15,
+        "same_turn_passed": 0,
+        "same_turn_failed": 5
+      },
+      "eligible": {
+        "checkpoints": 5,
+        "cumulatively_correct_checkpoints": 0,
+        "checks": 15,
+        "passed_checks": 0,
+        "failed_checks": 15,
+        "same_turn_passed": 0,
+        "same_turn_failed": 5
+      }
+    },
+    {
+      "slug": "randomAccessScoreProvider",
+      "repo": "jvector",
+      "source_batch_id": "pilot-a-20260904T213806Z",
+      "replaces": null,
+      "raw": {
+        "checkpoints": 5,
+        "cumulatively_correct_checkpoints": 0,
+        "checks": 15,
+        "passed_checks": 0,
+        "failed_checks": 15,
+        "same_turn_passed": 0,
+        "same_turn_failed": 5
+      },
+      "eligible": {
+        "checkpoints": 4,
+        "cumulatively_correct_checkpoints": 0,
+        "checks": 11,
+        "passed_checks": 0,
+        "failed_checks": 11,
+        "same_turn_passed": 0,
+        "same_turn_failed": 4
+      }
+    },
+    {
+      "slug": "calculatePhaseTimeGradient",
+      "repo": "timefold-solver",
+      "source_batch_id": "pilot-a-20260904T213806Z",
+      "replaces": null,
+      "raw": {
+        "checkpoints": 4,
+        "cumulatively_correct_checkpoints": 4,
+        "checks": 10,
+        "passed_checks": 10,
+        "failed_checks": 0,
+        "same_turn_passed": 4,
+        "same_turn_failed": 0
+      },
+      "eligible": {
+        "checkpoints": 4,
+        "cumulatively_correct_checkpoints": 4,
+        "checks": 10,
+        "passed_checks": 10,
+        "failed_checks": 0,
+        "same_turn_passed": 4,
+        "same_turn_failed": 0
+      }
+    },
+    {
+      "slug": "getCyclesForPermutation",
+      "repo": "timefold-solver",
+      "source_batch_id": "pilot-a-20260904T213806Z",
+      "replaces": null,
+      "raw": {
+        "checkpoints": 4,
+        "cumulatively_correct_checkpoints": 1,
+        "checks": 10,
+        "passed_checks": 3,
+        "failed_checks": 7,
+        "same_turn_passed": 1,
+        "same_turn_failed": 3
+      },
+      "eligible": {
+        "checkpoints": 4,
+        "cumulatively_correct_checkpoints": 1,
+        "checks": 10,
+        "passed_checks": 3,
+        "failed_checks": 7,
+        "same_turn_passed": 1,
+        "same_turn_failed": 3
+      }
+    },
+    {
+      "slug": "diff",
+      "repo": "timefold-solver",
+      "source_batch_id": "pilot-a-20260904T213806Z",
+      "replaces": null,
+      "raw": {
+        "checkpoints": 4,
+        "cumulatively_correct_checkpoints": 0,
+        "checks": 10,
+        "passed_checks": 0,
+        "failed_checks": 10,
+        "same_turn_passed": 0,
+        "same_turn_failed": 4
+      },
+      "eligible": {
+        "checkpoints": 4,
+        "cumulatively_correct_checkpoints": 0,
+        "checks": 10,
+        "passed_checks": 0,
+        "failed_checks": 10,
+        "same_turn_passed": 0,
+        "same_turn_failed": 4
+      }
+    },
+    {
+      "slug": "summarize",
+      "repo": "timefold-solver",
+      "source_batch_id": "pilot-a-20260904T213806Z",
+      "replaces": null,
+      "raw": {
+        "checkpoints": 4,
+        "cumulatively_correct_checkpoints": 0,
+        "checks": 10,
+        "passed_checks": 1,
+        "failed_checks": 9,
+        "same_turn_passed": 1,
+        "same_turn_failed": 3
+      },
+      "eligible": {
+        "checkpoints": 4,
+        "cumulatively_correct_checkpoints": 0,
+        "checks": 10,
+        "passed_checks": 1,
+        "failed_checks": 9,
+        "same_turn_passed": 1,
+        "same_turn_failed": 3
+      }
+    },
+    {
+      "slug": "ensureCapacity",
+      "repo": "jvector",
+      "source_batch_id": "pilot-a-20260904T213806Z",
+      "replaces": null,
+      "raw": {
+        "checkpoints": 3,
+        "cumulatively_correct_checkpoints": 3,
+        "checks": 6,
+        "passed_checks": 6,
+        "failed_checks": 0,
+        "same_turn_passed": 3,
+        "same_turn_failed": 0
+      },
+      "eligible": {
+        "checkpoints": 3,
+        "cumulatively_correct_checkpoints": 3,
+        "checks": 6,
+        "passed_checks": 6,
+        "failed_checks": 0,
+        "same_turn_passed": 3,
+        "same_turn_failed": 0
+      }
+    },
+    {
+      "slug": "methodToProperty",
+      "repo": "mybatis-flex",
+      "source_batch_id": "pilot-a-20260904T213806Z",
+      "replaces": null,
+      "raw": {
+        "checkpoints": 3,
+        "cumulatively_correct_checkpoints": 1,
+        "checks": 6,
+        "passed_checks": 3,
+        "failed_checks": 3,
+        "same_turn_passed": 2,
+        "same_turn_failed": 1
+      },
+      "eligible": {
+        "checkpoints": 1,
+        "cumulatively_correct_checkpoints": 1,
+        "checks": 1,
+        "passed_checks": 1,
+        "failed_checks": 0,
+        "same_turn_passed": 1,
+        "same_turn_failed": 0
+      }
+    },
+    {
+      "slug": "set",
+      "repo": "timefold-solver",
+      "source_batch_id": "pilot-a-20260904T213806Z",
+      "replaces": null,
+      "raw": {
+        "checkpoints": 3,
+        "cumulatively_correct_checkpoints": 2,
+        "checks": 6,
+        "passed_checks": 5,
+        "failed_checks": 1,
+        "same_turn_passed": 2,
+        "same_turn_failed": 1
+      },
+      "eligible": {
+        "checkpoints": 2,
+        "cumulatively_correct_checkpoints": 2,
+        "checks": 5,
+        "passed_checks": 5,
+        "failed_checks": 0,
+        "same_turn_passed": 2,
+        "same_turn_failed": 0
+      }
+    },
+    {
+      "slug": "underlineToCamel",
+      "repo": "mybatis-flex",
+      "source_batch_id": "pilot-a-20260904T213806Z",
+      "replaces": null,
+      "raw": {
+        "checkpoints": 3,
+        "cumulatively_correct_checkpoints": 0,
+        "checks": 6,
+        "passed_checks": 2,
+        "failed_checks": 4,
+        "same_turn_passed": 2,
+        "same_turn_failed": 1
+      },
+      "eligible": {
+        "checkpoints": 1,
+        "cumulatively_correct_checkpoints": 0,
+        "checks": 1,
+        "passed_checks": 0,
+        "failed_checks": 1,
+        "same_turn_passed": 0,
+        "same_turn_failed": 1
+      }
+    },
+    {
+      "slug": "loadDocuments",
+      "repo": "langchain4j",
+      "source_batch_id": "pilot-a-20260904T213806Z",
+      "replaces": null,
+      "raw": {
+        "checkpoints": 3,
+        "cumulatively_correct_checkpoints": 1,
+        "checks": 6,
+        "passed_checks": 3,
+        "failed_checks": 3,
+        "same_turn_passed": 2,
+        "same_turn_failed": 1
+      },
+      "eligible": {
+        "checkpoints": 1,
+        "cumulatively_correct_checkpoints": 1,
+        "checks": 1,
+        "passed_checks": 1,
+        "failed_checks": 0,
+        "same_turn_passed": 1,
+        "same_turn_failed": 0
+      }
+    },
+    {
+      "slug": "rerank",
+      "repo": "jvector",
+      "source_batch_id": "pilot-a-amendment-20260923T012647Z",
+      "replaces": "copyToTarget",
+      "raw": {
+        "checkpoints": 4,
+        "cumulatively_correct_checkpoints": 0,
+        "checks": 10,
+        "passed_checks": 0,
+        "failed_checks": 10,
+        "same_turn_passed": 0,
+        "same_turn_failed": 4
+      },
+      "eligible": {
+        "checkpoints": 4,
+        "cumulatively_correct_checkpoints": 0,
+        "checks": 10,
+        "passed_checks": 0,
+        "failed_checks": 10,
+        "same_turn_passed": 0,
+        "same_turn_failed": 4
+      }
+    },
+    {
+      "slug": "addInOrder",
+      "repo": "jvector",
+      "source_batch_id": "pilot-a-amendment-20260923T012647Z",
+      "replaces": "mergeBeans",
+      "raw": {
+        "checkpoints": 3,
+        "cumulatively_correct_checkpoints": 2,
+        "checks": 6,
+        "passed_checks": 5,
+        "failed_checks": 1,
+        "same_turn_passed": 2,
+        "same_turn_failed": 1
+      },
+      "eligible": {
+        "checkpoints": 3,
+        "cumulatively_correct_checkpoints": 2,
+        "checks": 6,
+        "passed_checks": 5,
+        "failed_checks": 1,
+        "same_turn_passed": 2,
+        "same_turn_failed": 1
+      }
+    }
+  ],
+  "functional_gate_decision": {
+    "outcome": "PROCEED",
+    "meaning": "Proceed to structural and reuse feasibility analysis on eligible correct checkpoints.",
+    "final_pilot_outcome": "pending",
+    "rationale": "The clean adjusted sample retains functionally correct checkpoints across multiple trajectories and turns. GO/NARROW/PIVOT remains pending because the frozen rule also requires structural variation and operationalizable missed-reuse judgments."
+  },
+  "source_artifacts": [
+    {
+      "path": "results/pilot/generated-tests/pilot-a-20260904T213806Z.json",
+      "sha256": "f178b2b4d7a1bc570bf166e7822dd71bc0c194e434f0fdacabfae43d67e3b77e",
+      "bytes": 395551
+    },
+    {
+      "path": "results/pilot/generated-tests/pilot-a-amendment-20260923T012647Z.json",
+      "sha256": "07a27ad866d70169b3350e699487e118b01128c4619281eed2e82a8dc7bdb476",
+      "bytes": 71403
+    },
+    {
+      "path": "data/generated-trajectories/pilot-a/pilot-a-20260904T213806Z-calculatePhaseTimeGradient-01/record.json",
+      "sha256": "407ad80f23f46efc61320dd4da8116c05c1fbd5698b1e33b2236e9a503fee28b",
+      "bytes": 13831
+    },
+    {
+      "path": "data/generated-trajectories/pilot-a/pilot-a-20260904T213806Z-copyToTarget-01/record.json",
+      "sha256": "f18258fe218310c953a57d8db8b1b7b3aa416f2a1aaf3a4af02aac9358893c1f",
+      "bytes": 66096
+    },
+    {
+      "path": "data/generated-trajectories/pilot-a/pilot-a-20260904T213806Z-diff-01/record.json",
+      "sha256": "1f7c7580b2efdcc17b865bdc75669d821861e612a1bcce75ae6accfd24972f6e",
+      "bytes": 57911
+    },
+    {
+      "path": "data/generated-trajectories/pilot-a/pilot-a-20260904T213806Z-encodeAnisotropic-01/record.json",
+      "sha256": "7ee6ce8c2543e55e75d1e85697ff997fc4564b93cd89b2ef59a2e4025c2b1365",
+      "bytes": 62518
+    },
+    {
+      "path": "data/generated-trajectories/pilot-a/pilot-a-20260904T213806Z-ensureCapacity-01/record.json",
+      "sha256": "52eb79e8678e6200fa536d5309ef3161b37aa75d51322a77c18d4228c19a4717",
+      "bytes": 10729
+    },
+    {
+      "path": "data/generated-trajectories/pilot-a/pilot-a-20260904T213806Z-getCyclesForPermutation-01/record.json",
+      "sha256": "83a8ff227ece15079e6969bd7dcc81fb0459cf64b0eb4e670feba01b4003a7d9",
+      "bytes": 34685
+    },
+    {
+      "path": "data/generated-trajectories/pilot-a/pilot-a-20260904T213806Z-invert-01/record.json",
+      "sha256": "d410414f259eba76c20568334186a8f7b764006c3a0fa23a48bdbc821a3b1968",
+      "bytes": 28793
+    },
+    {
+      "path": "data/generated-trajectories/pilot-a/pilot-a-20260904T213806Z-loadDocuments-01/record.json",
+      "sha256": "8a3c01dc60ec6290ec847ff53418a2f5c57c020c53c6ee508f5c344add6ebf8a",
+      "bytes": 37949
+    },
+    {
+      "path": "data/generated-trajectories/pilot-a/pilot-a-20260904T213806Z-mergeBeans-01/record.json",
+      "sha256": "50afd2229ae9981a325e346671861a3858faa8d95d300785ea24625248f63017",
+      "bytes": 44116
+    },
+    {
+      "path": "data/generated-trajectories/pilot-a/pilot-a-20260904T213806Z-methodToProperty-01/record.json",
+      "sha256": "5a1277c0463bf1235cae01e55ec32478bcea776bb40daeeb596832073e2040a5",
+      "bytes": 22976
+    },
+    {
+      "path": "data/generated-trajectories/pilot-a/pilot-a-20260904T213806Z-nodeArrayMerge-01/record.json",
+      "sha256": "e19a165c91b903dde1361c5c03924d35cf945d0fd39d90bf3085ee7282f4356c",
+      "bytes": 33887
+    },
+    {
+      "path": "data/generated-trajectories/pilot-a/pilot-a-20260904T213806Z-randomAccessScoreProvider-01/record.json",
+      "sha256": "2c2093c5e7ea2239317066745ff9c9773d41a53ee7c5f6a407eaa316780a139c",
+      "bytes": 93568
+    },
+    {
+      "path": "data/generated-trajectories/pilot-a/pilot-a-20260904T213806Z-refine-01/record.json",
+      "sha256": "56538290f496bbbb4762241f1c073128cdfc029a2492f8a7a446c3458a4ffbd6",
+      "bytes": 72310
+    },
+    {
+      "path": "data/generated-trajectories/pilot-a/pilot-a-20260904T213806Z-removeDeletedNodes-01/record.json",
+      "sha256": "f0a2cd10a0421e833922e4261c8ec6293d7e2dd4bb262ce32f3b5d565bb2c0d4",
+      "bytes": 144752
+    },
+    {
+      "path": "data/generated-trajectories/pilot-a/pilot-a-20260904T213806Z-set-01/record.json",
+      "sha256": "0a0811d0c2527d1efad663672792cf268ff762270a1210d2cec6f9fe7a370482",
+      "bytes": 15216
+    },
+    {
+      "path": "data/generated-trajectories/pilot-a/pilot-a-20260904T213806Z-summarize-01/record.json",
+      "sha256": "14967dc5470cb74d7db4c11d6f71b916fba2d5f1beb0f9866a2ef54bdfe07a5c",
+      "bytes": 59067
+    },
+    {
+      "path": "data/generated-trajectories/pilot-a/pilot-a-20260904T213806Z-underlineToCamel-01/record.json",
+      "sha256": "1bbf01abb24285c2d810fc1af8f0fa1b011767299782d66fbe4851010c28a2ab",
+      "bytes": 26955
+    },
+    {
+      "path": "data/generated-trajectories/pilot-a/pilot-a-20260904T213806Z-writeInline-01/record.json",
+      "sha256": "23b75b12119a4c70a9502ea14c656de75a42ad2f317d90d99bae2dd351ce8c23",
+      "bytes": 74346
+    },
+    {
+      "path": "data/generated-trajectories/pilot-a-amendment/pilot-a-amendment-20260923T012647Z-addInOrder-01/record.json",
+      "sha256": "a0287bf14850a916b6d60d7bb03a689fad8b45f4384783d49545240469a74c5e",
+      "bytes": 18683
+    },
+    {
+      "path": "data/generated-trajectories/pilot-a-amendment/pilot-a-amendment-20260923T012647Z-rerank-01/record.json",
+      "sha256": "93bbd9e0b98d41b2da993a464438d9b61bf76e3bed10f1370c0a6d1cb9d98755",
+      "bytes": 97617
+    }
+  ]
+}
