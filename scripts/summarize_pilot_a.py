@@ -15,6 +15,7 @@ ROOT = Path(__file__).resolve().parents[1]
 PROTOCOL_PATH = ROOT / "experiment/config/protocol.json"
 MANIFEST_PATH = ROOT / "experiment/config/pilot-tasks.json"
 AMENDMENT_PATH = ROOT / "experiment/config/pilot-a-amendment.json"
+AUDIT_PATH = ROOT / "results/pilot/prompt-context-sufficiency-audit.json"
 REPORT_DIR = ROOT / "results/pilot/generated-tests"
 OUTPUT_PATH = ROOT / "results/pilot/pilot-a-adjusted-functional-summary.json"
 
@@ -66,6 +67,25 @@ def amendment_tasks(amendment: dict[str, Any]) -> list[dict[str, Any]]:
     return tasks
 
 
+def context_sensitivity_exclusions(audit: dict[str, Any]) -> dict[str, set[int]]:
+    exclusions: dict[str, set[int]] = {}
+    for task in audit.get("tasks", []):
+        if task.get("analysis_action") == "retain-frozen-primary-exclude-context-sensitivity":
+            exclusions[task["slug"]] = set(task["affected_turns"])
+    return exclusions
+
+
+def strict_signature_exclusions(
+    audit: dict[str, Any], task_metadata: dict[str, dict[str, Any]]
+) -> dict[str, set[int]]:
+    excluded_classes = {"inferable-consistent", "underspecified-integration-types"}
+    return {
+        task["slug"]: set(range(1, task_metadata[task["slug"]]["turns"] + 1))
+        for task in audit.get("tasks", [])
+        if task.get("classification") in excluded_classes
+    }
+
+
 def is_eligible(slug: str, turn: int) -> tuple[bool, str | None]:
     if turn in REFERENCE_INELIGIBLE.get(slug, set()):
         return False, "reference-ineligible"
@@ -109,6 +129,7 @@ def build_summary(
     protocol: dict[str, Any],
     manifest: dict[str, Any],
     amendment: dict[str, Any],
+    audit: dict[str, Any],
     original_report: dict[str, Any],
     amendment_report: dict[str, Any],
 ) -> dict[str, Any]:
@@ -140,18 +161,34 @@ def build_summary(
 
     raw = empty_counts()
     eligible = empty_counts()
+    context_robust = empty_counts()
+    strict_explicit = empty_counts()
     by_repository: dict[str, dict[str, int]] = {}
     by_turn: dict[str, dict[str, int]] = {}
+    context_by_repository: dict[str, dict[str, int]] = {}
+    context_by_turn: dict[str, dict[str, int]] = {}
+    strict_by_repository: dict[str, dict[str, int]] = {}
+    strict_by_turn: dict[str, dict[str, int]] = {}
     exclusions: list[dict[str, Any]] = []
+    context_exclusions: list[dict[str, Any]] = []
+    strict_exclusions: list[dict[str, Any]] = []
     task_rows: list[dict[str, Any]] = []
     trajectories_with_correct = 0
     eligible_trajectories_with_correct = 0
+    context_trajectories_with_correct = 0
+    context_tasks_with_checkpoints = 0
+    strict_trajectories_with_correct = 0
+    strict_tasks_with_checkpoints = 0
+    context_exclusion_map = context_sensitivity_exclusions(audit)
+    strict_exclusion_map = strict_signature_exclusions(audit, task_metadata)
 
     for slug, task in task_metadata.items():
         result = adjusted_results[slug]
         repo = task["repo"]
         task_raw = empty_counts()
         task_eligible = empty_counts()
+        task_context_robust = empty_counts()
+        task_strict_explicit = empty_counts()
         for checkpoint in result["checkpoints"]:
             turn = int(checkpoint["turn"])
             add_checkpoint(raw, checkpoint)
@@ -162,6 +199,42 @@ def build_summary(
                 add_checkpoint(task_eligible, checkpoint)
                 add_checkpoint(by_repository.setdefault(repo, empty_counts()), checkpoint)
                 add_checkpoint(by_turn.setdefault(str(turn), empty_counts()), checkpoint)
+                if turn in context_exclusion_map.get(slug, set()):
+                    context_exclusions.append(
+                        {
+                            "slug": slug,
+                            "turn": turn,
+                            "reason": "post-generation-context-underspecified",
+                            "checks_removed": len(checkpoint["tests"]),
+                        }
+                    )
+                else:
+                    add_checkpoint(context_robust, checkpoint)
+                    add_checkpoint(task_context_robust, checkpoint)
+                    add_checkpoint(
+                        context_by_repository.setdefault(repo, empty_counts()), checkpoint
+                    )
+                    add_checkpoint(
+                        context_by_turn.setdefault(str(turn), empty_counts()), checkpoint
+                    )
+                if turn in strict_exclusion_map.get(slug, set()):
+                    strict_exclusions.append(
+                        {
+                            "slug": slug,
+                            "turn": turn,
+                            "reason": "post-generation-no-literal-signature",
+                            "checks_removed": len(checkpoint["tests"]),
+                        }
+                    )
+                else:
+                    add_checkpoint(strict_explicit, checkpoint)
+                    add_checkpoint(task_strict_explicit, checkpoint)
+                    add_checkpoint(
+                        strict_by_repository.setdefault(repo, empty_counts()), checkpoint
+                    )
+                    add_checkpoint(
+                        strict_by_turn.setdefault(str(turn), empty_counts()), checkpoint
+                    )
             else:
                 exclusions.append(
                     {
@@ -173,8 +246,14 @@ def build_summary(
                 )
         has_correct = task_raw["cumulatively_correct_checkpoints"] > 0
         has_eligible_correct = task_eligible["cumulatively_correct_checkpoints"] > 0
+        has_context_correct = task_context_robust["cumulatively_correct_checkpoints"] > 0
+        has_strict_correct = task_strict_explicit["cumulatively_correct_checkpoints"] > 0
         trajectories_with_correct += int(has_correct)
         eligible_trajectories_with_correct += int(has_eligible_correct)
+        context_trajectories_with_correct += int(has_context_correct)
+        context_tasks_with_checkpoints += int(task_context_robust["checkpoints"] > 0)
+        strict_trajectories_with_correct += int(has_strict_correct)
+        strict_tasks_with_checkpoints += int(task_strict_explicit["checkpoints"] > 0)
         task_rows.append(
             {
                 "slug": slug,
@@ -183,6 +262,8 @@ def build_summary(
                 "replaces": replacement_for.get(slug),
                 "raw": task_raw,
                 "eligible": task_eligible,
+                "context_robust": task_context_robust,
+                "strict_explicit_signature": task_strict_explicit,
             }
         )
 
@@ -190,14 +271,35 @@ def build_summary(
     raw["trajectories_with_correct_checkpoint"] = trajectories_with_correct
     eligible["tasks"] = len(adjusted_results)
     eligible["trajectories_with_correct_checkpoint"] = eligible_trajectories_with_correct
+    context_robust["tasks"] = len(adjusted_results)
+    context_robust["tasks_with_eligible_checkpoints"] = context_tasks_with_checkpoints
+    context_robust["trajectories_with_correct_checkpoint"] = (
+        context_trajectories_with_correct
+    )
+    strict_explicit["tasks"] = len(adjusted_results)
+    strict_explicit["tasks_with_eligible_checkpoints"] = strict_tasks_with_checkpoints
+    strict_explicit["trajectories_with_correct_checkpoint"] = (
+        strict_trajectories_with_correct
+    )
 
     if raw["checkpoints"] != 70 or raw["checks"] != 176:
         raise SummaryError("Adjusted Pilot A must retain 70 checkpoints and 176 checks")
     if len(exclusions) != 9:
         raise SummaryError(f"Expected 9 excluded checkpoints, found {len(exclusions)}")
+    if len(context_exclusions) != audit["summary"]["new_sensitivity_excluded_checkpoints"]:
+        raise SummaryError(
+            f"Expected {audit['summary']['new_sensitivity_excluded_checkpoints']} context "
+            f"sensitivity exclusions, found {len(context_exclusions)}"
+        )
+    if len(strict_exclusions) != audit["summary"][
+        "strict_explicit_signature_excluded_checkpoints"
+    ]:
+        raise SummaryError(
+            "Strict explicit-signature sensitivity exclusion count mismatch"
+        )
 
     return {
-        "schema_version": 1,
+        "schema_version": 2,
         "created_at": dt.datetime.now(dt.timezone.utc).isoformat(),
         "original_batch_id": original_batch,
         "amendment_batch_id": amendment_batch,
@@ -213,6 +315,28 @@ def build_summary(
         "exclusions": exclusions,
         "eligible_by_repository": by_repository,
         "eligible_by_turn": by_turn,
+        "context_sufficiency_sensitivity": {
+            "audit_timing": audit["audit_timing"],
+            "interpretation": (
+                "Post-generation sensitivity view only; it does not replace the frozen "
+                "primary result."
+            ),
+            "counts": context_robust,
+            "new_exclusions": context_exclusions,
+            "eligible_by_repository": context_by_repository,
+            "eligible_by_turn": context_by_turn,
+        },
+        "strict_explicit_signature_sensitivity": {
+            "audit_timing": audit["audit_timing"],
+            "interpretation": (
+                "Conservative post-generation sensitivity view retaining only tasks whose "
+                "integration-critical signature was supplied literally."
+            ),
+            "counts": strict_explicit,
+            "new_exclusions": strict_exclusions,
+            "eligible_by_repository": strict_by_repository,
+            "eligible_by_turn": strict_by_turn,
+        },
         "tasks": task_rows,
         "functional_gate_decision": {
             "outcome": "PROCEED",
@@ -220,8 +344,9 @@ def build_summary(
             "final_pilot_outcome": "pending",
             "rationale": (
                 "The clean adjusted sample retains functionally correct checkpoints across "
-                "multiple trajectories and turns. GO/NARROW/PIVOT remains pending because "
-                "the frozen rule also requires structural variation and operationalizable "
+                "multiple trajectories and turns, and the prompt-context sensitivities do "
+                "not reverse that conclusion. GO/NARROW/PIVOT remains pending because the "
+                "frozen rule also requires structural variation and operationalizable "
                 "missed-reuse judgments."
             ),
         },
@@ -233,14 +358,16 @@ def main() -> int:
         protocol = read_json(PROTOCOL_PATH)
         manifest = read_json(MANIFEST_PATH)
         amendment = read_json(AMENDMENT_PATH)
+        audit = read_json(AUDIT_PATH)
         original_report = read_json(REPORT_DIR / f"{protocol['pilot_a']['batch_id']}.json")
         amendment_report = read_json(REPORT_DIR / f"{amendment['batch_id']}.json")
         summary = build_summary(
-            protocol, manifest, amendment, original_report, amendment_report
+            protocol, manifest, amendment, audit, original_report, amendment_report
         )
         source_paths = [
             REPORT_DIR / f"{protocol['pilot_a']['batch_id']}.json",
             REPORT_DIR / f"{amendment['batch_id']}.json",
+            AUDIT_PATH,
             *sorted((ROOT / "data/generated-trajectories/pilot-a").glob("*/record.json")),
             *sorted(
                 (ROOT / "data/generated-trajectories/pilot-a-amendment").glob(
@@ -248,12 +375,23 @@ def main() -> int:
                 )
             ),
         ]
-        if len(source_paths) != 22:
-            raise SummaryError(f"Expected 22 source artifacts, found {len(source_paths)}")
+        if len(source_paths) != 23:
+            raise SummaryError(f"Expected 23 source artifacts, found {len(source_paths)}")
         summary["source_artifacts"] = [artifact_digest(path) for path in source_paths]
         write_json(OUTPUT_PATH, summary)
         print(json.dumps(summary["raw_adjusted"], sort_keys=True))
         print(json.dumps(summary["primary_eligible"], sort_keys=True))
+        print(
+            json.dumps(
+                summary["context_sufficiency_sensitivity"]["counts"], sort_keys=True
+            )
+        )
+        print(
+            json.dumps(
+                summary["strict_explicit_signature_sensitivity"]["counts"],
+                sort_keys=True,
+            )
+        )
         print(f"Report: {OUTPUT_PATH}")
         return 0
     except (SummaryError, KeyError, TypeError) as exc:

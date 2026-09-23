@@ -11,7 +11,7 @@ export PATH := $(TOOL_BIN):$(PATH)
 export UV_CACHE_DIR
 export UV_PYTHON_INSTALL_DIR
 
-.PHONY: bootstrap check prepare doctor tasks export smoke-dry-run smoke smoke-all pilot-a pilot-a-all test-pilot-a amendment-cli amendment-validate amendment-export amendment-preflight amendment-smoke-dry-run pilot-a-amendment pilot-a-amendment-all test-pilot-a-amendment summarize-pilot-a-adjusted
+.PHONY: bootstrap check prepare doctor tasks export smoke-dry-run smoke smoke-all pilot-a pilot-a-all test-pilot-a amendment-cli amendment-validate amendment-export amendment-preflight amendment-smoke-dry-run pilot-a-amendment pilot-a-amendment-all test-pilot-a-amendment audit-prompt-context summarize-pilot-a-adjusted
 
 bootstrap:
 	bash scripts/bootstrap_tools.sh
@@ -75,6 +75,9 @@ pilot-a-amendment-all:
 
 test-pilot-a-amendment:
 	uv run --python "$(SR_EVAL_PYTHON)" --no-project --with "docker==7.1.0" python scripts/evaluate_pilot_a.py --amendment --container "$(CONTAINER)" --all
+
+audit-prompt-context:
+	$(PYTHON) scripts/audit_prompt_context.py
 
 summarize-pilot-a-adjusted:
 	$(PYTHON) scripts/summarize_pilot_a.py

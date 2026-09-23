@@ -16,6 +16,26 @@ class PilotAAdjustedSummaryTests(unittest.TestCase):
         self.assertEqual((False, "prompt-confounded"), summary.is_eligible("set", 1))
         self.assertEqual((True, None), summary.is_eligible("set", 2))
 
+    def test_context_sensitivity_exclusions_come_from_audit(self):
+        audit = summary.read_json(summary.AUDIT_PATH)
+        self.assertEqual(
+            {"rerank": {1, 2, 3, 4}}, summary.context_sensitivity_exclusions(audit)
+        )
+        manifest = summary.read_json(summary.MANIFEST_PATH)
+        amendment = summary.read_json(summary.AMENDMENT_PATH)
+        metadata = {
+            task["slug"]: task
+            for task in manifest["tasks"]
+            if task["slug"] not in {"copyToTarget", "mergeBeans"}
+        }
+        metadata.update({task["slug"]: task for task in summary.amendment_tasks(amendment)})
+        strict = summary.strict_signature_exclusions(audit, metadata)
+        self.assertEqual(
+            {"invert", "writeInline", "calculatePhaseTimeGradient", "rerank"},
+            set(strict),
+        )
+        self.assertEqual(17, sum(len(turns) for turns in strict.values()))
+
     def test_add_checkpoint_counts_same_turn_outcome(self):
         counts = summary.empty_counts()
         summary.add_checkpoint(

@@ -1,6 +1,6 @@
 {
-  "schema_version": 1,
-  "created_at": "2026-09-23T01:57:23.672013+00:00",
+  "schema_version": 2,
+  "created_at": "2026-09-23T02:31:33.646237+00:00",
   "original_batch_id": "pilot-a-20260904T213806Z",
   "amendment_batch_id": "pilot-a-amendment-20260923T012647Z",
   "substitutions": [
@@ -176,6 +176,338 @@
       "same_turn_failed": 3
     }
   },
+  "context_sufficiency_sensitivity": {
+    "audit_timing": "post-generation",
+    "interpretation": "Post-generation sensitivity view only; it does not replace the frozen primary result.",
+    "counts": {
+      "checkpoints": 57,
+      "cumulatively_correct_checkpoints": 24,
+      "checks": 141,
+      "passed_checks": 55,
+      "failed_checks": 86,
+      "same_turn_passed": 25,
+      "same_turn_failed": 32,
+      "tasks": 18,
+      "tasks_with_eligible_checkpoints": 17,
+      "trajectories_with_correct_checkpoint": 10
+    },
+    "new_exclusions": [
+      {
+        "slug": "rerank",
+        "turn": 1,
+        "reason": "post-generation-context-underspecified",
+        "checks_removed": 1
+      },
+      {
+        "slug": "rerank",
+        "turn": 2,
+        "reason": "post-generation-context-underspecified",
+        "checks_removed": 2
+      },
+      {
+        "slug": "rerank",
+        "turn": 3,
+        "reason": "post-generation-context-underspecified",
+        "checks_removed": 3
+      },
+      {
+        "slug": "rerank",
+        "turn": 4,
+        "reason": "post-generation-context-underspecified",
+        "checks_removed": 4
+      }
+    ],
+    "eligible_by_repository": {
+      "jvector": {
+        "checkpoints": 36,
+        "cumulatively_correct_checkpoints": 15,
+        "checks": 93,
+        "passed_checks": 34,
+        "failed_checks": 59,
+        "same_turn_passed": 15,
+        "same_turn_failed": 21
+      },
+      "timefold-solver": {
+        "checkpoints": 18,
+        "cumulatively_correct_checkpoints": 7,
+        "checks": 45,
+        "passed_checks": 19,
+        "failed_checks": 26,
+        "same_turn_passed": 8,
+        "same_turn_failed": 10
+      },
+      "mybatis-flex": {
+        "checkpoints": 2,
+        "cumulatively_correct_checkpoints": 1,
+        "checks": 2,
+        "passed_checks": 1,
+        "failed_checks": 1,
+        "same_turn_passed": 1,
+        "same_turn_failed": 1
+      },
+      "langchain4j": {
+        "checkpoints": 1,
+        "cumulatively_correct_checkpoints": 1,
+        "checks": 1,
+        "passed_checks": 1,
+        "failed_checks": 0,
+        "same_turn_passed": 1,
+        "same_turn_failed": 0
+      }
+    },
+    "eligible_by_turn": {
+      "1": {
+        "checkpoints": 16,
+        "cumulatively_correct_checkpoints": 9,
+        "checks": 16,
+        "passed_checks": 9,
+        "failed_checks": 7,
+        "same_turn_passed": 9,
+        "same_turn_failed": 7
+      },
+      "2": {
+        "checkpoints": 14,
+        "cumulatively_correct_checkpoints": 7,
+        "checks": 28,
+        "passed_checks": 15,
+        "failed_checks": 13,
+        "same_turn_passed": 7,
+        "same_turn_failed": 7
+      },
+      "3": {
+        "checkpoints": 14,
+        "cumulatively_correct_checkpoints": 5,
+        "checks": 42,
+        "passed_checks": 17,
+        "failed_checks": 25,
+        "same_turn_passed": 5,
+        "same_turn_failed": 9
+      },
+      "4": {
+        "checkpoints": 10,
+        "cumulatively_correct_checkpoints": 3,
+        "checks": 40,
+        "passed_checks": 14,
+        "failed_checks": 26,
+        "same_turn_passed": 4,
+        "same_turn_failed": 6
+      },
+      "5": {
+        "checkpoints": 3,
+        "cumulatively_correct_checkpoints": 0,
+        "checks": 15,
+        "passed_checks": 0,
+        "failed_checks": 15,
+        "same_turn_passed": 0,
+        "same_turn_failed": 3
+      }
+    }
+  },
+  "strict_explicit_signature_sensitivity": {
+    "audit_timing": "post-generation",
+    "interpretation": "Conservative post-generation sensitivity view retaining only tasks whose integration-critical signature was supplied literally.",
+    "counts": {
+      "checkpoints": 44,
+      "cumulatively_correct_checkpoints": 16,
+      "checks": 106,
+      "passed_checks": 35,
+      "failed_checks": 71,
+      "same_turn_passed": 17,
+      "same_turn_failed": 27,
+      "tasks": 18,
+      "tasks_with_eligible_checkpoints": 14,
+      "trajectories_with_correct_checkpoint": 8
+    },
+    "new_exclusions": [
+      {
+        "slug": "invert",
+        "turn": 1,
+        "reason": "post-generation-no-literal-signature",
+        "checks_removed": 1
+      },
+      {
+        "slug": "invert",
+        "turn": 2,
+        "reason": "post-generation-no-literal-signature",
+        "checks_removed": 2
+      },
+      {
+        "slug": "invert",
+        "turn": 3,
+        "reason": "post-generation-no-literal-signature",
+        "checks_removed": 3
+      },
+      {
+        "slug": "invert",
+        "turn": 4,
+        "reason": "post-generation-no-literal-signature",
+        "checks_removed": 4
+      },
+      {
+        "slug": "writeInline",
+        "turn": 1,
+        "reason": "post-generation-no-literal-signature",
+        "checks_removed": 1
+      },
+      {
+        "slug": "writeInline",
+        "turn": 2,
+        "reason": "post-generation-no-literal-signature",
+        "checks_removed": 2
+      },
+      {
+        "slug": "writeInline",
+        "turn": 3,
+        "reason": "post-generation-no-literal-signature",
+        "checks_removed": 3
+      },
+      {
+        "slug": "writeInline",
+        "turn": 4,
+        "reason": "post-generation-no-literal-signature",
+        "checks_removed": 4
+      },
+      {
+        "slug": "writeInline",
+        "turn": 5,
+        "reason": "post-generation-no-literal-signature",
+        "checks_removed": 5
+      },
+      {
+        "slug": "calculatePhaseTimeGradient",
+        "turn": 1,
+        "reason": "post-generation-no-literal-signature",
+        "checks_removed": 1
+      },
+      {
+        "slug": "calculatePhaseTimeGradient",
+        "turn": 2,
+        "reason": "post-generation-no-literal-signature",
+        "checks_removed": 2
+      },
+      {
+        "slug": "calculatePhaseTimeGradient",
+        "turn": 3,
+        "reason": "post-generation-no-literal-signature",
+        "checks_removed": 3
+      },
+      {
+        "slug": "calculatePhaseTimeGradient",
+        "turn": 4,
+        "reason": "post-generation-no-literal-signature",
+        "checks_removed": 4
+      },
+      {
+        "slug": "rerank",
+        "turn": 1,
+        "reason": "post-generation-no-literal-signature",
+        "checks_removed": 1
+      },
+      {
+        "slug": "rerank",
+        "turn": 2,
+        "reason": "post-generation-no-literal-signature",
+        "checks_removed": 2
+      },
+      {
+        "slug": "rerank",
+        "turn": 3,
+        "reason": "post-generation-no-literal-signature",
+        "checks_removed": 3
+      },
+      {
+        "slug": "rerank",
+        "turn": 4,
+        "reason": "post-generation-no-literal-signature",
+        "checks_removed": 4
+      }
+    ],
+    "eligible_by_repository": {
+      "jvector": {
+        "checkpoints": 27,
+        "cumulatively_correct_checkpoints": 11,
+        "checks": 68,
+        "passed_checks": 24,
+        "failed_checks": 44,
+        "same_turn_passed": 11,
+        "same_turn_failed": 16
+      },
+      "timefold-solver": {
+        "checkpoints": 14,
+        "cumulatively_correct_checkpoints": 3,
+        "checks": 35,
+        "passed_checks": 9,
+        "failed_checks": 26,
+        "same_turn_passed": 4,
+        "same_turn_failed": 10
+      },
+      "mybatis-flex": {
+        "checkpoints": 2,
+        "cumulatively_correct_checkpoints": 1,
+        "checks": 2,
+        "passed_checks": 1,
+        "failed_checks": 1,
+        "same_turn_passed": 1,
+        "same_turn_failed": 1
+      },
+      "langchain4j": {
+        "checkpoints": 1,
+        "cumulatively_correct_checkpoints": 1,
+        "checks": 1,
+        "passed_checks": 1,
+        "failed_checks": 0,
+        "same_turn_passed": 1,
+        "same_turn_failed": 0
+      }
+    },
+    "eligible_by_turn": {
+      "1": {
+        "checkpoints": 13,
+        "cumulatively_correct_checkpoints": 7,
+        "checks": 13,
+        "passed_checks": 7,
+        "failed_checks": 6,
+        "same_turn_passed": 7,
+        "same_turn_failed": 6
+      },
+      "2": {
+        "checkpoints": 11,
+        "cumulatively_correct_checkpoints": 5,
+        "checks": 22,
+        "passed_checks": 11,
+        "failed_checks": 11,
+        "same_turn_passed": 5,
+        "same_turn_failed": 6
+      },
+      "3": {
+        "checkpoints": 11,
+        "cumulatively_correct_checkpoints": 3,
+        "checks": 33,
+        "passed_checks": 11,
+        "failed_checks": 22,
+        "same_turn_passed": 3,
+        "same_turn_failed": 8
+      },
+      "4": {
+        "checkpoints": 7,
+        "cumulatively_correct_checkpoints": 1,
+        "checks": 28,
+        "passed_checks": 6,
+        "failed_checks": 22,
+        "same_turn_passed": 2,
+        "same_turn_failed": 5
+      },
+      "5": {
+        "checkpoints": 2,
+        "cumulatively_correct_checkpoints": 0,
+        "checks": 10,
+        "passed_checks": 0,
+        "failed_checks": 10,
+        "same_turn_passed": 0,
+        "same_turn_failed": 2
+      }
+    }
+  },
   "tasks": [
     {
       "slug": "invert",
@@ -199,6 +531,24 @@
         "failed_checks": 0,
         "same_turn_passed": 4,
         "same_turn_failed": 0
+      },
+      "context_robust": {
+        "checkpoints": 4,
+        "cumulatively_correct_checkpoints": 4,
+        "checks": 10,
+        "passed_checks": 10,
+        "failed_checks": 0,
+        "same_turn_passed": 4,
+        "same_turn_failed": 0
+      },
+      "strict_explicit_signature": {
+        "checkpoints": 0,
+        "cumulatively_correct_checkpoints": 0,
+        "checks": 0,
+        "passed_checks": 0,
+        "failed_checks": 0,
+        "same_turn_passed": 0,
+        "same_turn_failed": 0
       }
     },
     {
@@ -216,6 +566,24 @@
         "same_turn_failed": 1
       },
       "eligible": {
+        "checkpoints": 4,
+        "cumulatively_correct_checkpoints": 4,
+        "checks": 10,
+        "passed_checks": 10,
+        "failed_checks": 0,
+        "same_turn_passed": 4,
+        "same_turn_failed": 0
+      },
+      "context_robust": {
+        "checkpoints": 4,
+        "cumulatively_correct_checkpoints": 4,
+        "checks": 10,
+        "passed_checks": 10,
+        "failed_checks": 0,
+        "same_turn_passed": 4,
+        "same_turn_failed": 0
+      },
+      "strict_explicit_signature": {
         "checkpoints": 4,
         "cumulatively_correct_checkpoints": 4,
         "checks": 10,
@@ -247,6 +615,24 @@
         "failed_checks": 10,
         "same_turn_passed": 0,
         "same_turn_failed": 4
+      },
+      "context_robust": {
+        "checkpoints": 4,
+        "cumulatively_correct_checkpoints": 0,
+        "checks": 10,
+        "passed_checks": 0,
+        "failed_checks": 10,
+        "same_turn_passed": 0,
+        "same_turn_failed": 4
+      },
+      "strict_explicit_signature": {
+        "checkpoints": 4,
+        "cumulatively_correct_checkpoints": 0,
+        "checks": 10,
+        "passed_checks": 0,
+        "failed_checks": 10,
+        "same_turn_passed": 0,
+        "same_turn_failed": 4
       }
     },
     {
@@ -264,6 +650,24 @@
         "same_turn_failed": 2
       },
       "eligible": {
+        "checkpoints": 4,
+        "cumulatively_correct_checkpoints": 2,
+        "checks": 10,
+        "passed_checks": 3,
+        "failed_checks": 7,
+        "same_turn_passed": 2,
+        "same_turn_failed": 2
+      },
+      "context_robust": {
+        "checkpoints": 4,
+        "cumulatively_correct_checkpoints": 2,
+        "checks": 10,
+        "passed_checks": 3,
+        "failed_checks": 7,
+        "same_turn_passed": 2,
+        "same_turn_failed": 2
+      },
+      "strict_explicit_signature": {
         "checkpoints": 4,
         "cumulatively_correct_checkpoints": 2,
         "checks": 10,
@@ -295,6 +699,24 @@
         "failed_checks": 15,
         "same_turn_passed": 0,
         "same_turn_failed": 5
+      },
+      "context_robust": {
+        "checkpoints": 5,
+        "cumulatively_correct_checkpoints": 0,
+        "checks": 15,
+        "passed_checks": 0,
+        "failed_checks": 15,
+        "same_turn_passed": 0,
+        "same_turn_failed": 5
+      },
+      "strict_explicit_signature": {
+        "checkpoints": 5,
+        "cumulatively_correct_checkpoints": 0,
+        "checks": 15,
+        "passed_checks": 0,
+        "failed_checks": 15,
+        "same_turn_passed": 0,
+        "same_turn_failed": 5
       }
     },
     {
@@ -319,6 +741,24 @@
         "failed_checks": 15,
         "same_turn_passed": 0,
         "same_turn_failed": 5
+      },
+      "context_robust": {
+        "checkpoints": 5,
+        "cumulatively_correct_checkpoints": 0,
+        "checks": 15,
+        "passed_checks": 0,
+        "failed_checks": 15,
+        "same_turn_passed": 0,
+        "same_turn_failed": 5
+      },
+      "strict_explicit_signature": {
+        "checkpoints": 0,
+        "cumulatively_correct_checkpoints": 0,
+        "checks": 0,
+        "passed_checks": 0,
+        "failed_checks": 0,
+        "same_turn_passed": 0,
+        "same_turn_failed": 0
       }
     },
     {
@@ -336,6 +776,24 @@
         "same_turn_failed": 5
       },
       "eligible": {
+        "checkpoints": 4,
+        "cumulatively_correct_checkpoints": 0,
+        "checks": 11,
+        "passed_checks": 0,
+        "failed_checks": 11,
+        "same_turn_passed": 0,
+        "same_turn_failed": 4
+      },
+      "context_robust": {
+        "checkpoints": 4,
+        "cumulatively_correct_checkpoints": 0,
+        "checks": 11,
+        "passed_checks": 0,
+        "failed_checks": 11,
+        "same_turn_passed": 0,
+        "same_turn_failed": 4
+      },
+      "strict_explicit_signature": {
         "checkpoints": 4,
         "cumulatively_correct_checkpoints": 0,
         "checks": 11,
@@ -367,6 +825,24 @@
         "failed_checks": 0,
         "same_turn_passed": 4,
         "same_turn_failed": 0
+      },
+      "context_robust": {
+        "checkpoints": 4,
+        "cumulatively_correct_checkpoints": 4,
+        "checks": 10,
+        "passed_checks": 10,
+        "failed_checks": 0,
+        "same_turn_passed": 4,
+        "same_turn_failed": 0
+      },
+      "strict_explicit_signature": {
+        "checkpoints": 0,
+        "cumulatively_correct_checkpoints": 0,
+        "checks": 0,
+        "passed_checks": 0,
+        "failed_checks": 0,
+        "same_turn_passed": 0,
+        "same_turn_failed": 0
       }
     },
     {
@@ -384,6 +860,24 @@
         "same_turn_failed": 3
       },
       "eligible": {
+        "checkpoints": 4,
+        "cumulatively_correct_checkpoints": 1,
+        "checks": 10,
+        "passed_checks": 3,
+        "failed_checks": 7,
+        "same_turn_passed": 1,
+        "same_turn_failed": 3
+      },
+      "context_robust": {
+        "checkpoints": 4,
+        "cumulatively_correct_checkpoints": 1,
+        "checks": 10,
+        "passed_checks": 3,
+        "failed_checks": 7,
+        "same_turn_passed": 1,
+        "same_turn_failed": 3
+      },
+      "strict_explicit_signature": {
         "checkpoints": 4,
         "cumulatively_correct_checkpoints": 1,
         "checks": 10,
@@ -415,6 +909,24 @@
         "failed_checks": 10,
         "same_turn_passed": 0,
         "same_turn_failed": 4
+      },
+      "context_robust": {
+        "checkpoints": 4,
+        "cumulatively_correct_checkpoints": 0,
+        "checks": 10,
+        "passed_checks": 0,
+        "failed_checks": 10,
+        "same_turn_passed": 0,
+        "same_turn_failed": 4
+      },
+      "strict_explicit_signature": {
+        "checkpoints": 4,
+        "cumulatively_correct_checkpoints": 0,
+        "checks": 10,
+        "passed_checks": 0,
+        "failed_checks": 10,
+        "same_turn_passed": 0,
+        "same_turn_failed": 4
       }
     },
     {
@@ -432,6 +944,24 @@
         "same_turn_failed": 3
       },
       "eligible": {
+        "checkpoints": 4,
+        "cumulatively_correct_checkpoints": 0,
+        "checks": 10,
+        "passed_checks": 1,
+        "failed_checks": 9,
+        "same_turn_passed": 1,
+        "same_turn_failed": 3
+      },
+      "context_robust": {
+        "checkpoints": 4,
+        "cumulatively_correct_checkpoints": 0,
+        "checks": 10,
+        "passed_checks": 1,
+        "failed_checks": 9,
+        "same_turn_passed": 1,
+        "same_turn_failed": 3
+      },
+      "strict_explicit_signature": {
         "checkpoints": 4,
         "cumulatively_correct_checkpoints": 0,
         "checks": 10,
@@ -463,6 +993,24 @@
         "failed_checks": 0,
         "same_turn_passed": 3,
         "same_turn_failed": 0
+      },
+      "context_robust": {
+        "checkpoints": 3,
+        "cumulatively_correct_checkpoints": 3,
+        "checks": 6,
+        "passed_checks": 6,
+        "failed_checks": 0,
+        "same_turn_passed": 3,
+        "same_turn_failed": 0
+      },
+      "strict_explicit_signature": {
+        "checkpoints": 3,
+        "cumulatively_correct_checkpoints": 3,
+        "checks": 6,
+        "passed_checks": 6,
+        "failed_checks": 0,
+        "same_turn_passed": 3,
+        "same_turn_failed": 0
       }
     },
     {
@@ -480,6 +1028,24 @@
         "same_turn_failed": 1
       },
       "eligible": {
+        "checkpoints": 1,
+        "cumulatively_correct_checkpoints": 1,
+        "checks": 1,
+        "passed_checks": 1,
+        "failed_checks": 0,
+        "same_turn_passed": 1,
+        "same_turn_failed": 0
+      },
+      "context_robust": {
+        "checkpoints": 1,
+        "cumulatively_correct_checkpoints": 1,
+        "checks": 1,
+        "passed_checks": 1,
+        "failed_checks": 0,
+        "same_turn_passed": 1,
+        "same_turn_failed": 0
+      },
+      "strict_explicit_signature": {
         "checkpoints": 1,
         "cumulatively_correct_checkpoints": 1,
         "checks": 1,
@@ -511,6 +1077,24 @@
         "failed_checks": 0,
         "same_turn_passed": 2,
         "same_turn_failed": 0
+      },
+      "context_robust": {
+        "checkpoints": 2,
+        "cumulatively_correct_checkpoints": 2,
+        "checks": 5,
+        "passed_checks": 5,
+        "failed_checks": 0,
+        "same_turn_passed": 2,
+        "same_turn_failed": 0
+      },
+      "strict_explicit_signature": {
+        "checkpoints": 2,
+        "cumulatively_correct_checkpoints": 2,
+        "checks": 5,
+        "passed_checks": 5,
+        "failed_checks": 0,
+        "same_turn_passed": 2,
+        "same_turn_failed": 0
       }
     },
     {
@@ -528,6 +1112,24 @@
         "same_turn_failed": 1
       },
       "eligible": {
+        "checkpoints": 1,
+        "cumulatively_correct_checkpoints": 0,
+        "checks": 1,
+        "passed_checks": 0,
+        "failed_checks": 1,
+        "same_turn_passed": 0,
+        "same_turn_failed": 1
+      },
+      "context_robust": {
+        "checkpoints": 1,
+        "cumulatively_correct_checkpoints": 0,
+        "checks": 1,
+        "passed_checks": 0,
+        "failed_checks": 1,
+        "same_turn_passed": 0,
+        "same_turn_failed": 1
+      },
+      "strict_explicit_signature": {
         "checkpoints": 1,
         "cumulatively_correct_checkpoints": 0,
         "checks": 1,
@@ -559,6 +1161,24 @@
         "failed_checks": 0,
         "same_turn_passed": 1,
         "same_turn_failed": 0
+      },
+      "context_robust": {
+        "checkpoints": 1,
+        "cumulatively_correct_checkpoints": 1,
+        "checks": 1,
+        "passed_checks": 1,
+        "failed_checks": 0,
+        "same_turn_passed": 1,
+        "same_turn_failed": 0
+      },
+      "strict_explicit_signature": {
+        "checkpoints": 1,
+        "cumulatively_correct_checkpoints": 1,
+        "checks": 1,
+        "passed_checks": 1,
+        "failed_checks": 0,
+        "same_turn_passed": 1,
+        "same_turn_failed": 0
       }
     },
     {
@@ -583,6 +1203,24 @@
         "failed_checks": 10,
         "same_turn_passed": 0,
         "same_turn_failed": 4
+      },
+      "context_robust": {
+        "checkpoints": 0,
+        "cumulatively_correct_checkpoints": 0,
+        "checks": 0,
+        "passed_checks": 0,
+        "failed_checks": 0,
+        "same_turn_passed": 0,
+        "same_turn_failed": 0
+      },
+      "strict_explicit_signature": {
+        "checkpoints": 0,
+        "cumulatively_correct_checkpoints": 0,
+        "checks": 0,
+        "passed_checks": 0,
+        "failed_checks": 0,
+        "same_turn_passed": 0,
+        "same_turn_failed": 0
       }
     },
     {
@@ -607,6 +1245,24 @@
         "failed_checks": 1,
         "same_turn_passed": 2,
         "same_turn_failed": 1
+      },
+      "context_robust": {
+        "checkpoints": 3,
+        "cumulatively_correct_checkpoints": 2,
+        "checks": 6,
+        "passed_checks": 5,
+        "failed_checks": 1,
+        "same_turn_passed": 2,
+        "same_turn_failed": 1
+      },
+      "strict_explicit_signature": {
+        "checkpoints": 3,
+        "cumulatively_correct_checkpoints": 2,
+        "checks": 6,
+        "passed_checks": 5,
+        "failed_checks": 1,
+        "same_turn_passed": 2,
+        "same_turn_failed": 1
       }
     }
   ],
@@ -614,7 +1270,7 @@
     "outcome": "PROCEED",
     "meaning": "Proceed to structural and reuse feasibility analysis on eligible correct checkpoints.",
     "final_pilot_outcome": "pending",
-    "rationale": "The clean adjusted sample retains functionally correct checkpoints across multiple trajectories and turns. GO/NARROW/PIVOT remains pending because the frozen rule also requires structural variation and operationalizable missed-reuse judgments."
+    "rationale": "The clean adjusted sample retains functionally correct checkpoints across multiple trajectories and turns, and the prompt-context sensitivities do not reverse that conclusion. GO/NARROW/PIVOT remains pending because the frozen rule also requires structural variation and operationalizable missed-reuse judgments."
   },
   "source_artifacts": [
     {
@@ -626,6 +1282,11 @@
       "path": "results/pilot/generated-tests/pilot-a-amendment-20260923T012647Z.json",
       "sha256": "07a27ad866d70169b3350e699487e118b01128c4619281eed2e82a8dc7bdb476",
       "bytes": 71403
+    },
+    {
+      "path": "results/pilot/prompt-context-sufficiency-audit.json",
+      "sha256": "df511ab9f2eb31c308fbffafa6a71a9c8f3970c47cc8ae8f7739e4d770282f78",
+      "bytes": 8576
     },
     {
       "path": "data/generated-trajectories/pilot-a/pilot-a-20260904T213806Z-calculatePhaseTimeGradient-01/record.json",

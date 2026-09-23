@@ -29,6 +29,8 @@ The full rationale and predeclared decision rules are in
 
 The completed clean functional view is in
 [`results/pilot/pilot-a-adjusted-functional-summary.json`](results/pilot/pilot-a-adjusted-functional-summary.json).
+The task-level prompt/context quality review is in
+[`docs/prompt-context-audit.md`](docs/prompt-context-audit.md).
 
 To resume the current research state after a break, start with
 [`docs/resume-handoff.md`](docs/resume-handoff.md).

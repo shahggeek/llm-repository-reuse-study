@@ -128,3 +128,11 @@ support RQ4; it does not fit a high-powered causal model.
 - Replace a pilot task only for pre-generation executability failures and log
   the replacement before inspecting any model output for that task.
 - Do not use employer artifacts or private production observations as data.
+
+## Prompt-context sufficiency
+
+Before future generations, verify that every turn-1 prompt supplies the exact
+repository-compatible method signature. For the completed Pilot A, retain the
+frozen primary result and report post-generation sensitivity analyses for
+tasks whose signature was inferable or underspecified. Do not use an
+outcome-informed context audit to silently discard model failures.

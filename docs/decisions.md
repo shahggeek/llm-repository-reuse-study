@@ -205,3 +205,27 @@ reuse-feasibility analysis on those 24 checkpoints. Do not yet assign the final
 GO/NARROW/PIVOT outcome; the frozen decision rule also requires evidence that
 structural metrics vary meaningfully and missed-reuse judgments are
 operationalizable.
+
+## 2026-09-23 — Post-generation prompt-context sufficiency audit
+
+Audit all 18 adjusted Pilot A tasks after the `rerank` compilation result
+revealed that its exact repository signature was not present in the supplied
+prompt. Use a four-level rubric: explicit-consistent, inferable-consistent,
+partially-conflicting, and underspecified integration types.
+
+Classify 13 tasks as explicit-consistent and three as inferable-consistent.
+Retain the already known `set` turn-1 signature conflict. Classify `rerank` as
+underspecified because `ScoreFunction.ExactScoreFunction`, `NodesUnsorted`, and
+the `GraphSearcher` caller contract are absent from both its instruction and
+supplied context.
+
+Because outcomes were known before this audit, do not replace the frozen
+primary result or rerun any task. Add two post-generation sensitivity views.
+Excluding only the four `rerank` checkpoints changes correctness yield from
+24/61 (39.3%) to 24/57 (42.1%). A stricter literal-signature-only view yields
+16/44 (36.4%). The conclusion is stable across the 36.4%–42.1% range, and the
+24-checkpoint structural pool is unchanged by the clear-case exclusion.
+
+For later model runs, require a literal repository-compatible signature before
+generation. Before publication, obtain a second human review of the three
+inferable-consistent classifications.

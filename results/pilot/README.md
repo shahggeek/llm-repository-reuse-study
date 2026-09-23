@@ -7,3 +7,7 @@ under `smoke-tests/` and ignored by Git.
 It substitutes the frozen amendment runs for the two prompt-confounded original
 trajectories, applies all checkpoint-level exclusions, and records the
 functional decision to proceed to structural and reuse-feasibility analysis.
+
+`prompt-context-sufficiency-audit.json` records the post-generation audit of all
+18 adjusted tasks. The adjusted functional summary retains the frozen primary
+view and adds clear-case and strict signature sensitivity results.
