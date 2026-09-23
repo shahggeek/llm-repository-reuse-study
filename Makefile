@@ -4,6 +4,7 @@ CONTAINER ?= mrgbench_container_1
 TASK ?= copyToTarget
 SR_EVAL_PYTHON ?= 3.13
 AMENDMENT_CODEX ?= $(CURDIR)/.tools/codex-cli-0.153.0/node_modules/.bin/codex
+STRUCTURAL_RUN = uv run --python "$(SR_EVAL_PYTHON)" --no-project --with "tree-sitter==0.25.2" --with "tree-sitter-java==0.23.5" --with "lizard==1.17.31"
 TOOL_BIN := $(CURDIR)/.tools/bin
 UV_CACHE_DIR ?= $(CURDIR)/.cache/uv
 UV_PYTHON_INSTALL_DIR ?= $(CURDIR)/.tools/python
@@ -11,7 +12,7 @@ export PATH := $(TOOL_BIN):$(PATH)
 export UV_CACHE_DIR
 export UV_PYTHON_INSTALL_DIR
 
-.PHONY: bootstrap check prepare doctor tasks export smoke-dry-run smoke smoke-all pilot-a pilot-a-all test-pilot-a amendment-cli amendment-validate amendment-export amendment-preflight amendment-smoke-dry-run pilot-a-amendment pilot-a-amendment-all test-pilot-a-amendment audit-prompt-context summarize-pilot-a-adjusted
+.PHONY: bootstrap check prepare doctor tasks export smoke-dry-run smoke smoke-all pilot-a pilot-a-all test-pilot-a amendment-cli amendment-validate amendment-export amendment-preflight amendment-smoke-dry-run pilot-a-amendment pilot-a-amendment-all test-pilot-a-amendment audit-prompt-context summarize-pilot-a-adjusted structural-check structural-pilot
 
 bootstrap:
 	bash scripts/bootstrap_tools.sh
@@ -81,3 +82,9 @@ audit-prompt-context:
 
 summarize-pilot-a-adjusted:
 	$(PYTHON) scripts/summarize_pilot_a.py
+
+structural-check:
+	$(STRUCTURAL_RUN) python -m unittest discover -s tests -p "test_structural_metrics.py" -v
+
+structural-pilot: structural-check
+	$(STRUCTURAL_RUN) python scripts/structural_metrics.py

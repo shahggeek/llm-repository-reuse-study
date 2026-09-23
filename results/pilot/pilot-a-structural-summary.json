@@ -1,0 +1,7246 @@
+{
+  "schema_version": 1,
+  "checkpoint_pairs": 24,
+  "trajectory_count": 10,
+  "strict_explicit_signature_checkpoint_pairs": 16,
+  "strict_explicit_signature_trajectory_count": 8,
+  "all_eligible_correct": {
+    "physical_lines": {
+      "generated": {
+        "n": 24,
+        "mean": 26.625,
+        "median": 15.0,
+        "minimum": 6,
+        "maximum": 73,
+        "positive": 24,
+        "zero": 0,
+        "negative": 0
+      },
+      "reference": {
+        "n": 24,
+        "mean": 28.0,
+        "median": 14.0,
+        "minimum": 6,
+        "maximum": 106,
+        "positive": 24,
+        "zero": 0,
+        "negative": 0
+      },
+      "absolute_overhead": {
+        "n": 24,
+        "mean": -1.375,
+        "median": 2.0,
+        "minimum": -65,
+        "maximum": 27,
+        "positive": 14,
+        "zero": 2,
+        "negative": 8
+      },
+      "normalized_overhead": {
+        "n": 24,
+        "mean": 0.27008211693625866,
+        "median": 0.1333333333238889,
+        "minimum": -0.6132075471640264,
+        "maximum": 2.9999999995714286,
+        "positive": 14,
+        "zero": 2,
+        "negative": 8
+      },
+      "reference_zero_count": 0,
+      "clustered_bootstrap_absolute_overhead": {
+        "iterations": 5000,
+        "clusters": 10,
+        "seed_sha256": "d6d3d6a994f982eeddb81749a60e3526e117f9df1473b5b7eb4a7aa135676500",
+        "mean_95_percentile_interval": [
+          -14.758973354231975,
+          9.518948412698407
+        ],
+        "median_95_percentile_interval": [
+          -1.0,
+          9.0
+        ]
+      }
+    },
+    "source_lines_nonblank_noncomment": {
+      "generated": {
+        "n": 24,
+        "mean": 22.083333333333332,
+        "median": 13.0,
+        "minimum": 6,
+        "maximum": 58,
+        "positive": 24,
+        "zero": 0,
+        "negative": 0
+      },
+      "reference": {
+        "n": 24,
+        "mean": 22.916666666666668,
+        "median": 14.0,
+        "minimum": 5,
+        "maximum": 84,
+        "positive": 24,
+        "zero": 0,
+        "negative": 0
+      },
+      "absolute_overhead": {
+        "n": 24,
+        "mean": -0.8333333333333334,
+        "median": 1.0,
+        "minimum": -50,
+        "maximum": 22,
+        "positive": 13,
+        "zero": 2,
+        "negative": 9
+      },
+      "normalized_overhead": {
+        "n": 24,
+        "mean": 0.2572376343880832,
+        "median": 0.07323232322664779,
+        "minimum": -0.595238095231009,
+        "maximum": 3.39999999932,
+        "positive": 13,
+        "zero": 2,
+        "negative": 9
+      },
+      "reference_zero_count": 0,
+      "clustered_bootstrap_absolute_overhead": {
+        "iterations": 5000,
+        "clusters": 10,
+        "seed_sha256": "4d435325ca682297f7abe715bb2f16ccaee3e6a23c68e4b75011750608b1ca84",
+        "mean_95_percentile_interval": [
+          -11.051169354838711,
+          8.1875
+        ],
+        "median_95_percentile_interval": [
+          -1.0,
+          9.0
+        ]
+      }
+    },
+    "statement_count": {
+      "generated": {
+        "n": 24,
+        "mean": 15.708333333333334,
+        "median": 8.0,
+        "minimum": 3,
+        "maximum": 48,
+        "positive": 24,
+        "zero": 0,
+        "negative": 0
+      },
+      "reference": {
+        "n": 24,
+        "mean": 16.375,
+        "median": 8.0,
+        "minimum": 3,
+        "maximum": 61,
+        "positive": 24,
+        "zero": 0,
+        "negative": 0
+      },
+      "absolute_overhead": {
+        "n": 24,
+        "mean": -0.6666666666666666,
+        "median": 0.5,
+        "minimum": -40,
+        "maximum": 13,
+        "positive": 12,
+        "zero": 4,
+        "negative": 8
+      },
+      "normalized_overhead": {
+        "n": 24,
+        "mean": 0.25978281732652625,
+        "median": 0.03571428571173469,
+        "minimum": -0.655737704907283,
+        "maximum": 3.9999999986666666,
+        "positive": 12,
+        "zero": 4,
+        "negative": 8
+      },
+      "reference_zero_count": 0,
+      "clustered_bootstrap_absolute_overhead": {
+        "iterations": 5000,
+        "clusters": 10,
+        "seed_sha256": "ace62f3bb22abdbb89f097cf081f5ca3498e8e411c10939d715fb407f5e8dc27",
+        "mean_95_percentile_interval": [
+          -8.24,
+          5.8125
+        ],
+        "median_95_percentile_interval": [
+          -1.0,
+          6.0
+        ]
+      }
+    },
+    "cyclomatic_complexity": {
+      "generated": {
+        "n": 24,
+        "mean": 6.083333333333333,
+        "median": 4.0,
+        "minimum": 2,
+        "maximum": 17,
+        "positive": 24,
+        "zero": 0,
+        "negative": 0
+      },
+      "reference": {
+        "n": 24,
+        "mean": 6.833333333333333,
+        "median": 4.0,
+        "minimum": 1,
+        "maximum": 26,
+        "positive": 24,
+        "zero": 0,
+        "negative": 0
+      },
+      "absolute_overhead": {
+        "n": 24,
+        "mean": -0.75,
+        "median": 0.0,
+        "minimum": -14,
+        "maximum": 3,
+        "positive": 9,
+        "zero": 8,
+        "negative": 7
+      },
+      "normalized_overhead": {
+        "n": 24,
+        "mean": 0.17555130038006217,
+        "median": 0.0,
+        "minimum": -0.5384615384408284,
+        "maximum": 2.9999999969999998,
+        "positive": 9,
+        "zero": 8,
+        "negative": 7
+      },
+      "reference_zero_count": 0,
+      "clustered_bootstrap_absolute_overhead": {
+        "iterations": 5000,
+        "clusters": 10,
+        "seed_sha256": "2cc4e6c456022ce6074d4a7bcaf9ae36a8f35a3769a97cfc90c4ba5d74a40a5f",
+        "mean_95_percentile_interval": [
+          -3.7777777777777777,
+          1.43485054347826
+        ],
+        "median_95_percentile_interval": [
+          -1.0,
+          2.0
+        ]
+      }
+    },
+    "cognitive_complexity_approx": {
+      "generated": {
+        "n": 24,
+        "mean": 8.708333333333334,
+        "median": 5.5,
+        "minimum": 1,
+        "maximum": 31,
+        "positive": 24,
+        "zero": 0,
+        "negative": 0
+      },
+      "reference": {
+        "n": 24,
+        "mean": 11.916666666666666,
+        "median": 5.0,
+        "minimum": 0,
+        "maximum": 55,
+        "positive": 23,
+        "zero": 1,
+        "negative": 0
+      },
+      "absolute_overhead": {
+        "n": 24,
+        "mean": -3.2083333333333335,
+        "median": 0.0,
+        "minimum": -37,
+        "maximum": 6,
+        "positive": 10,
+        "zero": 5,
+        "negative": 9
+      },
+      "normalized_overhead": {
+        "n": 23,
+        "mean": 0.20735101809473733,
+        "median": 0.0,
+        "minimum": -0.7441860464943213,
+        "maximum": 4.999999995,
+        "positive": 9,
+        "zero": 5,
+        "negative": 9
+      },
+      "reference_zero_count": 1,
+      "clustered_bootstrap_absolute_overhead": {
+        "iterations": 5000,
+        "clusters": 10,
+        "seed_sha256": "e4aae5387021d14cdb339d3339e52c8d0284ceb054ce7abfe69d604dd3c7926f",
+        "mean_95_percentile_interval": [
+          -11.539,
+          2.2669444444444404
+        ],
+        "median_95_percentile_interval": [
+          -2.5,
+          3.0
+        ]
+      }
+    },
+    "max_control_nesting": {
+      "generated": {
+        "n": 24,
+        "mean": 2.125,
+        "median": 2.0,
+        "minimum": 1,
+        "maximum": 4,
+        "positive": 24,
+        "zero": 0,
+        "negative": 0
+      },
+      "reference": {
+        "n": 24,
+        "mean": 2.375,
+        "median": 2.0,
+        "minimum": 0,
+        "maximum": 4,
+        "positive": 23,
+        "zero": 1,
+        "negative": 0
+      },
+      "absolute_overhead": {
+        "n": 24,
+        "mean": -0.25,
+        "median": 0.0,
+        "minimum": -2,
+        "maximum": 3,
+        "positive": 4,
+        "zero": 9,
+        "negative": 11
+      },
+      "normalized_overhead": {
+        "n": 23,
+        "mean": -0.04710144932397343,
+        "median": 0.0,
+        "minimum": -0.6666666664444444,
+        "maximum": 1.9999999979999998,
+        "positive": 3,
+        "zero": 9,
+        "negative": 11
+      },
+      "reference_zero_count": 1,
+      "clustered_bootstrap_absolute_overhead": {
+        "iterations": 5000,
+        "clusters": 10,
+        "seed_sha256": "593be65ab507ae35bbd3cc990486e8a381f43d697809f974e3b6c44abb2298e3",
+        "mean_95_percentile_interval": [
+          -0.8235933503836317,
+          0.5238095238095238
+        ],
+        "median_95_percentile_interval": [
+          -1.0,
+          0.0
+        ]
+      }
+    },
+    "branch_count": {
+      "generated": {
+        "n": 24,
+        "mean": 4.458333333333333,
+        "median": 3.0,
+        "minimum": 1,
+        "maximum": 16,
+        "positive": 24,
+        "zero": 0,
+        "negative": 0
+      },
+      "reference": {
+        "n": 24,
+        "mean": 5.333333333333333,
+        "median": 3.0,
+        "minimum": 0,
+        "maximum": 21,
+        "positive": 23,
+        "zero": 1,
+        "negative": 0
+      },
+      "absolute_overhead": {
+        "n": 24,
+        "mean": -0.875,
+        "median": 0.0,
+        "minimum": -15,
+        "maximum": 4,
+        "positive": 8,
+        "zero": 9,
+        "negative": 7
+      },
+      "normalized_overhead": {
+        "n": 23,
+        "mean": 0.08233891696912807,
+        "median": 0.0,
+        "minimum": -0.749999999953125,
+        "maximum": 1.9999999979999998,
+        "positive": 7,
+        "zero": 9,
+        "negative": 7
+      },
+      "reference_zero_count": 1,
+      "clustered_bootstrap_absolute_overhead": {
+        "iterations": 5000,
+        "clusters": 10,
+        "seed_sha256": "e53fac561e5466c3adf9a0faa97182fb8ef87cfd3dd09efbc1829992eca63cc8",
+        "mean_95_percentile_interval": [
+          -4.230769230769231,
+          1.653879310344827
+        ],
+        "median_95_percentile_interval": [
+          -1.0,
+          2.0
+        ]
+      }
+    },
+    "method_invocation_count": {
+      "generated": {
+        "n": 24,
+        "mean": 5.166666666666667,
+        "median": 3.5,
+        "minimum": 1,
+        "maximum": 17,
+        "positive": 24,
+        "zero": 0,
+        "negative": 0
+      },
+      "reference": {
+        "n": 24,
+        "mean": 9.333333333333334,
+        "median": 4.0,
+        "minimum": 1,
+        "maximum": 55,
+        "positive": 24,
+        "zero": 0,
+        "negative": 0
+      },
+      "absolute_overhead": {
+        "n": 24,
+        "mean": -4.166666666666667,
+        "median": 0.0,
+        "minimum": -49,
+        "maximum": 3,
+        "positive": 6,
+        "zero": 11,
+        "negative": 7
+      },
+      "normalized_overhead": {
+        "n": 24,
+        "mean": 0.026881564839763655,
+        "median": 0.0,
+        "minimum": -0.8909090908928926,
+        "maximum": 1.9999999979999998,
+        "positive": 6,
+        "zero": 11,
+        "negative": 7
+      },
+      "reference_zero_count": 0,
+      "clustered_bootstrap_absolute_overhead": {
+        "iterations": 5000,
+        "clusters": 10,
+        "seed_sha256": "e5d45d054fb254a045f9e989713959477f4c61f17d34936a79d99fef927a768d",
+        "mean_95_percentile_interval": [
+          -13.125874999999999,
+          1.125
+        ],
+        "median_95_percentile_interval": [
+          -2.0,
+          1.0
+        ]
+      }
+    },
+    "constructor_invocation_count": {
+      "generated": {
+        "n": 24,
+        "mean": 1.2083333333333333,
+        "median": 1.0,
+        "minimum": 0,
+        "maximum": 4,
+        "positive": 17,
+        "zero": 7,
+        "negative": 0
+      },
+      "reference": {
+        "n": 24,
+        "mean": 1.2916666666666667,
+        "median": 1.0,
+        "minimum": 0,
+        "maximum": 5,
+        "positive": 16,
+        "zero": 8,
+        "negative": 0
+      },
+      "absolute_overhead": {
+        "n": 24,
+        "mean": -0.08333333333333333,
+        "median": 0.0,
+        "minimum": -3,
+        "maximum": 1,
+        "positive": 1,
+        "zero": 22,
+        "negative": 1
+      },
+      "normalized_overhead": {
+        "n": 16,
+        "mean": -0.0374999999925,
+        "median": 0.0,
+        "minimum": -0.59999999988,
+        "maximum": 0.0,
+        "positive": 0,
+        "zero": 15,
+        "negative": 1
+      },
+      "reference_zero_count": 8,
+      "clustered_bootstrap_absolute_overhead": {
+        "iterations": 5000,
+        "clusters": 10,
+        "seed_sha256": "af8171a53de166ed55cb125465e21abdf950615a1f1b5ec51a61e785395d9ac9",
+        "mean_95_percentile_interval": [
+          -0.3333333333333333,
+          0.125
+        ],
+        "median_95_percentile_interval": [
+          0.0,
+          0.0
+        ]
+      }
+    },
+    "unique_call_target_count": {
+      "generated": {
+        "n": 24,
+        "mean": 3.7083333333333335,
+        "median": 4.0,
+        "minimum": 1,
+        "maximum": 7,
+        "positive": 24,
+        "zero": 0,
+        "negative": 0
+      },
+      "reference": {
+        "n": 24,
+        "mean": 4.5,
+        "median": 4.0,
+        "minimum": 1,
+        "maximum": 9,
+        "positive": 24,
+        "zero": 0,
+        "negative": 0
+      },
+      "absolute_overhead": {
+        "n": 24,
+        "mean": -0.7916666666666666,
+        "median": 0.0,
+        "minimum": -3,
+        "maximum": 2,
+        "positive": 2,
+        "zero": 12,
+        "negative": 10
+      },
+      "normalized_overhead": {
+        "n": 24,
+        "mean": -0.036656746103953274,
+        "median": 0.0,
+        "minimum": -0.6666666664444444,
+        "maximum": 1.9999999979999998,
+        "positive": 2,
+        "zero": 12,
+        "negative": 10
+      },
+      "reference_zero_count": 0,
+      "clustered_bootstrap_absolute_overhead": {
+        "iterations": 5000,
+        "clusters": 10,
+        "seed_sha256": "7faf08754b5592dbf345d21da12e787ddadb6ee5ad62f1a06c93204d815351aa",
+        "mean_95_percentile_interval": [
+          -1.6896551724137931,
+          0.09101731601731444
+        ],
+        "median_95_percentile_interval": [
+          -2.5124999999999957,
+          0.0
+        ]
+      }
+    },
+    "parameter_count": {
+      "generated": {
+        "n": 24,
+        "mean": 1.4166666666666667,
+        "median": 2.0,
+        "minimum": 0,
+        "maximum": 2,
+        "positive": 20,
+        "zero": 4,
+        "negative": 0
+      },
+      "reference": {
+        "n": 24,
+        "mean": 1.4166666666666667,
+        "median": 2.0,
+        "minimum": 0,
+        "maximum": 2,
+        "positive": 20,
+        "zero": 4,
+        "negative": 0
+      },
+      "absolute_overhead": {
+        "n": 24,
+        "mean": 0.0,
+        "median": 0.0,
+        "minimum": 0,
+        "maximum": 0,
+        "positive": 0,
+        "zero": 24,
+        "negative": 0
+      },
+      "normalized_overhead": {
+        "n": 20,
+        "mean": 0.0,
+        "median": 0.0,
+        "minimum": 0.0,
+        "maximum": 0.0,
+        "positive": 0,
+        "zero": 20,
+        "negative": 0
+      },
+      "reference_zero_count": 4,
+      "clustered_bootstrap_absolute_overhead": {
+        "iterations": 5000,
+        "clusters": 10,
+        "seed_sha256": "b2703ac7113b6d99f498d9142d30241fc5eb3b04817555b9ae672cff13b53dde",
+        "mean_95_percentile_interval": [
+          0.0,
+          0.0
+        ],
+        "median_95_percentile_interval": [
+          0.0,
+          0.0
+        ]
+      }
+    },
+    "return_count": {
+      "generated": {
+        "n": 24,
+        "mean": 1.0,
+        "median": 1.0,
+        "minimum": 0,
+        "maximum": 2,
+        "positive": 20,
+        "zero": 4,
+        "negative": 0
+      },
+      "reference": {
+        "n": 24,
+        "mean": 1.0,
+        "median": 1.0,
+        "minimum": 0,
+        "maximum": 4,
+        "positive": 18,
+        "zero": 6,
+        "negative": 0
+      },
+      "absolute_overhead": {
+        "n": 24,
+        "mean": 0.0,
+        "median": 0.0,
+        "minimum": -3,
+        "maximum": 1,
+        "positive": 3,
+        "zero": 20,
+        "negative": 1
+      },
+      "normalized_overhead": {
+        "n": 18,
+        "mean": 0.013888888843749995,
+        "median": 0.0,
+        "minimum": -0.7499999998125,
+        "maximum": 0.9999999989999999,
+        "positive": 1,
+        "zero": 16,
+        "negative": 1
+      },
+      "reference_zero_count": 6,
+      "clustered_bootstrap_absolute_overhead": {
+        "iterations": 5000,
+        "clusters": 10,
+        "seed_sha256": "f269d779a584bb2a155ce723f8e908952f64a9fc66e4eafeaa72f682658d8d88",
+        "mean_95_percentile_interval": [
+          -0.2962962962962963,
+          0.3333333333333333
+        ],
+        "median_95_percentile_interval": [
+          0.0,
+          0.0
+        ]
+      }
+    },
+    "throw_count": {
+      "generated": {
+        "n": 24,
+        "mean": 0.2916666666666667,
+        "median": 0.0,
+        "minimum": 0,
+        "maximum": 2,
+        "positive": 6,
+        "zero": 18,
+        "negative": 0
+      },
+      "reference": {
+        "n": 24,
+        "mean": 0.25,
+        "median": 0.0,
+        "minimum": 0,
+        "maximum": 2,
+        "positive": 5,
+        "zero": 19,
+        "negative": 0
+      },
+      "absolute_overhead": {
+        "n": 24,
+        "mean": 0.041666666666666664,
+        "median": 0.0,
+        "minimum": 0,
+        "maximum": 1,
+        "positive": 1,
+        "zero": 23,
+        "negative": 0
+      },
+      "normalized_overhead": {
+        "n": 5,
+        "mean": 0.0,
+        "median": 0.0,
+        "minimum": 0.0,
+        "maximum": 0.0,
+        "positive": 0,
+        "zero": 5,
+        "negative": 0
+      },
+      "reference_zero_count": 19,
+      "clustered_bootstrap_absolute_overhead": {
+        "iterations": 5000,
+        "clusters": 10,
+        "seed_sha256": "0cb82a59c39d469026acf308357d32aac86b3c308df0efe2b94f11c7dce45117",
+        "mean_95_percentile_interval": [
+          0.0,
+          0.15
+        ],
+        "median_95_percentile_interval": [
+          0.0,
+          0.0
+        ]
+      }
+    },
+    "local_variable_count": {
+      "generated": {
+        "n": 24,
+        "mean": 5.666666666666667,
+        "median": 2.0,
+        "minimum": 0,
+        "maximum": 21,
+        "positive": 20,
+        "zero": 4,
+        "negative": 0
+      },
+      "reference": {
+        "n": 24,
+        "mean": 3.875,
+        "median": 2.0,
+        "minimum": 0,
+        "maximum": 13,
+        "positive": 19,
+        "zero": 5,
+        "negative": 0
+      },
+      "absolute_overhead": {
+        "n": 24,
+        "mean": 1.7916666666666667,
+        "median": 0.0,
+        "minimum": -2,
+        "maximum": 8,
+        "positive": 11,
+        "zero": 10,
+        "negative": 3
+      },
+      "normalized_overhead": {
+        "n": 19,
+        "mean": 0.6663678422144647,
+        "median": 0.0,
+        "minimum": -0.9999999989999999,
+        "maximum": 7.999999991999999,
+        "positive": 9,
+        "zero": 7,
+        "negative": 3
+      },
+      "reference_zero_count": 5,
+      "clustered_bootstrap_absolute_overhead": {
+        "iterations": 5000,
+        "clusters": 10,
+        "seed_sha256": "20fb8e367ca6d66f27591c48a9ee3cf77d434d13e4dd603e814f80c8a08f7d54",
+        "mean_95_percentile_interval": [
+          0.10513157894736845,
+          3.714610389610385
+        ],
+        "median_95_percentile_interval": [
+          0.0,
+          3.0
+        ]
+      }
+    },
+    "lambda_count": {
+      "generated": {
+        "n": 24,
+        "mean": 0.0,
+        "median": 0.0,
+        "minimum": 0,
+        "maximum": 0,
+        "positive": 0,
+        "zero": 24,
+        "negative": 0
+      },
+      "reference": {
+        "n": 24,
+        "mean": 0.0,
+        "median": 0.0,
+        "minimum": 0,
+        "maximum": 0,
+        "positive": 0,
+        "zero": 24,
+        "negative": 0
+      },
+      "absolute_overhead": {
+        "n": 24,
+        "mean": 0.0,
+        "median": 0.0,
+        "minimum": 0,
+        "maximum": 0,
+        "positive": 0,
+        "zero": 24,
+        "negative": 0
+      },
+      "normalized_overhead": {
+        "n": 0
+      },
+      "reference_zero_count": 24,
+      "clustered_bootstrap_absolute_overhead": {
+        "iterations": 5000,
+        "clusters": 10,
+        "seed_sha256": "cb94495da5b99f94252999cb5f1d935d0dab5dde4f3803e1d42a4cf8c9a7581f",
+        "mean_95_percentile_interval": [
+          0.0,
+          0.0
+        ],
+        "median_95_percentile_interval": [
+          0.0,
+          0.0
+        ]
+      }
+    },
+    "code_smell_count": {
+      "generated": {
+        "n": 24,
+        "mean": 0.375,
+        "median": 0.0,
+        "minimum": 0,
+        "maximum": 2,
+        "positive": 6,
+        "zero": 18,
+        "negative": 0
+      },
+      "reference": {
+        "n": 24,
+        "mean": 0.7083333333333334,
+        "median": 0.0,
+        "minimum": 0,
+        "maximum": 3,
+        "positive": 7,
+        "zero": 17,
+        "negative": 0
+      },
+      "absolute_overhead": {
+        "n": 24,
+        "mean": -0.3333333333333333,
+        "median": 0.0,
+        "minimum": -3,
+        "maximum": 0,
+        "positive": 0,
+        "zero": 19,
+        "negative": 5
+      },
+      "normalized_overhead": {
+        "n": 7,
+        "mean": -0.4047619046150793,
+        "median": -0.3333333332222222,
+        "minimum": -0.9999999996666666,
+        "maximum": 0.0,
+        "positive": 0,
+        "zero": 2,
+        "negative": 5
+      },
+      "reference_zero_count": 17,
+      "clustered_bootstrap_absolute_overhead": {
+        "iterations": 5000,
+        "clusters": 10,
+        "seed_sha256": "df3a780e3ee46d5a50a3ac5178c7485cfb6c54eb519d70ec31373d2ea29ccb69",
+        "mean_95_percentile_interval": [
+          -0.7857142857142857,
+          0.0
+        ],
+        "median_95_percentile_interval": [
+          0.0,
+          0.0
+        ]
+      }
+    }
+  },
+  "strict_explicit_signature": {
+    "physical_lines": {
+      "generated": {
+        "n": 16,
+        "mean": 22.1875,
+        "median": 15.0,
+        "minimum": 6,
+        "maximum": 43,
+        "positive": 16,
+        "zero": 0,
+        "negative": 0
+      },
+      "reference": {
+        "n": 16,
+        "mean": 27.125,
+        "median": 12.5,
+        "minimum": 6,
+        "maximum": 106,
+        "positive": 16,
+        "zero": 0,
+        "negative": 0
+      },
+      "absolute_overhead": {
+        "n": 16,
+        "mean": -4.9375,
+        "median": 2.0,
+        "minimum": -65,
+        "maximum": 27,
+        "positive": 10,
+        "zero": 1,
+        "negative": 5
+      },
+      "normalized_overhead": {
+        "n": 16,
+        "mean": 0.35921713162700614,
+        "median": 0.1333333333238889,
+        "minimum": -0.6132075471640264,
+        "maximum": 2.9999999995714286,
+        "positive": 10,
+        "zero": 1,
+        "negative": 5
+      },
+      "reference_zero_count": 0,
+      "clustered_bootstrap_absolute_overhead": {
+        "iterations": 5000,
+        "clusters": 8,
+        "seed_sha256": "aeba5c6d59989d3720b4b1da8b6a09068586ad08b5cd6bc27e186b8a449a1eae",
+        "mean_95_percentile_interval": [
+          -20.349130434782612,
+          10.7
+        ],
+        "median_95_percentile_interval": [
+          -4.5,
+          6.5
+        ]
+      }
+    },
+    "source_lines_nonblank_noncomment": {
+      "generated": {
+        "n": 16,
+        "mean": 18.5625,
+        "median": 12.5,
+        "minimum": 6,
+        "maximum": 36,
+        "positive": 16,
+        "zero": 0,
+        "negative": 0
+      },
+      "reference": {
+        "n": 16,
+        "mean": 22.8125,
+        "median": 11.5,
+        "minimum": 5,
+        "maximum": 84,
+        "positive": 16,
+        "zero": 0,
+        "negative": 0
+      },
+      "absolute_overhead": {
+        "n": 16,
+        "mean": -4.25,
+        "median": 1.0,
+        "minimum": -50,
+        "maximum": 22,
+        "positive": 9,
+        "zero": 1,
+        "negative": 6
+      },
+      "normalized_overhead": {
+        "n": 16,
+        "mean": 0.310605944598568,
+        "median": 0.07323232322664779,
+        "minimum": -0.595238095231009,
+        "maximum": 3.39999999932,
+        "positive": 9,
+        "zero": 1,
+        "negative": 6
+      },
+      "reference_zero_count": 0,
+      "clustered_bootstrap_absolute_overhead": {
+        "iterations": 5000,
+        "clusters": 8,
+        "seed_sha256": "1f26b4bf72298d8bfee24350d63493c98b83495c47c9a0ac3a40d6fd8984a21f",
+        "mean_95_percentile_interval": [
+          -15.476190476190476,
+          7.8
+        ],
+        "median_95_percentile_interval": [
+          -8.0,
+          4.0
+        ]
+      }
+    },
+    "statement_count": {
+      "generated": {
+        "n": 16,
+        "mean": 12.3125,
+        "median": 8.0,
+        "minimum": 3,
+        "maximum": 25,
+        "positive": 16,
+        "zero": 0,
+        "negative": 0
+      },
+      "reference": {
+        "n": 16,
+        "mean": 15.5,
+        "median": 7.5,
+        "minimum": 3,
+        "maximum": 61,
+        "positive": 16,
+        "zero": 0,
+        "negative": 0
+      },
+      "absolute_overhead": {
+        "n": 16,
+        "mean": -3.1875,
+        "median": 0.5,
+        "minimum": -40,
+        "maximum": 12,
+        "positive": 8,
+        "zero": 3,
+        "negative": 5
+      },
+      "normalized_overhead": {
+        "n": 16,
+        "mean": 0.3386783197210986,
+        "median": 0.03571428571173469,
+        "minimum": -0.655737704907283,
+        "maximum": 3.9999999986666666,
+        "positive": 8,
+        "zero": 3,
+        "negative": 5
+      },
+      "reference_zero_count": 0,
+      "clustered_bootstrap_absolute_overhead": {
+        "iterations": 5000,
+        "clusters": 8,
+        "seed_sha256": "8489c1e6401e9a1212db0484339504406e5977e8b25ea72d55e6b737a0a3dcfc",
+        "mean_95_percentile_interval": [
+          -11.25,
+          4.625284090909087
+        ],
+        "median_95_percentile_interval": [
+          -3.0,
+          3.5
+        ]
+      }
+    },
+    "cyclomatic_complexity": {
+      "generated": {
+        "n": 16,
+        "mean": 4.75,
+        "median": 4.0,
+        "minimum": 2,
+        "maximum": 12,
+        "positive": 16,
+        "zero": 0,
+        "negative": 0
+      },
+      "reference": {
+        "n": 16,
+        "mean": 6.4375,
+        "median": 3.0,
+        "minimum": 1,
+        "maximum": 26,
+        "positive": 16,
+        "zero": 0,
+        "negative": 0
+      },
+      "absolute_overhead": {
+        "n": 16,
+        "mean": -1.6875,
+        "median": 0.0,
+        "minimum": -14,
+        "maximum": 3,
+        "positive": 5,
+        "zero": 5,
+        "negative": 6
+      },
+      "normalized_overhead": {
+        "n": 16,
+        "mean": 0.22588349125237006,
+        "median": 0.0,
+        "minimum": -0.5384615384408284,
+        "maximum": 2.9999999969999998,
+        "positive": 5,
+        "zero": 5,
+        "negative": 6
+      },
+      "reference_zero_count": 0,
+      "clustered_bootstrap_absolute_overhead": {
+        "iterations": 5000,
+        "clusters": 8,
+        "seed_sha256": "68ddab35be32fcf8c8f6616e9f69bd279d4d16aa06ac7390a17699aafdde8aca",
+        "mean_95_percentile_interval": [
+          -5.2105263157894735,
+          1.1333333333333333
+        ],
+        "median_95_percentile_interval": [
+          -1.0,
+          1.0
+        ]
+      }
+    },
+    "cognitive_complexity_approx": {
+      "generated": {
+        "n": 16,
+        "mean": 5.6875,
+        "median": 3.0,
+        "minimum": 1,
+        "maximum": 23,
+        "positive": 16,
+        "zero": 0,
+        "negative": 0
+      },
+      "reference": {
+        "n": 16,
+        "mean": 11.5,
+        "median": 2.5,
+        "minimum": 0,
+        "maximum": 55,
+        "positive": 15,
+        "zero": 1,
+        "negative": 0
+      },
+      "absolute_overhead": {
+        "n": 16,
+        "mean": -5.8125,
+        "median": -0.5,
+        "minimum": -37,
+        "maximum": 6,
+        "positive": 4,
+        "zero": 4,
+        "negative": 8
+      },
+      "normalized_overhead": {
+        "n": 15,
+        "mean": 0.26893780436635345,
+        "median": -0.16666666663888888,
+        "minimum": -0.7441860464943213,
+        "maximum": 4.999999995,
+        "positive": 3,
+        "zero": 4,
+        "negative": 8
+      },
+      "reference_zero_count": 1,
+      "clustered_bootstrap_absolute_overhead": {
+        "iterations": 5000,
+        "clusters": 8,
+        "seed_sha256": "e48459f3cccc159d73fe4ff1798432c3e0a29f0325592750c835939ae8852837",
+        "mean_95_percentile_interval": [
+          -15.211032388663968,
+          2.0
+        ],
+        "median_95_percentile_interval": [
+          -3.5,
+          1.0
+        ]
+      }
+    },
+    "max_control_nesting": {
+      "generated": {
+        "n": 16,
+        "mean": 1.875,
+        "median": 2.0,
+        "minimum": 1,
+        "maximum": 4,
+        "positive": 16,
+        "zero": 0,
+        "negative": 0
+      },
+      "reference": {
+        "n": 16,
+        "mean": 2.125,
+        "median": 2.0,
+        "minimum": 0,
+        "maximum": 4,
+        "positive": 15,
+        "zero": 1,
+        "negative": 0
+      },
+      "absolute_overhead": {
+        "n": 16,
+        "mean": -0.25,
+        "median": 0.0,
+        "minimum": -2,
+        "maximum": 3,
+        "positive": 2,
+        "zero": 7,
+        "negative": 7
+      },
+      "normalized_overhead": {
+        "n": 15,
+        "mean": -0.07222222228009259,
+        "median": 0.0,
+        "minimum": -0.6666666664444444,
+        "maximum": 1.9999999979999998,
+        "positive": 1,
+        "zero": 7,
+        "negative": 7
+      },
+      "reference_zero_count": 1,
+      "clustered_bootstrap_absolute_overhead": {
+        "iterations": 5000,
+        "clusters": 8,
+        "seed_sha256": "3a276b47168344d72f5d07d140e957a1f4e8848ef3b3d4ffa5f779d05a794a8e",
+        "mean_95_percentile_interval": [
+          -0.8823529411764706,
+          0.7333333333333333
+        ],
+        "median_95_percentile_interval": [
+          -1.0,
+          0.0
+        ]
+      }
+    },
+    "branch_count": {
+      "generated": {
+        "n": 16,
+        "mean": 2.8125,
+        "median": 2.0,
+        "minimum": 1,
+        "maximum": 8,
+        "positive": 16,
+        "zero": 0,
+        "negative": 0
+      },
+      "reference": {
+        "n": 16,
+        "mean": 4.875,
+        "median": 2.0,
+        "minimum": 0,
+        "maximum": 21,
+        "positive": 15,
+        "zero": 1,
+        "negative": 0
+      },
+      "absolute_overhead": {
+        "n": 16,
+        "mean": -2.0625,
+        "median": 0.0,
+        "minimum": -15,
+        "maximum": 3,
+        "positive": 4,
+        "zero": 6,
+        "negative": 6
+      },
+      "normalized_overhead": {
+        "n": 15,
+        "mean": 0.06312169288921736,
+        "median": 0.0,
+        "minimum": -0.749999999953125,
+        "maximum": 1.9999999979999998,
+        "positive": 3,
+        "zero": 6,
+        "negative": 6
+      },
+      "reference_zero_count": 1,
+      "clustered_bootstrap_absolute_overhead": {
+        "iterations": 5000,
+        "clusters": 8,
+        "seed_sha256": "60af3c5b183958e799e0fb9ac142bc0e84a62ca67e9a981d05e85e3d226a39e5",
+        "mean_95_percentile_interval": [
+          -5.7,
+          1.0
+        ],
+        "median_95_percentile_interval": [
+          -1.0,
+          1.0
+        ]
+      }
+    },
+    "method_invocation_count": {
+      "generated": {
+        "n": 16,
+        "mean": 3.1875,
+        "median": 3.0,
+        "minimum": 1,
+        "maximum": 7,
+        "positive": 16,
+        "zero": 0,
+        "negative": 0
+      },
+      "reference": {
+        "n": 16,
+        "mean": 10.0625,
+        "median": 3.0,
+        "minimum": 1,
+        "maximum": 55,
+        "positive": 16,
+        "zero": 0,
+        "negative": 0
+      },
+      "absolute_overhead": {
+        "n": 16,
+        "mean": -6.875,
+        "median": 0.0,
+        "minimum": -49,
+        "maximum": 2,
+        "positive": 2,
+        "zero": 7,
+        "negative": 7
+      },
+      "normalized_overhead": {
+        "n": 16,
+        "mean": -0.016560093211154404,
+        "median": 0.0,
+        "minimum": -0.8909090908928926,
+        "maximum": 1.9999999979999998,
+        "positive": 2,
+        "zero": 7,
+        "negative": 7
+      },
+      "reference_zero_count": 0,
+      "clustered_bootstrap_absolute_overhead": {
+        "iterations": 5000,
+        "clusters": 8,
+        "seed_sha256": "157687898061d9c593450319c7f7a71aa012fb72c29660327712d11dbccebbc9",
+        "mean_95_percentile_interval": [
+          -17.36842105263158,
+          0.23529411764705882
+        ],
+        "median_95_percentile_interval": [
+          -8.0,
+          0.0
+        ]
+      }
+    },
+    "constructor_invocation_count": {
+      "generated": {
+        "n": 16,
+        "mean": 1.0625,
+        "median": 1.0,
+        "minimum": 0,
+        "maximum": 2,
+        "positive": 13,
+        "zero": 3,
+        "negative": 0
+      },
+      "reference": {
+        "n": 16,
+        "mean": 1.1875,
+        "median": 1.0,
+        "minimum": 0,
+        "maximum": 5,
+        "positive": 12,
+        "zero": 4,
+        "negative": 0
+      },
+      "absolute_overhead": {
+        "n": 16,
+        "mean": -0.125,
+        "median": 0.0,
+        "minimum": -3,
+        "maximum": 1,
+        "positive": 1,
+        "zero": 14,
+        "negative": 1
+      },
+      "normalized_overhead": {
+        "n": 12,
+        "mean": -0.049999999989999995,
+        "median": 0.0,
+        "minimum": -0.59999999988,
+        "maximum": 0.0,
+        "positive": 0,
+        "zero": 11,
+        "negative": 1
+      },
+      "reference_zero_count": 4,
+      "clustered_bootstrap_absolute_overhead": {
+        "iterations": 5000,
+        "clusters": 8,
+        "seed_sha256": "44cac0dcb13cb9d827a13051f4abfe03016d085e906a994a4659c03db27ca685",
+        "mean_95_percentile_interval": [
+          -0.45,
+          0.2
+        ],
+        "median_95_percentile_interval": [
+          0.0,
+          0.0
+        ]
+      }
+    },
+    "unique_call_target_count": {
+      "generated": {
+        "n": 16,
+        "mean": 3.4375,
+        "median": 3.0,
+        "minimum": 1,
+        "maximum": 7,
+        "positive": 16,
+        "zero": 0,
+        "negative": 0
+      },
+      "reference": {
+        "n": 16,
+        "mean": 3.875,
+        "median": 3.0,
+        "minimum": 1,
+        "maximum": 7,
+        "positive": 16,
+        "zero": 0,
+        "negative": 0
+      },
+      "absolute_overhead": {
+        "n": 16,
+        "mean": -0.4375,
+        "median": 0.0,
+        "minimum": -3,
+        "maximum": 2,
+        "positive": 2,
+        "zero": 8,
+        "negative": 6
+      },
+      "normalized_overhead": {
+        "n": 16,
+        "mean": 0.041369047497969096,
+        "median": 0.0,
+        "minimum": -0.6666666664444444,
+        "maximum": 1.9999999979999998,
+        "positive": 2,
+        "zero": 8,
+        "negative": 6
+      },
+      "reference_zero_count": 0,
+      "clustered_bootstrap_absolute_overhead": {
+        "iterations": 5000,
+        "clusters": 8,
+        "seed_sha256": "3180609925beb49ecf3ea389535b78dd4227ffd212a88aa76c67cbf2e4f9c198",
+        "mean_95_percentile_interval": [
+          -1.0588235294117647,
+          0.2857142857142857
+        ],
+        "median_95_percentile_interval": [
+          -1.0,
+          0.0
+        ]
+      }
+    },
+    "parameter_count": {
+      "generated": {
+        "n": 16,
+        "mean": 1.875,
+        "median": 2.0,
+        "minimum": 1,
+        "maximum": 2,
+        "positive": 16,
+        "zero": 0,
+        "negative": 0
+      },
+      "reference": {
+        "n": 16,
+        "mean": 1.875,
+        "median": 2.0,
+        "minimum": 1,
+        "maximum": 2,
+        "positive": 16,
+        "zero": 0,
+        "negative": 0
+      },
+      "absolute_overhead": {
+        "n": 16,
+        "mean": 0.0,
+        "median": 0.0,
+        "minimum": 0,
+        "maximum": 0,
+        "positive": 0,
+        "zero": 16,
+        "negative": 0
+      },
+      "normalized_overhead": {
+        "n": 16,
+        "mean": 0.0,
+        "median": 0.0,
+        "minimum": 0.0,
+        "maximum": 0.0,
+        "positive": 0,
+        "zero": 16,
+        "negative": 0
+      },
+      "reference_zero_count": 0,
+      "clustered_bootstrap_absolute_overhead": {
+        "iterations": 5000,
+        "clusters": 8,
+        "seed_sha256": "75dd95a2c074a948eb093cbdc0e6d12ae79ee9a2b191b442201ab9dbd43f795a",
+        "mean_95_percentile_interval": [
+          0.0,
+          0.0
+        ],
+        "median_95_percentile_interval": [
+          0.0,
+          0.0
+        ]
+      }
+    },
+    "return_count": {
+      "generated": {
+        "n": 16,
+        "mean": 1.0,
+        "median": 1.0,
+        "minimum": 0,
+        "maximum": 2,
+        "positive": 12,
+        "zero": 4,
+        "negative": 0
+      },
+      "reference": {
+        "n": 16,
+        "mean": 1.0,
+        "median": 1.0,
+        "minimum": 0,
+        "maximum": 4,
+        "positive": 10,
+        "zero": 6,
+        "negative": 0
+      },
+      "absolute_overhead": {
+        "n": 16,
+        "mean": 0.0,
+        "median": 0.0,
+        "minimum": -3,
+        "maximum": 1,
+        "positive": 3,
+        "zero": 12,
+        "negative": 1
+      },
+      "normalized_overhead": {
+        "n": 10,
+        "mean": 0.024999999918749995,
+        "median": 0.0,
+        "minimum": -0.7499999998125,
+        "maximum": 0.9999999989999999,
+        "positive": 1,
+        "zero": 8,
+        "negative": 1
+      },
+      "reference_zero_count": 6,
+      "clustered_bootstrap_absolute_overhead": {
+        "iterations": 5000,
+        "clusters": 8,
+        "seed_sha256": "d694f57281493b6028b5ada468659793574e037e4fc167832af27566d3a85843",
+        "mean_95_percentile_interval": [
+          -0.3888888888888889,
+          0.5
+        ],
+        "median_95_percentile_interval": [
+          0.0,
+          0.5
+        ]
+      }
+    },
+    "throw_count": {
+      "generated": {
+        "n": 16,
+        "mean": 0.1875,
+        "median": 0.0,
+        "minimum": 0,
+        "maximum": 1,
+        "positive": 3,
+        "zero": 13,
+        "negative": 0
+      },
+      "reference": {
+        "n": 16,
+        "mean": 0.125,
+        "median": 0.0,
+        "minimum": 0,
+        "maximum": 1,
+        "positive": 2,
+        "zero": 14,
+        "negative": 0
+      },
+      "absolute_overhead": {
+        "n": 16,
+        "mean": 0.0625,
+        "median": 0.0,
+        "minimum": 0,
+        "maximum": 1,
+        "positive": 1,
+        "zero": 15,
+        "negative": 0
+      },
+      "normalized_overhead": {
+        "n": 2,
+        "mean": 0.0,
+        "median": 0.0,
+        "minimum": 0.0,
+        "maximum": 0.0,
+        "positive": 0,
+        "zero": 2,
+        "negative": 0
+      },
+      "reference_zero_count": 14,
+      "clustered_bootstrap_absolute_overhead": {
+        "iterations": 5000,
+        "clusters": 8,
+        "seed_sha256": "5ae47a2962974b5b452c492d6611305adc11728b06a87450b45db85768b81de2",
+        "mean_95_percentile_interval": [
+          0.0,
+          0.21428571428571427
+        ],
+        "median_95_percentile_interval": [
+          0.0,
+          0.0
+        ]
+      }
+    },
+    "local_variable_count": {
+      "generated": {
+        "n": 16,
+        "mean": 3.6875,
+        "median": 2.0,
+        "minimum": 0,
+        "maximum": 11,
+        "positive": 12,
+        "zero": 4,
+        "negative": 0
+      },
+      "reference": {
+        "n": 16,
+        "mean": 2.4375,
+        "median": 1.5,
+        "minimum": 0,
+        "maximum": 7,
+        "positive": 11,
+        "zero": 5,
+        "negative": 0
+      },
+      "absolute_overhead": {
+        "n": 16,
+        "mean": 1.25,
+        "median": 0.0,
+        "minimum": -2,
+        "maximum": 8,
+        "positive": 7,
+        "zero": 6,
+        "negative": 3
+      },
+      "normalized_overhead": {
+        "n": 11,
+        "mean": 0.9733766225815846,
+        "median": 0.0,
+        "minimum": -0.9999999989999999,
+        "maximum": 7.999999991999999,
+        "positive": 5,
+        "zero": 3,
+        "negative": 3
+      },
+      "reference_zero_count": 5,
+      "clustered_bootstrap_absolute_overhead": {
+        "iterations": 5000,
+        "clusters": 8,
+        "seed_sha256": "2c204330193e0bc649475ec66810b60fb410705251f908fae35a322b8232d129",
+        "mean_95_percentile_interval": [
+          -0.07692307692307693,
+          3.285924369747896
+        ],
+        "median_95_percentile_interval": [
+          0.0,
+          3.0
+        ]
+      }
+    },
+    "lambda_count": {
+      "generated": {
+        "n": 16,
+        "mean": 0.0,
+        "median": 0.0,
+        "minimum": 0,
+        "maximum": 0,
+        "positive": 0,
+        "zero": 16,
+        "negative": 0
+      },
+      "reference": {
+        "n": 16,
+        "mean": 0.0,
+        "median": 0.0,
+        "minimum": 0,
+        "maximum": 0,
+        "positive": 0,
+        "zero": 16,
+        "negative": 0
+      },
+      "absolute_overhead": {
+        "n": 16,
+        "mean": 0.0,
+        "median": 0.0,
+        "minimum": 0,
+        "maximum": 0,
+        "positive": 0,
+        "zero": 16,
+        "negative": 0
+      },
+      "normalized_overhead": {
+        "n": 0
+      },
+      "reference_zero_count": 16,
+      "clustered_bootstrap_absolute_overhead": {
+        "iterations": 5000,
+        "clusters": 8,
+        "seed_sha256": "cce276df361fe1a65332b4f3c071a9f4d70d3c27b27b39b2f7b1ffb2d823cacf",
+        "mean_95_percentile_interval": [
+          0.0,
+          0.0
+        ],
+        "median_95_percentile_interval": [
+          0.0,
+          0.0
+        ]
+      }
+    },
+    "code_smell_count": {
+      "generated": {
+        "n": 16,
+        "mean": 0.1875,
+        "median": 0.0,
+        "minimum": 0,
+        "maximum": 2,
+        "positive": 2,
+        "zero": 14,
+        "negative": 0
+      },
+      "reference": {
+        "n": 16,
+        "mean": 0.5625,
+        "median": 0.0,
+        "minimum": 0,
+        "maximum": 3,
+        "positive": 3,
+        "zero": 13,
+        "negative": 0
+      },
+      "absolute_overhead": {
+        "n": 16,
+        "mean": -0.375,
+        "median": 0.0,
+        "minimum": -3,
+        "maximum": 0,
+        "positive": 0,
+        "zero": 13,
+        "negative": 3
+      },
+      "normalized_overhead": {
+        "n": 3,
+        "mean": -0.6666666664444444,
+        "median": -0.6666666664444444,
+        "minimum": -0.9999999996666666,
+        "maximum": -0.3333333332222222,
+        "positive": 0,
+        "zero": 0,
+        "negative": 3
+      },
+      "reference_zero_count": 13,
+      "clustered_bootstrap_absolute_overhead": {
+        "iterations": 5000,
+        "clusters": 8,
+        "seed_sha256": "fb88e5532137e59b42c1944261cec2cf2c28d0a1019092146bf883a0fe8c803f",
+        "mean_95_percentile_interval": [
+          -0.9473684210526315,
+          0.0
+        ],
+        "median_95_percentile_interval": [
+          0.0,
+          0.0
+        ]
+      }
+    }
+  },
+  "by_turn": {
+    "1": {
+      "checkpoints": 9,
+      "metrics": {
+        "physical_lines": {
+          "generated": {
+            "n": 9,
+            "mean": 21.11111111111111,
+            "median": 15,
+            "minimum": 6,
+            "maximum": 45,
+            "positive": 9,
+            "zero": 0,
+            "negative": 0
+          },
+          "reference": {
+            "n": 9,
+            "mean": 15.555555555555555,
+            "median": 9,
+            "minimum": 6,
+            "maximum": 36,
+            "positive": 9,
+            "zero": 0,
+            "negative": 0
+          },
+          "absolute_overhead": {
+            "n": 9,
+            "mean": 5.555555555555555,
+            "median": 3,
+            "minimum": 0,
+            "maximum": 21,
+            "positive": 7,
+            "zero": 2,
+            "negative": 0
+          },
+          "normalized_overhead": {
+            "n": 9,
+            "mean": 0.5894300143555626,
+            "median": 0.24999999999305558,
+            "minimum": 0.0,
+            "maximum": 2.9999999995714286,
+            "positive": 7,
+            "zero": 2,
+            "negative": 0
+          },
+          "reference_zero_count": 0
+        },
+        "source_lines_nonblank_noncomment": {
+          "generated": {
+            "n": 9,
+            "mean": 17.666666666666668,
+            "median": 13,
+            "minimum": 6,
+            "maximum": 35,
+            "positive": 9,
+            "zero": 0,
+            "negative": 0
+          },
+          "reference": {
+            "n": 9,
+            "mean": 13.11111111111111,
+            "median": 9,
+            "minimum": 5,
+            "maximum": 27,
+            "positive": 9,
+            "zero": 0,
+            "negative": 0
+          },
+          "absolute_overhead": {
+            "n": 9,
+            "mean": 4.555555555555555,
+            "median": 3,
+            "minimum": 0,
+            "maximum": 17,
+            "positive": 7,
+            "zero": 2,
+            "negative": 0
+          },
+          "normalized_overhead": {
+            "n": 9,
+            "mean": 0.5642004085519061,
+            "median": 0.18518518517832647,
+            "minimum": 0.0,
+            "maximum": 3.39999999932,
+            "positive": 7,
+            "zero": 2,
+            "negative": 0
+          },
+          "reference_zero_count": 0
+        },
+        "statement_count": {
+          "generated": {
+            "n": 9,
+            "mean": 12.666666666666666,
+            "median": 9,
+            "minimum": 3,
+            "maximum": 29,
+            "positive": 9,
+            "zero": 0,
+            "negative": 0
+          },
+          "reference": {
+            "n": 9,
+            "mean": 9.222222222222221,
+            "median": 5,
+            "minimum": 3,
+            "maximum": 23,
+            "positive": 9,
+            "zero": 0,
+            "negative": 0
+          },
+          "absolute_overhead": {
+            "n": 9,
+            "mean": 3.4444444444444446,
+            "median": 3,
+            "minimum": 0,
+            "maximum": 12,
+            "positive": 6,
+            "zero": 3,
+            "negative": 0
+          },
+          "normalized_overhead": {
+            "n": 9,
+            "mean": 0.681366459437354,
+            "median": 0.2499999999875,
+            "minimum": 0.0,
+            "maximum": 3.9999999986666666,
+            "positive": 6,
+            "zero": 3,
+            "negative": 0
+          },
+          "reference_zero_count": 0
+        },
+        "cyclomatic_complexity": {
+          "generated": {
+            "n": 9,
+            "mean": 4.444444444444445,
+            "median": 4,
+            "minimum": 2,
+            "maximum": 11,
+            "positive": 9,
+            "zero": 0,
+            "negative": 0
+          },
+          "reference": {
+            "n": 9,
+            "mean": 3.5555555555555554,
+            "median": 2,
+            "minimum": 1,
+            "maximum": 9,
+            "positive": 9,
+            "zero": 0,
+            "negative": 0
+          },
+          "absolute_overhead": {
+            "n": 9,
+            "mean": 0.8888888888888888,
+            "median": 1,
+            "minimum": -1,
+            "maximum": 3,
+            "positive": 5,
+            "zero": 3,
+            "negative": 1
+          },
+          "normalized_overhead": {
+            "n": 9,
+            "mean": 0.5458553787592242,
+            "median": 0.22222222219753085,
+            "minimum": -0.1428571428367347,
+            "maximum": 2.9999999969999998,
+            "positive": 5,
+            "zero": 3,
+            "negative": 1
+          },
+          "reference_zero_count": 0
+        },
+        "cognitive_complexity_approx": {
+          "generated": {
+            "n": 9,
+            "mean": 5.222222222222222,
+            "median": 3,
+            "minimum": 1,
+            "maximum": 20,
+            "positive": 9,
+            "zero": 0,
+            "negative": 0
+          },
+          "reference": {
+            "n": 9,
+            "mean": 4.333333333333333,
+            "median": 1,
+            "minimum": 0,
+            "maximum": 17,
+            "positive": 8,
+            "zero": 1,
+            "negative": 0
+          },
+          "absolute_overhead": {
+            "n": 9,
+            "mean": 0.8888888888888888,
+            "median": 0,
+            "minimum": -3,
+            "maximum": 6,
+            "positive": 4,
+            "zero": 3,
+            "negative": 2
+          },
+          "normalized_overhead": {
+            "n": 8,
+            "mean": 0.334558823161216,
+            "median": 0.0,
+            "minimum": -0.3333333332962963,
+            "maximum": 1.9999999979999998,
+            "positive": 3,
+            "zero": 3,
+            "negative": 2
+          },
+          "reference_zero_count": 1
+        },
+        "max_control_nesting": {
+          "generated": {
+            "n": 9,
+            "mean": 1.6666666666666667,
+            "median": 1,
+            "minimum": 1,
+            "maximum": 3,
+            "positive": 9,
+            "zero": 0,
+            "negative": 0
+          },
+          "reference": {
+            "n": 9,
+            "mean": 1.7777777777777777,
+            "median": 1,
+            "minimum": 0,
+            "maximum": 4,
+            "positive": 8,
+            "zero": 1,
+            "negative": 0
+          },
+          "absolute_overhead": {
+            "n": 9,
+            "mean": -0.1111111111111111,
+            "median": 0,
+            "minimum": -1,
+            "maximum": 3,
+            "positive": 1,
+            "zero": 4,
+            "negative": 4
+          },
+          "normalized_overhead": {
+            "n": 8,
+            "mean": -0.17708333326649306,
+            "median": -0.12499999996875,
+            "minimum": -0.49999999975,
+            "maximum": 0.0,
+            "positive": 0,
+            "zero": 4,
+            "negative": 4
+          },
+          "reference_zero_count": 1
+        },
+        "branch_count": {
+          "generated": {
+            "n": 9,
+            "mean": 3.111111111111111,
+            "median": 2,
+            "minimum": 1,
+            "maximum": 10,
+            "positive": 9,
+            "zero": 0,
+            "negative": 0
+          },
+          "reference": {
+            "n": 9,
+            "mean": 2.4444444444444446,
+            "median": 1,
+            "minimum": 0,
+            "maximum": 8,
+            "positive": 8,
+            "zero": 1,
+            "negative": 0
+          },
+          "absolute_overhead": {
+            "n": 9,
+            "mean": 0.6666666666666666,
+            "median": 0,
+            "minimum": -1,
+            "maximum": 3,
+            "positive": 4,
+            "zero": 4,
+            "negative": 1
+          },
+          "normalized_overhead": {
+            "n": 8,
+            "mean": 0.25624999975109375,
+            "median": 0.0,
+            "minimum": -0.19999999996,
+            "maximum": 0.9999999989999999,
+            "positive": 3,
+            "zero": 4,
+            "negative": 1
+          },
+          "reference_zero_count": 1
+        },
+        "method_invocation_count": {
+          "generated": {
+            "n": 9,
+            "mean": 3.888888888888889,
+            "median": 3,
+            "minimum": 1,
+            "maximum": 12,
+            "positive": 9,
+            "zero": 0,
+            "negative": 0
+          },
+          "reference": {
+            "n": 9,
+            "mean": 4.111111111111111,
+            "median": 2,
+            "minimum": 1,
+            "maximum": 12,
+            "positive": 9,
+            "zero": 0,
+            "negative": 0
+          },
+          "absolute_overhead": {
+            "n": 9,
+            "mean": -0.2222222222222222,
+            "median": 0,
+            "minimum": -8,
+            "maximum": 3,
+            "positive": 3,
+            "zero": 4,
+            "negative": 2
+          },
+          "normalized_overhead": {
+            "n": 9,
+            "mean": 0.39351851807786775,
+            "median": 0.0,
+            "minimum": -0.6666666666111111,
+            "maximum": 1.9999999979999998,
+            "positive": 3,
+            "zero": 4,
+            "negative": 2
+          },
+          "reference_zero_count": 0
+        },
+        "constructor_invocation_count": {
+          "generated": {
+            "n": 9,
+            "mean": 1.0,
+            "median": 1,
+            "minimum": 0,
+            "maximum": 2,
+            "positive": 7,
+            "zero": 2,
+            "negative": 0
+          },
+          "reference": {
+            "n": 9,
+            "mean": 0.8888888888888888,
+            "median": 1,
+            "minimum": 0,
+            "maximum": 2,
+            "positive": 6,
+            "zero": 3,
+            "negative": 0
+          },
+          "absolute_overhead": {
+            "n": 9,
+            "mean": 0.1111111111111111,
+            "median": 0,
+            "minimum": 0,
+            "maximum": 1,
+            "positive": 1,
+            "zero": 8,
+            "negative": 0
+          },
+          "normalized_overhead": {
+            "n": 6,
+            "mean": 0.0,
+            "median": 0.0,
+            "minimum": 0.0,
+            "maximum": 0.0,
+            "positive": 0,
+            "zero": 6,
+            "negative": 0
+          },
+          "reference_zero_count": 3
+        },
+        "unique_call_target_count": {
+          "generated": {
+            "n": 9,
+            "mean": 3.111111111111111,
+            "median": 3,
+            "minimum": 2,
+            "maximum": 7,
+            "positive": 9,
+            "zero": 0,
+            "negative": 0
+          },
+          "reference": {
+            "n": 9,
+            "mean": 3.111111111111111,
+            "median": 2,
+            "minimum": 1,
+            "maximum": 7,
+            "positive": 9,
+            "zero": 0,
+            "negative": 0
+          },
+          "absolute_overhead": {
+            "n": 9,
+            "mean": 0.0,
+            "median": 0,
+            "minimum": -3,
+            "maximum": 2,
+            "positive": 2,
+            "zero": 5,
+            "negative": 2
+          },
+          "normalized_overhead": {
+            "n": 9,
+            "mean": 0.24074074048456787,
+            "median": 0.0,
+            "minimum": -0.49999999991666666,
+            "maximum": 1.9999999979999998,
+            "positive": 2,
+            "zero": 5,
+            "negative": 2
+          },
+          "reference_zero_count": 0
+        },
+        "parameter_count": {
+          "generated": {
+            "n": 9,
+            "mean": 1.4444444444444444,
+            "median": 2,
+            "minimum": 0,
+            "maximum": 2,
+            "positive": 8,
+            "zero": 1,
+            "negative": 0
+          },
+          "reference": {
+            "n": 9,
+            "mean": 1.4444444444444444,
+            "median": 2,
+            "minimum": 0,
+            "maximum": 2,
+            "positive": 8,
+            "zero": 1,
+            "negative": 0
+          },
+          "absolute_overhead": {
+            "n": 9,
+            "mean": 0.0,
+            "median": 0,
+            "minimum": 0,
+            "maximum": 0,
+            "positive": 0,
+            "zero": 9,
+            "negative": 0
+          },
+          "normalized_overhead": {
+            "n": 8,
+            "mean": 0.0,
+            "median": 0.0,
+            "minimum": 0.0,
+            "maximum": 0.0,
+            "positive": 0,
+            "zero": 8,
+            "negative": 0
+          },
+          "reference_zero_count": 1
+        },
+        "return_count": {
+          "generated": {
+            "n": 9,
+            "mean": 1.0,
+            "median": 1,
+            "minimum": 0,
+            "maximum": 2,
+            "positive": 7,
+            "zero": 2,
+            "negative": 0
+          },
+          "reference": {
+            "n": 9,
+            "mean": 0.8888888888888888,
+            "median": 1,
+            "minimum": 0,
+            "maximum": 2,
+            "positive": 7,
+            "zero": 2,
+            "negative": 0
+          },
+          "absolute_overhead": {
+            "n": 9,
+            "mean": 0.1111111111111111,
+            "median": 0,
+            "minimum": 0,
+            "maximum": 1,
+            "positive": 1,
+            "zero": 8,
+            "negative": 0
+          },
+          "normalized_overhead": {
+            "n": 7,
+            "mean": 0.1428571427142857,
+            "median": 0.0,
+            "minimum": 0.0,
+            "maximum": 0.9999999989999999,
+            "positive": 1,
+            "zero": 6,
+            "negative": 0
+          },
+          "reference_zero_count": 2
+        },
+        "throw_count": {
+          "generated": {
+            "n": 9,
+            "mean": 0.3333333333333333,
+            "median": 0,
+            "minimum": 0,
+            "maximum": 1,
+            "positive": 3,
+            "zero": 6,
+            "negative": 0
+          },
+          "reference": {
+            "n": 9,
+            "mean": 0.2222222222222222,
+            "median": 0,
+            "minimum": 0,
+            "maximum": 1,
+            "positive": 2,
+            "zero": 7,
+            "negative": 0
+          },
+          "absolute_overhead": {
+            "n": 9,
+            "mean": 0.1111111111111111,
+            "median": 0,
+            "minimum": 0,
+            "maximum": 1,
+            "positive": 1,
+            "zero": 8,
+            "negative": 0
+          },
+          "normalized_overhead": {
+            "n": 2,
+            "mean": 0.0,
+            "median": 0.0,
+            "minimum": 0.0,
+            "maximum": 0.0,
+            "positive": 0,
+            "zero": 2,
+            "negative": 0
+          },
+          "reference_zero_count": 7
+        },
+        "local_variable_count": {
+          "generated": {
+            "n": 9,
+            "mean": 4.444444444444445,
+            "median": 2,
+            "minimum": 0,
+            "maximum": 13,
+            "positive": 8,
+            "zero": 1,
+            "negative": 0
+          },
+          "reference": {
+            "n": 9,
+            "mean": 2.5555555555555554,
+            "median": 1,
+            "minimum": 0,
+            "maximum": 10,
+            "positive": 6,
+            "zero": 3,
+            "negative": 0
+          },
+          "absolute_overhead": {
+            "n": 9,
+            "mean": 1.8888888888888888,
+            "median": 1,
+            "minimum": 0,
+            "maximum": 8,
+            "positive": 6,
+            "zero": 3,
+            "negative": 0
+          },
+          "normalized_overhead": {
+            "n": 6,
+            "mean": 1.7166666651061109,
+            "median": 0.649999999485,
+            "minimum": 0.0,
+            "maximum": 7.999999991999999,
+            "positive": 4,
+            "zero": 2,
+            "negative": 0
+          },
+          "reference_zero_count": 3
+        },
+        "lambda_count": {
+          "generated": {
+            "n": 9,
+            "mean": 0.0,
+            "median": 0,
+            "minimum": 0,
+            "maximum": 0,
+            "positive": 0,
+            "zero": 9,
+            "negative": 0
+          },
+          "reference": {
+            "n": 9,
+            "mean": 0.0,
+            "median": 0,
+            "minimum": 0,
+            "maximum": 0,
+            "positive": 0,
+            "zero": 9,
+            "negative": 0
+          },
+          "absolute_overhead": {
+            "n": 9,
+            "mean": 0.0,
+            "median": 0,
+            "minimum": 0,
+            "maximum": 0,
+            "positive": 0,
+            "zero": 9,
+            "negative": 0
+          },
+          "normalized_overhead": {
+            "n": 0
+          },
+          "reference_zero_count": 9
+        },
+        "code_smell_count": {
+          "generated": {
+            "n": 9,
+            "mean": 0.1111111111111111,
+            "median": 0,
+            "minimum": 0,
+            "maximum": 1,
+            "positive": 1,
+            "zero": 8,
+            "negative": 0
+          },
+          "reference": {
+            "n": 9,
+            "mean": 0.1111111111111111,
+            "median": 0,
+            "minimum": 0,
+            "maximum": 1,
+            "positive": 1,
+            "zero": 8,
+            "negative": 0
+          },
+          "absolute_overhead": {
+            "n": 9,
+            "mean": 0.0,
+            "median": 0,
+            "minimum": 0,
+            "maximum": 0,
+            "positive": 0,
+            "zero": 9,
+            "negative": 0
+          },
+          "normalized_overhead": {
+            "n": 1,
+            "mean": 0.0,
+            "median": 0.0,
+            "minimum": 0.0,
+            "maximum": 0.0,
+            "positive": 0,
+            "zero": 1,
+            "negative": 0
+          },
+          "reference_zero_count": 8
+        }
+      }
+    },
+    "2": {
+      "checkpoints": 7,
+      "metrics": {
+        "physical_lines": {
+          "generated": {
+            "n": 7,
+            "mean": 24.571428571428573,
+            "median": 14,
+            "minimum": 9,
+            "maximum": 52,
+            "positive": 7,
+            "zero": 0,
+            "negative": 0
+          },
+          "reference": {
+            "n": 7,
+            "mean": 25.285714285714285,
+            "median": 14,
+            "minimum": 8,
+            "maximum": 74,
+            "positive": 7,
+            "zero": 0,
+            "negative": 0
+          },
+          "absolute_overhead": {
+            "n": 7,
+            "mean": -0.7142857142857143,
+            "median": 2,
+            "minimum": -38,
+            "maximum": 27,
+            "positive": 4,
+            "zero": 0,
+            "negative": 3
+          },
+          "normalized_overhead": {
+            "n": 7,
+            "mean": 0.23261293080395756,
+            "median": 0.16666666665277777,
+            "minimum": -0.5135135135065741,
+            "maximum": 2.076923076763314,
+            "positive": 4,
+            "zero": 0,
+            "negative": 3
+          },
+          "reference_zero_count": 0
+        },
+        "source_lines_nonblank_noncomment": {
+          "generated": {
+            "n": 7,
+            "mean": 20.285714285714285,
+            "median": 11,
+            "minimum": 8,
+            "maximum": 40,
+            "positive": 7,
+            "zero": 0,
+            "negative": 0
+          },
+          "reference": {
+            "n": 7,
+            "mean": 21.428571428571427,
+            "median": 14,
+            "minimum": 8,
+            "maximum": 61,
+            "positive": 7,
+            "zero": 0,
+            "negative": 0
+          },
+          "absolute_overhead": {
+            "n": 7,
+            "mean": -1.1428571428571428,
+            "median": -1,
+            "minimum": -31,
+            "maximum": 22,
+            "positive": 3,
+            "zero": 0,
+            "negative": 4
+          },
+          "normalized_overhead": {
+            "n": 7,
+            "mean": 0.21764208224208076,
+            "median": -0.08333333332638888,
+            "minimum": -0.5081967213031443,
+            "maximum": 2.19999999978,
+            "positive": 3,
+            "zero": 0,
+            "negative": 4
+          },
+          "reference_zero_count": 0
+        },
+        "statement_count": {
+          "generated": {
+            "n": 7,
+            "mean": 14.0,
+            "median": 7,
+            "minimum": 5,
+            "maximum": 33,
+            "positive": 7,
+            "zero": 0,
+            "negative": 0
+          },
+          "reference": {
+            "n": 7,
+            "mean": 14.714285714285714,
+            "median": 8,
+            "minimum": 4,
+            "maximum": 43,
+            "positive": 7,
+            "zero": 0,
+            "negative": 0
+          },
+          "absolute_overhead": {
+            "n": 7,
+            "mean": -0.7142857142857143,
+            "median": 0,
+            "minimum": -20,
+            "maximum": 11,
+            "positive": 3,
+            "zero": 1,
+            "negative": 3
+          },
+          "normalized_overhead": {
+            "n": 7,
+            "mean": 0.12212624582457132,
+            "median": 0.0,
+            "minimum": -0.4651162790589508,
+            "maximum": 1.374999999828125,
+            "positive": 3,
+            "zero": 1,
+            "negative": 3
+          },
+          "reference_zero_count": 0
+        },
+        "cyclomatic_complexity": {
+          "generated": {
+            "n": 7,
+            "mean": 5.142857142857143,
+            "median": 3,
+            "minimum": 2,
+            "maximum": 13,
+            "positive": 7,
+            "zero": 0,
+            "negative": 0
+          },
+          "reference": {
+            "n": 7,
+            "mean": 6.142857142857143,
+            "median": 3,
+            "minimum": 2,
+            "maximum": 18,
+            "positive": 7,
+            "zero": 0,
+            "negative": 0
+          },
+          "absolute_overhead": {
+            "n": 7,
+            "mean": -1.0,
+            "median": 0,
+            "minimum": -9,
+            "maximum": 2,
+            "positive": 2,
+            "zero": 2,
+            "negative": 3
+          },
+          "normalized_overhead": {
+            "n": 7,
+            "mean": 0.014069264024244061,
+            "median": 0.0,
+            "minimum": -0.4999999999722222,
+            "maximum": 0.9999999995,
+            "positive": 2,
+            "zero": 2,
+            "negative": 3
+          },
+          "reference_zero_count": 0
+        },
+        "cognitive_complexity_approx": {
+          "generated": {
+            "n": 7,
+            "mean": 6.571428571428571,
+            "median": 3,
+            "minimum": 1,
+            "maximum": 22,
+            "positive": 7,
+            "zero": 0,
+            "negative": 0
+          },
+          "reference": {
+            "n": 7,
+            "mean": 10.571428571428571,
+            "median": 3,
+            "minimum": 1,
+            "maximum": 43,
+            "positive": 7,
+            "zero": 0,
+            "negative": 0
+          },
+          "absolute_overhead": {
+            "n": 7,
+            "mean": -4.0,
+            "median": -1,
+            "minimum": -32,
+            "maximum": 5,
+            "positive": 2,
+            "zero": 1,
+            "negative": 4
+          },
+          "normalized_overhead": {
+            "n": 7,
+            "mean": 0.45433933606389304,
+            "median": -0.3333333332222222,
+            "minimum": -0.7441860464943213,
+            "maximum": 4.999999995,
+            "positive": 2,
+            "zero": 1,
+            "negative": 4
+          },
+          "reference_zero_count": 0
+        },
+        "max_control_nesting": {
+          "generated": {
+            "n": 7,
+            "mean": 2.0,
+            "median": 2,
+            "minimum": 1,
+            "maximum": 3,
+            "positive": 7,
+            "zero": 0,
+            "negative": 0
+          },
+          "reference": {
+            "n": 7,
+            "mean": 2.2857142857142856,
+            "median": 2,
+            "minimum": 1,
+            "maximum": 4,
+            "positive": 7,
+            "zero": 0,
+            "negative": 0
+          },
+          "absolute_overhead": {
+            "n": 7,
+            "mean": -0.2857142857142857,
+            "median": 0,
+            "minimum": -2,
+            "maximum": 2,
+            "positive": 1,
+            "zero": 3,
+            "negative": 3
+          },
+          "normalized_overhead": {
+            "n": 7,
+            "mean": 0.10714285691964284,
+            "median": 0.0,
+            "minimum": -0.499999999875,
+            "maximum": 1.9999999979999998,
+            "positive": 1,
+            "zero": 3,
+            "negative": 3
+          },
+          "reference_zero_count": 0
+        },
+        "branch_count": {
+          "generated": {
+            "n": 7,
+            "mean": 3.5714285714285716,
+            "median": 2,
+            "minimum": 1,
+            "maximum": 12,
+            "positive": 7,
+            "zero": 0,
+            "negative": 0
+          },
+          "reference": {
+            "n": 7,
+            "mean": 4.857142857142857,
+            "median": 2,
+            "minimum": 1,
+            "maximum": 16,
+            "positive": 7,
+            "zero": 0,
+            "negative": 0
+          },
+          "absolute_overhead": {
+            "n": 7,
+            "mean": -1.2857142857142858,
+            "median": 0,
+            "minimum": -12,
+            "maximum": 3,
+            "positive": 2,
+            "zero": 2,
+            "negative": 3
+          },
+          "normalized_overhead": {
+            "n": 7,
+            "mean": 0.10714285691013556,
+            "median": 0.0,
+            "minimum": -0.749999999953125,
+            "maximum": 1.9999999979999998,
+            "positive": 2,
+            "zero": 2,
+            "negative": 3
+          },
+          "reference_zero_count": 0
+        },
+        "method_invocation_count": {
+          "generated": {
+            "n": 7,
+            "mean": 4.285714285714286,
+            "median": 3,
+            "minimum": 1,
+            "maximum": 13,
+            "positive": 7,
+            "zero": 0,
+            "negative": 0
+          },
+          "reference": {
+            "n": 7,
+            "mean": 7.142857142857143,
+            "median": 4,
+            "minimum": 2,
+            "maximum": 23,
+            "positive": 7,
+            "zero": 0,
+            "negative": 0
+          },
+          "absolute_overhead": {
+            "n": 7,
+            "mean": -2.857142857142857,
+            "median": 0,
+            "minimum": -20,
+            "maximum": 3,
+            "positive": 1,
+            "zero": 3,
+            "negative": 3
+          },
+          "normalized_overhead": {
+            "n": 7,
+            "mean": -0.20517598339827736,
+            "median": 0.0,
+            "minimum": -0.8695652173534971,
+            "maximum": 0.29999999997,
+            "positive": 1,
+            "zero": 3,
+            "negative": 3
+          },
+          "reference_zero_count": 0
+        },
+        "constructor_invocation_count": {
+          "generated": {
+            "n": 7,
+            "mean": 1.0,
+            "median": 1,
+            "minimum": 0,
+            "maximum": 3,
+            "positive": 4,
+            "zero": 3,
+            "negative": 0
+          },
+          "reference": {
+            "n": 7,
+            "mean": 1.0,
+            "median": 1,
+            "minimum": 0,
+            "maximum": 3,
+            "positive": 4,
+            "zero": 3,
+            "negative": 0
+          },
+          "absolute_overhead": {
+            "n": 7,
+            "mean": 0.0,
+            "median": 0,
+            "minimum": 0,
+            "maximum": 0,
+            "positive": 0,
+            "zero": 7,
+            "negative": 0
+          },
+          "normalized_overhead": {
+            "n": 4,
+            "mean": 0.0,
+            "median": 0.0,
+            "minimum": 0.0,
+            "maximum": 0.0,
+            "positive": 0,
+            "zero": 4,
+            "negative": 0
+          },
+          "reference_zero_count": 3
+        },
+        "unique_call_target_count": {
+          "generated": {
+            "n": 7,
+            "mean": 3.4285714285714284,
+            "median": 4,
+            "minimum": 1,
+            "maximum": 5,
+            "positive": 7,
+            "zero": 0,
+            "negative": 0
+          },
+          "reference": {
+            "n": 7,
+            "mean": 4.714285714285714,
+            "median": 4,
+            "minimum": 3,
+            "maximum": 8,
+            "positive": 7,
+            "zero": 0,
+            "negative": 0
+          },
+          "absolute_overhead": {
+            "n": 7,
+            "mean": -1.2857142857142858,
+            "median": -1,
+            "minimum": -3,
+            "maximum": 0,
+            "positive": 0,
+            "zero": 3,
+            "negative": 4
+          },
+          "normalized_overhead": {
+            "n": 7,
+            "mean": -0.2583333332737797,
+            "median": -0.16666666663888888,
+            "minimum": -0.6666666664444444,
+            "maximum": 0.0,
+            "positive": 0,
+            "zero": 3,
+            "negative": 4
+          },
+          "reference_zero_count": 0
+        },
+        "parameter_count": {
+          "generated": {
+            "n": 7,
+            "mean": 1.5714285714285714,
+            "median": 2,
+            "minimum": 0,
+            "maximum": 2,
+            "positive": 6,
+            "zero": 1,
+            "negative": 0
+          },
+          "reference": {
+            "n": 7,
+            "mean": 1.5714285714285714,
+            "median": 2,
+            "minimum": 0,
+            "maximum": 2,
+            "positive": 6,
+            "zero": 1,
+            "negative": 0
+          },
+          "absolute_overhead": {
+            "n": 7,
+            "mean": 0.0,
+            "median": 0,
+            "minimum": 0,
+            "maximum": 0,
+            "positive": 0,
+            "zero": 7,
+            "negative": 0
+          },
+          "normalized_overhead": {
+            "n": 6,
+            "mean": 0.0,
+            "median": 0.0,
+            "minimum": 0.0,
+            "maximum": 0.0,
+            "positive": 0,
+            "zero": 6,
+            "negative": 0
+          },
+          "reference_zero_count": 1
+        },
+        "return_count": {
+          "generated": {
+            "n": 7,
+            "mean": 0.8571428571428571,
+            "median": 1,
+            "minimum": 0,
+            "maximum": 2,
+            "positive": 5,
+            "zero": 2,
+            "negative": 0
+          },
+          "reference": {
+            "n": 7,
+            "mean": 0.7142857142857143,
+            "median": 1,
+            "minimum": 0,
+            "maximum": 2,
+            "positive": 4,
+            "zero": 3,
+            "negative": 0
+          },
+          "absolute_overhead": {
+            "n": 7,
+            "mean": 0.14285714285714285,
+            "median": 0,
+            "minimum": 0,
+            "maximum": 1,
+            "positive": 1,
+            "zero": 6,
+            "negative": 0
+          },
+          "normalized_overhead": {
+            "n": 4,
+            "mean": 0.0,
+            "median": 0.0,
+            "minimum": 0.0,
+            "maximum": 0.0,
+            "positive": 0,
+            "zero": 4,
+            "negative": 0
+          },
+          "reference_zero_count": 3
+        },
+        "throw_count": {
+          "generated": {
+            "n": 7,
+            "mean": 0.14285714285714285,
+            "median": 0,
+            "minimum": 0,
+            "maximum": 1,
+            "positive": 1,
+            "zero": 6,
+            "negative": 0
+          },
+          "reference": {
+            "n": 7,
+            "mean": 0.14285714285714285,
+            "median": 0,
+            "minimum": 0,
+            "maximum": 1,
+            "positive": 1,
+            "zero": 6,
+            "negative": 0
+          },
+          "absolute_overhead": {
+            "n": 7,
+            "mean": 0.0,
+            "median": 0,
+            "minimum": 0,
+            "maximum": 0,
+            "positive": 0,
+            "zero": 7,
+            "negative": 0
+          },
+          "normalized_overhead": {
+            "n": 1,
+            "mean": 0.0,
+            "median": 0.0,
+            "minimum": 0.0,
+            "maximum": 0.0,
+            "positive": 0,
+            "zero": 1,
+            "negative": 0
+          },
+          "reference_zero_count": 6
+        },
+        "local_variable_count": {
+          "generated": {
+            "n": 7,
+            "mean": 5.428571428571429,
+            "median": 2,
+            "minimum": 0,
+            "maximum": 15,
+            "positive": 5,
+            "zero": 2,
+            "negative": 0
+          },
+          "reference": {
+            "n": 7,
+            "mean": 3.4285714285714284,
+            "median": 2,
+            "minimum": 0,
+            "maximum": 10,
+            "positive": 6,
+            "zero": 1,
+            "negative": 0
+          },
+          "absolute_overhead": {
+            "n": 7,
+            "mean": 2.0,
+            "median": 0,
+            "minimum": -1,
+            "maximum": 7,
+            "positive": 3,
+            "zero": 3,
+            "negative": 1
+          },
+          "normalized_overhead": {
+            "n": 6,
+            "mean": 0.30833333339874996,
+            "median": 0.249999999975,
+            "minimum": -0.9999999989999999,
+            "maximum": 1.7499999995625,
+            "positive": 3,
+            "zero": 2,
+            "negative": 1
+          },
+          "reference_zero_count": 1
+        },
+        "lambda_count": {
+          "generated": {
+            "n": 7,
+            "mean": 0.0,
+            "median": 0,
+            "minimum": 0,
+            "maximum": 0,
+            "positive": 0,
+            "zero": 7,
+            "negative": 0
+          },
+          "reference": {
+            "n": 7,
+            "mean": 0.0,
+            "median": 0,
+            "minimum": 0,
+            "maximum": 0,
+            "positive": 0,
+            "zero": 7,
+            "negative": 0
+          },
+          "absolute_overhead": {
+            "n": 7,
+            "mean": 0.0,
+            "median": 0,
+            "minimum": 0,
+            "maximum": 0,
+            "positive": 0,
+            "zero": 7,
+            "negative": 0
+          },
+          "normalized_overhead": {
+            "n": 0
+          },
+          "reference_zero_count": 7
+        },
+        "code_smell_count": {
+          "generated": {
+            "n": 7,
+            "mean": 0.14285714285714285,
+            "median": 0,
+            "minimum": 0,
+            "maximum": 1,
+            "positive": 1,
+            "zero": 6,
+            "negative": 0
+          },
+          "reference": {
+            "n": 7,
+            "mean": 0.7142857142857143,
+            "median": 0,
+            "minimum": 0,
+            "maximum": 3,
+            "positive": 2,
+            "zero": 5,
+            "negative": 0
+          },
+          "absolute_overhead": {
+            "n": 7,
+            "mean": -0.5714285714285714,
+            "median": 0,
+            "minimum": -3,
+            "maximum": 0,
+            "positive": 0,
+            "zero": 5,
+            "negative": 2
+          },
+          "normalized_overhead": {
+            "n": 2,
+            "mean": -0.7499999997083333,
+            "median": -0.7499999997083333,
+            "minimum": -0.9999999996666666,
+            "maximum": -0.49999999975,
+            "positive": 0,
+            "zero": 0,
+            "negative": 2
+          },
+          "reference_zero_count": 5
+        }
+      }
+    },
+    "3": {
+      "checkpoints": 5,
+      "metrics": {
+        "physical_lines": {
+          "generated": {
+            "n": 5,
+            "mean": 30.0,
+            "median": 15,
+            "minimum": 11,
+            "maximum": 68,
+            "positive": 5,
+            "zero": 0,
+            "negative": 0
+          },
+          "reference": {
+            "n": 5,
+            "mean": 35.4,
+            "median": 17,
+            "minimum": 8,
+            "maximum": 85,
+            "positive": 5,
+            "zero": 0,
+            "negative": 0
+          },
+          "absolute_overhead": {
+            "n": 5,
+            "mean": -5.4,
+            "median": -1,
+            "minimum": -42,
+            "maximum": 15,
+            "positive": 2,
+            "zero": 0,
+            "negative": 3
+          },
+          "normalized_overhead": {
+            "n": 5,
+            "mean": -0.005034881884155082,
+            "median": -0.07142857142346938,
+            "minimum": -0.49411764705301037,
+            "maximum": 0.374999999953125,
+            "positive": 2,
+            "zero": 0,
+            "negative": 3
+          },
+          "reference_zero_count": 0
+        },
+        "source_lines_nonblank_noncomment": {
+          "generated": {
+            "n": 5,
+            "mean": 24.8,
+            "median": 13,
+            "minimum": 10,
+            "maximum": 54,
+            "positive": 5,
+            "zero": 0,
+            "negative": 0
+          },
+          "reference": {
+            "n": 5,
+            "mean": 28.6,
+            "median": 16,
+            "minimum": 8,
+            "maximum": 67,
+            "positive": 5,
+            "zero": 0,
+            "negative": 0
+          },
+          "absolute_overhead": {
+            "n": 5,
+            "mean": -3.8,
+            "median": -1,
+            "minimum": -31,
+            "maximum": 16,
+            "positive": 2,
+            "zero": 0,
+            "negative": 3
+          },
+          "normalized_overhead": {
+            "n": 5,
+            "mean": -0.03511250140491886,
+            "median": -0.07142857142346938,
+            "minimum": -0.4626865671572733,
+            "maximum": 0.4210526315678671,
+            "positive": 2,
+            "zero": 0,
+            "negative": 3
+          },
+          "reference_zero_count": 0
+        },
+        "statement_count": {
+          "generated": {
+            "n": 5,
+            "mean": 17.8,
+            "median": 7,
+            "minimum": 5,
+            "maximum": 45,
+            "positive": 5,
+            "zero": 0,
+            "negative": 0
+          },
+          "reference": {
+            "n": 5,
+            "mean": 20.6,
+            "median": 11,
+            "minimum": 4,
+            "maximum": 47,
+            "positive": 5,
+            "zero": 0,
+            "negative": 0
+          },
+          "absolute_overhead": {
+            "n": 5,
+            "mean": -2.8,
+            "median": -1,
+            "minimum": -22,
+            "maximum": 12,
+            "positive": 2,
+            "zero": 0,
+            "negative": 3
+          },
+          "normalized_overhead": {
+            "n": 5,
+            "mean": -0.06861702127957117,
+            "median": -0.124999999984375,
+            "minimum": -0.4680851063730195,
+            "maximum": 0.3636363636253444,
+            "positive": 2,
+            "zero": 0,
+            "negative": 3
+          },
+          "reference_zero_count": 0
+        },
+        "cyclomatic_complexity": {
+          "generated": {
+            "n": 5,
+            "mean": 7.4,
+            "median": 4,
+            "minimum": 2,
+            "maximum": 16,
+            "positive": 5,
+            "zero": 0,
+            "negative": 0
+          },
+          "reference": {
+            "n": 5,
+            "mean": 9.0,
+            "median": 4,
+            "minimum": 2,
+            "maximum": 22,
+            "positive": 5,
+            "zero": 0,
+            "negative": 0
+          },
+          "absolute_overhead": {
+            "n": 5,
+            "mean": -1.6,
+            "median": 0,
+            "minimum": -10,
+            "maximum": 3,
+            "positive": 1,
+            "zero": 2,
+            "negative": 2
+          },
+          "normalized_overhead": {
+            "n": 5,
+            "mean": -0.09475524474216282,
+            "median": 0.0,
+            "minimum": -0.4545454545247934,
+            "maximum": 0.2307692307514793,
+            "positive": 1,
+            "zero": 2,
+            "negative": 2
+          },
+          "reference_zero_count": 0
+        },
+        "cognitive_complexity_approx": {
+          "generated": {
+            "n": 5,
+            "mean": 12.2,
+            "median": 6,
+            "minimum": 1,
+            "maximum": 29,
+            "positive": 5,
+            "zero": 0,
+            "negative": 0
+          },
+          "reference": {
+            "n": 5,
+            "mean": 17.4,
+            "median": 6,
+            "minimum": 1,
+            "maximum": 51,
+            "positive": 5,
+            "zero": 0,
+            "negative": 0
+          },
+          "absolute_overhead": {
+            "n": 5,
+            "mean": -5.2,
+            "median": 0,
+            "minimum": -28,
+            "maximum": 5,
+            "positive": 2,
+            "zero": 1,
+            "negative": 2
+          },
+          "normalized_overhead": {
+            "n": 5,
+            "mean": -0.161470588220655,
+            "median": 0.0,
+            "minimum": -0.6666666665555555,
+            "maximum": 0.2083333333246528,
+            "positive": 2,
+            "zero": 1,
+            "negative": 2
+          },
+          "reference_zero_count": 0
+        },
+        "max_control_nesting": {
+          "generated": {
+            "n": 5,
+            "mean": 2.6,
+            "median": 3,
+            "minimum": 1,
+            "maximum": 4,
+            "positive": 5,
+            "zero": 0,
+            "negative": 0
+          },
+          "reference": {
+            "n": 5,
+            "mean": 3.0,
+            "median": 3,
+            "minimum": 2,
+            "maximum": 4,
+            "positive": 5,
+            "zero": 0,
+            "negative": 0
+          },
+          "absolute_overhead": {
+            "n": 5,
+            "mean": -0.4,
+            "median": 0,
+            "minimum": -2,
+            "maximum": 1,
+            "positive": 1,
+            "zero": 2,
+            "negative": 2
+          },
+          "normalized_overhead": {
+            "n": 5,
+            "mean": -0.08333333332638888,
+            "median": 0.0,
+            "minimum": -0.6666666664444444,
+            "maximum": 0.49999999975,
+            "positive": 1,
+            "zero": 2,
+            "negative": 2
+          },
+          "reference_zero_count": 0
+        },
+        "branch_count": {
+          "generated": {
+            "n": 5,
+            "mean": 5.8,
+            "median": 3,
+            "minimum": 1,
+            "maximum": 15,
+            "positive": 5,
+            "zero": 0,
+            "negative": 0
+          },
+          "reference": {
+            "n": 5,
+            "mean": 7.2,
+            "median": 3,
+            "minimum": 1,
+            "maximum": 18,
+            "positive": 5,
+            "zero": 0,
+            "negative": 0
+          },
+          "absolute_overhead": {
+            "n": 5,
+            "mean": -1.4,
+            "median": 0,
+            "minimum": -10,
+            "maximum": 4,
+            "positive": 1,
+            "zero": 2,
+            "negative": 2
+          },
+          "normalized_overhead": {
+            "n": 5,
+            "mean": -0.10505050502872156,
+            "median": 0.0,
+            "minimum": -0.5555555555246914,
+            "maximum": 0.36363636360330576,
+            "positive": 1,
+            "zero": 2,
+            "negative": 2
+          },
+          "reference_zero_count": 0
+        },
+        "method_invocation_count": {
+          "generated": {
+            "n": 5,
+            "mean": 6.4,
+            "median": 4,
+            "minimum": 2,
+            "maximum": 17,
+            "positive": 5,
+            "zero": 0,
+            "negative": 0
+          },
+          "reference": {
+            "n": 5,
+            "mean": 12.4,
+            "median": 4,
+            "minimum": 2,
+            "maximum": 39,
+            "positive": 5,
+            "zero": 0,
+            "negative": 0
+          },
+          "absolute_overhead": {
+            "n": 5,
+            "mean": -6.0,
+            "median": 0,
+            "minimum": -33,
+            "maximum": 3,
+            "positive": 1,
+            "zero": 3,
+            "negative": 1
+          },
+          "normalized_overhead": {
+            "n": 5,
+            "mean": -0.12637362637234836,
+            "median": 0.0,
+            "minimum": -0.84615384613215,
+            "maximum": 0.21428571427040816,
+            "positive": 1,
+            "zero": 3,
+            "negative": 1
+          },
+          "reference_zero_count": 0
+        },
+        "constructor_invocation_count": {
+          "generated": {
+            "n": 5,
+            "mean": 1.4,
+            "median": 1,
+            "minimum": 0,
+            "maximum": 3,
+            "positive": 4,
+            "zero": 1,
+            "negative": 0
+          },
+          "reference": {
+            "n": 5,
+            "mean": 1.4,
+            "median": 1,
+            "minimum": 0,
+            "maximum": 3,
+            "positive": 4,
+            "zero": 1,
+            "negative": 0
+          },
+          "absolute_overhead": {
+            "n": 5,
+            "mean": 0.0,
+            "median": 0,
+            "minimum": 0,
+            "maximum": 0,
+            "positive": 0,
+            "zero": 5,
+            "negative": 0
+          },
+          "normalized_overhead": {
+            "n": 4,
+            "mean": 0.0,
+            "median": 0.0,
+            "minimum": 0.0,
+            "maximum": 0.0,
+            "positive": 0,
+            "zero": 4,
+            "negative": 0
+          },
+          "reference_zero_count": 1
+        },
+        "unique_call_target_count": {
+          "generated": {
+            "n": 5,
+            "mean": 4.4,
+            "median": 4,
+            "minimum": 3,
+            "maximum": 6,
+            "positive": 5,
+            "zero": 0,
+            "negative": 0
+          },
+          "reference": {
+            "n": 5,
+            "mean": 5.4,
+            "median": 4,
+            "minimum": 3,
+            "maximum": 9,
+            "positive": 5,
+            "zero": 0,
+            "negative": 0
+          },
+          "absolute_overhead": {
+            "n": 5,
+            "mean": -1.0,
+            "median": 0,
+            "minimum": -3,
+            "maximum": 0,
+            "positive": 0,
+            "zero": 3,
+            "negative": 2
+          },
+          "normalized_overhead": {
+            "n": 5,
+            "mean": -0.12380952379395313,
+            "median": 0.0,
+            "minimum": -0.3333333332962963,
+            "maximum": 0.0,
+            "positive": 0,
+            "zero": 3,
+            "negative": 2
+          },
+          "reference_zero_count": 0
+        },
+        "parameter_count": {
+          "generated": {
+            "n": 5,
+            "mean": 1.4,
+            "median": 2,
+            "minimum": 0,
+            "maximum": 2,
+            "positive": 4,
+            "zero": 1,
+            "negative": 0
+          },
+          "reference": {
+            "n": 5,
+            "mean": 1.4,
+            "median": 2,
+            "minimum": 0,
+            "maximum": 2,
+            "positive": 4,
+            "zero": 1,
+            "negative": 0
+          },
+          "absolute_overhead": {
+            "n": 5,
+            "mean": 0.0,
+            "median": 0,
+            "minimum": 0,
+            "maximum": 0,
+            "positive": 0,
+            "zero": 5,
+            "negative": 0
+          },
+          "normalized_overhead": {
+            "n": 4,
+            "mean": 0.0,
+            "median": 0.0,
+            "minimum": 0.0,
+            "maximum": 0.0,
+            "positive": 0,
+            "zero": 4,
+            "negative": 0
+          },
+          "reference_zero_count": 1
+        },
+        "return_count": {
+          "generated": {
+            "n": 5,
+            "mean": 1.2,
+            "median": 1,
+            "minimum": 1,
+            "maximum": 2,
+            "positive": 5,
+            "zero": 0,
+            "negative": 0
+          },
+          "reference": {
+            "n": 5,
+            "mean": 1.0,
+            "median": 1,
+            "minimum": 0,
+            "maximum": 2,
+            "positive": 4,
+            "zero": 1,
+            "negative": 0
+          },
+          "absolute_overhead": {
+            "n": 5,
+            "mean": 0.2,
+            "median": 0,
+            "minimum": 0,
+            "maximum": 1,
+            "positive": 1,
+            "zero": 4,
+            "negative": 0
+          },
+          "normalized_overhead": {
+            "n": 4,
+            "mean": 0.0,
+            "median": 0.0,
+            "minimum": 0.0,
+            "maximum": 0.0,
+            "positive": 0,
+            "zero": 4,
+            "negative": 0
+          },
+          "reference_zero_count": 1
+        },
+        "throw_count": {
+          "generated": {
+            "n": 5,
+            "mean": 0.2,
+            "median": 0,
+            "minimum": 0,
+            "maximum": 1,
+            "positive": 1,
+            "zero": 4,
+            "negative": 0
+          },
+          "reference": {
+            "n": 5,
+            "mean": 0.2,
+            "median": 0,
+            "minimum": 0,
+            "maximum": 1,
+            "positive": 1,
+            "zero": 4,
+            "negative": 0
+          },
+          "absolute_overhead": {
+            "n": 5,
+            "mean": 0.0,
+            "median": 0,
+            "minimum": 0,
+            "maximum": 0,
+            "positive": 0,
+            "zero": 5,
+            "negative": 0
+          },
+          "normalized_overhead": {
+            "n": 1,
+            "mean": 0.0,
+            "median": 0.0,
+            "minimum": 0.0,
+            "maximum": 0.0,
+            "positive": 0,
+            "zero": 1,
+            "negative": 0
+          },
+          "reference_zero_count": 4
+        },
+        "local_variable_count": {
+          "generated": {
+            "n": 5,
+            "mean": 5.8,
+            "median": 2,
+            "minimum": 0,
+            "maximum": 20,
+            "positive": 4,
+            "zero": 1,
+            "negative": 0
+          },
+          "reference": {
+            "n": 5,
+            "mean": 4.8,
+            "median": 4,
+            "minimum": 0,
+            "maximum": 13,
+            "positive": 4,
+            "zero": 1,
+            "negative": 0
+          },
+          "absolute_overhead": {
+            "n": 5,
+            "mean": 1.0,
+            "median": 0,
+            "minimum": -2,
+            "maximum": 7,
+            "positive": 1,
+            "zero": 3,
+            "negative": 1
+          },
+          "normalized_overhead": {
+            "n": 4,
+            "mean": 0.00961538463627959,
+            "median": 0.0,
+            "minimum": -0.499999999875,
+            "maximum": 0.5384615384201183,
+            "positive": 1,
+            "zero": 2,
+            "negative": 1
+          },
+          "reference_zero_count": 1
+        },
+        "lambda_count": {
+          "generated": {
+            "n": 5,
+            "mean": 0.0,
+            "median": 0,
+            "minimum": 0,
+            "maximum": 0,
+            "positive": 0,
+            "zero": 5,
+            "negative": 0
+          },
+          "reference": {
+            "n": 5,
+            "mean": 0.0,
+            "median": 0,
+            "minimum": 0,
+            "maximum": 0,
+            "positive": 0,
+            "zero": 5,
+            "negative": 0
+          },
+          "absolute_overhead": {
+            "n": 5,
+            "mean": 0.0,
+            "median": 0,
+            "minimum": 0,
+            "maximum": 0,
+            "positive": 0,
+            "zero": 5,
+            "negative": 0
+          },
+          "normalized_overhead": {
+            "n": 0
+          },
+          "reference_zero_count": 5
+        },
+        "code_smell_count": {
+          "generated": {
+            "n": 5,
+            "mean": 0.8,
+            "median": 0,
+            "minimum": 0,
+            "maximum": 2,
+            "positive": 2,
+            "zero": 3,
+            "negative": 0
+          },
+          "reference": {
+            "n": 5,
+            "mean": 1.0,
+            "median": 0,
+            "minimum": 0,
+            "maximum": 3,
+            "positive": 2,
+            "zero": 3,
+            "negative": 0
+          },
+          "absolute_overhead": {
+            "n": 5,
+            "mean": -0.2,
+            "median": 0,
+            "minimum": -1,
+            "maximum": 0,
+            "positive": 0,
+            "zero": 4,
+            "negative": 1
+          },
+          "normalized_overhead": {
+            "n": 2,
+            "mean": -0.1666666666111111,
+            "median": -0.1666666666111111,
+            "minimum": -0.3333333332222222,
+            "maximum": 0.0,
+            "positive": 0,
+            "zero": 1,
+            "negative": 1
+          },
+          "reference_zero_count": 3
+        }
+      }
+    },
+    "4": {
+      "checkpoints": 3,
+      "metrics": {
+        "physical_lines": {
+          "generated": {
+            "n": 3,
+            "mean": 42.333333333333336,
+            "median": 41,
+            "minimum": 13,
+            "maximum": 73,
+            "positive": 3,
+            "zero": 0,
+            "negative": 0
+          },
+          "reference": {
+            "n": 3,
+            "mean": 59.333333333333336,
+            "median": 58,
+            "minimum": 14,
+            "maximum": 106,
+            "positive": 3,
+            "zero": 0,
+            "negative": 0
+          },
+          "absolute_overhead": {
+            "n": 3,
+            "mean": -17.0,
+            "median": -1,
+            "minimum": -65,
+            "maximum": 15,
+            "positive": 1,
+            "zero": 0,
+            "negative": 2
+          },
+          "normalized_overhead": {
+            "n": 3,
+            "mean": -0.14200514297892744,
+            "median": -0.07142857142346938,
+            "minimum": -0.6132075471640264,
+            "maximum": 0.25862068965071344,
+            "positive": 1,
+            "zero": 0,
+            "negative": 2
+          },
+          "reference_zero_count": 0
+        },
+        "source_lines_nonblank_noncomment": {
+          "generated": {
+            "n": 3,
+            "mean": 35.0,
+            "median": 34,
+            "minimum": 13,
+            "maximum": 58,
+            "positive": 3,
+            "zero": 0,
+            "negative": 0
+          },
+          "reference": {
+            "n": 3,
+            "mean": 46.333333333333336,
+            "median": 41,
+            "minimum": 14,
+            "maximum": 84,
+            "positive": 3,
+            "zero": 0,
+            "negative": 0
+          },
+          "absolute_overhead": {
+            "n": 3,
+            "mean": -11.333333333333334,
+            "median": -1,
+            "minimum": -50,
+            "maximum": 17,
+            "positive": 1,
+            "zero": 0,
+            "negative": 2
+          },
+          "normalized_overhead": {
+            "n": 3,
+            "mean": -0.08401084010770932,
+            "median": -0.07142857142346938,
+            "minimum": -0.595238095231009,
+            "maximum": 0.41463414633135043,
+            "positive": 1,
+            "zero": 0,
+            "negative": 2
+          },
+          "reference_zero_count": 0
+        },
+        "statement_count": {
+          "generated": {
+            "n": 3,
+            "mean": 25.333333333333332,
+            "median": 21,
+            "minimum": 7,
+            "maximum": 48,
+            "positive": 3,
+            "zero": 0,
+            "negative": 0
+          },
+          "reference": {
+            "n": 3,
+            "mean": 34.666666666666664,
+            "median": 35,
+            "minimum": 8,
+            "maximum": 61,
+            "positive": 3,
+            "zero": 0,
+            "negative": 0
+          },
+          "absolute_overhead": {
+            "n": 3,
+            "mean": -9.333333333333334,
+            "median": -1,
+            "minimum": -40,
+            "maximum": 13,
+            "positive": 1,
+            "zero": 0,
+            "negative": 2
+          },
+          "normalized_overhead": {
+            "n": 3,
+            "mean": -0.13643637782456627,
+            "median": -0.124999999984375,
+            "minimum": -0.655737704907283,
+            "maximum": 0.3714285714179592,
+            "positive": 1,
+            "zero": 0,
+            "negative": 2
+          },
+          "reference_zero_count": 0
+        },
+        "cyclomatic_complexity": {
+          "generated": {
+            "n": 3,
+            "mean": 11.0,
+            "median": 12,
+            "minimum": 4,
+            "maximum": 17,
+            "positive": 3,
+            "zero": 0,
+            "negative": 0
+          },
+          "reference": {
+            "n": 3,
+            "mean": 14.666666666666666,
+            "median": 14,
+            "minimum": 4,
+            "maximum": 26,
+            "positive": 3,
+            "zero": 0,
+            "negative": 0
+          },
+          "absolute_overhead": {
+            "n": 3,
+            "mean": -3.6666666666666665,
+            "median": 0,
+            "minimum": -14,
+            "maximum": 3,
+            "positive": 1,
+            "zero": 1,
+            "negative": 1
+          },
+          "normalized_overhead": {
+            "n": 3,
+            "mean": -0.10805860805680677,
+            "median": 0.0,
+            "minimum": -0.5384615384408284,
+            "maximum": 0.21428571427040816,
+            "positive": 1,
+            "zero": 1,
+            "negative": 1
+          },
+          "reference_zero_count": 0
+        },
+        "cognitive_complexity_approx": {
+          "generated": {
+            "n": 3,
+            "mean": 18.333333333333332,
+            "median": 18,
+            "minimum": 6,
+            "maximum": 31,
+            "positive": 3,
+            "zero": 0,
+            "negative": 0
+          },
+          "reference": {
+            "n": 3,
+            "mean": 28.666666666666668,
+            "median": 26,
+            "minimum": 5,
+            "maximum": 55,
+            "positive": 3,
+            "zero": 0,
+            "negative": 0
+          },
+          "absolute_overhead": {
+            "n": 3,
+            "mean": -10.333333333333334,
+            "median": 1,
+            "minimum": -37,
+            "maximum": 5,
+            "positive": 2,
+            "zero": 0,
+            "negative": 1
+          },
+          "normalized_overhead": {
+            "n": 3,
+            "mean": -0.09347319348491519,
+            "median": 0.19230769230029585,
+            "minimum": -0.6727272727150414,
+            "maximum": 0.19999999996,
+            "positive": 2,
+            "zero": 0,
+            "negative": 1
+          },
+          "reference_zero_count": 0
+        },
+        "max_control_nesting": {
+          "generated": {
+            "n": 3,
+            "mean": 3.0,
+            "median": 3,
+            "minimum": 3,
+            "maximum": 3,
+            "positive": 3,
+            "zero": 0,
+            "negative": 0
+          },
+          "reference": {
+            "n": 3,
+            "mean": 3.3333333333333335,
+            "median": 4,
+            "minimum": 2,
+            "maximum": 4,
+            "positive": 3,
+            "zero": 0,
+            "negative": 0
+          },
+          "absolute_overhead": {
+            "n": 3,
+            "mean": -0.3333333333333333,
+            "median": -1,
+            "minimum": -1,
+            "maximum": 1,
+            "positive": 1,
+            "zero": 0,
+            "negative": 2
+          },
+          "normalized_overhead": {
+            "n": 3,
+            "mean": -4.1666670114182125e-11,
+            "median": -0.2499999999375,
+            "minimum": -0.2499999999375,
+            "maximum": 0.49999999975,
+            "positive": 1,
+            "zero": 0,
+            "negative": 2
+          },
+          "reference_zero_count": 0
+        },
+        "branch_count": {
+          "generated": {
+            "n": 3,
+            "mean": 8.333333333333334,
+            "median": 6,
+            "minimum": 3,
+            "maximum": 16,
+            "positive": 3,
+            "zero": 0,
+            "negative": 0
+          },
+          "reference": {
+            "n": 3,
+            "mean": 12.0,
+            "median": 12,
+            "minimum": 3,
+            "maximum": 21,
+            "positive": 3,
+            "zero": 0,
+            "negative": 0
+          },
+          "absolute_overhead": {
+            "n": 3,
+            "mean": -3.6666666666666665,
+            "median": 0,
+            "minimum": -15,
+            "maximum": 4,
+            "positive": 1,
+            "zero": 1,
+            "negative": 1
+          },
+          "normalized_overhead": {
+            "n": 3,
+            "mean": -0.1269841269820484,
+            "median": 0.0,
+            "minimum": -0.7142857142517007,
+            "maximum": 0.33333333330555553,
+            "positive": 1,
+            "zero": 1,
+            "negative": 1
+          },
+          "reference_zero_count": 0
+        },
+        "method_invocation_count": {
+          "generated": {
+            "n": 3,
+            "mean": 9.0,
+            "median": 6,
+            "minimum": 4,
+            "maximum": 17,
+            "positive": 3,
+            "zero": 0,
+            "negative": 0
+          },
+          "reference": {
+            "n": 3,
+            "mean": 25.0,
+            "median": 16,
+            "minimum": 4,
+            "maximum": 55,
+            "positive": 3,
+            "zero": 0,
+            "negative": 0
+          },
+          "absolute_overhead": {
+            "n": 3,
+            "mean": -16.0,
+            "median": 0,
+            "minimum": -49,
+            "maximum": 1,
+            "positive": 1,
+            "zero": 1,
+            "negative": 1
+          },
+          "normalized_overhead": {
+            "n": 3,
+            "mean": -0.2761363636322663,
+            "median": 0.0,
+            "minimum": -0.8909090908928926,
+            "maximum": 0.06249999999609375,
+            "positive": 1,
+            "zero": 1,
+            "negative": 1
+          },
+          "reference_zero_count": 0
+        },
+        "constructor_invocation_count": {
+          "generated": {
+            "n": 3,
+            "mean": 2.0,
+            "median": 2,
+            "minimum": 0,
+            "maximum": 4,
+            "positive": 2,
+            "zero": 1,
+            "negative": 0
+          },
+          "reference": {
+            "n": 3,
+            "mean": 3.0,
+            "median": 4,
+            "minimum": 0,
+            "maximum": 5,
+            "positive": 2,
+            "zero": 1,
+            "negative": 0
+          },
+          "absolute_overhead": {
+            "n": 3,
+            "mean": -1.0,
+            "median": 0,
+            "minimum": -3,
+            "maximum": 0,
+            "positive": 0,
+            "zero": 2,
+            "negative": 1
+          },
+          "normalized_overhead": {
+            "n": 2,
+            "mean": -0.29999999994,
+            "median": -0.29999999994,
+            "minimum": -0.59999999988,
+            "maximum": 0.0,
+            "positive": 0,
+            "zero": 1,
+            "negative": 1
+          },
+          "reference_zero_count": 1
+        },
+        "unique_call_target_count": {
+          "generated": {
+            "n": 3,
+            "mean": 5.0,
+            "median": 5,
+            "minimum": 4,
+            "maximum": 6,
+            "positive": 3,
+            "zero": 0,
+            "negative": 0
+          },
+          "reference": {
+            "n": 3,
+            "mean": 6.666666666666667,
+            "median": 7,
+            "minimum": 4,
+            "maximum": 9,
+            "positive": 3,
+            "zero": 0,
+            "negative": 0
+          },
+          "absolute_overhead": {
+            "n": 3,
+            "mean": -1.6666666666666667,
+            "median": -2,
+            "minimum": -3,
+            "maximum": 0,
+            "positive": 0,
+            "zero": 1,
+            "negative": 2
+          },
+          "normalized_overhead": {
+            "n": 3,
+            "mean": -0.20634920632325524,
+            "median": -0.2857142856734694,
+            "minimum": -0.3333333332962963,
+            "maximum": 0.0,
+            "positive": 0,
+            "zero": 1,
+            "negative": 2
+          },
+          "reference_zero_count": 0
+        },
+        "parameter_count": {
+          "generated": {
+            "n": 3,
+            "mean": 1.0,
+            "median": 1,
+            "minimum": 0,
+            "maximum": 2,
+            "positive": 2,
+            "zero": 1,
+            "negative": 0
+          },
+          "reference": {
+            "n": 3,
+            "mean": 1.0,
+            "median": 1,
+            "minimum": 0,
+            "maximum": 2,
+            "positive": 2,
+            "zero": 1,
+            "negative": 0
+          },
+          "absolute_overhead": {
+            "n": 3,
+            "mean": 0.0,
+            "median": 0,
+            "minimum": 0,
+            "maximum": 0,
+            "positive": 0,
+            "zero": 3,
+            "negative": 0
+          },
+          "normalized_overhead": {
+            "n": 2,
+            "mean": 0.0,
+            "median": 0.0,
+            "minimum": 0.0,
+            "maximum": 0.0,
+            "positive": 0,
+            "zero": 2,
+            "negative": 0
+          },
+          "reference_zero_count": 1
+        },
+        "return_count": {
+          "generated": {
+            "n": 3,
+            "mean": 1.0,
+            "median": 1,
+            "minimum": 1,
+            "maximum": 1,
+            "positive": 3,
+            "zero": 0,
+            "negative": 0
+          },
+          "reference": {
+            "n": 3,
+            "mean": 2.0,
+            "median": 1,
+            "minimum": 1,
+            "maximum": 4,
+            "positive": 3,
+            "zero": 0,
+            "negative": 0
+          },
+          "absolute_overhead": {
+            "n": 3,
+            "mean": -1.0,
+            "median": 0,
+            "minimum": -3,
+            "maximum": 0,
+            "positive": 0,
+            "zero": 2,
+            "negative": 1
+          },
+          "normalized_overhead": {
+            "n": 3,
+            "mean": -0.2499999999375,
+            "median": 0.0,
+            "minimum": -0.7499999998125,
+            "maximum": 0.0,
+            "positive": 0,
+            "zero": 2,
+            "negative": 1
+          },
+          "reference_zero_count": 0
+        },
+        "throw_count": {
+          "generated": {
+            "n": 3,
+            "mean": 0.6666666666666666,
+            "median": 0,
+            "minimum": 0,
+            "maximum": 2,
+            "positive": 1,
+            "zero": 2,
+            "negative": 0
+          },
+          "reference": {
+            "n": 3,
+            "mean": 0.6666666666666666,
+            "median": 0,
+            "minimum": 0,
+            "maximum": 2,
+            "positive": 1,
+            "zero": 2,
+            "negative": 0
+          },
+          "absolute_overhead": {
+            "n": 3,
+            "mean": 0.0,
+            "median": 0,
+            "minimum": 0,
+            "maximum": 0,
+            "positive": 0,
+            "zero": 3,
+            "negative": 0
+          },
+          "normalized_overhead": {
+            "n": 1,
+            "mean": 0.0,
+            "median": 0.0,
+            "minimum": 0.0,
+            "maximum": 0.0,
+            "positive": 0,
+            "zero": 1,
+            "negative": 0
+          },
+          "reference_zero_count": 2
+        },
+        "local_variable_count": {
+          "generated": {
+            "n": 3,
+            "mean": 9.666666666666666,
+            "median": 6,
+            "minimum": 2,
+            "maximum": 21,
+            "positive": 3,
+            "zero": 0,
+            "negative": 0
+          },
+          "reference": {
+            "n": 3,
+            "mean": 7.333333333333333,
+            "median": 7,
+            "minimum": 2,
+            "maximum": 13,
+            "positive": 3,
+            "zero": 0,
+            "negative": 0
+          },
+          "absolute_overhead": {
+            "n": 3,
+            "mean": 2.3333333333333335,
+            "median": 0,
+            "minimum": -1,
+            "maximum": 8,
+            "positive": 1,
+            "zero": 1,
+            "negative": 1
+          },
+          "normalized_overhead": {
+            "n": 3,
+            "mean": 0.15750915750018113,
+            "median": 0.0,
+            "minimum": -0.1428571428367347,
+            "maximum": 0.6153846153372781,
+            "positive": 1,
+            "zero": 1,
+            "negative": 1
+          },
+          "reference_zero_count": 0
+        },
+        "lambda_count": {
+          "generated": {
+            "n": 3,
+            "mean": 0.0,
+            "median": 0,
+            "minimum": 0,
+            "maximum": 0,
+            "positive": 0,
+            "zero": 3,
+            "negative": 0
+          },
+          "reference": {
+            "n": 3,
+            "mean": 0.0,
+            "median": 0,
+            "minimum": 0,
+            "maximum": 0,
+            "positive": 0,
+            "zero": 3,
+            "negative": 0
+          },
+          "absolute_overhead": {
+            "n": 3,
+            "mean": 0.0,
+            "median": 0,
+            "minimum": 0,
+            "maximum": 0,
+            "positive": 0,
+            "zero": 3,
+            "negative": 0
+          },
+          "normalized_overhead": {
+            "n": 0
+          },
+          "reference_zero_count": 3
+        },
+        "code_smell_count": {
+          "generated": {
+            "n": 3,
+            "mean": 1.0,
+            "median": 1,
+            "minimum": 0,
+            "maximum": 2,
+            "positive": 2,
+            "zero": 1,
+            "negative": 0
+          },
+          "reference": {
+            "n": 3,
+            "mean": 2.0,
+            "median": 3,
+            "minimum": 0,
+            "maximum": 3,
+            "positive": 2,
+            "zero": 1,
+            "negative": 0
+          },
+          "absolute_overhead": {
+            "n": 3,
+            "mean": -1.0,
+            "median": -1,
+            "minimum": -2,
+            "maximum": 0,
+            "positive": 0,
+            "zero": 1,
+            "negative": 2
+          },
+          "normalized_overhead": {
+            "n": 2,
+            "mean": -0.4999999998333333,
+            "median": -0.4999999998333333,
+            "minimum": -0.6666666664444444,
+            "maximum": -0.3333333332222222,
+            "positive": 0,
+            "zero": 0,
+            "negative": 2
+          },
+          "reference_zero_count": 1
+        }
+      }
+    }
+  },
+  "by_repository": {
+    "jvector": {
+      "checkpoints": 15,
+      "metrics": {
+        "physical_lines": {
+          "generated": {
+            "n": 15,
+            "mean": 35.333333333333336,
+            "median": 37,
+            "minimum": 9,
+            "maximum": 73,
+            "positive": 15,
+            "zero": 0,
+            "negative": 0
+          },
+          "reference": {
+            "n": 15,
+            "mean": 37.86666666666667,
+            "median": 35,
+            "minimum": 7,
+            "maximum": 106,
+            "positive": 15,
+            "zero": 0,
+            "negative": 0
+          },
+          "absolute_overhead": {
+            "n": 15,
+            "mean": -2.533333333333333,
+            "median": 6,
+            "minimum": -65,
+            "maximum": 27,
+            "positive": 10,
+            "zero": 0,
+            "negative": 5
+          },
+          "normalized_overhead": {
+            "n": 15,
+            "mean": 0.38942575939788004,
+            "median": 0.24999999999305558,
+            "minimum": -0.6132075471640264,
+            "maximum": 2.9999999995714286,
+            "positive": 10,
+            "zero": 0,
+            "negative": 5
+          },
+          "reference_zero_count": 0
+        },
+        "source_lines_nonblank_noncomment": {
+          "generated": {
+            "n": 15,
+            "mean": 28.466666666666665,
+            "median": 32,
+            "minimum": 8,
+            "maximum": 58,
+            "positive": 15,
+            "zero": 0,
+            "negative": 0
+          },
+          "reference": {
+            "n": 15,
+            "mean": 29.866666666666667,
+            "median": 26,
+            "minimum": 5,
+            "maximum": 84,
+            "positive": 15,
+            "zero": 0,
+            "negative": 0
+          },
+          "absolute_overhead": {
+            "n": 15,
+            "mean": -1.4,
+            "median": 5,
+            "minimum": -50,
+            "maximum": 22,
+            "positive": 9,
+            "zero": 0,
+            "negative": 6
+          },
+          "normalized_overhead": {
+            "n": 15,
+            "mean": 0.3922920957360366,
+            "median": 0.3461538461405325,
+            "minimum": -0.595238095231009,
+            "maximum": 3.39999999932,
+            "positive": 9,
+            "zero": 0,
+            "negative": 6
+          },
+          "reference_zero_count": 0
+        },
+        "statement_count": {
+          "generated": {
+            "n": 15,
+            "mean": 21.2,
+            "median": 21,
+            "minimum": 5,
+            "maximum": 48,
+            "positive": 15,
+            "zero": 0,
+            "negative": 0
+          },
+          "reference": {
+            "n": 15,
+            "mean": 22.2,
+            "median": 20,
+            "minimum": 3,
+            "maximum": 61,
+            "positive": 15,
+            "zero": 0,
+            "negative": 0
+          },
+          "absolute_overhead": {
+            "n": 15,
+            "mean": -1.0,
+            "median": 4,
+            "minimum": -40,
+            "maximum": 13,
+            "positive": 9,
+            "zero": 1,
+            "negative": 5
+          },
+          "normalized_overhead": {
+            "n": 15,
+            "mean": 0.41089060296504404,
+            "median": 0.26086956520604915,
+            "minimum": -0.655737704907283,
+            "maximum": 3.9999999986666666,
+            "positive": 9,
+            "zero": 1,
+            "negative": 5
+          },
+          "reference_zero_count": 0
+        },
+        "cyclomatic_complexity": {
+          "generated": {
+            "n": 15,
+            "mean": 7.933333333333334,
+            "median": 6,
+            "minimum": 2,
+            "maximum": 17,
+            "positive": 15,
+            "zero": 0,
+            "negative": 0
+          },
+          "reference": {
+            "n": 15,
+            "mean": 9.133333333333333,
+            "median": 7,
+            "minimum": 1,
+            "maximum": 26,
+            "positive": 15,
+            "zero": 0,
+            "negative": 0
+          },
+          "absolute_overhead": {
+            "n": 15,
+            "mean": -1.2,
+            "median": 1,
+            "minimum": -14,
+            "maximum": 3,
+            "positive": 8,
+            "zero": 1,
+            "negative": 6
+          },
+          "normalized_overhead": {
+            "n": 15,
+            "mean": 0.27532652505578464,
+            "median": 0.18181818180165288,
+            "minimum": -0.5384615384408284,
+            "maximum": 2.9999999969999998,
+            "positive": 8,
+            "zero": 1,
+            "negative": 6
+          },
+          "reference_zero_count": 0
+        },
+        "cognitive_complexity_approx": {
+          "generated": {
+            "n": 15,
+            "mean": 12.133333333333333,
+            "median": 6,
+            "minimum": 1,
+            "maximum": 31,
+            "positive": 15,
+            "zero": 0,
+            "negative": 0
+          },
+          "reference": {
+            "n": 15,
+            "mean": 17.2,
+            "median": 9,
+            "minimum": 0,
+            "maximum": 55,
+            "positive": 14,
+            "zero": 1,
+            "negative": 0
+          },
+          "absolute_overhead": {
+            "n": 15,
+            "mean": -5.066666666666666,
+            "median": 1,
+            "minimum": -37,
+            "maximum": 6,
+            "positive": 8,
+            "zero": 0,
+            "negative": 7
+          },
+          "normalized_overhead": {
+            "n": 14,
+            "mean": 0.3525528630584177,
+            "median": -0.08771929819421359,
+            "minimum": -0.7441860464943213,
+            "maximum": 4.999999995,
+            "positive": 7,
+            "zero": 0,
+            "negative": 7
+          },
+          "reference_zero_count": 1
+        },
+        "max_control_nesting": {
+          "generated": {
+            "n": 15,
+            "mean": 2.2666666666666666,
+            "median": 3,
+            "minimum": 1,
+            "maximum": 4,
+            "positive": 15,
+            "zero": 0,
+            "negative": 0
+          },
+          "reference": {
+            "n": 15,
+            "mean": 2.6666666666666665,
+            "median": 3,
+            "minimum": 0,
+            "maximum": 4,
+            "positive": 14,
+            "zero": 1,
+            "negative": 0
+          },
+          "absolute_overhead": {
+            "n": 15,
+            "mean": -0.4,
+            "median": -1,
+            "minimum": -2,
+            "maximum": 3,
+            "positive": 2,
+            "zero": 4,
+            "negative": 9
+          },
+          "normalized_overhead": {
+            "n": 14,
+            "mean": -0.08928571435565477,
+            "median": -0.2499999999375,
+            "minimum": -0.6666666664444444,
+            "maximum": 1.9999999979999998,
+            "positive": 1,
+            "zero": 4,
+            "negative": 9
+          },
+          "reference_zero_count": 1
+        },
+        "branch_count": {
+          "generated": {
+            "n": 15,
+            "mean": 6.0,
+            "median": 4,
+            "minimum": 1,
+            "maximum": 16,
+            "positive": 15,
+            "zero": 0,
+            "negative": 0
+          },
+          "reference": {
+            "n": 15,
+            "mean": 7.333333333333333,
+            "median": 5,
+            "minimum": 0,
+            "maximum": 21,
+            "positive": 14,
+            "zero": 1,
+            "negative": 0
+          },
+          "absolute_overhead": {
+            "n": 15,
+            "mean": -1.3333333333333333,
+            "median": 1,
+            "minimum": -15,
+            "maximum": 4,
+            "positive": 8,
+            "zero": 1,
+            "negative": 6
+          },
+          "normalized_overhead": {
+            "n": 14,
+            "mean": 0.15908060167944058,
+            "median": 0.124999999984375,
+            "minimum": -0.749999999953125,
+            "maximum": 1.9999999979999998,
+            "positive": 7,
+            "zero": 1,
+            "negative": 6
+          },
+          "reference_zero_count": 1
+        },
+        "method_invocation_count": {
+          "generated": {
+            "n": 15,
+            "mean": 6.466666666666667,
+            "median": 4,
+            "minimum": 1,
+            "maximum": 17,
+            "positive": 15,
+            "zero": 0,
+            "negative": 0
+          },
+          "reference": {
+            "n": 15,
+            "mean": 13.066666666666666,
+            "median": 9,
+            "minimum": 1,
+            "maximum": 55,
+            "positive": 15,
+            "zero": 0,
+            "negative": 0
+          },
+          "absolute_overhead": {
+            "n": 15,
+            "mean": -6.6,
+            "median": 0,
+            "minimum": -49,
+            "maximum": 3,
+            "positive": 6,
+            "zero": 3,
+            "negative": 6
+          },
+          "normalized_overhead": {
+            "n": 15,
+            "mean": 0.051343837075913515,
+            "median": 0.0,
+            "minimum": -0.8909090908928926,
+            "maximum": 1.9999999979999998,
+            "positive": 6,
+            "zero": 3,
+            "negative": 6
+          },
+          "reference_zero_count": 0
+        },
+        "constructor_invocation_count": {
+          "generated": {
+            "n": 15,
+            "mean": 1.5333333333333334,
+            "median": 1,
+            "minimum": 0,
+            "maximum": 4,
+            "positive": 12,
+            "zero": 3,
+            "negative": 0
+          },
+          "reference": {
+            "n": 15,
+            "mean": 1.6666666666666667,
+            "median": 1,
+            "minimum": 0,
+            "maximum": 5,
+            "positive": 11,
+            "zero": 4,
+            "negative": 0
+          },
+          "absolute_overhead": {
+            "n": 15,
+            "mean": -0.13333333333333333,
+            "median": 0,
+            "minimum": -3,
+            "maximum": 1,
+            "positive": 1,
+            "zero": 13,
+            "negative": 1
+          },
+          "normalized_overhead": {
+            "n": 11,
+            "mean": -0.05454545453454545,
+            "median": 0.0,
+            "minimum": -0.59999999988,
+            "maximum": 0.0,
+            "positive": 0,
+            "zero": 10,
+            "negative": 1
+          },
+          "reference_zero_count": 4
+        },
+        "unique_call_target_count": {
+          "generated": {
+            "n": 15,
+            "mean": 3.8,
+            "median": 4,
+            "minimum": 1,
+            "maximum": 6,
+            "positive": 15,
+            "zero": 0,
+            "negative": 0
+          },
+          "reference": {
+            "n": 15,
+            "mean": 5.066666666666666,
+            "median": 5,
+            "minimum": 1,
+            "maximum": 9,
+            "positive": 15,
+            "zero": 0,
+            "negative": 0
+          },
+          "absolute_overhead": {
+            "n": 15,
+            "mean": -1.2666666666666666,
+            "median": -2,
+            "minimum": -3,
+            "maximum": 2,
+            "positive": 2,
+            "zero": 3,
+            "negative": 10
+          },
+          "normalized_overhead": {
+            "n": 15,
+            "mean": -0.05865079376632524,
+            "median": -0.2857142856734694,
+            "minimum": -0.6666666664444444,
+            "maximum": 1.9999999979999998,
+            "positive": 2,
+            "zero": 3,
+            "negative": 10
+          },
+          "reference_zero_count": 0
+        },
+        "parameter_count": {
+          "generated": {
+            "n": 15,
+            "mean": 1.4666666666666666,
+            "median": 2,
+            "minimum": 0,
+            "maximum": 2,
+            "positive": 11,
+            "zero": 4,
+            "negative": 0
+          },
+          "reference": {
+            "n": 15,
+            "mean": 1.4666666666666666,
+            "median": 2,
+            "minimum": 0,
+            "maximum": 2,
+            "positive": 11,
+            "zero": 4,
+            "negative": 0
+          },
+          "absolute_overhead": {
+            "n": 15,
+            "mean": 0.0,
+            "median": 0,
+            "minimum": 0,
+            "maximum": 0,
+            "positive": 0,
+            "zero": 15,
+            "negative": 0
+          },
+          "normalized_overhead": {
+            "n": 11,
+            "mean": 0.0,
+            "median": 0.0,
+            "minimum": 0.0,
+            "maximum": 0.0,
+            "positive": 0,
+            "zero": 11,
+            "negative": 0
+          },
+          "reference_zero_count": 4
+        },
+        "return_count": {
+          "generated": {
+            "n": 15,
+            "mean": 0.9333333333333333,
+            "median": 1,
+            "minimum": 0,
+            "maximum": 2,
+            "positive": 11,
+            "zero": 4,
+            "negative": 0
+          },
+          "reference": {
+            "n": 15,
+            "mean": 1.1333333333333333,
+            "median": 1,
+            "minimum": 0,
+            "maximum": 4,
+            "positive": 11,
+            "zero": 4,
+            "negative": 0
+          },
+          "absolute_overhead": {
+            "n": 15,
+            "mean": -0.2,
+            "median": 0,
+            "minimum": -3,
+            "maximum": 0,
+            "positive": 0,
+            "zero": 14,
+            "negative": 1
+          },
+          "normalized_overhead": {
+            "n": 11,
+            "mean": -0.06818181816477273,
+            "median": 0.0,
+            "minimum": -0.7499999998125,
+            "maximum": 0.0,
+            "positive": 0,
+            "zero": 10,
+            "negative": 1
+          },
+          "reference_zero_count": 4
+        },
+        "throw_count": {
+          "generated": {
+            "n": 15,
+            "mean": 0.3333333333333333,
+            "median": 0,
+            "minimum": 0,
+            "maximum": 2,
+            "positive": 4,
+            "zero": 11,
+            "negative": 0
+          },
+          "reference": {
+            "n": 15,
+            "mean": 0.26666666666666666,
+            "median": 0,
+            "minimum": 0,
+            "maximum": 2,
+            "positive": 3,
+            "zero": 12,
+            "negative": 0
+          },
+          "absolute_overhead": {
+            "n": 15,
+            "mean": 0.06666666666666667,
+            "median": 0,
+            "minimum": 0,
+            "maximum": 1,
+            "positive": 1,
+            "zero": 14,
+            "negative": 0
+          },
+          "normalized_overhead": {
+            "n": 3,
+            "mean": 0.0,
+            "median": 0.0,
+            "minimum": 0.0,
+            "maximum": 0.0,
+            "positive": 0,
+            "zero": 3,
+            "negative": 0
+          },
+          "reference_zero_count": 12
+        },
+        "local_variable_count": {
+          "generated": {
+            "n": 15,
+            "mean": 8.066666666666666,
+            "median": 6,
+            "minimum": 0,
+            "maximum": 21,
+            "positive": 14,
+            "zero": 1,
+            "negative": 0
+          },
+          "reference": {
+            "n": 15,
+            "mean": 5.266666666666667,
+            "median": 4,
+            "minimum": 0,
+            "maximum": 13,
+            "positive": 14,
+            "zero": 1,
+            "negative": 0
+          },
+          "absolute_overhead": {
+            "n": 15,
+            "mean": 2.8,
+            "median": 3,
+            "minimum": -2,
+            "maximum": 8,
+            "positive": 10,
+            "zero": 2,
+            "negative": 3
+          },
+          "normalized_overhead": {
+            "n": 14,
+            "mean": 0.9043563572910591,
+            "median": 0.5192307691850592,
+            "minimum": -0.9999999989999999,
+            "maximum": 7.999999991999999,
+            "positive": 9,
+            "zero": 2,
+            "negative": 3
+          },
+          "reference_zero_count": 1
+        },
+        "lambda_count": {
+          "generated": {
+            "n": 15,
+            "mean": 0.0,
+            "median": 0,
+            "minimum": 0,
+            "maximum": 0,
+            "positive": 0,
+            "zero": 15,
+            "negative": 0
+          },
+          "reference": {
+            "n": 15,
+            "mean": 0.0,
+            "median": 0,
+            "minimum": 0,
+            "maximum": 0,
+            "positive": 0,
+            "zero": 15,
+            "negative": 0
+          },
+          "absolute_overhead": {
+            "n": 15,
+            "mean": 0.0,
+            "median": 0,
+            "minimum": 0,
+            "maximum": 0,
+            "positive": 0,
+            "zero": 15,
+            "negative": 0
+          },
+          "normalized_overhead": {
+            "n": 0
+          },
+          "reference_zero_count": 15
+        },
+        "code_smell_count": {
+          "generated": {
+            "n": 15,
+            "mean": 0.6,
+            "median": 0,
+            "minimum": 0,
+            "maximum": 2,
+            "positive": 6,
+            "zero": 9,
+            "negative": 0
+          },
+          "reference": {
+            "n": 15,
+            "mean": 1.1333333333333333,
+            "median": 0,
+            "minimum": 0,
+            "maximum": 3,
+            "positive": 7,
+            "zero": 8,
+            "negative": 0
+          },
+          "absolute_overhead": {
+            "n": 15,
+            "mean": -0.5333333333333333,
+            "median": 0,
+            "minimum": -3,
+            "maximum": 0,
+            "positive": 0,
+            "zero": 10,
+            "negative": 5
+          },
+          "normalized_overhead": {
+            "n": 7,
+            "mean": -0.4047619046150793,
+            "median": -0.3333333332222222,
+            "minimum": -0.9999999996666666,
+            "maximum": 0.0,
+            "positive": 0,
+            "zero": 2,
+            "negative": 5
+          },
+          "reference_zero_count": 8
+        }
+      }
+    },
+    "langchain4j": {
+      "checkpoints": 1,
+      "metrics": {
+        "physical_lines": {
+          "generated": {
+            "n": 1,
+            "mean": 6.0,
+            "median": 6,
+            "minimum": 6,
+            "maximum": 6,
+            "positive": 1,
+            "zero": 0,
+            "negative": 0
+          },
+          "reference": {
+            "n": 1,
+            "mean": 6.0,
+            "median": 6,
+            "minimum": 6,
+            "maximum": 6,
+            "positive": 1,
+            "zero": 0,
+            "negative": 0
+          },
+          "absolute_overhead": {
+            "n": 1,
+            "mean": 0.0,
+            "median": 0,
+            "minimum": 0,
+            "maximum": 0,
+            "positive": 0,
+            "zero": 1,
+            "negative": 0
+          },
+          "normalized_overhead": {
+            "n": 1,
+            "mean": 0.0,
+            "median": 0.0,
+            "minimum": 0.0,
+            "maximum": 0.0,
+            "positive": 0,
+            "zero": 1,
+            "negative": 0
+          },
+          "reference_zero_count": 0
+        },
+        "source_lines_nonblank_noncomment": {
+          "generated": {
+            "n": 1,
+            "mean": 6.0,
+            "median": 6,
+            "minimum": 6,
+            "maximum": 6,
+            "positive": 1,
+            "zero": 0,
+            "negative": 0
+          },
+          "reference": {
+            "n": 1,
+            "mean": 6.0,
+            "median": 6,
+            "minimum": 6,
+            "maximum": 6,
+            "positive": 1,
+            "zero": 0,
+            "negative": 0
+          },
+          "absolute_overhead": {
+            "n": 1,
+            "mean": 0.0,
+            "median": 0,
+            "minimum": 0,
+            "maximum": 0,
+            "positive": 0,
+            "zero": 1,
+            "negative": 0
+          },
+          "normalized_overhead": {
+            "n": 1,
+            "mean": 0.0,
+            "median": 0.0,
+            "minimum": 0.0,
+            "maximum": 0.0,
+            "positive": 0,
+            "zero": 1,
+            "negative": 0
+          },
+          "reference_zero_count": 0
+        },
+        "statement_count": {
+          "generated": {
+            "n": 1,
+            "mean": 3.0,
+            "median": 3,
+            "minimum": 3,
+            "maximum": 3,
+            "positive": 1,
+            "zero": 0,
+            "negative": 0
+          },
+          "reference": {
+            "n": 1,
+            "mean": 3.0,
+            "median": 3,
+            "minimum": 3,
+            "maximum": 3,
+            "positive": 1,
+            "zero": 0,
+            "negative": 0
+          },
+          "absolute_overhead": {
+            "n": 1,
+            "mean": 0.0,
+            "median": 0,
+            "minimum": 0,
+            "maximum": 0,
+            "positive": 0,
+            "zero": 1,
+            "negative": 0
+          },
+          "normalized_overhead": {
+            "n": 1,
+            "mean": 0.0,
+            "median": 0.0,
+            "minimum": 0.0,
+            "maximum": 0.0,
+            "positive": 0,
+            "zero": 1,
+            "negative": 0
+          },
+          "reference_zero_count": 0
+        },
+        "cyclomatic_complexity": {
+          "generated": {
+            "n": 1,
+            "mean": 2.0,
+            "median": 2,
+            "minimum": 2,
+            "maximum": 2,
+            "positive": 1,
+            "zero": 0,
+            "negative": 0
+          },
+          "reference": {
+            "n": 1,
+            "mean": 2.0,
+            "median": 2,
+            "minimum": 2,
+            "maximum": 2,
+            "positive": 1,
+            "zero": 0,
+            "negative": 0
+          },
+          "absolute_overhead": {
+            "n": 1,
+            "mean": 0.0,
+            "median": 0,
+            "minimum": 0,
+            "maximum": 0,
+            "positive": 0,
+            "zero": 1,
+            "negative": 0
+          },
+          "normalized_overhead": {
+            "n": 1,
+            "mean": 0.0,
+            "median": 0.0,
+            "minimum": 0.0,
+            "maximum": 0.0,
+            "positive": 0,
+            "zero": 1,
+            "negative": 0
+          },
+          "reference_zero_count": 0
+        },
+        "cognitive_complexity_approx": {
+          "generated": {
+            "n": 1,
+            "mean": 1.0,
+            "median": 1,
+            "minimum": 1,
+            "maximum": 1,
+            "positive": 1,
+            "zero": 0,
+            "negative": 0
+          },
+          "reference": {
+            "n": 1,
+            "mean": 1.0,
+            "median": 1,
+            "minimum": 1,
+            "maximum": 1,
+            "positive": 1,
+            "zero": 0,
+            "negative": 0
+          },
+          "absolute_overhead": {
+            "n": 1,
+            "mean": 0.0,
+            "median": 0,
+            "minimum": 0,
+            "maximum": 0,
+            "positive": 0,
+            "zero": 1,
+            "negative": 0
+          },
+          "normalized_overhead": {
+            "n": 1,
+            "mean": 0.0,
+            "median": 0.0,
+            "minimum": 0.0,
+            "maximum": 0.0,
+            "positive": 0,
+            "zero": 1,
+            "negative": 0
+          },
+          "reference_zero_count": 0
+        },
+        "max_control_nesting": {
+          "generated": {
+            "n": 1,
+            "mean": 1.0,
+            "median": 1,
+            "minimum": 1,
+            "maximum": 1,
+            "positive": 1,
+            "zero": 0,
+            "negative": 0
+          },
+          "reference": {
+            "n": 1,
+            "mean": 1.0,
+            "median": 1,
+            "minimum": 1,
+            "maximum": 1,
+            "positive": 1,
+            "zero": 0,
+            "negative": 0
+          },
+          "absolute_overhead": {
+            "n": 1,
+            "mean": 0.0,
+            "median": 0,
+            "minimum": 0,
+            "maximum": 0,
+            "positive": 0,
+            "zero": 1,
+            "negative": 0
+          },
+          "normalized_overhead": {
+            "n": 1,
+            "mean": 0.0,
+            "median": 0.0,
+            "minimum": 0.0,
+            "maximum": 0.0,
+            "positive": 0,
+            "zero": 1,
+            "negative": 0
+          },
+          "reference_zero_count": 0
+        },
+        "branch_count": {
+          "generated": {
+            "n": 1,
+            "mean": 1.0,
+            "median": 1,
+            "minimum": 1,
+            "maximum": 1,
+            "positive": 1,
+            "zero": 0,
+            "negative": 0
+          },
+          "reference": {
+            "n": 1,
+            "mean": 1.0,
+            "median": 1,
+            "minimum": 1,
+            "maximum": 1,
+            "positive": 1,
+            "zero": 0,
+            "negative": 0
+          },
+          "absolute_overhead": {
+            "n": 1,
+            "mean": 0.0,
+            "median": 0,
+            "minimum": 0,
+            "maximum": 0,
+            "positive": 0,
+            "zero": 1,
+            "negative": 0
+          },
+          "normalized_overhead": {
+            "n": 1,
+            "mean": 0.0,
+            "median": 0.0,
+            "minimum": 0.0,
+            "maximum": 0.0,
+            "positive": 0,
+            "zero": 1,
+            "negative": 0
+          },
+          "reference_zero_count": 0
+        },
+        "method_invocation_count": {
+          "generated": {
+            "n": 1,
+            "mean": 1.0,
+            "median": 1,
+            "minimum": 1,
+            "maximum": 1,
+            "positive": 1,
+            "zero": 0,
+            "negative": 0
+          },
+          "reference": {
+            "n": 1,
+            "mean": 1.0,
+            "median": 1,
+            "minimum": 1,
+            "maximum": 1,
+            "positive": 1,
+            "zero": 0,
+            "negative": 0
+          },
+          "absolute_overhead": {
+            "n": 1,
+            "mean": 0.0,
+            "median": 0,
+            "minimum": 0,
+            "maximum": 0,
+            "positive": 0,
+            "zero": 1,
+            "negative": 0
+          },
+          "normalized_overhead": {
+            "n": 1,
+            "mean": 0.0,
+            "median": 0.0,
+            "minimum": 0.0,
+            "maximum": 0.0,
+            "positive": 0,
+            "zero": 1,
+            "negative": 0
+          },
+          "reference_zero_count": 0
+        },
+        "constructor_invocation_count": {
+          "generated": {
+            "n": 1,
+            "mean": 2.0,
+            "median": 2,
+            "minimum": 2,
+            "maximum": 2,
+            "positive": 1,
+            "zero": 0,
+            "negative": 0
+          },
+          "reference": {
+            "n": 1,
+            "mean": 2.0,
+            "median": 2,
+            "minimum": 2,
+            "maximum": 2,
+            "positive": 1,
+            "zero": 0,
+            "negative": 0
+          },
+          "absolute_overhead": {
+            "n": 1,
+            "mean": 0.0,
+            "median": 0,
+            "minimum": 0,
+            "maximum": 0,
+            "positive": 0,
+            "zero": 1,
+            "negative": 0
+          },
+          "normalized_overhead": {
+            "n": 1,
+            "mean": 0.0,
+            "median": 0.0,
+            "minimum": 0.0,
+            "maximum": 0.0,
+            "positive": 0,
+            "zero": 1,
+            "negative": 0
+          },
+          "reference_zero_count": 0
+        },
+        "unique_call_target_count": {
+          "generated": {
+            "n": 1,
+            "mean": 3.0,
+            "median": 3,
+            "minimum": 3,
+            "maximum": 3,
+            "positive": 1,
+            "zero": 0,
+            "negative": 0
+          },
+          "reference": {
+            "n": 1,
+            "mean": 3.0,
+            "median": 3,
+            "minimum": 3,
+            "maximum": 3,
+            "positive": 1,
+            "zero": 0,
+            "negative": 0
+          },
+          "absolute_overhead": {
+            "n": 1,
+            "mean": 0.0,
+            "median": 0,
+            "minimum": 0,
+            "maximum": 0,
+            "positive": 0,
+            "zero": 1,
+            "negative": 0
+          },
+          "normalized_overhead": {
+            "n": 1,
+            "mean": 0.0,
+            "median": 0.0,
+            "minimum": 0.0,
+            "maximum": 0.0,
+            "positive": 0,
+            "zero": 1,
+            "negative": 0
+          },
+          "reference_zero_count": 0
+        },
+        "parameter_count": {
+          "generated": {
+            "n": 1,
+            "mean": 2.0,
+            "median": 2,
+            "minimum": 2,
+            "maximum": 2,
+            "positive": 1,
+            "zero": 0,
+            "negative": 0
+          },
+          "reference": {
+            "n": 1,
+            "mean": 2.0,
+            "median": 2,
+            "minimum": 2,
+            "maximum": 2,
+            "positive": 1,
+            "zero": 0,
+            "negative": 0
+          },
+          "absolute_overhead": {
+            "n": 1,
+            "mean": 0.0,
+            "median": 0,
+            "minimum": 0,
+            "maximum": 0,
+            "positive": 0,
+            "zero": 1,
+            "negative": 0
+          },
+          "normalized_overhead": {
+            "n": 1,
+            "mean": 0.0,
+            "median": 0.0,
+            "minimum": 0.0,
+            "maximum": 0.0,
+            "positive": 0,
+            "zero": 1,
+            "negative": 0
+          },
+          "reference_zero_count": 0
+        },
+        "return_count": {
+          "generated": {
+            "n": 1,
+            "mean": 1.0,
+            "median": 1,
+            "minimum": 1,
+            "maximum": 1,
+            "positive": 1,
+            "zero": 0,
+            "negative": 0
+          },
+          "reference": {
+            "n": 1,
+            "mean": 1.0,
+            "median": 1,
+            "minimum": 1,
+            "maximum": 1,
+            "positive": 1,
+            "zero": 0,
+            "negative": 0
+          },
+          "absolute_overhead": {
+            "n": 1,
+            "mean": 0.0,
+            "median": 0,
+            "minimum": 0,
+            "maximum": 0,
+            "positive": 0,
+            "zero": 1,
+            "negative": 0
+          },
+          "normalized_overhead": {
+            "n": 1,
+            "mean": 0.0,
+            "median": 0.0,
+            "minimum": 0.0,
+            "maximum": 0.0,
+            "positive": 0,
+            "zero": 1,
+            "negative": 0
+          },
+          "reference_zero_count": 0
+        },
+        "throw_count": {
+          "generated": {
+            "n": 1,
+            "mean": 1.0,
+            "median": 1,
+            "minimum": 1,
+            "maximum": 1,
+            "positive": 1,
+            "zero": 0,
+            "negative": 0
+          },
+          "reference": {
+            "n": 1,
+            "mean": 1.0,
+            "median": 1,
+            "minimum": 1,
+            "maximum": 1,
+            "positive": 1,
+            "zero": 0,
+            "negative": 0
+          },
+          "absolute_overhead": {
+            "n": 1,
+            "mean": 0.0,
+            "median": 0,
+            "minimum": 0,
+            "maximum": 0,
+            "positive": 0,
+            "zero": 1,
+            "negative": 0
+          },
+          "normalized_overhead": {
+            "n": 1,
+            "mean": 0.0,
+            "median": 0.0,
+            "minimum": 0.0,
+            "maximum": 0.0,
+            "positive": 0,
+            "zero": 1,
+            "negative": 0
+          },
+          "reference_zero_count": 0
+        },
+        "local_variable_count": {
+          "generated": {
+            "n": 1,
+            "mean": 0.0,
+            "median": 0,
+            "minimum": 0,
+            "maximum": 0,
+            "positive": 0,
+            "zero": 1,
+            "negative": 0
+          },
+          "reference": {
+            "n": 1,
+            "mean": 0.0,
+            "median": 0,
+            "minimum": 0,
+            "maximum": 0,
+            "positive": 0,
+            "zero": 1,
+            "negative": 0
+          },
+          "absolute_overhead": {
+            "n": 1,
+            "mean": 0.0,
+            "median": 0,
+            "minimum": 0,
+            "maximum": 0,
+            "positive": 0,
+            "zero": 1,
+            "negative": 0
+          },
+          "normalized_overhead": {
+            "n": 0
+          },
+          "reference_zero_count": 1
+        },
+        "lambda_count": {
+          "generated": {
+            "n": 1,
+            "mean": 0.0,
+            "median": 0,
+            "minimum": 0,
+            "maximum": 0,
+            "positive": 0,
+            "zero": 1,
+            "negative": 0
+          },
+          "reference": {
+            "n": 1,
+            "mean": 0.0,
+            "median": 0,
+            "minimum": 0,
+            "maximum": 0,
+            "positive": 0,
+            "zero": 1,
+            "negative": 0
+          },
+          "absolute_overhead": {
+            "n": 1,
+            "mean": 0.0,
+            "median": 0,
+            "minimum": 0,
+            "maximum": 0,
+            "positive": 0,
+            "zero": 1,
+            "negative": 0
+          },
+          "normalized_overhead": {
+            "n": 0
+          },
+          "reference_zero_count": 1
+        },
+        "code_smell_count": {
+          "generated": {
+            "n": 1,
+            "mean": 0.0,
+            "median": 0,
+            "minimum": 0,
+            "maximum": 0,
+            "positive": 0,
+            "zero": 1,
+            "negative": 0
+          },
+          "reference": {
+            "n": 1,
+            "mean": 0.0,
+            "median": 0,
+            "minimum": 0,
+            "maximum": 0,
+            "positive": 0,
+            "zero": 1,
+            "negative": 0
+          },
+          "absolute_overhead": {
+            "n": 1,
+            "mean": 0.0,
+            "median": 0,
+            "minimum": 0,
+            "maximum": 0,
+            "positive": 0,
+            "zero": 1,
+            "negative": 0
+          },
+          "normalized_overhead": {
+            "n": 0
+          },
+          "reference_zero_count": 1
+        }
+      }
+    },
+    "mybatis-flex": {
+      "checkpoints": 1,
+      "metrics": {
+        "physical_lines": {
+          "generated": {
+            "n": 1,
+            "mean": 14.0,
+            "median": 14,
+            "minimum": 14,
+            "maximum": 14,
+            "positive": 1,
+            "zero": 0,
+            "negative": 0
+          },
+          "reference": {
+            "n": 1,
+            "mean": 11.0,
+            "median": 11,
+            "minimum": 11,
+            "maximum": 11,
+            "positive": 1,
+            "zero": 0,
+            "negative": 0
+          },
+          "absolute_overhead": {
+            "n": 1,
+            "mean": 3.0,
+            "median": 3,
+            "minimum": 3,
+            "maximum": 3,
+            "positive": 1,
+            "zero": 0,
+            "negative": 0
+          },
+          "normalized_overhead": {
+            "n": 1,
+            "mean": 0.2727272727024793,
+            "median": 0.2727272727024793,
+            "minimum": 0.2727272727024793,
+            "maximum": 0.2727272727024793,
+            "positive": 1,
+            "zero": 0,
+            "negative": 0
+          },
+          "reference_zero_count": 0
+        },
+        "source_lines_nonblank_noncomment": {
+          "generated": {
+            "n": 1,
+            "mean": 12.0,
+            "median": 12,
+            "minimum": 12,
+            "maximum": 12,
+            "positive": 1,
+            "zero": 0,
+            "negative": 0
+          },
+          "reference": {
+            "n": 1,
+            "mean": 11.0,
+            "median": 11,
+            "minimum": 11,
+            "maximum": 11,
+            "positive": 1,
+            "zero": 0,
+            "negative": 0
+          },
+          "absolute_overhead": {
+            "n": 1,
+            "mean": 1.0,
+            "median": 1,
+            "minimum": 1,
+            "maximum": 1,
+            "positive": 1,
+            "zero": 0,
+            "negative": 0
+          },
+          "normalized_overhead": {
+            "n": 1,
+            "mean": 0.09090909090082644,
+            "median": 0.09090909090082644,
+            "minimum": 0.09090909090082644,
+            "maximum": 0.09090909090082644,
+            "positive": 1,
+            "zero": 0,
+            "negative": 0
+          },
+          "reference_zero_count": 0
+        },
+        "statement_count": {
+          "generated": {
+            "n": 1,
+            "mean": 6.0,
+            "median": 6,
+            "minimum": 6,
+            "maximum": 6,
+            "positive": 1,
+            "zero": 0,
+            "negative": 0
+          },
+          "reference": {
+            "n": 1,
+            "mean": 6.0,
+            "median": 6,
+            "minimum": 6,
+            "maximum": 6,
+            "positive": 1,
+            "zero": 0,
+            "negative": 0
+          },
+          "absolute_overhead": {
+            "n": 1,
+            "mean": 0.0,
+            "median": 0,
+            "minimum": 0,
+            "maximum": 0,
+            "positive": 0,
+            "zero": 1,
+            "negative": 0
+          },
+          "normalized_overhead": {
+            "n": 1,
+            "mean": 0.0,
+            "median": 0.0,
+            "minimum": 0.0,
+            "maximum": 0.0,
+            "positive": 0,
+            "zero": 1,
+            "negative": 0
+          },
+          "reference_zero_count": 0
+        },
+        "cyclomatic_complexity": {
+          "generated": {
+            "n": 1,
+            "mean": 4.0,
+            "median": 4,
+            "minimum": 4,
+            "maximum": 4,
+            "positive": 1,
+            "zero": 0,
+            "negative": 0
+          },
+          "reference": {
+            "n": 1,
+            "mean": 3.0,
+            "median": 3,
+            "minimum": 3,
+            "maximum": 3,
+            "positive": 1,
+            "zero": 0,
+            "negative": 0
+          },
+          "absolute_overhead": {
+            "n": 1,
+            "mean": 1.0,
+            "median": 1,
+            "minimum": 1,
+            "maximum": 1,
+            "positive": 1,
+            "zero": 0,
+            "negative": 0
+          },
+          "normalized_overhead": {
+            "n": 1,
+            "mean": 0.3333333332222222,
+            "median": 0.3333333332222222,
+            "minimum": 0.3333333332222222,
+            "maximum": 0.3333333332222222,
+            "positive": 1,
+            "zero": 0,
+            "negative": 0
+          },
+          "reference_zero_count": 0
+        },
+        "cognitive_complexity_approx": {
+          "generated": {
+            "n": 1,
+            "mean": 3.0,
+            "median": 3,
+            "minimum": 3,
+            "maximum": 3,
+            "positive": 1,
+            "zero": 0,
+            "negative": 0
+          },
+          "reference": {
+            "n": 1,
+            "mean": 3.0,
+            "median": 3,
+            "minimum": 3,
+            "maximum": 3,
+            "positive": 1,
+            "zero": 0,
+            "negative": 0
+          },
+          "absolute_overhead": {
+            "n": 1,
+            "mean": 0.0,
+            "median": 0,
+            "minimum": 0,
+            "maximum": 0,
+            "positive": 0,
+            "zero": 1,
+            "negative": 0
+          },
+          "normalized_overhead": {
+            "n": 1,
+            "mean": 0.0,
+            "median": 0.0,
+            "minimum": 0.0,
+            "maximum": 0.0,
+            "positive": 0,
+            "zero": 1,
+            "negative": 0
+          },
+          "reference_zero_count": 0
+        },
+        "max_control_nesting": {
+          "generated": {
+            "n": 1,
+            "mean": 1.0,
+            "median": 1,
+            "minimum": 1,
+            "maximum": 1,
+            "positive": 1,
+            "zero": 0,
+            "negative": 0
+          },
+          "reference": {
+            "n": 1,
+            "mean": 2.0,
+            "median": 2,
+            "minimum": 2,
+            "maximum": 2,
+            "positive": 1,
+            "zero": 0,
+            "negative": 0
+          },
+          "absolute_overhead": {
+            "n": 1,
+            "mean": -1.0,
+            "median": -1,
+            "minimum": -1,
+            "maximum": -1,
+            "positive": 0,
+            "zero": 0,
+            "negative": 1
+          },
+          "normalized_overhead": {
+            "n": 1,
+            "mean": -0.49999999975,
+            "median": -0.49999999975,
+            "minimum": -0.49999999975,
+            "maximum": -0.49999999975,
+            "positive": 0,
+            "zero": 0,
+            "negative": 1
+          },
+          "reference_zero_count": 0
+        },
+        "branch_count": {
+          "generated": {
+            "n": 1,
+            "mean": 2.0,
+            "median": 2,
+            "minimum": 2,
+            "maximum": 2,
+            "positive": 1,
+            "zero": 0,
+            "negative": 0
+          },
+          "reference": {
+            "n": 1,
+            "mean": 2.0,
+            "median": 2,
+            "minimum": 2,
+            "maximum": 2,
+            "positive": 1,
+            "zero": 0,
+            "negative": 0
+          },
+          "absolute_overhead": {
+            "n": 1,
+            "mean": 0.0,
+            "median": 0,
+            "minimum": 0,
+            "maximum": 0,
+            "positive": 0,
+            "zero": 1,
+            "negative": 0
+          },
+          "normalized_overhead": {
+            "n": 1,
+            "mean": 0.0,
+            "median": 0.0,
+            "minimum": 0.0,
+            "maximum": 0.0,
+            "positive": 0,
+            "zero": 1,
+            "negative": 0
+          },
+          "reference_zero_count": 0
+        },
+        "method_invocation_count": {
+          "generated": {
+            "n": 1,
+            "mean": 7.0,
+            "median": 7,
+            "minimum": 7,
+            "maximum": 7,
+            "positive": 1,
+            "zero": 0,
+            "negative": 0
+          },
+          "reference": {
+            "n": 1,
+            "mean": 8.0,
+            "median": 8,
+            "minimum": 8,
+            "maximum": 8,
+            "positive": 1,
+            "zero": 0,
+            "negative": 0
+          },
+          "absolute_overhead": {
+            "n": 1,
+            "mean": -1.0,
+            "median": -1,
+            "minimum": -1,
+            "maximum": -1,
+            "positive": 0,
+            "zero": 0,
+            "negative": 1
+          },
+          "normalized_overhead": {
+            "n": 1,
+            "mean": -0.124999999984375,
+            "median": -0.124999999984375,
+            "minimum": -0.124999999984375,
+            "maximum": -0.124999999984375,
+            "positive": 0,
+            "zero": 0,
+            "negative": 1
+          },
+          "reference_zero_count": 0
+        },
+        "constructor_invocation_count": {
+          "generated": {
+            "n": 1,
+            "mean": 1.0,
+            "median": 1,
+            "minimum": 1,
+            "maximum": 1,
+            "positive": 1,
+            "zero": 0,
+            "negative": 0
+          },
+          "reference": {
+            "n": 1,
+            "mean": 1.0,
+            "median": 1,
+            "minimum": 1,
+            "maximum": 1,
+            "positive": 1,
+            "zero": 0,
+            "negative": 0
+          },
+          "absolute_overhead": {
+            "n": 1,
+            "mean": 0.0,
+            "median": 0,
+            "minimum": 0,
+            "maximum": 0,
+            "positive": 0,
+            "zero": 1,
+            "negative": 0
+          },
+          "normalized_overhead": {
+            "n": 1,
+            "mean": 0.0,
+            "median": 0.0,
+            "minimum": 0.0,
+            "maximum": 0.0,
+            "positive": 0,
+            "zero": 1,
+            "negative": 0
+          },
+          "reference_zero_count": 0
+        },
+        "unique_call_target_count": {
+          "generated": {
+            "n": 1,
+            "mean": 7.0,
+            "median": 7,
+            "minimum": 7,
+            "maximum": 7,
+            "positive": 1,
+            "zero": 0,
+            "negative": 0
+          },
+          "reference": {
+            "n": 1,
+            "mean": 7.0,
+            "median": 7,
+            "minimum": 7,
+            "maximum": 7,
+            "positive": 1,
+            "zero": 0,
+            "negative": 0
+          },
+          "absolute_overhead": {
+            "n": 1,
+            "mean": 0.0,
+            "median": 0,
+            "minimum": 0,
+            "maximum": 0,
+            "positive": 0,
+            "zero": 1,
+            "negative": 0
+          },
+          "normalized_overhead": {
+            "n": 1,
+            "mean": 0.0,
+            "median": 0.0,
+            "minimum": 0.0,
+            "maximum": 0.0,
+            "positive": 0,
+            "zero": 1,
+            "negative": 0
+          },
+          "reference_zero_count": 0
+        },
+        "parameter_count": {
+          "generated": {
+            "n": 1,
+            "mean": 1.0,
+            "median": 1,
+            "minimum": 1,
+            "maximum": 1,
+            "positive": 1,
+            "zero": 0,
+            "negative": 0
+          },
+          "reference": {
+            "n": 1,
+            "mean": 1.0,
+            "median": 1,
+            "minimum": 1,
+            "maximum": 1,
+            "positive": 1,
+            "zero": 0,
+            "negative": 0
+          },
+          "absolute_overhead": {
+            "n": 1,
+            "mean": 0.0,
+            "median": 0,
+            "minimum": 0,
+            "maximum": 0,
+            "positive": 0,
+            "zero": 1,
+            "negative": 0
+          },
+          "normalized_overhead": {
+            "n": 1,
+            "mean": 0.0,
+            "median": 0.0,
+            "minimum": 0.0,
+            "maximum": 0.0,
+            "positive": 0,
+            "zero": 1,
+            "negative": 0
+          },
+          "reference_zero_count": 0
+        },
+        "return_count": {
+          "generated": {
+            "n": 1,
+            "mean": 2.0,
+            "median": 2,
+            "minimum": 2,
+            "maximum": 2,
+            "positive": 1,
+            "zero": 0,
+            "negative": 0
+          },
+          "reference": {
+            "n": 1,
+            "mean": 1.0,
+            "median": 1,
+            "minimum": 1,
+            "maximum": 1,
+            "positive": 1,
+            "zero": 0,
+            "negative": 0
+          },
+          "absolute_overhead": {
+            "n": 1,
+            "mean": 1.0,
+            "median": 1,
+            "minimum": 1,
+            "maximum": 1,
+            "positive": 1,
+            "zero": 0,
+            "negative": 0
+          },
+          "normalized_overhead": {
+            "n": 1,
+            "mean": 0.9999999989999999,
+            "median": 0.9999999989999999,
+            "minimum": 0.9999999989999999,
+            "maximum": 0.9999999989999999,
+            "positive": 1,
+            "zero": 0,
+            "negative": 0
+          },
+          "reference_zero_count": 0
+        },
+        "throw_count": {
+          "generated": {
+            "n": 1,
+            "mean": 1.0,
+            "median": 1,
+            "minimum": 1,
+            "maximum": 1,
+            "positive": 1,
+            "zero": 0,
+            "negative": 0
+          },
+          "reference": {
+            "n": 1,
+            "mean": 1.0,
+            "median": 1,
+            "minimum": 1,
+            "maximum": 1,
+            "positive": 1,
+            "zero": 0,
+            "negative": 0
+          },
+          "absolute_overhead": {
+            "n": 1,
+            "mean": 0.0,
+            "median": 0,
+            "minimum": 0,
+            "maximum": 0,
+            "positive": 0,
+            "zero": 1,
+            "negative": 0
+          },
+          "normalized_overhead": {
+            "n": 1,
+            "mean": 0.0,
+            "median": 0.0,
+            "minimum": 0.0,
+            "maximum": 0.0,
+            "positive": 0,
+            "zero": 1,
+            "negative": 0
+          },
+          "reference_zero_count": 0
+        },
+        "local_variable_count": {
+          "generated": {
+            "n": 1,
+            "mean": 1.0,
+            "median": 1,
+            "minimum": 1,
+            "maximum": 1,
+            "positive": 1,
+            "zero": 0,
+            "negative": 0
+          },
+          "reference": {
+            "n": 1,
+            "mean": 0.0,
+            "median": 0,
+            "minimum": 0,
+            "maximum": 0,
+            "positive": 0,
+            "zero": 1,
+            "negative": 0
+          },
+          "absolute_overhead": {
+            "n": 1,
+            "mean": 1.0,
+            "median": 1,
+            "minimum": 1,
+            "maximum": 1,
+            "positive": 1,
+            "zero": 0,
+            "negative": 0
+          },
+          "normalized_overhead": {
+            "n": 0
+          },
+          "reference_zero_count": 1
+        },
+        "lambda_count": {
+          "generated": {
+            "n": 1,
+            "mean": 0.0,
+            "median": 0,
+            "minimum": 0,
+            "maximum": 0,
+            "positive": 0,
+            "zero": 1,
+            "negative": 0
+          },
+          "reference": {
+            "n": 1,
+            "mean": 0.0,
+            "median": 0,
+            "minimum": 0,
+            "maximum": 0,
+            "positive": 0,
+            "zero": 1,
+            "negative": 0
+          },
+          "absolute_overhead": {
+            "n": 1,
+            "mean": 0.0,
+            "median": 0,
+            "minimum": 0,
+            "maximum": 0,
+            "positive": 0,
+            "zero": 1,
+            "negative": 0
+          },
+          "normalized_overhead": {
+            "n": 0
+          },
+          "reference_zero_count": 1
+        },
+        "code_smell_count": {
+          "generated": {
+            "n": 1,
+            "mean": 0.0,
+            "median": 0,
+            "minimum": 0,
+            "maximum": 0,
+            "positive": 0,
+            "zero": 1,
+            "negative": 0
+          },
+          "reference": {
+            "n": 1,
+            "mean": 0.0,
+            "median": 0,
+            "minimum": 0,
+            "maximum": 0,
+            "positive": 0,
+            "zero": 1,
+            "negative": 0
+          },
+          "absolute_overhead": {
+            "n": 1,
+            "mean": 0.0,
+            "median": 0,
+            "minimum": 0,
+            "maximum": 0,
+            "positive": 0,
+            "zero": 1,
+            "negative": 0
+          },
+          "normalized_overhead": {
+            "n": 0
+          },
+          "reference_zero_count": 1
+        }
+      }
+    },
+    "timefold-solver": {
+      "checkpoints": 7,
+      "metrics": {
+        "physical_lines": {
+          "generated": {
+            "n": 7,
+            "mean": 12.714285714285714,
+            "median": 11,
+            "minimum": 9,
+            "maximum": 22,
+            "positive": 7,
+            "zero": 0,
+            "negative": 0
+          },
+          "reference": {
+            "n": 7,
+            "mean": 12.428571428571429,
+            "median": 14,
+            "minimum": 8,
+            "maximum": 20,
+            "positive": 7,
+            "zero": 0,
+            "negative": 0
+          },
+          "absolute_overhead": {
+            "n": 7,
+            "mean": 0.2857142857142857,
+            "median": 0,
+            "minimum": -3,
+            "maximum": 3,
+            "positive": 3,
+            "zero": 1,
+            "negative": 3
+          },
+          "normalized_overhead": {
+            "n": 7,
+            "mean": 0.052551020399932584,
+            "median": 0.0,
+            "minimum": -0.21428571427040816,
+            "maximum": 0.374999999953125,
+            "positive": 3,
+            "zero": 1,
+            "negative": 3
+          },
+          "reference_zero_count": 0
+        },
+        "source_lines_nonblank_noncomment": {
+          "generated": {
+            "n": 7,
+            "mean": 12.142857142857142,
+            "median": 11,
+            "minimum": 9,
+            "maximum": 19,
+            "positive": 7,
+            "zero": 0,
+            "negative": 0
+          },
+          "reference": {
+            "n": 7,
+            "mean": 12.142857142857142,
+            "median": 14,
+            "minimum": 8,
+            "maximum": 18,
+            "positive": 7,
+            "zero": 0,
+            "negative": 0
+          },
+          "absolute_overhead": {
+            "n": 7,
+            "mean": 0.0,
+            "median": 0,
+            "minimum": -3,
+            "maximum": 2,
+            "positive": 3,
+            "zero": 1,
+            "negative": 3
+          },
+          "normalized_overhead": {
+            "n": 7,
+            "mean": 0.028344671196088887,
+            "median": 0.0,
+            "minimum": -0.21428571427040816,
+            "maximum": 0.24999999996875,
+            "positive": 3,
+            "zero": 1,
+            "negative": 3
+          },
+          "reference_zero_count": 0
+        },
+        "statement_count": {
+          "generated": {
+            "n": 7,
+            "mean": 7.142857142857143,
+            "median": 6,
+            "minimum": 5,
+            "maximum": 15,
+            "positive": 7,
+            "zero": 0,
+            "negative": 0
+          },
+          "reference": {
+            "n": 7,
+            "mean": 7.285714285714286,
+            "median": 8,
+            "minimum": 4,
+            "maximum": 14,
+            "positive": 7,
+            "zero": 0,
+            "negative": 0
+          },
+          "absolute_overhead": {
+            "n": 7,
+            "mean": -0.14285714285714285,
+            "median": 0,
+            "minimum": -2,
+            "maximum": 1,
+            "positive": 3,
+            "zero": 1,
+            "negative": 3
+          },
+          "normalized_overhead": {
+            "n": 7,
+            "mean": 0.010204081622995626,
+            "median": 0.0,
+            "minimum": -0.24999999996875,
+            "maximum": 0.2499999999375,
+            "positive": 3,
+            "zero": 1,
+            "negative": 3
+          },
+          "reference_zero_count": 0
+        },
+        "cyclomatic_complexity": {
+          "generated": {
+            "n": 7,
+            "mean": 3.0,
+            "median": 3,
+            "minimum": 2,
+            "maximum": 4,
+            "positive": 7,
+            "zero": 0,
+            "negative": 0
+          },
+          "reference": {
+            "n": 7,
+            "mean": 3.142857142857143,
+            "median": 4,
+            "minimum": 2,
+            "maximum": 4,
+            "positive": 7,
+            "zero": 0,
+            "negative": 0
+          },
+          "absolute_overhead": {
+            "n": 7,
+            "mean": -0.14285714285714285,
+            "median": 0,
+            "minimum": -1,
+            "maximum": 0,
+            "positive": 0,
+            "zero": 6,
+            "negative": 1
+          },
+          "normalized_overhead": {
+            "n": 7,
+            "mean": -0.03571428570535714,
+            "median": 0.0,
+            "minimum": -0.2499999999375,
+            "maximum": 0.0,
+            "positive": 0,
+            "zero": 6,
+            "negative": 1
+          },
+          "reference_zero_count": 0
+        },
+        "cognitive_complexity_approx": {
+          "generated": {
+            "n": 7,
+            "mean": 3.2857142857142856,
+            "median": 3,
+            "minimum": 1,
+            "maximum": 6,
+            "positive": 7,
+            "zero": 0,
+            "negative": 0
+          },
+          "reference": {
+            "n": 7,
+            "mean": 3.4285714285714284,
+            "median": 5,
+            "minimum": 1,
+            "maximum": 6,
+            "positive": 7,
+            "zero": 0,
+            "negative": 0
+          },
+          "absolute_overhead": {
+            "n": 7,
+            "mean": -0.14285714285714285,
+            "median": 0,
+            "minimum": -2,
+            "maximum": 1,
+            "positive": 2,
+            "zero": 3,
+            "negative": 2
+          },
+          "normalized_overhead": {
+            "n": 7,
+            "mean": -0.023809523805555555,
+            "median": 0.0,
+            "minimum": -0.39999999992,
+            "maximum": 0.19999999996,
+            "positive": 2,
+            "zero": 3,
+            "negative": 2
+          },
+          "reference_zero_count": 0
+        },
+        "max_control_nesting": {
+          "generated": {
+            "n": 7,
+            "mean": 2.142857142857143,
+            "median": 2,
+            "minimum": 1,
+            "maximum": 3,
+            "positive": 7,
+            "zero": 0,
+            "negative": 0
+          },
+          "reference": {
+            "n": 7,
+            "mean": 2.0,
+            "median": 2,
+            "minimum": 1,
+            "maximum": 3,
+            "positive": 7,
+            "zero": 0,
+            "negative": 0
+          },
+          "absolute_overhead": {
+            "n": 7,
+            "mean": 0.14285714285714285,
+            "median": 0,
+            "minimum": -1,
+            "maximum": 1,
+            "positive": 2,
+            "zero": 4,
+            "negative": 1
+          },
+          "normalized_overhead": {
+            "n": 7,
+            "mean": 0.09523809518253969,
+            "median": 0.0,
+            "minimum": -0.3333333332222222,
+            "maximum": 0.49999999975,
+            "positive": 2,
+            "zero": 4,
+            "negative": 1
+          },
+          "reference_zero_count": 0
+        },
+        "branch_count": {
+          "generated": {
+            "n": 7,
+            "mean": 2.0,
+            "median": 2,
+            "minimum": 1,
+            "maximum": 3,
+            "positive": 7,
+            "zero": 0,
+            "negative": 0
+          },
+          "reference": {
+            "n": 7,
+            "mean": 2.142857142857143,
+            "median": 3,
+            "minimum": 1,
+            "maximum": 3,
+            "positive": 7,
+            "zero": 0,
+            "negative": 0
+          },
+          "absolute_overhead": {
+            "n": 7,
+            "mean": -0.14285714285714285,
+            "median": 0,
+            "minimum": -1,
+            "maximum": 0,
+            "positive": 0,
+            "zero": 6,
+            "negative": 1
+          },
+          "normalized_overhead": {
+            "n": 7,
+            "mean": -0.0476190476031746,
+            "median": 0.0,
+            "minimum": -0.3333333332222222,
+            "maximum": 0.0,
+            "positive": 0,
+            "zero": 6,
+            "negative": 1
+          },
+          "reference_zero_count": 0
+        },
+        "method_invocation_count": {
+          "generated": {
+            "n": 7,
+            "mean": 2.7142857142857144,
+            "median": 2,
+            "minimum": 1,
+            "maximum": 4,
+            "positive": 7,
+            "zero": 0,
+            "negative": 0
+          },
+          "reference": {
+            "n": 7,
+            "mean": 2.7142857142857144,
+            "median": 2,
+            "minimum": 1,
+            "maximum": 4,
+            "positive": 7,
+            "zero": 0,
+            "negative": 0
+          },
+          "absolute_overhead": {
+            "n": 7,
+            "mean": 0.0,
+            "median": 0,
+            "minimum": 0,
+            "maximum": 0,
+            "positive": 0,
+            "zero": 7,
+            "negative": 0
+          },
+          "normalized_overhead": {
+            "n": 7,
+            "mean": 0.0,
+            "median": 0.0,
+            "minimum": 0.0,
+            "maximum": 0.0,
+            "positive": 0,
+            "zero": 7,
+            "negative": 0
+          },
+          "reference_zero_count": 0
+        },
+        "constructor_invocation_count": {
+          "generated": {
+            "n": 7,
+            "mean": 0.42857142857142855,
+            "median": 0,
+            "minimum": 0,
+            "maximum": 1,
+            "positive": 3,
+            "zero": 4,
+            "negative": 0
+          },
+          "reference": {
+            "n": 7,
+            "mean": 0.42857142857142855,
+            "median": 0,
+            "minimum": 0,
+            "maximum": 1,
+            "positive": 3,
+            "zero": 4,
+            "negative": 0
+          },
+          "absolute_overhead": {
+            "n": 7,
+            "mean": 0.0,
+            "median": 0,
+            "minimum": 0,
+            "maximum": 0,
+            "positive": 0,
+            "zero": 7,
+            "negative": 0
+          },
+          "normalized_overhead": {
+            "n": 3,
+            "mean": 0.0,
+            "median": 0.0,
+            "minimum": 0.0,
+            "maximum": 0.0,
+            "positive": 0,
+            "zero": 3,
+            "negative": 0
+          },
+          "reference_zero_count": 4
+        },
+        "unique_call_target_count": {
+          "generated": {
+            "n": 7,
+            "mean": 3.142857142857143,
+            "median": 3,
+            "minimum": 2,
+            "maximum": 4,
+            "positive": 7,
+            "zero": 0,
+            "negative": 0
+          },
+          "reference": {
+            "n": 7,
+            "mean": 3.142857142857143,
+            "median": 3,
+            "minimum": 2,
+            "maximum": 4,
+            "positive": 7,
+            "zero": 0,
+            "negative": 0
+          },
+          "absolute_overhead": {
+            "n": 7,
+            "mean": 0.0,
+            "median": 0,
+            "minimum": 0,
+            "maximum": 0,
+            "positive": 0,
+            "zero": 7,
+            "negative": 0
+          },
+          "normalized_overhead": {
+            "n": 7,
+            "mean": 0.0,
+            "median": 0.0,
+            "minimum": 0.0,
+            "maximum": 0.0,
+            "positive": 0,
+            "zero": 7,
+            "negative": 0
+          },
+          "reference_zero_count": 0
+        },
+        "parameter_count": {
+          "generated": {
+            "n": 7,
+            "mean": 1.2857142857142858,
+            "median": 1,
+            "minimum": 1,
+            "maximum": 2,
+            "positive": 7,
+            "zero": 0,
+            "negative": 0
+          },
+          "reference": {
+            "n": 7,
+            "mean": 1.2857142857142858,
+            "median": 1,
+            "minimum": 1,
+            "maximum": 2,
+            "positive": 7,
+            "zero": 0,
+            "negative": 0
+          },
+          "absolute_overhead": {
+            "n": 7,
+            "mean": 0.0,
+            "median": 0,
+            "minimum": 0,
+            "maximum": 0,
+            "positive": 0,
+            "zero": 7,
+            "negative": 0
+          },
+          "normalized_overhead": {
+            "n": 7,
+            "mean": 0.0,
+            "median": 0.0,
+            "minimum": 0.0,
+            "maximum": 0.0,
+            "positive": 0,
+            "zero": 7,
+            "negative": 0
+          },
+          "reference_zero_count": 0
+        },
+        "return_count": {
+          "generated": {
+            "n": 7,
+            "mean": 1.0,
+            "median": 1,
+            "minimum": 1,
+            "maximum": 1,
+            "positive": 7,
+            "zero": 0,
+            "negative": 0
+          },
+          "reference": {
+            "n": 7,
+            "mean": 0.7142857142857143,
+            "median": 1,
+            "minimum": 0,
+            "maximum": 1,
+            "positive": 5,
+            "zero": 2,
+            "negative": 0
+          },
+          "absolute_overhead": {
+            "n": 7,
+            "mean": 0.2857142857142857,
+            "median": 0,
+            "minimum": 0,
+            "maximum": 1,
+            "positive": 2,
+            "zero": 5,
+            "negative": 0
+          },
+          "normalized_overhead": {
+            "n": 5,
+            "mean": 0.0,
+            "median": 0.0,
+            "minimum": 0.0,
+            "maximum": 0.0,
+            "positive": 0,
+            "zero": 5,
+            "negative": 0
+          },
+          "reference_zero_count": 2
+        },
+        "throw_count": {
+          "generated": {
+            "n": 7,
+            "mean": 0.0,
+            "median": 0,
+            "minimum": 0,
+            "maximum": 0,
+            "positive": 0,
+            "zero": 7,
+            "negative": 0
+          },
+          "reference": {
+            "n": 7,
+            "mean": 0.0,
+            "median": 0,
+            "minimum": 0,
+            "maximum": 0,
+            "positive": 0,
+            "zero": 7,
+            "negative": 0
+          },
+          "absolute_overhead": {
+            "n": 7,
+            "mean": 0.0,
+            "median": 0,
+            "minimum": 0,
+            "maximum": 0,
+            "positive": 0,
+            "zero": 7,
+            "negative": 0
+          },
+          "normalized_overhead": {
+            "n": 0
+          },
+          "reference_zero_count": 7
+        },
+        "local_variable_count": {
+          "generated": {
+            "n": 7,
+            "mean": 2.0,
+            "median": 2,
+            "minimum": 0,
+            "maximum": 6,
+            "positive": 5,
+            "zero": 2,
+            "negative": 0
+          },
+          "reference": {
+            "n": 7,
+            "mean": 2.0,
+            "median": 2,
+            "minimum": 0,
+            "maximum": 6,
+            "positive": 5,
+            "zero": 2,
+            "negative": 0
+          },
+          "absolute_overhead": {
+            "n": 7,
+            "mean": 0.0,
+            "median": 0,
+            "minimum": 0,
+            "maximum": 0,
+            "positive": 0,
+            "zero": 7,
+            "negative": 0
+          },
+          "normalized_overhead": {
+            "n": 5,
+            "mean": 0.0,
+            "median": 0.0,
+            "minimum": 0.0,
+            "maximum": 0.0,
+            "positive": 0,
+            "zero": 5,
+            "negative": 0
+          },
+          "reference_zero_count": 2
+        },
+        "lambda_count": {
+          "generated": {
+            "n": 7,
+            "mean": 0.0,
+            "median": 0,
+            "minimum": 0,
+            "maximum": 0,
+            "positive": 0,
+            "zero": 7,
+            "negative": 0
+          },
+          "reference": {
+            "n": 7,
+            "mean": 0.0,
+            "median": 0,
+            "minimum": 0,
+            "maximum": 0,
+            "positive": 0,
+            "zero": 7,
+            "negative": 0
+          },
+          "absolute_overhead": {
+            "n": 7,
+            "mean": 0.0,
+            "median": 0,
+            "minimum": 0,
+            "maximum": 0,
+            "positive": 0,
+            "zero": 7,
+            "negative": 0
+          },
+          "normalized_overhead": {
+            "n": 0
+          },
+          "reference_zero_count": 7
+        },
+        "code_smell_count": {
+          "generated": {
+            "n": 7,
+            "mean": 0.0,
+            "median": 0,
+            "minimum": 0,
+            "maximum": 0,
+            "positive": 0,
+            "zero": 7,
+            "negative": 0
+          },
+          "reference": {
+            "n": 7,
+            "mean": 0.0,
+            "median": 0,
+            "minimum": 0,
+            "maximum": 0,
+            "positive": 0,
+            "zero": 7,
+            "negative": 0
+          },
+          "absolute_overhead": {
+            "n": 7,
+            "mean": 0.0,
+            "median": 0,
+            "minimum": 0,
+            "maximum": 0,
+            "positive": 0,
+            "zero": 7,
+            "negative": 0
+          },
+          "normalized_overhead": {
+            "n": 0
+          },
+          "reference_zero_count": 7
+        }
+      }
+    }
+  },
+  "processed_artifacts": {
+    "csv": "data/processed/pilot-a-structural-metrics.csv",
+    "json": "data/processed/pilot-a-structural-metrics.json",
+    "csv_sha256": "b8c4fa8718714aeb8ffdc7821e60f89f089184f022f099a1f796ecab4fad70f5",
+    "json_sha256": "4b80489841665726bad8220c625f1dea58880e2f9afd9e401b095abb6903e8f0"
+  },
+  "interpretation_status": "descriptive-pilot-only"
+}

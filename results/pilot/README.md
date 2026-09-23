@@ -11,3 +11,7 @@ functional decision to proceed to structural and reuse-feasibility analysis.
 `prompt-context-sufficiency-audit.json` records the post-generation audit of all
 18 adjusted tasks. The adjusted functional summary retains the frozen primary
 view and adds clear-case and strict signature sensitivity results.
+
+`pilot-a-structural-summary.json` contains paired descriptive distributions and
+trajectory-clustered bootstrap intervals for the 24 eligible correct
+checkpoints and the strict 16-checkpoint subgroup.

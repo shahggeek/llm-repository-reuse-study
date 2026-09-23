@@ -229,3 +229,23 @@ Excluding only the four `rerank` checkpoints changes correctness yield from
 For later model runs, require a literal repository-compatible signature before
 generation. Before publication, obtain a second human review of the three
 inferable-consistent classifications.
+
+## 2026-09-23 — Pilot A structural extraction complete
+
+Measure 24 eligible, cumulatively correct generated/reference checkpoint pairs
+across ten trajectories. Retain a strict literal-signature subgroup of 16 pairs
+across eight trajectories. Parse every method with pinned Tree-sitter Java and
+independently validate cyclomatic complexity with pinned Lizard; all 48 methods
+parse and all 48 complexity values agree.
+
+Use descriptive paired metrics and deterministic 5,000-resample percentile
+intervals clustered by trajectory. Median generated overhead is +1 nonblank
+source line, 0 cyclomatic complexity, 0 approximate cognitive complexity, 0
+nesting depth, and 0 local variables. Intervals are broad and generally include
+zero. The strict subgroup gives the same qualitative result.
+
+Conclude that the measurement pipeline is operational and detects strong
+task-level heterogeneity, but generic aggregate structural overhead is weak in
+this pilot. Keep the final GO/NARROW/PIVOT decision pending the missed-reuse
+analysis. If reuse is credible, prefer NARROW over a broad structural-quality
+claim.

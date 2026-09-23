@@ -31,6 +31,8 @@ The completed clean functional view is in
 [`results/pilot/pilot-a-adjusted-functional-summary.json`](results/pilot/pilot-a-adjusted-functional-summary.json).
 The task-level prompt/context quality review is in
 [`docs/prompt-context-audit.md`](docs/prompt-context-audit.md).
+The first structural result is in
+[`analysis/rq1/pilot-structural-findings.md`](analysis/rq1/pilot-structural-findings.md).
 
 To resume the current research state after a break, start with
 [`docs/resume-handoff.md`](docs/resume-handoff.md).
@@ -126,6 +128,12 @@ trajectories and then evaluate all 16 cumulative checks:
 ```bash
 make pilot-a-amendment-all
 make test-pilot-a-amendment
+```
+
+Generate the validated structural metric table after functional selection:
+
+```bash
+make structural-pilot
 ```
 
 Smoke reports use `pass` when every cumulative check succeeds, `partial` when
