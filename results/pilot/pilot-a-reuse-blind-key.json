@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "status": "concealed-from-independent-reviewer",
+  "randomization_seed": 20260923,
+  "instructions": "Do not provide this file or the primary calibration labels to the independent reviewer before submission.",
+  "cases": [
+    {"case_id": "RC-101", "task_slug": "set", "turn": 3, "generated_variant": "A", "reference_variant": "B"},
+    {"case_id": "RC-102", "task_slug": "loadDocuments", "turn": 1, "generated_variant": "A", "reference_variant": "B"},
+    {"case_id": "RC-103", "task_slug": "addInOrder", "turn": 1, "generated_variant": "A", "reference_variant": "B"},
+    {"case_id": "RC-104", "task_slug": "methodToProperty", "turn": 1, "generated_variant": "B", "reference_variant": "A"},
+    {"case_id": "RC-105", "task_slug": "nodeArrayMerge", "turn": 3, "generated_variant": "A", "reference_variant": "B"},
+    {"case_id": "RC-106", "task_slug": "calculatePhaseTimeGradient", "turn": 3, "generated_variant": "A", "reference_variant": "B"},
+    {"case_id": "RC-107", "task_slug": "encodeAnisotropic", "turn": 1, "generated_variant": "B", "reference_variant": "A"},
+    {"case_id": "RC-108", "task_slug": "getCyclesForPermutation", "turn": 1, "generated_variant": "A", "reference_variant": "B"},
+    {"case_id": "RC-109", "task_slug": "ensureCapacity", "turn": 2, "generated_variant": "A", "reference_variant": "B"},
+    {"case_id": "RC-110", "task_slug": "invert", "turn": 4, "generated_variant": "B", "reference_variant": "A"}
+  ]
+}

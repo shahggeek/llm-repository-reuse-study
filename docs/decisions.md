@@ -72,6 +72,12 @@ explicitly whether the frozen guardrail pair measures prompting under the same
 limited context or whether a separately named retrieval-supported condition is
 needed. Do not silently alter the frozen protocol.
 
+Prepared a blinded independent-review packet containing randomized A/B
+implementations for one checkpoint from each represented trajectory. The
+reviewer must classify both variants without access to the concealed mapping or
+primary labels. Agreement will be calculated only after submission using exact
+agreement, binary missed-reuse agreement, and linearly weighted Cohen's kappa.
+
 ## 2026-09-04 — Pre-generation replacement of `between`
 
 Exclude SR-Eval task `895990b3a5c56f093bdb72e6` (`between`) after its pinned

@@ -12,7 +12,7 @@ export PATH := $(TOOL_BIN):$(PATH)
 export UV_CACHE_DIR
 export UV_PYTHON_INSTALL_DIR
 
-.PHONY: bootstrap check prepare doctor tasks export smoke-dry-run smoke smoke-all pilot-a pilot-a-all test-pilot-a amendment-cli amendment-validate amendment-export amendment-preflight amendment-smoke-dry-run pilot-a-amendment pilot-a-amendment-all test-pilot-a-amendment audit-prompt-context summarize-pilot-a-adjusted structural-check structural-pilot reuse-screen
+.PHONY: bootstrap check prepare doctor tasks export smoke-dry-run smoke smoke-all pilot-a pilot-a-all test-pilot-a amendment-cli amendment-validate amendment-export amendment-preflight amendment-smoke-dry-run pilot-a-amendment pilot-a-amendment-all test-pilot-a-amendment audit-prompt-context summarize-pilot-a-adjusted structural-check structural-pilot reuse-screen reuse-agreement
 
 bootstrap:
 	bash scripts/bootstrap_tools.sh
@@ -91,3 +91,7 @@ structural-pilot: structural-check
 
 reuse-screen:
 	$(PYTHON) scripts/screen_reuse_candidates.py
+
+reuse-agreement:
+	@test -n "$(RESPONSES)" || (echo "Set RESPONSES to the completed Review-sheet CSV" && exit 2)
+	$(PYTHON) scripts/calculate_reuse_agreement.py "$(RESPONSES)" --output results/pilot/pilot-a-reuse-review-agreement.json
