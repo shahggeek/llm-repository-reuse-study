@@ -1,0 +1,131 @@
+{
+  "schema_version": 1,
+  "status": "single-analyst-calibration",
+  "sample_design": "One purposively selected eligible correct checkpoint from each of the ten trajectories represented in the structural pool.",
+  "sample_size": 10,
+  "trajectory_count": 10,
+  "blinded": false,
+  "rubric": "analysis/rq2/reuse-rubric.md",
+  "classifications": [
+    {
+      "task_slug": "addInOrder",
+      "turn": 1,
+      "reuse_class": "R3",
+      "context_class": "C1",
+      "candidate_symbol": "NodeArray.growArrays()",
+      "evidence": "The reference delegates capacity growth to growArrays(); the generated method independently computes a growth factor and copies both arrays. growArrays() is below the target method and absent from the supplied turn-1 context.",
+      "maintenance_consequence": "Duplicates the collection's capacity-growth policy and creates a second change location.",
+      "confidence": "high"
+    },
+    {
+      "task_slug": "calculatePhaseTimeGradient",
+      "turn": 3,
+      "reuse_class": "R1",
+      "context_class": "C3",
+      "candidate_symbol": "PhaseTermination.isApplicableTo() and calculatePhaseTimeGradient()",
+      "evidence": "The generated method calls the same repository abstractions named in the instructions and used by the reference.",
+      "maintenance_consequence": "None identified.",
+      "confidence": "high"
+    },
+    {
+      "task_slug": "encodeAnisotropic",
+      "turn": 1,
+      "reuse_class": "R3",
+      "context_class": "C1",
+      "candidate_symbol": "computeResiduals() and initializeToMinResidualNorms()",
+      "evidence": "The reference composes two existing domain helpers; the generated method rebuilds centroid selection with nested loops and dot products. Neither helper appears in the supplied context.",
+      "maintenance_consequence": "Duplicates quantization-domain logic and can drift if residual computation policy changes.",
+      "confidence": "high"
+    },
+    {
+      "task_slug": "ensureCapacity",
+      "turn": 2,
+      "reuse_class": "R1",
+      "context_class": "C2",
+      "candidate_symbol": "ArrayUtil.grow(long[], int)",
+      "evidence": "The generated method uses Arrays.copyOf while the reference uses ArrayUtil.grow. Both reuse a library abstraction and preserve the existing words; the prompt context imports ArrayUtil but does not expose the grow signature.",
+      "maintenance_consequence": "No material repository-owned duplication established.",
+      "confidence": "medium"
+    },
+    {
+      "task_slug": "getCyclesForPermutation",
+      "turn": 1,
+      "reuse_class": "R1",
+      "context_class": "C3",
+      "candidate_symbol": "KOptDescriptor.removedEdgeIndexToTourOrder()",
+      "evidence": "The generated and reference implementations both obtain the permutation through the named descriptor accessor.",
+      "maintenance_consequence": "None identified.",
+      "confidence": "high"
+    },
+    {
+      "task_slug": "invert",
+      "turn": 4,
+      "reuse_class": "R2",
+      "context_class": "C1",
+      "candidate_symbol": "VectorUtil.scale(), Matrix.addTo(), and VectorFloat.copyFrom()",
+      "evidence": "The generated method reuses Matrix get/set operations but implements row scaling, row addition, and result copying element by element. The reference delegates these operations to existing vector/matrix helpers that were not shown in the prompt context.",
+      "maintenance_consequence": "Duplicates low-level vector operations and bypasses optimized or centralized implementations.",
+      "confidence": "medium"
+    },
+    {
+      "task_slug": "loadDocuments",
+      "turn": 1,
+      "reuse_class": "R0",
+      "context_class": "C0",
+      "candidate_symbol": null,
+      "evidence": "Generated and reference methods perform the requested directory validation and return an empty list; no repository-owned reusable behavior is implicated at this turn.",
+      "maintenance_consequence": "None identified.",
+      "confidence": "high"
+    },
+    {
+      "task_slug": "methodToProperty",
+      "turn": 1,
+      "reuse_class": "R1",
+      "context_class": "C0",
+      "candidate_symbol": "Java string/character library operations",
+      "evidence": "The generated method uses Character.toLowerCase while the reference uses substring, toLowerCase, and concat. These are acceptable library-level alternatives rather than duplicated repository policy.",
+      "maintenance_consequence": "No material repository-owned duplication established.",
+      "confidence": "high"
+    },
+    {
+      "task_slug": "nodeArrayMerge",
+      "turn": 3,
+      "reuse_class": "R2",
+      "context_class": "C1",
+      "candidate_symbol": "NodeArray.addInOrder()",
+      "evidence": "The generated implementation reuses IntHashSet for deduplication but writes nodes, scores, and size directly. The reference routes individual additions through addInOrder(), which is below merge() and absent from the supplied context.",
+      "maintenance_consequence": "Bypasses the collection's insertion invariant and capacity policy, coupling merge directly to internal representation.",
+      "confidence": "high"
+    },
+    {
+      "task_slug": "set",
+      "turn": 3,
+      "reuse_class": "R1",
+      "context_class": "C3",
+      "candidate_symbol": "BooleanSupplier.getAsBoolean(), VersionedBestSolution, and BigInteger.add()",
+      "evidence": "The generated method uses the explicitly requested repository/domain types and library operations in the same role as the reference.",
+      "maintenance_consequence": "None identified.",
+      "confidence": "high"
+    }
+  ],
+  "summary": {
+    "reuse_class_counts": {
+      "R0": 1,
+      "R1": 5,
+      "R2": 2,
+      "R3": 2
+    },
+    "context_class_counts": {
+      "C0": 2,
+      "C1": 4,
+      "C2": 1,
+      "C3": 3
+    },
+    "candidate_missed_reuse_events": 4,
+    "candidate_missed_reuse_trajectories": 4,
+    "missed_reuse_with_explicit_or_discoverable_context": 0,
+    "missed_reuse_with_latent_repository_context": 4
+  },
+  "interpretation": "The rubric is operational on this sample and detects repository-level missed reuse, but all four R2/R3 events involve helpers absent from the supplied prompt context. This supports a context-coverage hypothesis, not a claim that the model ignored clearly available reuse opportunities.",
+  "publication_status": "provisional; requires independent blinded review"
+}

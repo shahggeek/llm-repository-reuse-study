@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "method": "reference-only method-call difference, followed by manual validation",
+  "scope": {
+    "eligible_correct_checkpoints": 24,
+    "trajectories": 10,
+    "flagged_checkpoints": 14,
+    "unflagged_checkpoints": 10
+  },
+  "checkpoint_priority_counts": {
+    "context-visible-review": 5,
+    "latent-review": 9,
+    "no-reference-call-difference": 10
+  },
+  "reference_only_call_visibility_counts": {
+    "initial-context-visible": 6,
+    "reference-only-latent": 28
+  },
+  "limitations": [
+    "A call difference is not proof of a missed reuse opportunity.",
+    "The screen does not infer semantic equivalence between helper calls and inline code.",
+    "Initial prompt context contains only code above the target function; repository helpers below it may be latent.",
+    "Reference solutions can include behavior from later turns, so every candidate needs turn-aware review."
+  ]
+}

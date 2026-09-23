@@ -1,0 +1,665 @@
+{
+  "schema_version": 1,
+  "records": [
+    {
+      "task_slug": "addInOrder",
+      "repository": "jvector",
+      "turn": 1,
+      "run_id": "pilot-a-amendment-20260923T012647Z-addInOrder-01",
+      "prompt_context_classification": "explicit-consistent",
+      "strict_explicit_signature_subgroup": true,
+      "reference_only_calls": [
+        "growArrays"
+      ],
+      "generated_only_calls": [
+        "copyOf",
+        "max"
+      ],
+      "call_evidence": [
+        {
+          "call": "growArrays",
+          "visibility": "reference-only-latent",
+          "instruction_occurrences": 0,
+          "initial_context_occurrences": 0,
+          "priority": 1
+        }
+      ],
+      "screen_priority": "latent-review",
+      "requires_manual_review": true,
+      "interpretation": "Candidate only: reference-only calls do not establish missed reuse; semantic equivalence, helper suitability, and context availability require manual review."
+    },
+    {
+      "task_slug": "addInOrder",
+      "repository": "jvector",
+      "turn": 2,
+      "run_id": "pilot-a-amendment-20260923T012647Z-addInOrder-01",
+      "prompt_context_classification": "explicit-consistent",
+      "strict_explicit_signature_subgroup": true,
+      "reference_only_calls": [
+        "copyOfSubArray",
+        "toString"
+      ],
+      "generated_only_calls": [],
+      "call_evidence": [
+        {
+          "call": "copyOfSubArray",
+          "visibility": "reference-only-latent",
+          "instruction_occurrences": 0,
+          "initial_context_occurrences": 0,
+          "priority": 1
+        },
+        {
+          "call": "toString",
+          "visibility": "reference-only-latent",
+          "instruction_occurrences": 0,
+          "initial_context_occurrences": 0,
+          "priority": 1
+        }
+      ],
+      "screen_priority": "latent-review",
+      "requires_manual_review": true,
+      "interpretation": "Candidate only: reference-only calls do not establish missed reuse; semantic equivalence, helper suitability, and context availability require manual review."
+    },
+    {
+      "task_slug": "calculatePhaseTimeGradient",
+      "repository": "timefold-solver",
+      "turn": 1,
+      "run_id": "pilot-a-20260904T213806Z-calculatePhaseTimeGradient-01",
+      "prompt_context_classification": "inferable-consistent",
+      "strict_explicit_signature_subgroup": false,
+      "reference_only_calls": [],
+      "generated_only_calls": [],
+      "call_evidence": [],
+      "screen_priority": "no-reference-call-difference",
+      "requires_manual_review": false,
+      "interpretation": "Candidate only: reference-only calls do not establish missed reuse; semantic equivalence, helper suitability, and context availability require manual review."
+    },
+    {
+      "task_slug": "calculatePhaseTimeGradient",
+      "repository": "timefold-solver",
+      "turn": 2,
+      "run_id": "pilot-a-20260904T213806Z-calculatePhaseTimeGradient-01",
+      "prompt_context_classification": "inferable-consistent",
+      "strict_explicit_signature_subgroup": false,
+      "reference_only_calls": [],
+      "generated_only_calls": [],
+      "call_evidence": [],
+      "screen_priority": "no-reference-call-difference",
+      "requires_manual_review": false,
+      "interpretation": "Candidate only: reference-only calls do not establish missed reuse; semantic equivalence, helper suitability, and context availability require manual review."
+    },
+    {
+      "task_slug": "calculatePhaseTimeGradient",
+      "repository": "timefold-solver",
+      "turn": 3,
+      "run_id": "pilot-a-20260904T213806Z-calculatePhaseTimeGradient-01",
+      "prompt_context_classification": "inferable-consistent",
+      "strict_explicit_signature_subgroup": false,
+      "reference_only_calls": [],
+      "generated_only_calls": [],
+      "call_evidence": [],
+      "screen_priority": "no-reference-call-difference",
+      "requires_manual_review": false,
+      "interpretation": "Candidate only: reference-only calls do not establish missed reuse; semantic equivalence, helper suitability, and context availability require manual review."
+    },
+    {
+      "task_slug": "calculatePhaseTimeGradient",
+      "repository": "timefold-solver",
+      "turn": 4,
+      "run_id": "pilot-a-20260904T213806Z-calculatePhaseTimeGradient-01",
+      "prompt_context_classification": "inferable-consistent",
+      "strict_explicit_signature_subgroup": false,
+      "reference_only_calls": [],
+      "generated_only_calls": [],
+      "call_evidence": [],
+      "screen_priority": "no-reference-call-difference",
+      "requires_manual_review": false,
+      "interpretation": "Candidate only: reference-only calls do not establish missed reuse; semantic equivalence, helper suitability, and context availability require manual review."
+    },
+    {
+      "task_slug": "encodeAnisotropic",
+      "repository": "jvector",
+      "turn": 1,
+      "run_id": "pilot-a-20260904T213806Z-encodeAnisotropic-01",
+      "prompt_context_classification": "explicit-consistent",
+      "strict_explicit_signature_subgroup": true,
+      "reference_only_calls": [
+        "computeResiduals",
+        "initializeToMinResidualNorms"
+      ],
+      "generated_only_calls": [
+        "dotProduct",
+        "set"
+      ],
+      "call_evidence": [
+        {
+          "call": "computeResiduals",
+          "visibility": "reference-only-latent",
+          "instruction_occurrences": 0,
+          "initial_context_occurrences": 0,
+          "priority": 1
+        },
+        {
+          "call": "initializeToMinResidualNorms",
+          "visibility": "reference-only-latent",
+          "instruction_occurrences": 0,
+          "initial_context_occurrences": 0,
+          "priority": 1
+        }
+      ],
+      "screen_priority": "latent-review",
+      "requires_manual_review": true,
+      "interpretation": "Candidate only: reference-only calls do not establish missed reuse; semantic equivalence, helper suitability, and context availability require manual review."
+    },
+    {
+      "task_slug": "encodeAnisotropic",
+      "repository": "jvector",
+      "turn": 2,
+      "run_id": "pilot-a-20260904T213806Z-encodeAnisotropic-01",
+      "prompt_context_classification": "explicit-consistent",
+      "strict_explicit_signature_subgroup": true,
+      "reference_only_calls": [
+        "computeResiduals",
+        "get",
+        "initializeToMinResidualNorms",
+        "length",
+        "toUnsignedInt"
+      ],
+      "generated_only_calls": [
+        "dotProduct",
+        "set"
+      ],
+      "call_evidence": [
+        {
+          "call": "computeResiduals",
+          "visibility": "reference-only-latent",
+          "instruction_occurrences": 0,
+          "initial_context_occurrences": 0,
+          "priority": 1
+        },
+        {
+          "call": "get",
+          "visibility": "initial-context-visible",
+          "instruction_occurrences": 0,
+          "initial_context_occurrences": 1,
+          "priority": 2
+        },
+        {
+          "call": "initializeToMinResidualNorms",
+          "visibility": "reference-only-latent",
+          "instruction_occurrences": 0,
+          "initial_context_occurrences": 0,
+          "priority": 1
+        },
+        {
+          "call": "length",
+          "visibility": "initial-context-visible",
+          "instruction_occurrences": 0,
+          "initial_context_occurrences": 2,
+          "priority": 2
+        },
+        {
+          "call": "toUnsignedInt",
+          "visibility": "reference-only-latent",
+          "instruction_occurrences": 0,
+          "initial_context_occurrences": 0,
+          "priority": 1
+        }
+      ],
+      "screen_priority": "context-visible-review",
+      "requires_manual_review": true,
+      "interpretation": "Candidate only: reference-only calls do not establish missed reuse; semantic equivalence, helper suitability, and context availability require manual review."
+    },
+    {
+      "task_slug": "ensureCapacity",
+      "repository": "jvector",
+      "turn": 1,
+      "run_id": "pilot-a-20260904T213806Z-ensureCapacity-01",
+      "prompt_context_classification": "explicit-consistent",
+      "strict_explicit_signature_subgroup": true,
+      "reference_only_calls": [],
+      "generated_only_calls": [
+        "getBits",
+        "grow"
+      ],
+      "call_evidence": [],
+      "screen_priority": "no-reference-call-difference",
+      "requires_manual_review": false,
+      "interpretation": "Candidate only: reference-only calls do not establish missed reuse; semantic equivalence, helper suitability, and context availability require manual review."
+    },
+    {
+      "task_slug": "ensureCapacity",
+      "repository": "jvector",
+      "turn": 2,
+      "run_id": "pilot-a-20260904T213806Z-ensureCapacity-01",
+      "prompt_context_classification": "explicit-consistent",
+      "strict_explicit_signature_subgroup": true,
+      "reference_only_calls": [
+        "grow"
+      ],
+      "generated_only_calls": [
+        "copyOf"
+      ],
+      "call_evidence": [
+        {
+          "call": "grow",
+          "visibility": "reference-only-latent",
+          "instruction_occurrences": 0,
+          "initial_context_occurrences": 0,
+          "priority": 1
+        }
+      ],
+      "screen_priority": "latent-review",
+      "requires_manual_review": true,
+      "interpretation": "Candidate only: reference-only calls do not establish missed reuse; semantic equivalence, helper suitability, and context availability require manual review."
+    },
+    {
+      "task_slug": "ensureCapacity",
+      "repository": "jvector",
+      "turn": 3,
+      "run_id": "pilot-a-20260904T213806Z-ensureCapacity-01",
+      "prompt_context_classification": "explicit-consistent",
+      "strict_explicit_signature_subgroup": true,
+      "reference_only_calls": [],
+      "generated_only_calls": [],
+      "call_evidence": [],
+      "screen_priority": "no-reference-call-difference",
+      "requires_manual_review": false,
+      "interpretation": "Candidate only: reference-only calls do not establish missed reuse; semantic equivalence, helper suitability, and context availability require manual review."
+    },
+    {
+      "task_slug": "getCyclesForPermutation",
+      "repository": "timefold-solver",
+      "turn": 1,
+      "run_id": "pilot-a-20260904T213806Z-getCyclesForPermutation-01",
+      "prompt_context_classification": "explicit-consistent",
+      "strict_explicit_signature_subgroup": true,
+      "reference_only_calls": [],
+      "generated_only_calls": [],
+      "call_evidence": [],
+      "screen_priority": "no-reference-call-difference",
+      "requires_manual_review": false,
+      "interpretation": "Candidate only: reference-only calls do not establish missed reuse; semantic equivalence, helper suitability, and context availability require manual review."
+    },
+    {
+      "task_slug": "invert",
+      "repository": "jvector",
+      "turn": 1,
+      "run_id": "pilot-a-20260904T213806Z-invert-01",
+      "prompt_context_classification": "inferable-consistent",
+      "strict_explicit_signature_subgroup": false,
+      "reference_only_calls": [
+        "addTo",
+        "copyFrom",
+        "scale"
+      ],
+      "generated_only_calls": [],
+      "call_evidence": [
+        {
+          "call": "addTo",
+          "visibility": "reference-only-latent",
+          "instruction_occurrences": 0,
+          "initial_context_occurrences": 0,
+          "priority": 1
+        },
+        {
+          "call": "copyFrom",
+          "visibility": "reference-only-latent",
+          "instruction_occurrences": 0,
+          "initial_context_occurrences": 0,
+          "priority": 1
+        },
+        {
+          "call": "scale",
+          "visibility": "reference-only-latent",
+          "instruction_occurrences": 0,
+          "initial_context_occurrences": 0,
+          "priority": 1
+        }
+      ],
+      "screen_priority": "latent-review",
+      "requires_manual_review": true,
+      "interpretation": "Candidate only: reference-only calls do not establish missed reuse; semantic equivalence, helper suitability, and context availability require manual review."
+    },
+    {
+      "task_slug": "invert",
+      "repository": "jvector",
+      "turn": 2,
+      "run_id": "pilot-a-20260904T213806Z-invert-01",
+      "prompt_context_classification": "inferable-consistent",
+      "strict_explicit_signature_subgroup": false,
+      "reference_only_calls": [
+        "addTo",
+        "copyFrom",
+        "scale"
+      ],
+      "generated_only_calls": [],
+      "call_evidence": [
+        {
+          "call": "addTo",
+          "visibility": "reference-only-latent",
+          "instruction_occurrences": 0,
+          "initial_context_occurrences": 0,
+          "priority": 1
+        },
+        {
+          "call": "copyFrom",
+          "visibility": "reference-only-latent",
+          "instruction_occurrences": 0,
+          "initial_context_occurrences": 0,
+          "priority": 1
+        },
+        {
+          "call": "scale",
+          "visibility": "reference-only-latent",
+          "instruction_occurrences": 0,
+          "initial_context_occurrences": 0,
+          "priority": 1
+        }
+      ],
+      "screen_priority": "latent-review",
+      "requires_manual_review": true,
+      "interpretation": "Candidate only: reference-only calls do not establish missed reuse; semantic equivalence, helper suitability, and context availability require manual review."
+    },
+    {
+      "task_slug": "invert",
+      "repository": "jvector",
+      "turn": 3,
+      "run_id": "pilot-a-20260904T213806Z-invert-01",
+      "prompt_context_classification": "inferable-consistent",
+      "strict_explicit_signature_subgroup": false,
+      "reference_only_calls": [
+        "addTo",
+        "copyFrom",
+        "scale"
+      ],
+      "generated_only_calls": [],
+      "call_evidence": [
+        {
+          "call": "addTo",
+          "visibility": "reference-only-latent",
+          "instruction_occurrences": 0,
+          "initial_context_occurrences": 0,
+          "priority": 1
+        },
+        {
+          "call": "copyFrom",
+          "visibility": "reference-only-latent",
+          "instruction_occurrences": 0,
+          "initial_context_occurrences": 0,
+          "priority": 1
+        },
+        {
+          "call": "scale",
+          "visibility": "reference-only-latent",
+          "instruction_occurrences": 0,
+          "initial_context_occurrences": 0,
+          "priority": 1
+        }
+      ],
+      "screen_priority": "latent-review",
+      "requires_manual_review": true,
+      "interpretation": "Candidate only: reference-only calls do not establish missed reuse; semantic equivalence, helper suitability, and context availability require manual review."
+    },
+    {
+      "task_slug": "invert",
+      "repository": "jvector",
+      "turn": 4,
+      "run_id": "pilot-a-20260904T213806Z-invert-01",
+      "prompt_context_classification": "inferable-consistent",
+      "strict_explicit_signature_subgroup": false,
+      "reference_only_calls": [
+        "addTo",
+        "copyFrom",
+        "scale"
+      ],
+      "generated_only_calls": [],
+      "call_evidence": [
+        {
+          "call": "addTo",
+          "visibility": "reference-only-latent",
+          "instruction_occurrences": 0,
+          "initial_context_occurrences": 0,
+          "priority": 1
+        },
+        {
+          "call": "copyFrom",
+          "visibility": "reference-only-latent",
+          "instruction_occurrences": 0,
+          "initial_context_occurrences": 0,
+          "priority": 1
+        },
+        {
+          "call": "scale",
+          "visibility": "reference-only-latent",
+          "instruction_occurrences": 0,
+          "initial_context_occurrences": 0,
+          "priority": 1
+        }
+      ],
+      "screen_priority": "latent-review",
+      "requires_manual_review": true,
+      "interpretation": "Candidate only: reference-only calls do not establish missed reuse; semantic equivalence, helper suitability, and context availability require manual review."
+    },
+    {
+      "task_slug": "loadDocuments",
+      "repository": "langchain4j",
+      "turn": 1,
+      "run_id": "pilot-a-20260904T213806Z-loadDocuments-01",
+      "prompt_context_classification": "explicit-consistent",
+      "strict_explicit_signature_subgroup": true,
+      "reference_only_calls": [],
+      "generated_only_calls": [],
+      "call_evidence": [],
+      "screen_priority": "no-reference-call-difference",
+      "requires_manual_review": false,
+      "interpretation": "Candidate only: reference-only calls do not establish missed reuse; semantic equivalence, helper suitability, and context availability require manual review."
+    },
+    {
+      "task_slug": "methodToProperty",
+      "repository": "mybatis-flex",
+      "turn": 1,
+      "run_id": "pilot-a-20260904T213806Z-methodToProperty-01",
+      "prompt_context_classification": "explicit-consistent",
+      "strict_explicit_signature_subgroup": true,
+      "reference_only_calls": [
+        "concat"
+      ],
+      "generated_only_calls": [
+        "charAt"
+      ],
+      "call_evidence": [
+        {
+          "call": "concat",
+          "visibility": "reference-only-latent",
+          "instruction_occurrences": 0,
+          "initial_context_occurrences": 0,
+          "priority": 1
+        }
+      ],
+      "screen_priority": "latent-review",
+      "requires_manual_review": true,
+      "interpretation": "Candidate only: reference-only calls do not establish missed reuse; semantic equivalence, helper suitability, and context availability require manual review."
+    },
+    {
+      "task_slug": "nodeArrayMerge",
+      "repository": "jvector",
+      "turn": 1,
+      "run_id": "pilot-a-20260904T213806Z-nodeArrayMerge-01",
+      "prompt_context_classification": "explicit-consistent",
+      "strict_explicit_signature_subgroup": true,
+      "reference_only_calls": [
+        "addInOrder",
+        "size"
+      ],
+      "generated_only_calls": [
+        "arraycopy"
+      ],
+      "call_evidence": [
+        {
+          "call": "addInOrder",
+          "visibility": "reference-only-latent",
+          "instruction_occurrences": 0,
+          "initial_context_occurrences": 0,
+          "priority": 1
+        },
+        {
+          "call": "size",
+          "visibility": "initial-context-visible",
+          "instruction_occurrences": 0,
+          "initial_context_occurrences": 1,
+          "priority": 2
+        }
+      ],
+      "screen_priority": "context-visible-review",
+      "requires_manual_review": true,
+      "interpretation": "Candidate only: reference-only calls do not establish missed reuse; semantic equivalence, helper suitability, and context availability require manual review."
+    },
+    {
+      "task_slug": "nodeArrayMerge",
+      "repository": "jvector",
+      "turn": 2,
+      "run_id": "pilot-a-20260904T213806Z-nodeArrayMerge-01",
+      "prompt_context_classification": "explicit-consistent",
+      "strict_explicit_signature_subgroup": true,
+      "reference_only_calls": [
+        "addInOrder",
+        "size"
+      ],
+      "generated_only_calls": [
+        "compare"
+      ],
+      "call_evidence": [
+        {
+          "call": "addInOrder",
+          "visibility": "reference-only-latent",
+          "instruction_occurrences": 0,
+          "initial_context_occurrences": 0,
+          "priority": 1
+        },
+        {
+          "call": "size",
+          "visibility": "initial-context-visible",
+          "instruction_occurrences": 0,
+          "initial_context_occurrences": 1,
+          "priority": 2
+        }
+      ],
+      "screen_priority": "context-visible-review",
+      "requires_manual_review": true,
+      "interpretation": "Candidate only: reference-only calls do not establish missed reuse; semantic equivalence, helper suitability, and context availability require manual review."
+    },
+    {
+      "task_slug": "nodeArrayMerge",
+      "repository": "jvector",
+      "turn": 3,
+      "run_id": "pilot-a-20260904T213806Z-nodeArrayMerge-01",
+      "prompt_context_classification": "explicit-consistent",
+      "strict_explicit_signature_subgroup": true,
+      "reference_only_calls": [
+        "addInOrder",
+        "arraycopy",
+        "size"
+      ],
+      "generated_only_calls": [
+        "compare"
+      ],
+      "call_evidence": [
+        {
+          "call": "addInOrder",
+          "visibility": "reference-only-latent",
+          "instruction_occurrences": 0,
+          "initial_context_occurrences": 0,
+          "priority": 1
+        },
+        {
+          "call": "arraycopy",
+          "visibility": "reference-only-latent",
+          "instruction_occurrences": 0,
+          "initial_context_occurrences": 0,
+          "priority": 1
+        },
+        {
+          "call": "size",
+          "visibility": "initial-context-visible",
+          "instruction_occurrences": 0,
+          "initial_context_occurrences": 1,
+          "priority": 2
+        }
+      ],
+      "screen_priority": "context-visible-review",
+      "requires_manual_review": true,
+      "interpretation": "Candidate only: reference-only calls do not establish missed reuse; semantic equivalence, helper suitability, and context availability require manual review."
+    },
+    {
+      "task_slug": "nodeArrayMerge",
+      "repository": "jvector",
+      "turn": 4,
+      "run_id": "pilot-a-20260904T213806Z-nodeArrayMerge-01",
+      "prompt_context_classification": "explicit-consistent",
+      "strict_explicit_signature_subgroup": true,
+      "reference_only_calls": [
+        "addInOrder",
+        "arraycopy",
+        "size"
+      ],
+      "generated_only_calls": [
+        "compare"
+      ],
+      "call_evidence": [
+        {
+          "call": "addInOrder",
+          "visibility": "reference-only-latent",
+          "instruction_occurrences": 0,
+          "initial_context_occurrences": 0,
+          "priority": 1
+        },
+        {
+          "call": "arraycopy",
+          "visibility": "reference-only-latent",
+          "instruction_occurrences": 0,
+          "initial_context_occurrences": 0,
+          "priority": 1
+        },
+        {
+          "call": "size",
+          "visibility": "initial-context-visible",
+          "instruction_occurrences": 0,
+          "initial_context_occurrences": 1,
+          "priority": 2
+        }
+      ],
+      "screen_priority": "context-visible-review",
+      "requires_manual_review": true,
+      "interpretation": "Candidate only: reference-only calls do not establish missed reuse; semantic equivalence, helper suitability, and context availability require manual review."
+    },
+    {
+      "task_slug": "set",
+      "repository": "timefold-solver",
+      "turn": 2,
+      "run_id": "pilot-a-20260904T213806Z-set-01",
+      "prompt_context_classification": "partially-conflicting",
+      "strict_explicit_signature_subgroup": true,
+      "reference_only_calls": [],
+      "generated_only_calls": [],
+      "call_evidence": [],
+      "screen_priority": "no-reference-call-difference",
+      "requires_manual_review": false,
+      "interpretation": "Candidate only: reference-only calls do not establish missed reuse; semantic equivalence, helper suitability, and context availability require manual review."
+    },
+    {
+      "task_slug": "set",
+      "repository": "timefold-solver",
+      "turn": 3,
+      "run_id": "pilot-a-20260904T213806Z-set-01",
+      "prompt_context_classification": "partially-conflicting",
+      "strict_explicit_signature_subgroup": true,
+      "reference_only_calls": [],
+      "generated_only_calls": [],
+      "call_evidence": [],
+      "screen_priority": "no-reference-call-difference",
+      "requires_manual_review": false,
+      "interpretation": "Candidate only: reference-only calls do not establish missed reuse; semantic equivalence, helper suitability, and context availability require manual review."
+    }
+  ]
+}

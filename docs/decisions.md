@@ -53,6 +53,25 @@ Report structural dimensions individually rather than constructing a composite
 quality score. Compare each generated checkpoint to its same-turn SR-Eval
 reference implementation and calculate absolute and normalized overhead.
 
+## 2026-09-23 — Reuse rubric calibration
+
+Retain the frozen R0–R3 reuse rubric and add an orthogonal C0–C3 context
+availability code. A repository-level R2/R3 event is not attributed to the
+model when the relevant abstraction was absent from the supplied context.
+
+The high-recall call-difference screen flags 14/24 correct checkpoints for
+manual review. A one-checkpoint-per-trajectory calibration sample contains one
+R0, five R1, two R2, and two R3 classifications. All four provisional R2/R3
+events are C1 (repository-only/latent), not explicit or discoverable in the
+prompt. Therefore, treat reuse as a credible but not yet publication-ready
+signal and frame the immediate hypothesis around context coverage.
+
+Pilot A deliberately used an empty read-only working directory. Do not claim
+that the model could inspect the full repository. Before Pilot B, decide
+explicitly whether the frozen guardrail pair measures prompting under the same
+limited context or whether a separately named retrieval-supported condition is
+needed. Do not silently alter the frozen protocol.
+
 ## 2026-09-04 — Pre-generation replacement of `between`
 
 Exclude SR-Eval task `895990b3a5c56f093bdb72e6` (`between`) after its pinned
