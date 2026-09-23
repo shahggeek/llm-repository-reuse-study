@@ -12,24 +12,31 @@ SPEC.loader.exec_module(evaluate)
 
 class PilotAEvaluationTests(unittest.TestCase):
     def test_run_record_path_is_deterministic(self):
-        protocol = {"pilot_a": {"batch_id": "batch"}}
         task = {"slug": "sample"}
         self.assertEqual(
             "batch-sample-01/record.json",
-            str(evaluate.run_record_path(protocol, task)).split("pilot-a/")[-1],
+            str(evaluate.run_record_path("batch", task)).split("pilot-a/")[-1],
+        )
+
+    def test_amendment_record_path_is_isolated(self):
+        task = {"slug": "sample"}
+        self.assertIn(
+            "pilot-a-amendment/batch-sample-01/record.json",
+            str(evaluate.run_record_path("batch", task, amendment=True)),
         )
 
     def test_validate_record_rejects_incomplete_generation(self):
         protocol = {"benchmark": {"commit": "a" * 40}}
         task = {"slug": "sample", "hash_id": "b" * 24, "turns": 1}
         record = {
+            "batch_id": "batch",
             "task_hash": "b" * 24,
             "benchmark_commit": "a" * 40,
             "completed_at": None,
             "turns": [{}],
         }
         with self.assertRaises(evaluate.EvaluationError):
-            evaluate.validate_record(record, protocol, task)
+            evaluate.validate_record(record, protocol, task, "batch")
 
 
 if __name__ == "__main__":

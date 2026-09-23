@@ -17,8 +17,10 @@ from typing import Any, Iterable
 
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_MANIFEST = ROOT / "experiment/config/pilot-tasks.json"
+DEFAULT_AMENDMENT = ROOT / "experiment/config/pilot-a-amendment.json"
 DEFAULT_PROTOCOL = ROOT / "experiment/config/protocol.json"
 DEFAULT_EXPORT = ROOT / "work/task-packets"
+DEFAULT_AMENDMENT_EXPORT = ROOT / "work/amendment-task-packets"
 DEFAULT_RESULTS = ROOT / "results/pilot/smoke-tests"
 
 
@@ -58,18 +60,42 @@ def read_jsonl(path: Path) -> list[dict[str, Any]]:
 
 def manifest_tasks(manifest: dict[str, Any]) -> list[dict[str, Any]]:
     tasks = manifest.get("tasks")
+    if tasks is None and isinstance(manifest.get("replacements"), list):
+        tasks = [replacement.get("task") for replacement in manifest["replacements"]]
     if not isinstance(tasks, list):
-        raise PilotError("Manifest field 'tasks' must be an array")
+        raise PilotError("Manifest must contain a tasks array or amendment replacements")
+    if any(not isinstance(task, dict) for task in tasks):
+        raise PilotError("Every selected task must be an object")
     return tasks
 
 
 def validate_manifest(manifest: dict[str, Any]) -> list[str]:
     errors: list[str] = []
-    tasks = manifest.get("tasks")
-    if not isinstance(tasks, list):
-        return ["tasks must be an array"]
-    if len(tasks) != 18:
-        errors.append(f"expected 18 tasks, found {len(tasks)}")
+    is_amendment = "replacements" in manifest
+    try:
+        tasks = manifest_tasks(manifest)
+    except PilotError as exc:
+        return [str(exc)]
+    expected_count = 2 if is_amendment else 18
+    if len(tasks) != expected_count:
+        errors.append(f"expected {expected_count} tasks, found {len(tasks)}")
+
+    if is_amendment:
+        if manifest.get("status") != "amendment-frozen":
+            errors.append("amendment status must be 'amendment-frozen'")
+        if not isinstance(manifest.get("batch_id"), str) or not manifest["batch_id"]:
+            errors.append("amendment batch_id must be a non-empty string")
+        if manifest.get("condition") != "baseline":
+            errors.append("amendment condition must be 'baseline'")
+        if manifest.get("runs_per_task") != 1:
+            errors.append("amendment runs_per_task must be 1")
+        expected_protocol_hash = manifest.get("protocol_sha256")
+        if not isinstance(expected_protocol_hash, str) or len(expected_protocol_hash) != 64:
+            errors.append("amendment protocol_sha256 must be a SHA-256 digest")
+        elif DEFAULT_PROTOCOL.is_file():
+            actual_protocol_hash = hashlib.sha256(DEFAULT_PROTOCOL.read_bytes()).hexdigest()
+            if actual_protocol_hash != expected_protocol_hash:
+                errors.append("amendment protocol_sha256 does not match protocol.json")
 
     required = {"slug", "hash_id", "repo", "function", "turns", "stratum", "pilot_b", "rationale"}
     slugs: set[str] = set()
@@ -100,10 +126,14 @@ def validate_manifest(manifest: dict[str, Any]) -> list[str]:
     primary = sum(task.get("stratum") == "primary" for task in tasks if isinstance(task, dict))
     controls = sum(task.get("stratum") == "control" for task in tasks if isinstance(task, dict))
     paired = sum(task.get("pilot_b") is True for task in tasks if isinstance(task, dict))
-    if primary != 12 or controls != 6:
-        errors.append(f"expected 12 primary and 6 control tasks, found {primary} and {controls}")
-    if paired != 6:
-        errors.append(f"expected 6 Pilot B tasks, found {paired}")
+    expected_primary, expected_controls, expected_paired = (1, 1, 1) if is_amendment else (12, 6, 6)
+    if primary != expected_primary or controls != expected_controls:
+        errors.append(
+            f"expected {expected_primary} primary and {expected_controls} control tasks, "
+            f"found {primary} and {controls}"
+        )
+    if paired != expected_paired:
+        errors.append(f"expected {expected_paired} Pilot B tasks, found {paired}")
     return errors
 
 
@@ -217,7 +247,14 @@ def command_validate_manifest(args: argparse.Namespace) -> int:
         return 1
     protocol = read_json(DEFAULT_PROTOCOL)
     hashes = prompt_hashes(protocol)
-    print("Manifest valid: 18 tasks (12 primary, 6 controls, 6 Pilot B pairs)")
+    tasks = manifest_tasks(manifest)
+    if "replacements" in manifest:
+        print(
+            f"Amendment valid and frozen: {manifest['batch_id']} "
+            f"({len(tasks)} replacement tasks)"
+        )
+    else:
+        print("Manifest valid: 18 tasks (12 primary, 6 controls, 6 Pilot B pairs)")
     print("Prompt SHA-256:")
     for path, digest in sorted(hashes.items()):
         print(f"  {digest}  {path}")

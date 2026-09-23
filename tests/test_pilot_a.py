@@ -41,6 +41,19 @@ class PilotAGenerationTests(unittest.TestCase):
         self.assertEqual(4, len(hashes))
         self.assertTrue(all(len(digest) == 64 for digest in hashes.values()))
 
+    def test_required_codex_version_comes_from_frozen_protocol(self):
+        protocol = pilot_a.read_json(pilot_a.PROTOCOL_PATH)
+        self.assertEqual("0.153.0", pilot_a.required_codex_version(protocol))
+
+    def test_amendment_run_spec_is_isolated_from_original_batch(self):
+        protocol = pilot_a.read_json(pilot_a.PROTOCOL_PATH)
+        amendment = pilot_a.read_json(pilot_a.AMENDMENT_PATH)
+        spec = pilot_a.run_spec(protocol, amendment)
+        self.assertEqual(amendment["batch_id"], spec["batch_id"])
+        self.assertEqual(pilot_a.AMENDMENT_PACKET_DIR, spec["packet_dir"])
+        self.assertEqual(pilot_a.AMENDMENT_OUTPUT_ROOT, spec["output_root"])
+        self.assertEqual(["rerank", "addInOrder"], [task["slug"] for task in spec["tasks"]])
+
 
 if __name__ == "__main__":
     unittest.main()

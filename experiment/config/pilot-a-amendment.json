@@ -1,8 +1,13 @@
 {
   "schema_version": 1,
-  "status": "selected-not-generated",
+  "status": "amendment-frozen",
+  "batch_id": "pilot-a-amendment-20260923T012647Z",
+  "frozen_at": "2026-09-23T01:26:47Z",
+  "condition": "baseline",
+  "runs_per_task": 1,
   "parent_batch_id": "pilot-a-20260904T213806Z",
   "benchmark_commit": "6cf948d69427687bf61042640223d5b318f7bc4c",
+  "protocol_sha256": "2dda55a9142c8d0e2ef825a0ea026fe0393925328bec85ab263679ef9e51e3a2",
   "reason": "Replace two trajectories whose supplied method signatures are incompatible with their repository callers and tests.",
   "replacements": [
     {

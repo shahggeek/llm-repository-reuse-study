@@ -18,11 +18,16 @@ from typing import Any
 ROOT = Path(__file__).resolve().parents[1]
 PROTOCOL_PATH = ROOT / "experiment/config/protocol.json"
 MANIFEST_PATH = ROOT / "experiment/config/pilot-tasks.json"
+AMENDMENT_PATH = ROOT / "experiment/config/pilot-a-amendment.json"
 PACKET_DIR = ROOT / "work/task-packets"
+AMENDMENT_PACKET_DIR = ROOT / "work/amendment-task-packets"
 OUTPUT_ROOT = ROOT / "data/generated-trajectories/pilot-a"
+AMENDMENT_OUTPUT_ROOT = ROOT / "data/generated-trajectories/pilot-a-amendment"
 SESSION_ROOT = ROOT / "work/pilot-a-sessions"
+AMENDMENT_SESSION_ROOT = ROOT / "work/pilot-a-amendment-sessions"
 DEFAULT_CODEX = Path("/Applications/ChatGPT.app/Contents/Resources/codex")
 JAVA_BLOCK = re.compile(r"```java\s*\n(.*?)\n```", re.DOTALL | re.IGNORECASE)
+VERSION_NUMBER = re.compile(r"(\d+\.\d+\.\d+)")
 
 
 class GenerationError(RuntimeError):
@@ -53,6 +58,38 @@ def prompt_hashes(protocol: dict[str, Any]) -> dict[str, str]:
         for key in ("system_prompt", "turn_1_template", "later_turn_template", "guardrails")
         for relative in (protocol["prompting"][key],)
     }
+
+
+def required_codex_version(protocol: dict[str, Any]) -> str:
+    product_interface = protocol.get("execution", {}).get("product_interface", "")
+    match = VERSION_NUMBER.search(product_interface)
+    if match is None:
+        raise GenerationError("Frozen protocol has no parseable Codex CLI version")
+    return match.group(1)
+
+
+def installed_codex_version(codex: Path) -> str:
+    completed = subprocess.run(
+        [str(codex), "--version"],
+        text=True,
+        capture_output=True,
+        check=False,
+    )
+    output = (completed.stdout + "\n" + completed.stderr).strip()
+    match = VERSION_NUMBER.search(output)
+    if completed.returncode != 0 or match is None:
+        raise GenerationError(f"Cannot determine Codex CLI version from: {output}")
+    return match.group(1)
+
+
+def verify_codex_version(codex: Path, protocol: dict[str, Any]) -> str:
+    expected = required_codex_version(protocol)
+    actual = installed_codex_version(codex)
+    if actual != expected:
+        raise GenerationError(
+            f"Codex CLI version mismatch: frozen protocol requires {expected}, found {actual}"
+        )
+    return actual
 
 
 def render_prompt(template: str, *, context: str = "", code: str = "", instruction: str) -> str:
@@ -208,8 +245,52 @@ def write_json(path: Path, value: dict[str, Any]) -> None:
     temporary.replace(path)
 
 
-def initial_record(protocol: dict[str, Any], task: dict[str, Any]) -> dict[str, Any]:
-    batch_id = protocol["pilot_a"]["batch_id"]
+def amendment_tasks(amendment: dict[str, Any]) -> list[dict[str, Any]]:
+    replacements = amendment.get("replacements")
+    if not isinstance(replacements, list):
+        raise GenerationError("Amendment replacements must be an array")
+    tasks = [replacement.get("task") for replacement in replacements]
+    if any(not isinstance(task, dict) for task in tasks):
+        raise GenerationError("Every amendment replacement must contain a task object")
+    return tasks
+
+
+def run_spec(protocol: dict[str, Any], amendment: dict[str, Any] | None) -> dict[str, Any]:
+    if amendment is None:
+        return {
+            "batch_id": protocol["pilot_a"]["batch_id"],
+            "condition": protocol["pilot_a"]["condition"],
+            "tasks": None,
+            "packet_dir": PACKET_DIR,
+            "output_root": OUTPUT_ROOT,
+            "session_root": SESSION_ROOT,
+        }
+    if amendment.get("status") != "amendment-frozen":
+        raise GenerationError("Pilot A amendment is not frozen")
+    if amendment.get("benchmark_commit") != protocol["benchmark"]["commit"]:
+        raise GenerationError("Amendment and protocol benchmark revisions differ")
+    if amendment.get("parent_batch_id") != protocol["pilot_a"]["batch_id"]:
+        raise GenerationError("Amendment parent batch does not match Pilot A")
+    if amendment.get("condition") != protocol["pilot_a"]["condition"]:
+        raise GenerationError("Amendment condition differs from Pilot A")
+    if amendment.get("runs_per_task") != 1:
+        raise GenerationError("Amendment must use exactly one run per task")
+    if amendment.get("protocol_sha256") != sha256(PROTOCOL_PATH):
+        raise GenerationError("Amendment protocol hash does not match protocol.json")
+    return {
+        "batch_id": amendment["batch_id"],
+        "condition": amendment["condition"],
+        "tasks": amendment_tasks(amendment),
+        "packet_dir": AMENDMENT_PACKET_DIR,
+        "output_root": AMENDMENT_OUTPUT_ROOT,
+        "session_root": AMENDMENT_SESSION_ROOT,
+    }
+
+
+def initial_record(
+    protocol: dict[str, Any], task: dict[str, Any], spec: dict[str, Any]
+) -> dict[str, Any]:
+    batch_id = spec["batch_id"]
     run_id = f"{batch_id}-{task['slug']}-01"
     return {
         "schema_version": 1,
@@ -217,7 +298,7 @@ def initial_record(protocol: dict[str, Any], task: dict[str, Any]) -> dict[str, 
         "run_id": run_id,
         "task_hash": task["hash_id"],
         "task_slug": task["slug"],
-        "condition": protocol["pilot_a"]["condition"],
+        "condition": spec["condition"],
         "benchmark_commit": protocol["benchmark"]["commit"],
         "product_interface": protocol["execution"]["product_interface"],
         "session_id": None,
@@ -235,18 +316,20 @@ def initial_record(protocol: dict[str, Any], task: dict[str, Any]) -> dict[str, 
     }
 
 
-def run_task(codex: Path, protocol: dict[str, Any], task: dict[str, Any]) -> None:
-    packet = read_json(PACKET_DIR / f"{task['slug']}.json")
+def run_task(
+    codex: Path, protocol: dict[str, Any], task: dict[str, Any], spec: dict[str, Any]
+) -> None:
+    packet = read_json(spec["packet_dir"] / f"{task['slug']}.json")
     if packet.get("study_task", {}).get("hash_id") != task["hash_id"]:
         raise GenerationError(f"Task packet mismatch for {task['slug']}")
 
-    record = initial_record(protocol, task)
-    run_dir = OUTPUT_ROOT / record["run_id"]
+    record = initial_record(protocol, task, spec)
+    run_dir = spec["output_root"] / record["run_id"]
     record_path = run_dir / "record.json"
     if record_path.exists():
         raise GenerationError(f"Run already exists; refusing to overwrite {record_path}")
     run_dir.mkdir(parents=True, exist_ok=False)
-    session_dir = SESSION_ROOT / record["run_id"]
+    session_dir = spec["session_root"] / record["run_id"]
     session_dir.mkdir(parents=True, exist_ok=False)
 
     turn_one_template = (ROOT / protocol["prompting"]["turn_1_template"]).read_text(encoding="utf-8")
@@ -334,12 +417,24 @@ def main(argv: list[str] | None = None) -> int:
     choice = parser.add_mutually_exclusive_group(required=True)
     choice.add_argument("--task")
     choice.add_argument("--all", action="store_true")
+    choice.add_argument(
+        "--preflight",
+        action="store_true",
+        help="validate frozen inputs and CLI version without contacting the model",
+    )
     parser.add_argument("--codex", default=str(DEFAULT_CODEX))
+    parser.add_argument(
+        "--amendment",
+        action="store_true",
+        help="run the frozen two-task Pilot A amendment in isolated directories",
+    )
     args = parser.parse_args(argv)
 
     try:
         protocol = read_json(PROTOCOL_PATH)
+        amendment = read_json(AMENDMENT_PATH) if args.amendment else None
         manifest = read_json(MANIFEST_PATH)
+        spec = run_spec(protocol, amendment)
         if protocol.get("protocol_status") != "pilot-a-frozen":
             raise GenerationError("Protocol is not frozen for Pilot A")
         if manifest.get("benchmark_commit") != protocol["benchmark"]["commit"]:
@@ -350,8 +445,17 @@ def main(argv: list[str] | None = None) -> int:
             if not resolved:
                 raise GenerationError(f"Codex CLI not found: {args.codex}")
             codex = Path(resolved)
-        for task in selected_tasks(manifest, args.task, args.all):
-            run_task(codex, protocol, task)
+        verify_codex_version(codex, protocol)
+        if args.preflight:
+            task_count = len(spec["tasks"]) if args.amendment else len(manifest["tasks"])
+            print(
+                f"Preflight passed: {spec['batch_id']} ({task_count} tasks), "
+                f"Codex CLI {required_codex_version(protocol)}"
+            )
+            return 0
+        selection = {"tasks": spec["tasks"]} if args.amendment else manifest
+        for task in selected_tasks(selection, args.task, args.all):
+            run_task(codex, protocol, task, spec)
         return 0
     except (GenerationError, KeyError, OSError) as exc:
         print(f"ERROR: {exc}", file=sys.stderr)

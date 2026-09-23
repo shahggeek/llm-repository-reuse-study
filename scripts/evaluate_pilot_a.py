@@ -15,7 +15,9 @@ from typing import Any
 ROOT = Path(__file__).resolve().parents[1]
 PROTOCOL_PATH = ROOT / "experiment/config/protocol.json"
 MANIFEST_PATH = ROOT / "experiment/config/pilot-tasks.json"
+AMENDMENT_PATH = ROOT / "experiment/config/pilot-a-amendment.json"
 PACKET_DIR = ROOT / "work/task-packets"
+AMENDMENT_PACKET_DIR = ROOT / "work/amendment-task-packets"
 OUTPUT_DIR = ROOT / "results/pilot/generated-tests"
 
 
@@ -39,13 +41,27 @@ def write_json(path: Path, value: dict[str, Any]) -> None:
     temporary.replace(path)
 
 
-def run_record_path(protocol: dict[str, Any], task: dict[str, Any]) -> Path:
-    batch_id = protocol["pilot_a"]["batch_id"]
+def amendment_tasks(amendment: dict[str, Any]) -> list[dict[str, Any]]:
+    replacements = amendment.get("replacements")
+    if not isinstance(replacements, list):
+        raise EvaluationError("Amendment replacements must be an array")
+    tasks = [replacement.get("task") for replacement in replacements]
+    if any(not isinstance(task, dict) for task in tasks):
+        raise EvaluationError("Every amendment replacement must contain a task object")
+    return tasks
+
+
+def run_record_path(batch_id: str, task: dict[str, Any], amendment: bool = False) -> Path:
     run_id = f"{batch_id}-{task['slug']}-01"
-    return ROOT / "data/generated-trajectories/pilot-a" / run_id / "record.json"
+    directory = "pilot-a-amendment" if amendment else "pilot-a"
+    return ROOT / "data/generated-trajectories" / directory / run_id / "record.json"
 
 
-def validate_record(record: dict[str, Any], protocol: dict[str, Any], task: dict[str, Any]) -> None:
+def validate_record(
+    record: dict[str, Any], protocol: dict[str, Any], task: dict[str, Any], batch_id: str
+) -> None:
+    if record.get("batch_id") != batch_id:
+        raise EvaluationError(f"Run record batch mismatch for {task['slug']}")
     if record.get("task_hash") != task["hash_id"]:
         raise EvaluationError(f"Run record hash mismatch for {task['slug']}")
     if record.get("benchmark_commit") != protocol["benchmark"]["commit"]:
@@ -86,11 +102,14 @@ def evaluate_task(
     client: Any,
     protocol: dict[str, Any],
     task: dict[str, Any],
+    batch_id: str,
+    amendment: bool,
 ) -> dict[str, Any]:
-    record_path = run_record_path(protocol, task)
+    record_path = run_record_path(batch_id, task, amendment)
     record = read_json(record_path)
-    validate_record(record, protocol, task)
-    packet = read_json(PACKET_DIR / f"{task['slug']}.json")
+    validate_record(record, protocol, task, batch_id)
+    packet_dir = AMENDMENT_PACKET_DIR if amendment else PACKET_DIR
+    packet = read_json(packet_dir / f"{task['slug']}.json")
     metadata = packet["metadata"]
     task_result: dict[str, Any] = {
         "slug": task["slug"],
@@ -167,11 +186,29 @@ def main(argv: list[str] | None = None) -> int:
     choice.add_argument("--all", action="store_true")
     parser.add_argument("--sr-eval", default=str(ROOT / ".cache/SR-Eval"))
     parser.add_argument("--container", default="mrgbench_container_1")
+    parser.add_argument(
+        "--amendment",
+        action="store_true",
+        help="evaluate the frozen two-task Pilot A amendment",
+    )
     args = parser.parse_args(argv)
 
     try:
         protocol = read_json(PROTOCOL_PATH)
-        manifest = read_json(MANIFEST_PATH)
+        if args.amendment:
+            amendment = read_json(AMENDMENT_PATH)
+            if amendment.get("status") != "amendment-frozen":
+                raise EvaluationError("Pilot A amendment is not frozen")
+            if amendment.get("benchmark_commit") != protocol["benchmark"]["commit"]:
+                raise EvaluationError("Amendment and protocol benchmark revisions differ")
+            manifest = {
+                "benchmark_commit": amendment["benchmark_commit"],
+                "tasks": amendment_tasks(amendment),
+            }
+            batch_id = amendment["batch_id"]
+        else:
+            manifest = read_json(MANIFEST_PATH)
+            batch_id = protocol["pilot_a"]["batch_id"]
         sr_eval = Path(args.sr_eval).resolve()
         if manifest.get("benchmark_commit") != protocol["benchmark"]["commit"]:
             raise EvaluationError("Manifest and protocol benchmark revisions differ")
@@ -180,14 +217,16 @@ def main(argv: list[str] | None = None) -> int:
         started_at = dt.datetime.now(dt.timezone.utc)
         report: dict[str, Any] = {
             "schema_version": 1,
-            "batch_id": protocol["pilot_a"]["batch_id"],
+            "batch_id": batch_id,
             "benchmark_commit": protocol["benchmark"]["commit"],
             "container": args.container,
             "started_at": started_at.isoformat(),
             "tasks": [],
         }
         for task in selected_tasks(manifest, args.task, args.all):
-            report["tasks"].append(evaluate_task(client, protocol, task))
+            report["tasks"].append(
+                evaluate_task(client, protocol, task, batch_id, args.amendment)
+            )
 
         checkpoints = [
             checkpoint
@@ -206,7 +245,7 @@ def main(argv: list[str] | None = None) -> int:
             "failed_checks": sum(test["status"] == "fail" for test in checks),
         }
         OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
-        output_path = OUTPUT_DIR / f"{protocol['pilot_a']['batch_id']}.json"
+        output_path = OUTPUT_DIR / f"{batch_id}.json"
         write_json(output_path, report)
         print(f"Summary: {json.dumps(report['summary'], sort_keys=True)}", flush=True)
         print(f"Report: {output_path}", flush=True)

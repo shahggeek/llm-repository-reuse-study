@@ -103,6 +103,26 @@ make test-pilot-a
 This tests each generated checkpoint against its current and all earlier tests,
 updates the ignored run record, and does not send test results back to the model.
 
+The two-task Pilot A amendment is deliberately isolated from the original
+manifest, raw trajectories, and test report. Prepare and verify it with:
+
+```bash
+make amendment-cli
+make amendment-validate
+make amendment-export
+make amendment-preflight
+make amendment-smoke-dry-run TASK=rerank
+make amendment-smoke-dry-run TASK=addInOrder
+```
+
+After committing the frozen amendment configuration, generate both replacement
+trajectories and then evaluate all 16 cumulative checks:
+
+```bash
+make pilot-a-amendment-all
+make test-pilot-a-amendment
+```
+
 Smoke reports use `pass` when every cumulative check succeeds, `partial` when
 all same-turn checks execute but one or more earlier-turn checks conflict, and
 `fail` when any same-turn reference check is not executable. `partial` exits

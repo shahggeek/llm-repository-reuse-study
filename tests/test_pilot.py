@@ -20,6 +20,15 @@ class PilotHarnessTests(unittest.TestCase):
         self.assertEqual(6, sum(task["stratum"] == "control" for task in tasks))
         self.assertEqual(6, sum(task["pilot_b"] for task in tasks))
 
+    def test_frozen_amendment_has_two_isolated_replacements(self):
+        amendment = pilot.read_json(pilot.DEFAULT_AMENDMENT)
+        self.assertEqual([], pilot.validate_manifest(amendment))
+        tasks = pilot.manifest_tasks(amendment)
+        self.assertEqual(["rerank", "addInOrder"], [task["slug"] for task in tasks])
+        self.assertEqual(1, sum(task["stratum"] == "primary" for task in tasks))
+        self.assertEqual(1, sum(task["stratum"] == "control" for task in tasks))
+        self.assertEqual(1, sum(task["pilot_b"] for task in tasks))
+
     def test_match_tasks_detects_metadata_mismatch(self):
         manifest = {
             "tasks": [

@@ -159,3 +159,19 @@ Reject Spring AI task `mergeOptions` (`9c74edf900020dff2741ee21`) after all six
 reference checks fail compilation because the pinned module's tests import a
 missing `EmbeddingOptionsBuilder`. No model output was generated for any
 replacement during selection. The amendment remains selected but not generated.
+
+## 2026-09-23 — Pilot A amendment execution frozen
+
+Freeze amendment batch `pilot-a-amendment-20260923T012647Z` with two baseline
+trajectories: four-turn `rerank` and three-turn `addInOrder`. Reuse the frozen
+Pilot A model, reasoning effort, prompts, system instructions, read-only
+sandbox, no-feedback rule, and one-run-per-task policy. Pin the amendment to the
+SHA-256 digest of `experiment/config/protocol.json` so later protocol edits
+cannot silently change this batch.
+
+Keep amendment task packets, isolated Codex sessions, raw generations, and the
+functional report in amendment-specific directories. Refuse to overwrite an
+existing run. Use Codex CLI 0.153.0, matching the original Pilot A execution
+interface; stage that exact version locally because the desktop-bundled CLI has
+advanced to 0.153.1. No amendment model output had been generated when this
+execution configuration was frozen.
