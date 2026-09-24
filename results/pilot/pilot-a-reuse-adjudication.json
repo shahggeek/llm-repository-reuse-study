@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "status": "adjudicated-calibration-sample",
+  "sample_size": 10,
+  "inputs": {
+    "primary_review": "results/pilot/pilot-a-reuse-rubric-pilot.json",
+    "independent_review": "results/pilot/pilot-a-reuse-reviewer2-responses.csv",
+    "pre_adjudication_agreement": "results/pilot/pilot-a-reuse-review-agreement.json",
+    "rubric": "analysis/rq2/reuse-rubric.md"
+  },
+  "principles": [
+    "Preserve both reviewers' original labels and report pre-adjudication agreement.",
+    "Use R1 when a relevant standard-library abstraction is appropriately reused and no repository-owned behavior is duplicated.",
+    "Use C2 only when supplied prompt material gives a plausible cue toward the candidate abstraction or its owning abstraction family; general domain proximity alone is insufficient."
+  ],
+  "decisions": [
+    {
+      "case_id": "RC-102",
+      "task_slug": "loadDocuments",
+      "dimension": "reuse_class",
+      "primary_label": "R0",
+      "second_reviewer_label": "R1",
+      "adjudicated_label": "R1",
+      "reason": "Files.isDirectory() materially covers the requested directory check. The implementation appropriately reuses that standard-library abstraction and creates no repository-owned duplication, which matches the rubric's R1 boundary."
+    },
+    {
+      "case_id": "RC-103",
+      "task_slug": "addInOrder",
+      "dimension": "context_class",
+      "primary_label": "C1",
+      "second_reviewer_label": "C2",
+      "adjudicated_label": "C2",
+      "reason": "The supplied ArrayUtil import is an indirect but plausible cue that array-growth behavior may already be centralized. growArrays() is not explicit, so C3 does not apply."
+    },
+    {
+      "case_id": "RC-110",
+      "task_slug": "invert",
+      "dimension": "context_class",
+      "primary_label": "C1",
+      "second_reviewer_label": "C2",
+      "adjudicated_label": "C2",
+      "reason": "The supplied VectorFloat and vectorization-provider context indicates the repository's vector-operation abstraction family even though scale(), addTo(), and copyFrom() are not named or shown."
+    }
+  ],
+  "final_classifications": [
+    {"case_id": "RC-101", "task_slug": "set", "turn": 3, "reuse_class": "R1", "context_class": "C3"},
+    {"case_id": "RC-102", "task_slug": "loadDocuments", "turn": 1, "reuse_class": "R1", "context_class": "C0"},
+    {"case_id": "RC-103", "task_slug": "addInOrder", "turn": 1, "reuse_class": "R3", "context_class": "C2"},
+    {"case_id": "RC-104", "task_slug": "methodToProperty", "turn": 1, "reuse_class": "R1", "context_class": "C0"},
+    {"case_id": "RC-105", "task_slug": "nodeArrayMerge", "turn": 3, "reuse_class": "R2", "context_class": "C1"},
+    {"case_id": "RC-106", "task_slug": "calculatePhaseTimeGradient", "turn": 3, "reuse_class": "R1", "context_class": "C3"},
+    {"case_id": "RC-107", "task_slug": "encodeAnisotropic", "turn": 1, "reuse_class": "R3", "context_class": "C1"},
+    {"case_id": "RC-108", "task_slug": "getCyclesForPermutation", "turn": 1, "reuse_class": "R1", "context_class": "C3"},
+    {"case_id": "RC-109", "task_slug": "ensureCapacity", "turn": 2, "reuse_class": "R1", "context_class": "C2"},
+    {"case_id": "RC-110", "task_slug": "invert", "turn": 4, "reuse_class": "R2", "context_class": "C2"}
+  ],
+  "summary": {
+    "reuse_class_counts": {"R0": 0, "R1": 6, "R2": 2, "R3": 2},
+    "context_class_counts": {"C0": 2, "C1": 2, "C2": 3, "C3": 3},
+    "missed_reuse_events": 4,
+    "missed_reuse_with_latent_context_c1": 2,
+    "missed_reuse_with_discoverable_cues_c2": 2,
+    "missed_reuse_with_explicit_context_c3": 0
+  },
+  "interpretation": "The independent review confirms the four missed-reuse decisions. Two involve latent helpers and two involve indirect prompt cues; none involves a helper explicitly named or shown in the model context. The sample supports expanding the rubric to all eligible correct checkpoints but remains too small and purposive for a population-rate claim."
+}

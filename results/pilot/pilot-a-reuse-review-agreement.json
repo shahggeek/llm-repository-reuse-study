@@ -1,0 +1,174 @@
+{
+  "schema_version": 1,
+  "sample_size": 10,
+  "reuse": {
+    "exact_agreement": {
+      "matches": 9,
+      "n": 10,
+      "rate": 0.9
+    },
+    "linear_weighted_cohens_kappa": 0.8888888888888888,
+    "primary_counts": {
+      "R0": 1,
+      "R1": 5,
+      "R2": 2,
+      "R3": 2
+    },
+    "second_reviewer_counts": {
+      "R1": 6,
+      "R2": 2,
+      "R3": 2
+    }
+  },
+  "binary_missed_reuse": {
+    "definition": "R2 or R3",
+    "exact_agreement": {
+      "matches": 10,
+      "n": 10,
+      "rate": 1.0
+    }
+  },
+  "context_availability": {
+    "exact_agreement": {
+      "matches": 8,
+      "n": 10,
+      "rate": 0.8
+    },
+    "linear_weighted_cohens_kappa": 0.8412698412698413,
+    "primary_counts": {
+      "C0": 2,
+      "C1": 4,
+      "C2": 1,
+      "C3": 3
+    },
+    "second_reviewer_counts": {
+      "C0": 2,
+      "C1": 2,
+      "C2": 3,
+      "C3": 3
+    }
+  },
+  "cases": [
+    {
+      "case_id": "RC-101",
+      "task_slug": "set",
+      "turn": 3,
+      "primary_reuse_class": "R1",
+      "second_reuse_class": "R1",
+      "primary_context_class": "C3",
+      "second_context_class": "C3",
+      "reuse_agrees": true,
+      "context_agrees": true,
+      "second_reviewer_evidence": "Uses the existing VersionedBestSolution holder, stores it with currentVersion, then bumps the version with add(BigInteger.ONE), all inside synchronized(this). Nothing is rebuilt by hand, and it stays away from resetVersionedBestSolution(), which clears instead of sets. Turn 3 names the type and BigInteger.ONE, and both fields are in the supplied code."
+    },
+    {
+      "case_id": "RC-102",
+      "task_slug": "loadDocuments",
+      "turn": 1,
+      "primary_reuse_class": "R0",
+      "second_reuse_class": "R1",
+      "primary_context_class": "C0",
+      "second_context_class": "C0",
+      "reuse_agrees": false,
+      "context_agrees": true,
+      "second_reviewer_evidence": "Checks the path with Files.isDirectory and returns an empty ArrayList, which is all Turn 1 asks for. The same check is already used by the other loaders in the file. No repository helper covers this, so nothing is duplicated. Exceptions.illegalArgument is imported but builds its own message, so it does not fit the fixed text here."
+    },
+    {
+      "case_id": "RC-103",
+      "task_slug": "addInOrder",
+      "turn": 1,
+      "primary_reuse_class": "R3",
+      "second_reuse_class": "R3",
+      "primary_context_class": "C1",
+      "second_context_class": "C2",
+      "reuse_agrees": true,
+      "context_agrees": false,
+      "second_reviewer_evidence": "When the arrays are full it works out its own new size, max(1, len + len/2), and copies both arrays with Arrays.copyOf. growArrays() already does exactly this job. growArrays() is not in the supplied code, but the ArrayUtil import hints that array growth is handled somewhere. Out-of-scope observation-did not affect the reuse classification: the added order check is behaviour Turn 1 does not ask for."
+    },
+    {
+      "case_id": "RC-104",
+      "task_slug": "methodToProperty",
+      "turn": 1,
+      "primary_reuse_class": "R1",
+      "second_reuse_class": "R1",
+      "primary_context_class": "C0",
+      "second_context_class": "C0",
+      "reuse_agrees": true,
+      "context_agrees": true,
+      "second_reviewer_evidence": "Checks the prefix, strips it, then lowercases the first character with Character.toLowerCase and joins the rest. Per the case note, choosing Character.toLowerCase over String.toLowerCase is not missed reuse by itself, and the supplied code has no helper to call. FlexExceptions is imported but does not own this message. Out-of-scope observation-did not affect the reuse classification: the null check and the exception type are behaviour choices, not reuse."
+    },
+    {
+      "case_id": "RC-105",
+      "task_slug": "nodeArrayMerge",
+      "turn": 3,
+      "primary_reuse_class": "R2",
+      "second_reuse_class": "R2",
+      "primary_context_class": "C1",
+      "second_context_class": "C1",
+      "reuse_agrees": true,
+      "context_agrees": true,
+      "second_reviewer_evidence": "Uses IntHashSet to drop duplicates at each score, but writes every element itself: merged.nodes[...], merged.scores[...], then merged.size++. addInOrder() is the method that does that append, along with the insert and capacity rules this case points to. So part of the work is reused and part is rewritten. IntHashSet is imported in the supplied code; addInOrder() is not in it."
+    },
+    {
+      "case_id": "RC-106",
+      "task_slug": "calculatePhaseTimeGradient",
+      "turn": 3,
+      "primary_reuse_class": "R1",
+      "second_reuse_class": "R1",
+      "primary_context_class": "C3",
+      "second_context_class": "C3",
+      "reuse_agrees": true,
+      "context_agrees": true,
+      "second_reviewer_evidence": "Loops the list, skips terminations where isApplicableTo() is false, calls calculatePhaseTimeGradient() on each, and keeps the smallest non-negative value with Math.min. This is the same shape as calculateSolverTimeGradient() just above it in the file. Both methods are named in the instructions and visible in the supplied code."
+    },
+    {
+      "case_id": "RC-107",
+      "task_slug": "encodeAnisotropic",
+      "turn": 1,
+      "primary_reuse_class": "R3",
+      "second_reuse_class": "R3",
+      "primary_context_class": "C1",
+      "second_context_class": "C1",
+      "reuse_agrees": true,
+      "context_agrees": true,
+      "second_reviewer_evidence": "Writes the centroid search itself: for each subspace it loops every centroid and keeps the smallest ||c||^2 - 2*x.c, then sets the byte. computeResiduals() and initializeToMinResidualNorms() already do that whole job. dotProduct and the centroidNormsSquared table are reused, but they are pieces used inside the loop, not a separate part of the work. Neither helper appears in the supplied code."
+    },
+    {
+      "case_id": "RC-108",
+      "task_slug": "getCyclesForPermutation",
+      "turn": 1,
+      "primary_reuse_class": "R1",
+      "second_reuse_class": "R1",
+      "primary_context_class": "C3",
+      "second_context_class": "C3",
+      "reuse_agrees": true,
+      "context_agrees": true,
+      "second_reviewer_evidence": "Reads the permutation through kOptDescriptor.removedEdgeIndexToTourOrder(), walks the cycles with a visited array as the turn asks, and returns a KOptCycle. Nothing in the file already counts cycles, so writing the walk is not missed reuse. The accessor is named in the instruction, even though the short code slice does not show it."
+    },
+    {
+      "case_id": "RC-109",
+      "task_slug": "ensureCapacity",
+      "turn": 2,
+      "primary_reuse_class": "R1",
+      "second_reuse_class": "R1",
+      "primary_context_class": "C2",
+      "second_context_class": "C2",
+      "reuse_agrees": true,
+      "context_agrees": true,
+      "second_reviewer_evidence": "Calls bits2words() for the word count, getBits() for the existing array, and copies with Arrays.copyOf only when it is too small, then hands the array to the FixedBitSet constructor. The original array is shared and never changed. Arrays.copyOf is a fair standard-library choice here, so no repository logic is rewritten. ArrayUtil.grow is never shown; it just sits in the same util package as this class."
+    },
+    {
+      "case_id": "RC-110",
+      "task_slug": "invert",
+      "turn": 4,
+      "primary_reuse_class": "R2",
+      "second_reuse_class": "R2",
+      "primary_context_class": "C1",
+      "second_context_class": "C2",
+      "reuse_agrees": true,
+      "context_agrees": false,
+      "second_reviewer_evidence": "Does everything with get() and set(): divides the pivot row one element at a time instead of VectorUtil.scale(), subtracts element by element instead of using addTo(), and copies the right half with a nested loop instead of copyFrom(). The augmented setup and the pivoting do use the Matrix API, so only part is rewritten. The vector helpers are not in the supplied code; VectorFloat and the vectorization provider are the hints. Out-of-scope observation-did not affect the reuse classification: the 1e-8 cutoff is a numerical choice, not reuse."
+    }
+  ],
+  "interpretation_note": "Descriptive calibration result for ten generated checkpoints; inspect case disagreements before expanding the rubric review."
+}

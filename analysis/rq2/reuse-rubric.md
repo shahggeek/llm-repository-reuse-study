@@ -54,6 +54,13 @@ or retrieval hypothesis.
 
 - Treat alternative standard-library calls as R1 when they preserve the same
   policy and do not create a second repository-owned implementation.
+- Use R0 only when no material repository or library abstraction covers the
+  behavior. If the implementation appropriately calls a standard-library
+  abstraction that materially performs the requested operation, use R1 even
+  when no repository-specific helper exists.
+- Count an import, visible type, neighboring use, or repository convention as
+  C2 only when it provides a plausible discovery path toward the candidate or
+  its owning abstraction family. General domain proximity is not enough.
 - Do not penalize a generated checkpoint for omitting behavior introduced only
   in a later turn, even if the same-turn reference includes it.
 - Do not infer missed reuse from shorter or longer code alone.
@@ -64,9 +71,9 @@ or retrieval hypothesis.
 
 ## Reliability procedure
 
-The current pilot is a single-analyst, non-blinded calibration review. Before
-publication, a second reviewer should independently classify a stratified
-sample with generated/reference origin labels masked, then resolve
-disagreements and report raw agreement and weighted Cohen's kappa. Until that
-happens, the manual classifications are feasibility evidence, not final study
-measurements.
+The calibration used a second reviewer on a randomized A/B sample with
+generated/reference origin labels masked. Preserve both original reviews,
+report pre-adjudication raw agreement and weighted Cohen's kappa, and document
+all adjudication decisions separately. The ten-case calibration establishes
+that the rubric is usable for the pilot; it does not establish a
+population-level reliability estimate.

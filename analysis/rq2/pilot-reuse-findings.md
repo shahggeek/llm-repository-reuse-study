@@ -12,21 +12,30 @@ checkpoints because their reference implementation called at least one method
 not called by the generated implementation. Ten checkpoints had no such call
 difference. These are candidate counts, not confirmed defect counts.
 
-A single-analyst calibration review then examined one checkpoint from each of
-the ten represented trajectories:
+A primary analyst and an independent blinded reviewer then examined one
+checkpoint from each of the ten represented trajectories. Before adjudication,
+they agreed on 9/10 exact R0–R3 labels (90%; linearly weighted Cohen's
+κ = 0.889) and all 10 binary missed-reuse decisions (R2/R3 versus R0/R1).
+They agreed on 8/10 context labels (80%; linearly weighted κ = 0.841).
+
+Adjudication retained both original reviews and resolved one R0/R1 boundary
+and two C1/C2 boundaries. The final calibration labels are:
 
 | Class | Meaning | Checkpoints |
 | --- | --- | ---: |
-| R0 | No credible reuse opportunity | 1 |
-| R1 | Appropriate reuse or acceptable equivalent | 5 |
+| R0 | No credible reuse opportunity | 0 |
+| R1 | Appropriate reuse or acceptable equivalent | 6 |
 | R2 | Partial reuse with meaningful duplication | 2 |
 | R3 | Existing functionality reimplemented | 2 |
 
-The four provisional R2/R3 events occur in four different trajectories:
+The four confirmed R2/R3 events occur in four different trajectories:
 `addInOrder`, `encodeAnisotropic`, `invert`, and `nodeArrayMerge`. In every
-case, the relevant helper was absent from the model's supplied prompt context.
-The experiment used an empty read-only working directory, so the model could
-not discover code outside the prompt packet.
+For `addInOrder` and `invert`, the prompt contained indirect cues toward the
+relevant abstraction family (C2), but did not name or show the applicable
+helper. For `encodeAnisotropic` and `nodeArrayMerge`, the helper was wholly
+latent (C1). No missed-reuse case had an explicit helper (C3). The experiment
+used an empty read-only working directory, so the model could not inspect code
+outside the prompt packet.
 
 ## What the evidence currently supports
 
@@ -34,8 +43,12 @@ not discover code outside the prompt packet.
   repository-owned behavior.
 - The R0–R3 rubric can distinguish acceptable alternative library use from
   repository-level duplication.
-- Prompt context is likely a central mechanism: all provisional missed-reuse
-  cases in the calibration sample involve latent repository helpers.
+- Prompt context is likely a central mechanism: two missed-reuse cases involve
+  latent helpers and two involve only indirect discoverability cues. None
+  involves an explicitly available helper.
+- The blinded calibration produced strong agreement on the substantive
+  missed-reuse decision; remaining differences exposed narrow R0/R1 and C1/C2
+  boundaries that are now clarified for the full review.
 - Reference-only call differences are useful for triage but require manual
   review. For example, `ensureCapacity` uses a reasonable standard-library
   alternative, and the `addInOrder` turn-2 reference includes assertion-related
@@ -45,12 +58,14 @@ not discover code outside the prompt packet.
 
 - A population-level rate of missed reuse. The sample is small, purposive, and
   contains dependent checkpoints.
-- A claim that GPT-5.6 Sol disregards reuse despite adequate context. None of
-  the provisional R2/R3 cases had the relevant helper explicitly available.
+- A claim that GPT-5.6 Sol disregards reuse despite explicit helper context.
+  None of the R2/R3 cases had the applicable helper named or shown. The pilot
+  does support the narrower observation that indirect cues were insufficient
+  in two reviewed cases.
 - A causal claim that more context improves reuse. That requires a controlled
   context or retrieval condition.
-- A publication-ready reliability claim. The calibration review was not
-  independent or blinded.
+- A population-level reliability claim. Agreement is encouraging, but the
+  calibration sample is small and purposive (n = 10).
 
 ## Consequence for Pilot B
 
@@ -68,7 +83,7 @@ protocol.
 
 ## Next validation
 
-1. Independently classify a blinded stratified subset and calculate agreement.
-2. Review all 24 correct checkpoints after the rubric is stable.
-3. Report checkpoint and trajectory counts separately.
-4. Freeze the final paper direction only after the full review.
+1. Apply the clarified rubric to all 24 eligible correct checkpoints.
+2. Preserve case-level evidence and report checkpoint and trajectory counts
+   separately.
+3. Freeze the final paper direction only after the full review.

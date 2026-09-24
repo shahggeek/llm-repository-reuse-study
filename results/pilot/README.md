@@ -18,10 +18,14 @@ checkpoints and the strict 16-checkpoint subgroup.
 
 `pilot-a-reuse-screen-summary.json` summarizes the automated high-recall reuse
 candidate screen. `pilot-a-reuse-rubric-pilot.json` records the provisional
-single-analyst calibration review; it requires an independent blinded review
-before publication.
+single-analyst calibration review.
 
 `pilot-a-reuse-blind-key.json` is the concealed A/B mapping for the independent
-review workbook. Do not give it to the reviewer before submission. The
-reviewer-facing workbook is under
-`outputs/pilot-a-reuse-independent-review/`.
+review workbook. The review is complete; retain the concealment warning for
+future replications.
+
+`pilot-a-reuse-reviewer2-responses.csv` preserves the completed Review sheet,
+and `pilot-a-reuse-reviewer2-submission.json` records the source workbook hash.
+`pilot-a-reuse-review-agreement.json` contains the pre-adjudication agreement
+statistics and case comparisons. `pilot-a-reuse-adjudication.json` records the
+three resolution decisions without overwriting either review.

@@ -86,6 +86,32 @@ origin or prescribe R/C labels. This changes candidate discovery from an
 unstructured reviewer task into a standardized rubric input and should be used
 by both reviewers in any later replication.
 
+## 2026-09-23 — Independent reuse review and adjudication
+
+Preserved the completed five-sheet workbook and extracted all 20 A/B responses
+before inspecting the concealed mapping. On the ten generated checkpoints, the
+primary and independent reviewers achieved 9/10 exact R0–R3 agreement (90%;
+linearly weighted Cohen's κ = 0.889), 10/10 agreement on the binary R2/R3
+missed-reuse decision, and 8/10 exact C0–C3 agreement (80%; linearly weighted
+κ = 0.841). Treat these statistics as descriptive because the sample is small
+and purposive.
+
+Adjudicate `loadDocuments` as R1 rather than R0 because `Files.isDirectory()`
+materially performs the requested operation without duplicating repository
+policy. Adjudicate `addInOrder` and `invert` as C2 rather than C1 because the
+supplied imports/types provide plausible indirect cues toward the relevant
+abstraction families, although the applicable helpers are not named or shown.
+Keep both reviewers' original labels and the pre-adjudication agreement output
+unchanged.
+
+The four R2/R3 events remain unchanged. Two are C1 (`nodeArrayMerge`,
+`encodeAnisotropic`) and two are C2 (`addInOrder`, `invert`); none is C3. The
+supported claim is therefore narrower than "the model ignored explicit reuse
+opportunities" but stronger than an entirely latent-context explanation: the
+model sometimes missed repository reuse when only indirect cues were supplied.
+The clarified rubric is stable enough to apply to all 24 eligible correct
+checkpoints before freezing the paper direction.
+
 ## 2026-09-04 — Pre-generation replacement of `between`
 
 Exclude SR-Eval task `895990b3a5c56f093bdb72e6` (`between`) after its pinned
