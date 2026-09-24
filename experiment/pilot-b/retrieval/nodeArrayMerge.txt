@@ -1,0 +1,15 @@
+Task: nodeArrayMerge
+Repository: jvector
+Target file: jvector-base/src/main/java/io/github/jbellis/jvector/graph/NodeArray.java
+
+Available APIs:
+
+```java
+public int size()
+public void addInOrder(int newNode, float newScore)
+```
+
+Behavioral contracts visible in the repository:
+
+- `addInOrder(...)` owns insertion into the paired node/score arrays, capacity growth, and descending-score invariant.
+- `size()` reports the number of populated entries.

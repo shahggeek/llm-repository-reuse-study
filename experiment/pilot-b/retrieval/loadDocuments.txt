@@ -1,0 +1,19 @@
+Task: loadDocuments
+Repository: langchain4j
+Target file: langchain4j/src/main/java/dev/langchain4j/data/document/loader/FileSystemDocumentLoader.java
+
+Available APIs:
+
+```java
+public static Document loadDocument(Path filePath, DocumentParser documentParser)
+private static List<Document> loadDocuments(
+        Stream<Path> pathStream,
+        PathMatcher pathMatcher,
+        Path pathMatcherRoot,
+        DocumentParser documentParser)
+```
+
+Behavioral contracts visible in the repository:
+
+- `loadDocument(...)` performs the repository's single-file parsing path.
+- The stream overload applies filtering and the repository's skip-on-load-failure behavior.

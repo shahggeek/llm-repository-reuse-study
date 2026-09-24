@@ -21,21 +21,41 @@ prompt protocol. Twelve tasks are structurally rich primary cases; six are
 controls with smaller or more focused changes. No reuse hints or task-specific
 engineering advice may be added.
 
-## Pilot B: guardrail pairs
+## Pilot B: guardrail and retrieval mechanism probe
 
-Run these six preselected tasks a second time with the exact contents of
-`experiment/prompts/engineering-guardrails.txt` appended to every turn:
+Pilot B is frozen independently in `experiment/config/pilot-b.json`. It has
+three conditions:
+
+1. `baseline`: reuse the existing adjusted Pilot A trajectory; do not rerun it.
+2. `engineering-guardrails`: append the frozen engineering guardrail block to
+   every turn while preserving Pilot A's limited context.
+3. `engineering-guardrails-retrieval`: apply the identical guardrail block and
+   also append the task's frozen repository API packet to every turn.
+
+Use these six preselected tasks:
 
 - `loadDocuments`
-- `mergeBeans`
+- `addInOrder`
 - `ensureCapacity`
 - `nodeArrayMerge`
 - `randomAccessScoreProvider`
 - `diff`
 
-Each baseline and guardrail run must start in an independent fresh session from
-the same repository state. Pilot B is paired by SR-Eval hash, not merely by
-method name.
+Each new run must start in an independent fresh session from the same pinned
+repository state. Pilot B is paired by SR-Eval hash, not merely by method name.
+Every turn-1 prompt must include the literal target signature in the frozen
+Pilot B configuration.
+
+The retrieval packets contain at most four API declarations and short
+repository-derived behavioral contracts. They contain no reference solution,
+test, Pilot A generation, or test result. Candidate APIs were selected after
+the Pilot A reuse audit, so this is a targeted, outcome-informed exploratory
+mechanism probe—not an evaluation of a general retrieval system.
+
+The planned descriptive contrasts are guardrails versus baseline, retrieval
+plus guardrails versus guardrails alone, and the combined intervention versus
+baseline. With one run per task and condition, do not interpret these contrasts
+as population-level causal estimates.
 
 ## Before generation
 
@@ -64,10 +84,14 @@ For each `(task, condition)`:
    frozen turn-1 template.
 4. On later turns, provide the immediately preceding generated method and the
    new instruction using the frozen code-edit template.
-5. In Pilot B only, append the fixed guardrail block to every turn.
-6. Save the unmodified raw response and the extracted Java method.
-7. Do not provide test output or retry within the first-pass run.
-8. Evaluate current and prior tests, then compute structural measurements.
+5. For both new Pilot B conditions, append the fixed guardrail block to every
+   turn.
+6. For `engineering-guardrails-retrieval`, append the frozen retrieval header
+   and task packet to every turn; record the packet SHA-256.
+7. Save the unmodified raw response and the extracted Java method.
+8. Do not provide test output or retry within the first-pass run.
+9. Evaluate current and prior tests, then compute structural and reuse
+   measurements.
 
 ## Smoke-test pass criteria
 

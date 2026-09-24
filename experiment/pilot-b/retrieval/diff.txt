@@ -1,0 +1,19 @@
+Task: diff
+Repository: timefold-solver
+Target file: core/src/main/java/ai/timefold/solver/core/api/score/analysis/ScoreAnalysis.java
+
+Available APIs:
+
+```java
+public @Nullable ConstraintAnalysis<Score_> getConstraintAnalysis(ConstraintRef constraintRef)
+// ConstraintAnalysis
+static <Score_ extends Score<Score_>> @NonNull ConstraintAnalysis<Score_> diff(
+        @NonNull ConstraintRef constraintRef,
+        @Nullable ConstraintAnalysis<Score_> constraintAnalysis,
+        @Nullable ConstraintAnalysis<Score_> otherConstraintAnalysis)
+```
+
+Behavioral contracts visible in the repository:
+
+- `getConstraintAnalysis(...)` returns null when a constraint is absent.
+- `ConstraintAnalysis.diff(...)` owns weight, score, match-detail, and compatibility-difference semantics.

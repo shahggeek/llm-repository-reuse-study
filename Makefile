@@ -12,7 +12,7 @@ export PATH := $(TOOL_BIN):$(PATH)
 export UV_CACHE_DIR
 export UV_PYTHON_INSTALL_DIR
 
-.PHONY: bootstrap check prepare doctor tasks export smoke-dry-run smoke smoke-all pilot-a pilot-a-all test-pilot-a amendment-cli amendment-validate amendment-export amendment-preflight amendment-smoke-dry-run pilot-a-amendment pilot-a-amendment-all test-pilot-a-amendment audit-prompt-context summarize-pilot-a-adjusted structural-check structural-pilot reuse-screen reuse-agreement reuse-full-review
+.PHONY: bootstrap check prepare doctor tasks export smoke-dry-run smoke smoke-all pilot-a pilot-a-all test-pilot-a amendment-cli amendment-validate amendment-export amendment-preflight amendment-smoke-dry-run pilot-a-amendment pilot-a-amendment-all test-pilot-a-amendment audit-prompt-context summarize-pilot-a-adjusted structural-check structural-pilot reuse-screen reuse-agreement reuse-full-review pilot-b-check
 
 bootstrap:
 	bash scripts/bootstrap_tools.sh
@@ -20,6 +20,7 @@ bootstrap:
 check:
 	$(PYTHON) -m unittest discover -s tests -v
 	$(PYTHON) scripts/pilot.py validate-manifest
+	$(PYTHON) scripts/pilot_b.py
 
 prepare:
 	bash scripts/prepare_sr_eval.sh "$(SR_EVAL_DIR)"
@@ -98,3 +99,6 @@ reuse-agreement:
 
 reuse-full-review:
 	$(PYTHON) scripts/summarize_reuse_full_review.py
+
+pilot-b-check:
+	$(PYTHON) scripts/pilot_b.py --check-dataset --sr-eval "$(SR_EVAL_DIR)"

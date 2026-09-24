@@ -1,0 +1,16 @@
+Task: addInOrder
+Repository: jvector
+Target file: jvector-base/src/main/java/io/github/jbellis/jvector/graph/NodeArray.java
+
+Available APIs:
+
+```java
+protected final void growArrays()
+// ArrayUtil
+public static float[] copyOfSubArray(float[] array, int from, int to)
+```
+
+Behavioral contracts visible in the repository:
+
+- `growArrays()` owns coordinated capacity growth for the node and score arrays.
+- `copyOfSubArray(...)` creates the score slice used by diagnostics in this class.

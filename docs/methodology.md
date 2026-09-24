@@ -41,7 +41,7 @@ subsequent evolution steps?
 | Automatic model routing | Disabled |
 | Replications | 1 per trajectory/condition |
 | Pilot A condition | Baseline instructions |
-| Pilot B conditions | Baseline and fixed engineering guardrails |
+| Pilot B conditions | Existing baseline; fixed guardrails; fixed guardrails plus a bounded repository API packet |
 
 The exact product/interface name, displayed model name, timestamps, permission
 settings, and any observable tool configuration must be stored with every run.
@@ -98,7 +98,16 @@ reviewers on a stratified subset and report inter-rater agreement.
 
 ## Guardrail adherence
 
-Pilot B applies one identical guardrail block to six preselected trajectories.
+Pilot B applies one identical guardrail block to six preselected trajectories
+and adds a third condition with the same guardrails plus a frozen task-specific
+repository API packet. The baseline is the existing adjusted Pilot A run, not a
+new generation. The API packets expose declarations and short behavioral
+contracts but no reference solutions or tests.
+
+The retrieval treatment is deliberately targeted using candidates identified
+in the completed Pilot A reuse audit. It tests whether making relevant
+abstractions explicit can change observed behavior in these cases; it does not
+estimate the effectiveness of general-purpose repository retrieval.
 Each resulting checkpoint is evaluated against five rules:
 
 1. Inspect and reuse applicable existing behavior.

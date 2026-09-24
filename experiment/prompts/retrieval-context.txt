@@ -1,0 +1,6 @@
+Repository evidence packet (read-only)
+
+The following task-specific API declarations come from the pinned repository
+revision. Treat them as available implementation context. Use them when they
+fit the requested behavior, but do not assume they replace any requirement.
+Do not invent overloads or change the required target-method signature.

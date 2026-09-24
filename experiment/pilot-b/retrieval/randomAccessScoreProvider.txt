@@ -1,0 +1,18 @@
+Task: randomAccessScoreProvider
+Repository: jvector
+Target file: jvector-base/src/main/java/io/github/jbellis/jvector/graph/similarity/BuildScoreProvider.java
+
+Available APIs:
+
+```java
+// RandomAccessVectorValues
+default Supplier<RandomAccessVectorValues> threadLocalSupplier()
+SearchScoreProvider searchProviderFor(VectorFloat<?> vector)
+SearchScoreProvider searchProviderFor(int node1)
+SearchScoreProvider diversityProviderFor(int node1)
+```
+
+Behavioral contracts visible in the repository:
+
+- `threadLocalSupplier()` provides thread-confined vector-value access.
+- The provider methods centralize query, node, and diversity scoring behavior.

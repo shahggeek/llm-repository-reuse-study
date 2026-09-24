@@ -142,6 +142,28 @@ frozen guardrail comparison, and make the next explicit design decision about
 a separately named retrieval-supported condition that exposes candidate
 helpers or a read-only repository checkout.
 
+## 2026-09-24 — Pilot B three-condition mechanism probe frozen
+
+Freeze Pilot B as a three-condition exploratory mechanism probe on six tasks:
+`loadDocuments`, `addInOrder`, `ensureCapacity`, `nodeArrayMerge`,
+`randomAccessScoreProvider`, and `diff`. Reuse the existing adjusted Pilot A
+trajectory as the baseline; do not regenerate it. Generate one fresh
+guardrails-only trajectory and one fresh guardrails-plus-retrieval trajectory
+per task, for 12 new trajectories total.
+
+Use short task-specific retrieval packets containing no more than four API
+declarations and repository-derived behavioral contracts. Do not include
+reference solutions, tests, Pilot A generated code, or test outcomes. Append
+the same frozen engineering guardrails to both new conditions, and append the
+retrieval header and task packet only in the retrieval condition. Supply the
+literal repository-compatible target signature on every turn-1 prompt.
+
+The retrieval candidates were identified after the Pilot A reuse audit. Treat
+the retrieval contrast as a targeted, outcome-informed mechanism probe and not
+as a general retrieval-system evaluation or a population-level causal effect.
+With one run per task and condition, report paired task outcomes and trajectory
+dependence explicitly.
+
 ## 2026-09-04 — Pre-generation replacement of `between`
 
 Exclude SR-Eval task `895990b3a5c56f093bdb72e6` (`between`) after its pinned

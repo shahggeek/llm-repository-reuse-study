@@ -1,0 +1,157 @@
+{
+  "schema_version": 1,
+  "status": "pilot-b-frozen",
+  "batch_id": "pilot-b-20260924T233242Z",
+  "frozen_at": "2026-09-24T23:32:42Z",
+  "study_role": "exploratory mechanism probe",
+  "benchmark_commit": "6cf948d69427687bf61042640223d5b318f7bc4c",
+  "base_protocol_sha256": "2dda55a9142c8d0e2ef825a0ea026fe0393925328bec85ab263679ef9e51e3a2",
+  "run_record_schema": {
+    "path": "experiment/schemas/run-record-v2.schema.json",
+    "sha256": "e42209508d7633a86c81ed7885394ec76b291bac4f2e0aef515b2e6a396f5655"
+  },
+  "model": {
+    "display_name": "GPT-5.6 Sol",
+    "slug": "gpt-5.6-sol",
+    "reasoning_effort": "High",
+    "automatic_routing": false
+  },
+  "conditions": [
+    {
+      "name": "baseline",
+      "new_generation": false,
+      "source": "existing adjusted Pilot A run"
+    },
+    {
+      "name": "engineering-guardrails",
+      "new_generation": true,
+      "guardrails": true,
+      "retrieval_packet": false
+    },
+    {
+      "name": "engineering-guardrails-retrieval",
+      "new_generation": true,
+      "guardrails": true,
+      "retrieval_packet": true
+    }
+  ],
+  "runs_per_task_new_condition": 1,
+  "comparisons": {
+    "prompting_effect": "engineering-guardrails vs baseline",
+    "retrieval_increment": "engineering-guardrails-retrieval vs engineering-guardrails",
+    "combined_intervention": "engineering-guardrails-retrieval vs baseline"
+  },
+  "prompting": {
+    "system_prompt": {
+      "path": "experiment/prompts/system.txt",
+      "sha256": "4875eb8f21bbf16bf8230730213406471017c29630afb9b027ef115f510c66da"
+    },
+    "turn_1_template": {
+      "path": "experiment/prompts/turn-1.txt",
+      "sha256": "493fa28970d6f5b28586e31d468c2243cdbb045a7f21de56582d73bc290688ca"
+    },
+    "later_turn_template": {
+      "path": "experiment/prompts/code-edit.txt",
+      "sha256": "e15919aa205033e555720259b3a3cfa36e17f26dea0a0f8a9423341a22fe8b57"
+    },
+    "guardrails": {
+      "path": "experiment/prompts/engineering-guardrails.txt",
+      "sha256": "d24d0f0fc97807691f18afb0529b017abad7761f8a67da858d6e2d0f7e6bbee5",
+      "delivery": "append verbatim to every turn in both new conditions"
+    },
+    "retrieval_header": {
+      "path": "experiment/prompts/retrieval-context.txt",
+      "sha256": "dcd0d2aa88419517f7f1b4d8a07749142ac96ef27c0790175805133e53e1fcca",
+      "delivery": "append header and task packet verbatim to every turn in engineering-guardrails-retrieval"
+    }
+  },
+  "retrieval_policy": {
+    "selection": "task-specific candidate APIs identified in the completed Pilot A reuse audit",
+    "format": "declarations plus short repository-derived behavioral contracts; no method bodies",
+    "maximum_symbols_per_task": 4,
+    "maximum_packet_characters": 1600,
+    "excludes": [
+      "SR-Eval reference solutions",
+      "SR-Eval tests",
+      "Pilot A generated code",
+      "test results"
+    ],
+    "interpretation": "targeted, outcome-informed exploratory treatment; not a general retrieval-system evaluation"
+  },
+  "execution": {
+    "product_interface": "Codex CLI 0.153.0",
+    "sandbox": "read-only empty working directory",
+    "web_search": "disabled",
+    "fresh_session_per_task_condition": true,
+    "test_feedback_to_model": false,
+    "retries_after_model_contact": 0
+  },
+  "tasks": [
+    {
+      "slug": "loadDocuments",
+      "hash_id": "6712ca73ea1cb5649aa72a63",
+      "repo": "langchain4j",
+      "function": "loadDocuments",
+      "turns": 3,
+      "target_signature": "public static List<Document> loadDocuments(Path directoryPath, DocumentParser documentParser)",
+      "baseline_run_id": "pilot-a-20260904T213806Z-loadDocuments-01",
+      "retrieval_packet": "experiment/pilot-b/retrieval/loadDocuments.txt",
+      "retrieval_sha256": "780ba956ba488b35e2b810ee105487ec2b66191493490cdae3984d37f0224a80"
+    },
+    {
+      "slug": "addInOrder",
+      "hash_id": "892c3ff660b30a2824182053",
+      "repo": "jvector",
+      "function": "addInOrder",
+      "turns": 3,
+      "target_signature": "public void addInOrder(int newNode, float newScore)",
+      "baseline_run_id": "pilot-a-amendment-20260923T012647Z-addInOrder-01",
+      "retrieval_packet": "experiment/pilot-b/retrieval/addInOrder.txt",
+      "retrieval_sha256": "957ccc12bc51c9fae4c5aa8aa17120c1dea7ad6d376cf623fc93d05f9c7c0a61"
+    },
+    {
+      "slug": "ensureCapacity",
+      "hash_id": "b4e1056e5ea2a627db586be4",
+      "repo": "jvector",
+      "function": "ensureCapacity",
+      "turns": 3,
+      "target_signature": "public static FixedBitSet ensureCapacity(FixedBitSet bits, int numBits)",
+      "baseline_run_id": "pilot-a-20260904T213806Z-ensureCapacity-01",
+      "retrieval_packet": "experiment/pilot-b/retrieval/ensureCapacity.txt",
+      "retrieval_sha256": "7315c0e2f746328122740621157a977433582265a32207e466e36d8897f707de"
+    },
+    {
+      "slug": "nodeArrayMerge",
+      "hash_id": "29066589401870d85f4e87b3",
+      "repo": "jvector",
+      "function": "merge",
+      "turns": 5,
+      "target_signature": "static NodeArray merge(NodeArray a1, NodeArray a2)",
+      "baseline_run_id": "pilot-a-20260904T213806Z-nodeArrayMerge-01",
+      "retrieval_packet": "experiment/pilot-b/retrieval/nodeArrayMerge.txt",
+      "retrieval_sha256": "33378aecf20ee447ab224c06bf2550e1b0010246e833f3964fdc407c4bcf9334"
+    },
+    {
+      "slug": "randomAccessScoreProvider",
+      "hash_id": "a3045dd878c9235e7d26de84",
+      "repo": "jvector",
+      "function": "randomAccessScoreProvider",
+      "turns": 5,
+      "target_signature": "static BuildScoreProvider randomAccessScoreProvider(RandomAccessVectorValues ravv, VectorSimilarityFunction similarityFunction)",
+      "baseline_run_id": "pilot-a-20260904T213806Z-randomAccessScoreProvider-01",
+      "retrieval_packet": "experiment/pilot-b/retrieval/randomAccessScoreProvider.txt",
+      "retrieval_sha256": "3dc449611f8acfee4d551df05a94f549f1c0fe78c44cfc514f42a246f0154b75"
+    },
+    {
+      "slug": "diff",
+      "hash_id": "dcb5dab97ac7ba282aeed44a",
+      "repo": "timefold-solver",
+      "function": "diff",
+      "turns": 4,
+      "target_signature": "public @NonNull ScoreAnalysis<Score_> diff(@NonNull ScoreAnalysis<Score_> other)",
+      "baseline_run_id": "pilot-a-20260904T213806Z-diff-01",
+      "retrieval_packet": "experiment/pilot-b/retrieval/diff.txt",
+      "retrieval_sha256": "7c0ba0aeff15635c06a649b7d024be5664eb1babd0b8b2655a09e8cd70df609e"
+    }
+  ]
+}

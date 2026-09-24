@@ -16,7 +16,8 @@ paired guardrail experiment.
 - Benchmark: SR-Eval Java repository tasks, pinned to commit
   `6cf948d69427687bf61042640223d5b318f7bc4c`
 - Pilot A: 18 trajectories (12 structurally rich tasks and 6 controls)
-- Pilot B: 6 reuse-sensitive trajectories, paired baseline vs. guardrails
+- Pilot B: 6 reuse-sensitive trajectories across the existing baseline,
+  guardrails-only, and guardrails-plus-retrieval conditions
 - Model: GPT-5.6 Sol, High reasoning, Auto routing disabled
 - Replications: one independent run per condition during the methodology pilot
 - Functional gate: each checkpoint must pass its current and all earlier tests
@@ -129,6 +130,19 @@ trajectories and then evaluate all 16 cumulative checks:
 make pilot-a-amendment-all
 make test-pilot-a-amendment
 ```
+
+Pilot B is frozen separately so the historical Pilot A protocol hash remains
+unchanged. Validate its three-condition design, exact task identities, prompt
+hashes, literal target signatures, and bounded retrieval packets with:
+
+```bash
+make pilot-b-check
+```
+
+Pilot B reuses the six existing baseline trajectories and requires 12 new
+trajectories: six with engineering guardrails and six with the same guardrails
+plus a short task-specific repository API packet. The frozen configuration is
+[`experiment/config/pilot-b.json`](experiment/config/pilot-b.json).
 
 Generate the validated structural metric table after functional selection:
 

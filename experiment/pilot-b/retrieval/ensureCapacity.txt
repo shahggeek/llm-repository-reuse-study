@@ -1,0 +1,18 @@
+Task: ensureCapacity
+Repository: jvector
+Target file: jvector-base/src/main/java/io/github/jbellis/jvector/util/FixedBitSet.java
+
+Available APIs:
+
+```java
+public static int bits2words(int numBits)
+public long[] getBits()
+// ArrayUtil
+public static long[] grow(long[] array, int minSize)
+```
+
+Behavioral contracts visible in the repository:
+
+- `bits2words(...)` converts a bit capacity to the required word count.
+- `getBits()` exposes the existing backing words.
+- `ArrayUtil.grow(...)` preserves existing contents while providing at least the requested capacity.
