@@ -78,6 +78,14 @@ reviewer must classify both variants without access to the concealed mapping or
 primary labels. Agreement will be calculated only after submission using exact
 agreement, binary missed-reuse agreement, and linearly weighted Cohen's kappa.
 
+After the reviewer asked how to choose a candidate symbol for the first case,
+clarified the protocol before any completed review was submitted. Added a
+neutral `Case Guide` sheet listing the same candidate symbols and comparison
+questions for both A and B in every case. The guide does not identify code
+origin or prescribe R/C labels. This changes candidate discovery from an
+unstructured reviewer task into a standardized rubric input and should be used
+by both reviewers in any later replication.
+
 ## 2026-09-04 — Pre-generation replacement of `between`
 
 Exclude SR-Eval task `895990b3a5c56f093bdb72e6` (`between`) after its pinned

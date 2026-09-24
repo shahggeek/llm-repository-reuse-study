@@ -11,8 +11,9 @@ from SR-Eval. It is a reliability check, not another model run.
 1. Open `pilot-a-reuse-blinded-review.xlsx` and read the `Instructions` sheet.
 2. Review all 20 implementation rows in the `Review` sheet. Each of the ten
    cases has variants A and B; do not try to infer their origin.
-3. Use the `Code` and `Context` sheets for the implementation, cumulative task
-   instructions, supplied model context, repository path, and target line.
+3. Use `Case Guide` for the neutral candidate list, `Code` for implementations,
+   and `Context` for cumulative instructions, supplied model context,
+   repository path, and target line.
 4. For each A/B implementation, enter reuse class, context class, candidate
    symbol, evidence, maintenance consequence, and confidence.
 5. Export the completed `Review` sheet as CSV without renaming its columns.
@@ -26,6 +27,13 @@ Case order and A/B assignment are fixed by the concealed mapping in
 neither that mapping nor the primary analyst's classifications. The agreement
 script selects the generated implementation only after the second reviewer has
 submitted classifications for both variants.
+
+The `Case Guide` sheet standardizes which candidate symbols the reviewer
+examines. Candidate names are not classifications. Reviewers normally enter
+the same principal candidate for variants A and B, then independently decide
+whether each variant appropriately reuses, partly duplicates, or reimplements
+it. A different candidate should be recorded only when the implementations
+genuinely rely on different reusable abstractions.
 
 ## Agreement calculation
 
