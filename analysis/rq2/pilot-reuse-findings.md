@@ -1,89 +1,120 @@
-# Pilot A Reuse Feasibility Findings
+# Pilot A Reuse Findings
 
 ## Outcome
 
-Reuse is a credible direction, but the current evidence narrows the claim. The
-pilot supports studying **repository-level missed reuse under limited context**;
-it does not yet support saying that the model ignores visible reuse
-opportunities.
+Pilot A supports a **NARROW** paper direction centered on repository-level
+reuse under limited context. Functionally correct generated code sometimes
+reproduces or bypasses existing repository behavior, and that choice can
+persist through later evolution turns. The pilot does not support a broad
+claim that the model ignores helpers that are explicitly supplied.
 
-The automated high-recall screen flagged 14 of 24 functionally correct
-checkpoints because their reference implementation called at least one method
-not called by the generated implementation. Ten checkpoints had no such call
-difference. These are candidate counts, not confirmed defect counts.
-
-A primary analyst and an independent blinded reviewer then examined one
-checkpoint from each of the ten represented trajectories. Before adjudication,
-they agreed on 9/10 exact R0–R3 labels (90%; linearly weighted Cohen's
-κ = 0.889) and all 10 binary missed-reuse decisions (R2/R3 versus R0/R1).
-They agreed on 8/10 context labels (80%; linearly weighted κ = 0.841).
-
-Adjudication retained both original reviews and resolved one R0/R1 boundary
-and two C1/C2 boundaries. The final calibration labels are:
+The complete manual review covers all 24 eligible correct checkpoints from ten
+trajectories and four repositories:
 
 | Class | Meaning | Checkpoints |
 | --- | --- | ---: |
 | R0 | No credible reuse opportunity | 0 |
-| R1 | Appropriate reuse or acceptable equivalent | 6 |
-| R2 | Partial reuse with meaningful duplication | 2 |
-| R3 | Existing functionality reimplemented | 2 |
+| R1 | Appropriate reuse or acceptable equivalent | 13 |
+| R2 | Partial reuse with meaningful duplication | 8 |
+| R3 | Existing functionality reimplemented | 3 |
 
-The four confirmed R2/R3 events occur in four different trajectories:
-`addInOrder`, `encodeAnisotropic`, `invert`, and `nodeArrayMerge`. In every
-For `addInOrder` and `invert`, the prompt contained indirect cues toward the
-relevant abstraction family (C2), but did not name or show the applicable
-helper. For `encodeAnisotropic` and `nodeArrayMerge`, the helper was wholly
-latent (C1). No missed-reuse case had an explicit helper (C3). The experiment
-used an empty read-only working directory, so the model could not inspect code
-outside the prompt packet.
+Eleven of 24 checkpoint observations are R2/R3. They are not independent
+events: all 11 occur within four trajectories.
 
-## What the evidence currently supports
+| Trajectory | Reviewed checkpoints | R2/R3 checkpoints | Pattern |
+| --- | ---: | ---: | --- |
+| `addInOrder` | 2 | 1 | R3 → R1 |
+| `encodeAnisotropic` | 2 | 2 | R3 → R3 |
+| `invert` | 4 | 4 | R2 → R2 → R2 → R2 |
+| `nodeArrayMerge` | 4 | 4 | R2 → R2 → R2 → R2 |
+
+The other six trajectories contain 13 R1 checkpoints and no R2/R3 event.
+Therefore, report both **11/24 checkpoints** and **4/10 trajectories**; do not
+treat the 24 checkpoints as independent observations.
+
+## Context availability
+
+Among the 11 R2/R3 checkpoints:
+
+- six are C1: the applicable repository helper is absent from the model's
+  supplied context (`encodeAnisotropic` and `nodeArrayMerge`);
+- five are C2: imports, types, or repository conventions indirectly suggest
+  the relevant abstraction family (`addInOrder` and `invert`); and
+- zero are C3: no missed-reuse checkpoint explicitly names or shows the
+  applicable helper.
+
+This supports two related observations. Missing repository context is a
+plausible mechanism, and indirect cues alone may not be sufficient to produce
+repository-aligned reuse. A causal claim requires a controlled
+retrieval-supported condition.
+
+## Calibration reliability
+
+Before the full review, a primary analyst and an independent blinded reviewer
+classified one generated checkpoint from each trajectory. Pre-adjudication
+agreement was:
+
+- 9/10 exact R0–R3 labels (90%);
+- linearly weighted Cohen's κ = 0.889;
+- 10/10 binary R2/R3 versus R0/R1 decisions (100%);
+- 8/10 exact C0–C3 labels (80%); and
+- linearly weighted context κ = 0.841.
+
+The full review retains the raw reviewer responses and separate adjudication
+record. All four missed-reuse decisions in the calibration sample were
+independently confirmed.
+
+One prompt-provenance correction was found while reviewing exact trajectory
+history. `ensureCapacity` turn 2 explicitly included `ArrayUtil.grow()` in the
+previous generated method, so its full-review context label is C3 rather than
+C2. The blinded packet exposed the initial context slice, not the prior
+generated method. The checkpoint remains R1, so this correction changes no
+missed-reuse result or pre-adjudication agreement statistic.
+
+## Automated screen
+
+The high-recall call-difference screen flagged 14 of 24 checkpoints. Manual
+review confirmed 11 as R2/R3 and rejected three as acceptable alternatives or
+turn-specific differences. All ten unflagged checkpoints were R1.
+
+On this purposive reviewed pool, the screen therefore has 11 true positives,
+three false positives, ten true negatives, and no false negatives. Its 78.6%
+precision and 100% recall are descriptive triage results, not external
+validation estimates.
+
+## What the evidence supports
 
 - Functionally correct implementations can still bypass or reproduce
   repository-owned behavior.
-- The R0–R3 rubric can distinguish acceptable alternative library use from
-  repository-level duplication.
-- Prompt context is likely a central mechanism: two missed-reuse cases involve
-  latent helpers and two involve only indirect discoverability cues. None
-  involves an explicitly available helper.
-- The blinded calibration produced strong agreement on the substantive
-  missed-reuse decision; remaining differences exposed narrow R0/R1 and C1/C2
-  boundaries that are now clarified for the full review.
-- Reference-only call differences are useful for triage but require manual
-  review. For example, `ensureCapacity` uses a reasonable standard-library
-  alternative, and the `addInOrder` turn-2 reference includes assertion-related
-  behavior not yet required at that turn.
+- An initial reuse choice can persist through later evolution turns:
+  `encodeAnisotropic`, `invert`, and `nodeArrayMerge` retain R2/R3 at every
+  reviewed later correct checkpoint.
+- The model corrected an initial reuse miss when the next `addInOrder`
+  instruction explicitly named `growArrays()` (R3/C2 → R1/C3).
+- Exact helper visibility appears important: missed reuse occurs with latent or
+  indirect context, but not with explicit helper context in this pilot.
+- Reference-only call differences are useful for triage but still require
+  manual semantic review.
 
-## What the evidence does not support yet
+## What the evidence does not support
 
-- A population-level rate of missed reuse. The sample is small, purposive, and
+- A population-level missed-reuse rate. The pool is small, purposive, and
   contains dependent checkpoints.
-- A claim that GPT-5.6 Sol disregards reuse despite explicit helper context.
-  None of the R2/R3 cases had the applicable helper named or shown. The pilot
-  does support the narrower observation that indirect cues were insufficient
-  in two reviewed cases.
-- A causal claim that more context improves reuse. That requires a controlled
-  context or retrieval condition.
-- A population-level reliability claim. Agreement is encouraging, but the
-  calibration sample is small and purposive (n = 10).
+- A claim that GPT-5.6 Sol ignores explicitly available helpers. No R2/R3
+  checkpoint is C3.
+- A causal claim that adding context fixes reuse. Pilot A has no randomized
+  context or retrieval treatment.
+- A population-level reliability estimate from the ten-case calibration.
 
 ## Consequence for Pilot B
 
-The frozen guardrail asks the model to inspect repository context, but Pilot A
-sessions ran in an empty directory and received only code above the target
-function. Repeating that setup with advice alone cannot test whether access to
-missing helpers improves reuse.
+The original guardrail asks the model to inspect repository context, but Pilot
+A ran in empty read-only directories. Advice alone cannot reveal helpers that
+are absent from the prompt. The next design decision should preserve the
+frozen guardrail comparison and add a separately named retrieval-supported
+condition, or explicitly limit Pilot B to a prompting effect under the same
+restricted context.
 
-Before Pilot B generation, preserve the original guardrail pair as planned but
-add an explicit design decision: either treat Pilot B narrowly as a **prompting
-effect under fixed limited context**, or add a separately named
-**retrieval-supported condition** that supplies candidate helper snippets or a
-read-only repository checkout. Do not silently change the frozen two-condition
-protocol.
-
-## Next validation
-
-1. Apply the clarified rubric to all 24 eligible correct checkpoints.
-2. Preserve case-level evidence and report checkpoint and trajectory counts
-   separately.
-3. Freeze the final paper direction only after the full review.
+Given the Pilot A result, a retrieval-supported condition is the more direct
+test of the proposed mechanism. It should expose candidate helper declarations
+or a read-only repository checkout without changing the original Pilot A data.

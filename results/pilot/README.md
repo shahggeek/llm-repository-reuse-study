@@ -29,3 +29,8 @@ and `pilot-a-reuse-reviewer2-submission.json` records the source workbook hash.
 `pilot-a-reuse-review-agreement.json` contains the pre-adjudication agreement
 statistics and case comparisons. `pilot-a-reuse-adjudication.json` records the
 three resolution decisions without overwriting either review.
+
+`pilot-a-reuse-full-review-summary.json` summarizes the completed manual review
+of all 24 eligible correct checkpoints, including class counts, context counts,
+trajectory dependence, call-difference screen performance, and the documented
+`ensureCapacity` prompt-provenance correction.

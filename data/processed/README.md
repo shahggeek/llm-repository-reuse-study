@@ -9,5 +9,11 @@ code hashes, not raw generated or reference code.
 high-recall method-call difference screen for the same 24 checkpoints. They are
 triage artifacts; the candidate flags are not manual missed-reuse labels.
 
+`pilot-a-reuse-full-review.csv` and `.json` contain the completed R0–R3 and
+C0–C3 review of all 24 eligible correct checkpoints. The flat CSV includes
+case evidence, context evidence, maintenance consequences, screen fields, and
+generated/reference code hashes. Rebuild and validate the CSV and aggregate
+summary with `make reuse-full-review`.
+
 Locally derived checkpoint-level tables belong here. Only small, reviewed,
 de-identified research tables should be force-added to Git.

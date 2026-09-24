@@ -112,6 +112,36 @@ model sometimes missed repository reuse when only indirect cues were supplied.
 The clarified rubric is stable enough to apply to all 24 eligible correct
 checkpoints before freezing the paper direction.
 
+## 2026-09-23 — Complete Pilot A reuse review and NARROW decision
+
+Applied the clarified R0–R3/C0–C3 rubric to all 24 eligible correct
+checkpoints. Final counts are R0=0, R1=13, R2=8, and R3=3. The 11 R2/R3
+checkpoint observations are concentrated in four of ten trajectories:
+`addInOrder` (1/2), `encodeAnisotropic` (2/2), `invert` (4/4), and
+`nodeArrayMerge` (4/4). Treat repeated checkpoints as dependent observations
+and report both 11/24 checkpoints and 4/10 trajectories.
+
+Of the 11 R2/R3 observations, six are C1 and five are C2; none is C3. Freeze
+the Pilot A paper direction as **NARROW**: repository-level missed reuse and
+its persistence under progressive evolution when relevant abstractions are
+latent or only indirectly cued. Do not claim that the model ignores explicitly
+supplied helpers, and do not present 11/24 as a population estimate.
+
+The high-recall call-difference screen captured all 11 reviewed R2/R3
+checkpoints and produced three false positives in this pool. Use it as triage,
+not as an automatic defect label or an external performance estimate.
+
+The exact turn-2 prompt for `ensureCapacity` includes `ArrayUtil.grow()` in the
+previous generated method. Correct its full-review context label from C2 to C3.
+This is a prompt-provenance correction to the calibration packet, which exposed
+only the initial context slice. Preserve the raw reviewer labels and agreement
+statistics; the checkpoint remains R1 and no missed-reuse conclusion changes.
+
+Pilot B should now test the context mechanism directly. Preserve the original
+frozen guardrail comparison, and make the next explicit design decision about
+a separately named retrieval-supported condition that exposes candidate
+helpers or a read-only repository checkout.
+
 ## 2026-09-04 — Pre-generation replacement of `between`
 
 Exclude SR-Eval task `895990b3a5c56f093bdb72e6` (`between`) after its pinned
