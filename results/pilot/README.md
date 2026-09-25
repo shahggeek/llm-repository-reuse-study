@@ -34,3 +34,8 @@ three resolution decisions without overwriting either review.
 of all 24 eligible correct checkpoints, including class counts, context counts,
 trajectory dependence, call-difference screen performance, and the documented
 `ensureCapacity` prompt-provenance correction.
+
+`pilot-b-functional-summary.json` is the durable three-condition functional
+view for the six Pilot B tasks. It records generation integrity, raw outcomes,
+the primary reference-eligible outcomes, paired condition deltas, and hashes of
+the ignored run records and functional reports used to build the summary.

@@ -379,3 +379,34 @@ task-level heterogeneity, but generic aggregate structural overhead is weak in
 this pilot. Keep the final GO/NARROW/PIVOT decision pending the missed-reuse
 analysis. If reuse is credible, prefer NARROW over a broad structural-quality
 claim.
+
+## 2026-09-24 — Pilot B generation and functional evaluation complete
+
+Close Pilot B batch `pilot-b-20260924T233242Z` after generating all 12 planned
+new trajectories and 46 turns: six guardrails-only trajectories followed by
+six guardrails-plus-retrieval trajectories. All 12 runs used distinct fresh
+Codex sessions. No model response was retried and no test feedback was supplied
+during generation. Preserve the one failed pre-model startup trace caused by a
+read-only Codex state database under `work/infrastructure-failures`; it did not
+produce a model response and does not count as a trajectory retry.
+
+The raw guardrails-only result is 28/58 passing checks and 9/23 cumulatively
+correct checkpoints. The raw retrieval result is 39/58 passing checks and
+14/23 cumulatively correct checkpoints. Apply the frozen reference-eligibility
+exclusions identically to the baseline and both new conditions. The eligible
+three-condition results are: baseline 22/44 checks and 10/19 checkpoints;
+guardrails only 21/44 and 9/19; and guardrails plus retrieval 32/44 and 14/19.
+
+Guardrails alone show no aggregate functional improvement. The retrieval
+increment is concentrated in `diff` (+10 checks and +4 correct checkpoints)
+and `addInOrder` (+1 check and +1 correct checkpoint relative to guardrails,
+restoring its baseline result). `randomAccessScoreProvider` remains 0/11 on
+eligible checks in all three conditions. Treat these as paired exploratory
+task outcomes, not a general retrieval effect: the packets were selected after
+Pilot A, there is one run per task/condition, and checkpoints are dependent.
+
+Freeze the next analysis step as reuse review of the 23 new eligible correct
+checkpoints using the existing R0–R3 rubric. Do not infer successful reuse from
+functional correctness alone. Preserve the durable functional summary in
+`results/pilot/pilot-b-functional-summary.json` and the interpretation in
+`analysis/rq2/pilot-b-functional-findings.md`.
