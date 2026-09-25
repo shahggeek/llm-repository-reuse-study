@@ -4,6 +4,8 @@ CONTAINER ?= mrgbench_container_1
 TASK ?= copyToTarget
 SR_EVAL_PYTHON ?= 3.13
 AMENDMENT_CODEX ?= $(CURDIR)/.tools/codex-cli-0.153.0/node_modules/.bin/codex
+PILOT_B_CODEX ?= $(AMENDMENT_CODEX)
+PILOT_B_CONDITION ?= engineering-guardrails
 STRUCTURAL_RUN = uv run --python "$(SR_EVAL_PYTHON)" --no-project --with "tree-sitter==0.25.2" --with "tree-sitter-java==0.23.5" --with "lizard==1.17.31"
 TOOL_BIN := $(CURDIR)/.tools/bin
 UV_CACHE_DIR ?= $(CURDIR)/.cache/uv
@@ -12,7 +14,7 @@ export PATH := $(TOOL_BIN):$(PATH)
 export UV_CACHE_DIR
 export UV_PYTHON_INSTALL_DIR
 
-.PHONY: bootstrap check prepare doctor tasks export smoke-dry-run smoke smoke-all pilot-a pilot-a-all test-pilot-a amendment-cli amendment-validate amendment-export amendment-preflight amendment-smoke-dry-run pilot-a-amendment pilot-a-amendment-all test-pilot-a-amendment audit-prompt-context summarize-pilot-a-adjusted structural-check structural-pilot reuse-screen reuse-agreement reuse-full-review pilot-b-check
+.PHONY: bootstrap check prepare doctor tasks export smoke-dry-run smoke smoke-all pilot-a pilot-a-all test-pilot-a amendment-cli amendment-validate amendment-export amendment-preflight amendment-smoke-dry-run pilot-a-amendment pilot-a-amendment-all test-pilot-a-amendment audit-prompt-context summarize-pilot-a-adjusted structural-check structural-pilot reuse-screen reuse-agreement reuse-full-review pilot-b-check pilot-b-preflight pilot-b pilot-b-all test-pilot-b
 
 bootstrap:
 	bash scripts/bootstrap_tools.sh
@@ -102,3 +104,15 @@ reuse-full-review:
 
 pilot-b-check:
 	$(PYTHON) scripts/pilot_b.py --check-dataset --sr-eval "$(SR_EVAL_DIR)"
+
+pilot-b-preflight:
+	$(PYTHON) scripts/run_pilot_b.py --codex "$(PILOT_B_CODEX)" --preflight
+
+pilot-b:
+	$(PYTHON) scripts/run_pilot_b.py --codex "$(PILOT_B_CODEX)" --condition "$(PILOT_B_CONDITION)" --task "$(TASK)"
+
+pilot-b-all:
+	$(PYTHON) scripts/run_pilot_b.py --codex "$(PILOT_B_CODEX)" --condition "$(PILOT_B_CONDITION)" --all
+
+test-pilot-b:
+	uv run --python "$(SR_EVAL_PYTHON)" --no-project --with "docker==7.1.0" python scripts/evaluate_pilot_b.py --sr-eval "$(SR_EVAL_DIR)" --container "$(CONTAINER)" --condition "$(PILOT_B_CONDITION)" --all

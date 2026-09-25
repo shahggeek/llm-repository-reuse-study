@@ -137,12 +137,25 @@ hashes, literal target signatures, and bounded retrieval packets with:
 
 ```bash
 make pilot-b-check
+make pilot-b-preflight
 ```
 
 Pilot B reuses the six existing baseline trajectories and requires 12 new
 trajectories: six with engineering guardrails and six with the same guardrails
 plus a short task-specific repository API packet. The frozen configuration is
 [`experiment/config/pilot-b.json`](experiment/config/pilot-b.json).
+
+The preflight renders all 46 turn-level prompt skeletons for the 12 planned new
+trajectories, verifies the six existing baseline records, and confirms the
+frozen Codex CLI version without contacting the model. After reviewing that
+output, generate and evaluate one condition at a time:
+
+```bash
+make pilot-b-all PILOT_B_CONDITION=engineering-guardrails
+make test-pilot-b PILOT_B_CONDITION=engineering-guardrails
+make pilot-b-all PILOT_B_CONDITION=engineering-guardrails-retrieval
+make test-pilot-b PILOT_B_CONDITION=engineering-guardrails-retrieval
+```
 
 Generate the validated structural metric table after functional selection:
 

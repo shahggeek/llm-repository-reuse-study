@@ -16,6 +16,7 @@
     "model",
     "started_at",
     "prompt_sha256",
+    "prompt_source_sha256",
     "retrieval_packet_sha256",
     "turns"
   ],
@@ -49,6 +50,7 @@
       "type": "object",
       "additionalProperties": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
     },
+    "prompt_source_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
     "retrieval_packet_sha256": {
       "type": ["string", "null"],
       "pattern": "^[0-9a-f]{64}$"

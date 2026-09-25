@@ -1,14 +1,16 @@
 {
   "schema_version": 1,
   "status": "pilot-b-frozen",
+  "revision": 2,
   "batch_id": "pilot-b-20260924T233242Z",
   "frozen_at": "2026-09-24T23:32:42Z",
+  "provenance_amended_at": "2026-09-24T23:49:34Z",
   "study_role": "exploratory mechanism probe",
   "benchmark_commit": "6cf948d69427687bf61042640223d5b318f7bc4c",
   "base_protocol_sha256": "2dda55a9142c8d0e2ef825a0ea026fe0393925328bec85ab263679ef9e51e3a2",
   "run_record_schema": {
     "path": "experiment/schemas/run-record-v2.schema.json",
-    "sha256": "e42209508d7633a86c81ed7885394ec76b291bac4f2e0aef515b2e6a396f5655"
+    "sha256": "e94369bd0ae521812285d3d7889d1290fa35dbf2282b104c14fd562c4159a4b5"
   },
   "model": {
     "display_name": "GPT-5.6 Sol",
@@ -94,6 +96,8 @@
       "function": "loadDocuments",
       "turns": 3,
       "target_signature": "public static List<Document> loadDocuments(Path directoryPath, DocumentParser documentParser)",
+      "packet_source": "pilot-a",
+      "prompt_source_sha256": "d104319d97e8be93768dc03da1b917d6755f919b49f476fca65ec6f228cc3774",
       "baseline_run_id": "pilot-a-20260904T213806Z-loadDocuments-01",
       "retrieval_packet": "experiment/pilot-b/retrieval/loadDocuments.txt",
       "retrieval_sha256": "780ba956ba488b35e2b810ee105487ec2b66191493490cdae3984d37f0224a80"
@@ -105,6 +109,8 @@
       "function": "addInOrder",
       "turns": 3,
       "target_signature": "public void addInOrder(int newNode, float newScore)",
+      "packet_source": "pilot-a-amendment",
+      "prompt_source_sha256": "be59bb0935d99d4da768aee6f024be92f4661d67ba086f7e31e08a1d2e547302",
       "baseline_run_id": "pilot-a-amendment-20260923T012647Z-addInOrder-01",
       "retrieval_packet": "experiment/pilot-b/retrieval/addInOrder.txt",
       "retrieval_sha256": "957ccc12bc51c9fae4c5aa8aa17120c1dea7ad6d376cf623fc93d05f9c7c0a61"
@@ -116,6 +122,8 @@
       "function": "ensureCapacity",
       "turns": 3,
       "target_signature": "public static FixedBitSet ensureCapacity(FixedBitSet bits, int numBits)",
+      "packet_source": "pilot-a",
+      "prompt_source_sha256": "4475f79a70a06a09b5c70db3b1dc3c8d187735eb3bd132182b82793da6815f29",
       "baseline_run_id": "pilot-a-20260904T213806Z-ensureCapacity-01",
       "retrieval_packet": "experiment/pilot-b/retrieval/ensureCapacity.txt",
       "retrieval_sha256": "7315c0e2f746328122740621157a977433582265a32207e466e36d8897f707de"
@@ -127,6 +135,8 @@
       "function": "merge",
       "turns": 5,
       "target_signature": "static NodeArray merge(NodeArray a1, NodeArray a2)",
+      "packet_source": "pilot-a",
+      "prompt_source_sha256": "a67c637e5a220daac23342c2a7cbc0e3bb4199345695400d1a87ac5162101999",
       "baseline_run_id": "pilot-a-20260904T213806Z-nodeArrayMerge-01",
       "retrieval_packet": "experiment/pilot-b/retrieval/nodeArrayMerge.txt",
       "retrieval_sha256": "33378aecf20ee447ab224c06bf2550e1b0010246e833f3964fdc407c4bcf9334"
@@ -138,6 +148,8 @@
       "function": "randomAccessScoreProvider",
       "turns": 5,
       "target_signature": "static BuildScoreProvider randomAccessScoreProvider(RandomAccessVectorValues ravv, VectorSimilarityFunction similarityFunction)",
+      "packet_source": "pilot-a",
+      "prompt_source_sha256": "e73518ed05adf8063cdb4a0c232932cb8e452c5790a99edf5224eb7754b3037e",
       "baseline_run_id": "pilot-a-20260904T213806Z-randomAccessScoreProvider-01",
       "retrieval_packet": "experiment/pilot-b/retrieval/randomAccessScoreProvider.txt",
       "retrieval_sha256": "3dc449611f8acfee4d551df05a94f549f1c0fe78c44cfc514f42a246f0154b75"
@@ -149,6 +161,8 @@
       "function": "diff",
       "turns": 4,
       "target_signature": "public @NonNull ScoreAnalysis<Score_> diff(@NonNull ScoreAnalysis<Score_> other)",
+      "packet_source": "pilot-a",
+      "prompt_source_sha256": "abcf73b779cfe8b49d2ebb7b09fa61e2406775b9ea950f178527a03b7a9b7fcf",
       "baseline_run_id": "pilot-a-20260904T213806Z-diff-01",
       "retrieval_packet": "experiment/pilot-b/retrieval/diff.txt",
       "retrieval_sha256": "7c0ba0aeff15635c06a649b7d024be5664eb1babd0b8b2655a09e8cd70df609e"

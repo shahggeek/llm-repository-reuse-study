@@ -51,6 +51,14 @@ def sha256(path: Path) -> str:
         raise PilotBError(f"Cannot hash {path}: {exc}") from exc
 
 
+def prompt_source_sha256(context: str, instructions: list[str]) -> str:
+    payload = {"context": context, "instructions": instructions}
+    encoded = json.dumps(
+        payload, sort_keys=True, separators=(",", ":"), ensure_ascii=False
+    ).encode("utf-8")
+    return hashlib.sha256(encoded).hexdigest()
+
+
 def resolve_local(relative: Any, label: str, errors: list[str]) -> Path | None:
     if not isinstance(relative, str) or not relative:
         errors.append(f"{label}: path must be a non-empty string")
@@ -83,6 +91,8 @@ def validate_config(config: dict[str, Any], check_dataset: bool = False, sr_eval
     errors: list[str] = []
     if config.get("status") != "pilot-b-frozen":
         errors.append("status must be 'pilot-b-frozen'")
+    if config.get("revision") != 2:
+        errors.append("revision must be 2")
     if config.get("runs_per_task_new_condition") != 1:
         errors.append("runs_per_task_new_condition must be 1")
 
@@ -143,6 +153,11 @@ def validate_config(config: dict[str, Any], check_dataset: bool = False, sr_eval
             errors.append(f"{label}: literal repository-compatible target signature is required")
         if not isinstance(task.get("baseline_run_id"), str) or not task["baseline_run_id"]:
             errors.append(f"{label}: baseline_run_id is required")
+        if task.get("packet_source") not in {"pilot-a", "pilot-a-amendment"}:
+            errors.append(f"{label}: packet_source is invalid")
+        source_digest = task.get("prompt_source_sha256")
+        if not isinstance(source_digest, str) or len(source_digest) != 64:
+            errors.append(f"{label}: prompt_source_sha256 must be a SHA-256 digest")
         packet = resolve_local(task.get("retrieval_packet"), f"{label} retrieval packet", errors)
         digest = task.get("retrieval_sha256")
         if not isinstance(digest, str) or len(digest) != 64:
@@ -177,6 +192,19 @@ def validate_config(config: dict[str, Any], check_dataset: bool = False, sr_eval
                 actual = (metadata.get("repo"), metadata.get("func_name"), row.get("total_turn"))
                 if actual != expected:
                     errors.append(f"task {task.get('slug')!r}: SR-Eval metadata mismatch")
+                turn_data = row.get("turn_datas")
+                if not isinstance(metadata.get("context"), str) or not isinstance(turn_data, list):
+                    errors.append(f"task {task.get('slug')!r}: malformed prompt source")
+                    continue
+                instructions = [turn.get("instruction") for turn in turn_data if isinstance(turn, dict)]
+                if len(instructions) != task.get("turns") or any(
+                    not isinstance(instruction, str) for instruction in instructions
+                ):
+                    errors.append(f"task {task.get('slug')!r}: malformed turn instructions")
+                    continue
+                actual_digest = prompt_source_sha256(metadata["context"], instructions)
+                if actual_digest != task.get("prompt_source_sha256"):
+                    errors.append(f"task {task.get('slug')!r}: prompt source SHA-256 mismatch")
     return errors
 
 

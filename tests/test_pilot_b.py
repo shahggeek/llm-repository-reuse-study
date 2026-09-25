@@ -36,6 +36,11 @@ class PilotBProtocolTests(unittest.TestCase):
             self.assertTrue(packet.is_file())
             self.assertEqual(task["retrieval_sha256"], pilot_b.sha256(packet))
 
+    def test_prompt_source_hash_changes_with_context_or_instruction(self):
+        original = pilot_b.prompt_source_sha256("context", ["turn one", "turn two"])
+        self.assertNotEqual(original, pilot_b.prompt_source_sha256("changed", ["turn one", "turn two"]))
+        self.assertNotEqual(original, pilot_b.prompt_source_sha256("context", ["turn one", "changed"]))
+
 
 if __name__ == "__main__":
     unittest.main()

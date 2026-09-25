@@ -164,6 +164,25 @@ as a general retrieval-system evaluation or a population-level causal effect.
 With one run per task and condition, report paired task outcomes and trajectory
 dependence explicitly.
 
+## 2026-09-24 — Pilot B provenance audit and execution preflight
+
+Before any Pilot B model contact, re-audit the frozen configuration, evidence
+cards, benchmark identities, baseline records, and prompt rendering. Add a
+canonical SHA-256 over each task's exact supplied context and ordered turn
+instructions; this closes a provenance gap left by pinning only the benchmark
+commit and task hash. Record the change as Pilot B configuration revision 2;
+the tasks, conditions, model, prompts, and retrieval treatment are unchanged.
+
+Add isolated Pilot B generation and cumulative-evaluation runners. The runner
+refuses to generate the baseline, refuses to overwrite an existing run,
+requires Codex CLI 0.153.0, checks all frozen hashes, and records retrieval
+provenance in run-record schema version 2. Preflight renders 46 prompt
+skeletons for 12 new trajectories and verifies that each retrieval prompt is
+identical to its guardrails-only counterpart up to the appended retrieval
+material. The preflight completed successfully for all six tasks, 12 planned
+new trajectories, and 46 turn-level prompt skeletons without contacting the
+model. Preserve its summary in `results/pilot/pilot-b-preflight-summary.json`.
+
 ## 2026-09-04 — Pre-generation replacement of `between`
 
 Exclude SR-Eval task `895990b3a5c56f093bdb72e6` (`between`) after its pinned

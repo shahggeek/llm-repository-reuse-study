@@ -1,0 +1,179 @@
+{
+  "schema_version": 1,
+  "batch_id": "pilot-b-20260924T233242Z",
+  "model_contacted": false,
+  "tasks": [
+    {
+      "slug": "loadDocuments",
+      "hash_id": "6712ca73ea1cb5649aa72a63",
+      "baseline_record": "data/generated-trajectories/pilot-a/pilot-a-20260904T213806Z-loadDocuments-01/record.json",
+      "baseline_record_sha256": "8a3c01dc60ec6290ec847ff53418a2f5c57c020c53c6ee508f5c344add6ebf8a",
+      "conditions": [
+        {
+          "condition": "engineering-guardrails",
+          "turns": 3,
+          "prompt_skeleton_sha256": [
+            "809e1b399b653fbc0c4c77df2271ffae9e76935f40758fd3c880727390576110",
+            "1abf10386a392bbfb32120b54348747472a2c32ea32d64fedd8fed857e4be356",
+            "3f59d406b2bc5a6111ee4d4938374bd3611b231a5e2a0ef542b4a88186a4bdc0"
+          ]
+        },
+        {
+          "condition": "engineering-guardrails-retrieval",
+          "turns": 3,
+          "prompt_skeleton_sha256": [
+            "ec1b136270cc0a99e9521e2a875b80a3f58cb2818ae763dc535bc955d9347a20",
+            "47cbafa2a4d5ed29944145dfa04d070fbd40525b7d1465b4187d112e5aa24086",
+            "4cf19a3965da865c5279779ba208982530935303b32d731ad6382dcd6a5edb70"
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "addInOrder",
+      "hash_id": "892c3ff660b30a2824182053",
+      "baseline_record": "data/generated-trajectories/pilot-a-amendment/pilot-a-amendment-20260923T012647Z-addInOrder-01/record.json",
+      "baseline_record_sha256": "a0287bf14850a916b6d60d7bb03a689fad8b45f4384783d49545240469a74c5e",
+      "conditions": [
+        {
+          "condition": "engineering-guardrails",
+          "turns": 3,
+          "prompt_skeleton_sha256": [
+            "0ee1aaef3bc19d9bd5915fe5872cdca23c9d1512d3f7b046aa55320cafb1a236",
+            "19fbee06dd6c07806be4124254b4d1a62caef310e11570994f12b4cee47844ff",
+            "6fbb7cb1b879bab85f349e1ac60d8db856c98bd4e70221b90afd276a95876e0e"
+          ]
+        },
+        {
+          "condition": "engineering-guardrails-retrieval",
+          "turns": 3,
+          "prompt_skeleton_sha256": [
+            "f3b7e3e355fbd89d9b6c5de07cb99a74b031cad7284d2d31c254d33b50d51d28",
+            "4eda1b1cf3248b307e544707162cb5630dd121a5b595d370c8fc0ded45b96707",
+            "5da8b9019e347d99ce69ef97589e5e9af78077d06f7d423b99a24e3ab2837edd"
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "ensureCapacity",
+      "hash_id": "b4e1056e5ea2a627db586be4",
+      "baseline_record": "data/generated-trajectories/pilot-a/pilot-a-20260904T213806Z-ensureCapacity-01/record.json",
+      "baseline_record_sha256": "52eb79e8678e6200fa536d5309ef3161b37aa75d51322a77c18d4228c19a4717",
+      "conditions": [
+        {
+          "condition": "engineering-guardrails",
+          "turns": 3,
+          "prompt_skeleton_sha256": [
+            "2df37820382f08f0229a6419a48ccec1b197e053fbd914e59357367ea098535a",
+            "3ec82d28d27b82a5a1857600991027c1d01030acefc04fa3743c64d85384bab2",
+            "efe021a37ea4780343b82ab28cab0d32f9f607bb8e12d3e7f971a43781899462"
+          ]
+        },
+        {
+          "condition": "engineering-guardrails-retrieval",
+          "turns": 3,
+          "prompt_skeleton_sha256": [
+            "4039961167c062c35be01b6120cccd2dc60320a87a409474ccdd8d1b71f021a4",
+            "69811fdfb32ddf0cd72034c25746c5b4ca1e91713b5238f5ef4077f65f0c5560",
+            "0a1962b7710fb34954731aa2e6c8b2e4ad381ea17b1f4b02bcc481f994ccd38d"
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "nodeArrayMerge",
+      "hash_id": "29066589401870d85f4e87b3",
+      "baseline_record": "data/generated-trajectories/pilot-a/pilot-a-20260904T213806Z-nodeArrayMerge-01/record.json",
+      "baseline_record_sha256": "e19a165c91b903dde1361c5c03924d35cf945d0fd39d90bf3085ee7282f4356c",
+      "conditions": [
+        {
+          "condition": "engineering-guardrails",
+          "turns": 5,
+          "prompt_skeleton_sha256": [
+            "ab0a7e7a0d2f0b73978027c7239be0598c619f4b20f49eda7668e6538d0be355",
+            "5ed4f92a562ddc7a5126334c3d2a610abae25478c80e46a3a7a817d972950364",
+            "dfbe86efd727c11d56865dd1d288f007c226b1759cfe2a2d96d6950ed54dc550",
+            "5c0062d45af29f26e6095692b8c6282e54c576a455547769497070eff8922ca3",
+            "acb217017f7f2fa65ee444dc40f02f2d2bcac46001bcc02bbb76dbdc3b617b4a"
+          ]
+        },
+        {
+          "condition": "engineering-guardrails-retrieval",
+          "turns": 5,
+          "prompt_skeleton_sha256": [
+            "4c73d32ac44a1cde75974340d3541e2baf5f00c81380eb80b5b1dfb5dbdad8ba",
+            "cc02f4b705c7bec871a93d930f6a83c7dc882f6dc2c1acf58de583900b3682e1",
+            "e7491214fbfe160ec5e9fa13a1a9787264f33d20260dfc63d7bb168a5117846a",
+            "d9b5de9666c5a921f023715a94c5cc9950d59127cb64f5f8231416d6e3b35f6c",
+            "cad531ad645ea66fd004ad2ad701fa573082f1cc49799b1a6d1c0f3767d96c28"
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "randomAccessScoreProvider",
+      "hash_id": "a3045dd878c9235e7d26de84",
+      "baseline_record": "data/generated-trajectories/pilot-a/pilot-a-20260904T213806Z-randomAccessScoreProvider-01/record.json",
+      "baseline_record_sha256": "2c2093c5e7ea2239317066745ff9c9773d41a53ee7c5f6a407eaa316780a139c",
+      "conditions": [
+        {
+          "condition": "engineering-guardrails",
+          "turns": 5,
+          "prompt_skeleton_sha256": [
+            "4d14bd27d03f23ed089646f44cb30a199f6884cacae69a40b8e9c572430162f6",
+            "6621517df3090851452d17338694c2edd92dd1338a2f57c7c18be0a5e7a7df68",
+            "57d010492e358330e725274128e9d0ec9b02e6a9c6931296719e8a3237758cbf",
+            "cfffea4dc9344dd37f838a6e5ba0bc0ea7af69a0e224050a27a3f0af24e0e4e2",
+            "1dc72ea5d76550d43760ddebcd697ef600e804aae2d6f42d31b32635ab443782"
+          ]
+        },
+        {
+          "condition": "engineering-guardrails-retrieval",
+          "turns": 5,
+          "prompt_skeleton_sha256": [
+            "056114e769f14a6e4daec8fabefc3acaf176bf506592375bb101b811145f6840",
+            "375313cdce8532a3f9c16bc96071f543230184de63d420dc52bf80379055d229",
+            "0e80a6f1941294292beba5801f2b5049582d7b578a429842a1b1cca625b34b38",
+            "46fdfc8076a44bec08ff56c5a1b9617caade1ae0dd71087b4db4b172e344c610",
+            "1b07ac8aa0f010cf7ef88ed1bccc2a1efe3378849560a595518deeb10597a63c"
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "diff",
+      "hash_id": "dcb5dab97ac7ba282aeed44a",
+      "baseline_record": "data/generated-trajectories/pilot-a/pilot-a-20260904T213806Z-diff-01/record.json",
+      "baseline_record_sha256": "1f7c7580b2efdcc17b865bdc75669d821861e612a1bcce75ae6accfd24972f6e",
+      "conditions": [
+        {
+          "condition": "engineering-guardrails",
+          "turns": 4,
+          "prompt_skeleton_sha256": [
+            "23b2025b41f1cf64504970174aaf8abd0ff6ac5626a09afa56da08d4114d740f",
+            "bbb9316bcaa67bfa6a5cff3ec21cd7dff56d0ba638c4eee4684f16daed624326",
+            "07b0924204d281e808d24c8f032e5c61fe7e3dc94644430e0d34c6e5c1287906",
+            "e90cfca127770583f7dfaee925e97633f131f38e1b7a1755e55ea26ae87f799a"
+          ]
+        },
+        {
+          "condition": "engineering-guardrails-retrieval",
+          "turns": 4,
+          "prompt_skeleton_sha256": [
+            "3bfa8971f9075d991a5410c452d5bc77a38ed591518e9c995208cc9f856d13d7",
+            "9b210e623150cb12443b3a43e46a9dd552c49edd44ee6330f860eefd68fa2935",
+            "cb8d6dfaa5043fab596b76bf6be317a7b5ef435a227a89c05f97a4ab90297633",
+            "2c5ef85f46b29c8b77611d0446fc7faeb9164bc3c2a2f2a53c5552ff095e094d"
+          ]
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "tasks": 6,
+    "conditions": 2,
+    "new_trajectories": 12,
+    "prompt_skeletons": 46
+  }
+}

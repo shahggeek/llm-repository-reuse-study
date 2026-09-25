@@ -67,6 +67,9 @@ as population-level causal estimates.
 6. If successful, run `make smoke-all`.
 7. Record any benchmark failures in `docs/decisions.md` before replacements.
 8. Freeze prompt SHA-256 hashes and the run-record schema.
+9. Run `make pilot-b-preflight`; verify all six baseline records, 12 planned
+   run identities, 46 prompt skeletons, exact prompt-source hashes, and CLI
+   version without contacting the model.
 
 The smoke test uses each turn's SR-Eval reference implementation. At checkpoint
 `t`, it executes every test from turns `1..t`, one at a time, against that
