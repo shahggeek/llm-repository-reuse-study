@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "status": "awaiting-independent-review",
+  "workbook": "outputs/pilot-b-reuse-independent-review/pilot-b-reuse-blinded-review.xlsx",
+  "workbook_sha256": "1437a284f7d5500b530f23683acf9464ccb5cac6388e6b8818924e43eb1828bb",
+  "case_count": 10,
+  "review_row_count": 20,
+  "selection": {
+    "shared_guardrails_retrieval_correct_checkpoints": 9,
+    "baseline_retrieval_add_in_order_checkpoints": 1
+  },
+  "review_scope": "Independent validation of R0-R3 reuse and C0-C3 context-availability labels; all selected implementations are cumulatively functionally correct.",
+  "concealed_material": "results/pilot/pilot-b-reuse-blind-key.json"
+}

@@ -444,3 +444,27 @@ knew the condition. Preserve the review in
 `data/processed/pilot-b-reuse-review.json`, its validated summary in
 `results/pilot/pilot-b-reuse-summary.json`, and the narrative findings in
 `analysis/rq2/pilot-b-reuse-findings.md`.
+
+## 2026-09-26 — Pilot B focused independent validation frozen
+
+Freeze a ten-pair independent-review subset for the new Pilot B reuse labels.
+Include all nine checkpoints that are cumulatively correct in both new
+conditions: `loadDocuments` turn 1, `addInOrder` turn 2, `ensureCapacity` turns
+1–3, and `nodeArrayMerge` turns 1–4. Add the baseline-versus-retrieval
+`addInOrder` turn-1 contrast because it is the clearest Pilot A/Pilot B change
+from independently rebuilding growth policy to using explicit repository APIs.
+
+Randomize A/B orientation with five retrieval implementations in A and five in
+B. Conceal condition names and the mapping, but expose each variant's exact
+checkpoint prompt because context availability is itself a reviewed construct.
+This is therefore analyst-label blinding, not an attempt to hide observable
+prompt-treatment content. Use the existing R0–R3/C0–C3 rubric, the standardized
+neutral Case Guide, and the same evidence/maintenance/confidence fields used in
+Pilot A.
+
+All 20 selected implementations must be cumulatively functionally correct.
+Preserve the blank review workbook checksum before distribution, keep the
+mapping in a separate concealed key, and do not reveal primary labels or
+analysis summaries before submission. Treat the returned agreement statistics
+as descriptive reliability evidence for this purposive sample, not as an
+independent effect estimate.
