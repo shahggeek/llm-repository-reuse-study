@@ -410,3 +410,37 @@ checkpoints using the existing R0–R3 rubric. Do not infer successful reuse fro
 functional correctness alone. Preserve the durable functional summary in
 `results/pilot/pilot-b-functional-summary.json` and the interpretation in
 `analysis/rq2/pilot-b-functional-findings.md`.
+
+## 2026-09-25 — Pilot B primary reuse review complete
+
+Apply the calibrated R0–R3/C0–C3 rubric to all 23 new functionally correct,
+reference-eligible Pilot B checkpoints. The guardrails-only condition contains
+five R1 and four R2 checkpoints; all four R2 observations are the four eligible
+`nodeArrayMerge` turns and remain C1. The retrieval condition contains 14 R1
+checkpoints and no R2/R3 observation; 13 are C3 and the turn-1
+`loadDocuments` standard-library case is C0.
+
+Use paired transitions rather than comparing unequal condition denominators.
+Among the nine checkpoints correct in both new conditions, five remain R1 and
+four `nodeArrayMerge` checkpoints change from R2/C1 to R1/C3. Functional
+correctness is constant for this four-turn trajectory, isolating a change in
+reuse path: direct field mutation under absent context becomes consistent use
+of the explicitly retrieved `addInOrder()` abstraction. Relative to the
+existing baseline, `addInOrder` turn 1 also changes R3/C2 to R1/C3. The four
+retrieval-only correct `diff` checkpoints are R1/C3 and consistently delegate
+to `ConstraintAnalysis.diff(...)`.
+
+Exclude `randomAccessScoreProvider` from the reuse denominator because no new
+checkpoint compiles. Diagnose the shared failure as a retrieval-coverage gap:
+the packet exposes `threadLocalSupplier()` but omits
+`DefaultSearchScoreProvider.exact(...)`, and the model invents the nonexistent
+`SearchScoreProvider.exact(...)` in every turn. This shows that partial context
+can be used yet remain insufficient for repository integration.
+
+Freeze the paper-facing interpretation as targeted mechanism evidence, not a
+general retrieval effect. The packets were outcome-informed, there is one run
+per task/condition, checkpoints are dependent, and the Pilot B primary analyst
+knew the condition. Preserve the review in
+`data/processed/pilot-b-reuse-review.json`, its validated summary in
+`results/pilot/pilot-b-reuse-summary.json`, and the narrative findings in
+`analysis/rq2/pilot-b-reuse-findings.md`.

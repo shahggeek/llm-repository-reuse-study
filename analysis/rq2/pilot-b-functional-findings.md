@@ -67,11 +67,10 @@ outputs actually use the supplied repository abstractions and whether
 `randomAccessScoreProvider` failed because of API use, missing integration
 context, or an unrelated implementation error.
 
-## Next analysis
+## Reuse analysis status
 
-Apply the frozen R0–R3 reuse rubric to the 23 new eligible, cumulatively correct
-checkpoints (nine guardrails-only and 14 retrieval). Reuse the already reviewed
-baseline labels rather than recoding them. Prepare blinded comparisons where
-practical, preserve trajectory-level dependence, and report both checkpoint-
-and task-level transitions. Only after that review should Pilot B be used to
-strengthen or weaken the paper's context-and-reuse mechanism claim.
+The R0–R3 review of all 23 new eligible correct checkpoints is complete. See
+`analysis/rq2/pilot-b-reuse-findings.md` and
+`results/pilot/pilot-b-reuse-summary.json`. The central paired result is four
+`nodeArrayMerge` transitions from R2/C1 under guardrails only to R1/C3 under
+retrieval, with functional correctness held constant.

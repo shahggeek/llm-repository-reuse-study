@@ -15,5 +15,10 @@ case evidence, context evidence, maintenance consequences, screen fields, and
 generated/reference code hashes. Rebuild and validate the CSV and aggregate
 summary with `make reuse-full-review`.
 
+`pilot-b-reuse-review.csv` and `.json` contain the primary R0–R3/C0–C3 review
+of all 23 new eligible correct Pilot B checkpoints across the guardrails-only
+and guardrails-plus-retrieval conditions. The JSON is the human-authored review
+record; the CSV is regenerated and validated by `make reuse-pilot-b`.
+
 Locally derived checkpoint-level tables belong here. Only small, reviewed,
 de-identified research tables should be force-added to Git.

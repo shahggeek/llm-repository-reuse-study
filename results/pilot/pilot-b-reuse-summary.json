@@ -1,0 +1,595 @@
+{
+  "schema_version": 1,
+  "status": "complete-primary-review",
+  "batch_id": "pilot-b-20260924T233242Z",
+  "unit": "functionally correct, reference-eligible generated checkpoint",
+  "review_reliability": {
+    "pilot_a_calibration": "R0-R3 exact agreement 9/10; binary missed-reuse agreement 10/10; weighted kappa 0.889.",
+    "pilot_b_status": "The primary analyst knew the treatment condition. The rubric was independently calibrated during Pilot A, but the Pilot B labels have not yet received a new independent blinded review."
+  },
+  "conditions": {
+    "baseline": {
+      "checkpoints": 10,
+      "trajectories": 4,
+      "reuse_class_counts": {
+        "R0": 0,
+        "R1": 5,
+        "R2": 4,
+        "R3": 1
+      },
+      "context_class_counts": {
+        "C0": 1,
+        "C1": 4,
+        "C2": 1,
+        "C3": 4
+      },
+      "missed_reuse": {
+        "definition": "R2 or R3",
+        "checkpoints": 5,
+        "trajectories": 2,
+        "by_context": {
+          "C0": 0,
+          "C1": 4,
+          "C2": 1,
+          "C3": 0
+        }
+      },
+      "tasks": [
+        {
+          "task_slug": "addInOrder",
+          "turns": [
+            1,
+            2
+          ],
+          "reuse_sequence": [
+            "R3",
+            "R1"
+          ],
+          "context_sequence": [
+            "C2",
+            "C3"
+          ]
+        },
+        {
+          "task_slug": "ensureCapacity",
+          "turns": [
+            1,
+            2,
+            3
+          ],
+          "reuse_sequence": [
+            "R1",
+            "R1",
+            "R1"
+          ],
+          "context_sequence": [
+            "C3",
+            "C3",
+            "C3"
+          ]
+        },
+        {
+          "task_slug": "loadDocuments",
+          "turns": [
+            1
+          ],
+          "reuse_sequence": [
+            "R1"
+          ],
+          "context_sequence": [
+            "C0"
+          ]
+        },
+        {
+          "task_slug": "nodeArrayMerge",
+          "turns": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "reuse_sequence": [
+            "R2",
+            "R2",
+            "R2",
+            "R2"
+          ],
+          "context_sequence": [
+            "C1",
+            "C1",
+            "C1",
+            "C1"
+          ]
+        }
+      ]
+    },
+    "engineering-guardrails": {
+      "checkpoints": 9,
+      "trajectories": 4,
+      "reuse_class_counts": {
+        "R0": 0,
+        "R1": 5,
+        "R2": 4,
+        "R3": 0
+      },
+      "context_class_counts": {
+        "C0": 1,
+        "C1": 4,
+        "C2": 0,
+        "C3": 4
+      },
+      "missed_reuse": {
+        "definition": "R2 or R3",
+        "checkpoints": 4,
+        "trajectories": 1,
+        "by_context": {
+          "C0": 0,
+          "C1": 4,
+          "C2": 0,
+          "C3": 0
+        }
+      },
+      "tasks": [
+        {
+          "task_slug": "addInOrder",
+          "turns": [
+            2
+          ],
+          "reuse_sequence": [
+            "R1"
+          ],
+          "context_sequence": [
+            "C3"
+          ]
+        },
+        {
+          "task_slug": "ensureCapacity",
+          "turns": [
+            1,
+            2,
+            3
+          ],
+          "reuse_sequence": [
+            "R1",
+            "R1",
+            "R1"
+          ],
+          "context_sequence": [
+            "C3",
+            "C3",
+            "C3"
+          ]
+        },
+        {
+          "task_slug": "loadDocuments",
+          "turns": [
+            1
+          ],
+          "reuse_sequence": [
+            "R1"
+          ],
+          "context_sequence": [
+            "C0"
+          ]
+        },
+        {
+          "task_slug": "nodeArrayMerge",
+          "turns": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "reuse_sequence": [
+            "R2",
+            "R2",
+            "R2",
+            "R2"
+          ],
+          "context_sequence": [
+            "C1",
+            "C1",
+            "C1",
+            "C1"
+          ]
+        }
+      ]
+    },
+    "engineering-guardrails-retrieval": {
+      "checkpoints": 14,
+      "trajectories": 5,
+      "reuse_class_counts": {
+        "R0": 0,
+        "R1": 14,
+        "R2": 0,
+        "R3": 0
+      },
+      "context_class_counts": {
+        "C0": 1,
+        "C1": 0,
+        "C2": 0,
+        "C3": 13
+      },
+      "missed_reuse": {
+        "definition": "R2 or R3",
+        "checkpoints": 0,
+        "trajectories": 0,
+        "by_context": {
+          "C0": 0,
+          "C1": 0,
+          "C2": 0,
+          "C3": 0
+        }
+      },
+      "tasks": [
+        {
+          "task_slug": "addInOrder",
+          "turns": [
+            1,
+            2
+          ],
+          "reuse_sequence": [
+            "R1",
+            "R1"
+          ],
+          "context_sequence": [
+            "C3",
+            "C3"
+          ]
+        },
+        {
+          "task_slug": "diff",
+          "turns": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "reuse_sequence": [
+            "R1",
+            "R1",
+            "R1",
+            "R1"
+          ],
+          "context_sequence": [
+            "C3",
+            "C3",
+            "C3",
+            "C3"
+          ]
+        },
+        {
+          "task_slug": "ensureCapacity",
+          "turns": [
+            1,
+            2,
+            3
+          ],
+          "reuse_sequence": [
+            "R1",
+            "R1",
+            "R1"
+          ],
+          "context_sequence": [
+            "C3",
+            "C3",
+            "C3"
+          ]
+        },
+        {
+          "task_slug": "loadDocuments",
+          "turns": [
+            1
+          ],
+          "reuse_sequence": [
+            "R1"
+          ],
+          "context_sequence": [
+            "C0"
+          ]
+        },
+        {
+          "task_slug": "nodeArrayMerge",
+          "turns": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "reuse_sequence": [
+            "R1",
+            "R1",
+            "R1",
+            "R1"
+          ],
+          "context_sequence": [
+            "C3",
+            "C3",
+            "C3",
+            "C3"
+          ]
+        }
+      ]
+    }
+  },
+  "paired_comparisons": {
+    "guardrails_vs_baseline": {
+      "shared_functionally_correct_checkpoints": 9,
+      "reuse_transitions": {
+        "R1->R1": 5,
+        "R2->R2": 4
+      },
+      "context_transitions": {
+        "C0->C0": 1,
+        "C1->C1": 4,
+        "C3->C3": 4
+      },
+      "missed_to_appropriate": [],
+      "appropriate_to_missed": [],
+      "newly_functionally_correct_after": [],
+      "lost_functional_correctness_after": [
+        {
+          "task_slug": "addInOrder",
+          "turn": 1,
+          "reuse_class": "R3"
+        }
+      ]
+    },
+    "retrieval_vs_guardrails": {
+      "shared_functionally_correct_checkpoints": 9,
+      "reuse_transitions": {
+        "R1->R1": 5,
+        "R2->R1": 4
+      },
+      "context_transitions": {
+        "C0->C0": 1,
+        "C1->C3": 4,
+        "C3->C3": 4
+      },
+      "missed_to_appropriate": [
+        {
+          "task_slug": "nodeArrayMerge",
+          "turn": 1,
+          "transition": "R2->R1"
+        },
+        {
+          "task_slug": "nodeArrayMerge",
+          "turn": 2,
+          "transition": "R2->R1"
+        },
+        {
+          "task_slug": "nodeArrayMerge",
+          "turn": 3,
+          "transition": "R2->R1"
+        },
+        {
+          "task_slug": "nodeArrayMerge",
+          "turn": 4,
+          "transition": "R2->R1"
+        }
+      ],
+      "appropriate_to_missed": [],
+      "newly_functionally_correct_after": [
+        {
+          "task_slug": "addInOrder",
+          "turn": 1,
+          "reuse_class": "R1"
+        },
+        {
+          "task_slug": "diff",
+          "turn": 1,
+          "reuse_class": "R1"
+        },
+        {
+          "task_slug": "diff",
+          "turn": 2,
+          "reuse_class": "R1"
+        },
+        {
+          "task_slug": "diff",
+          "turn": 3,
+          "reuse_class": "R1"
+        },
+        {
+          "task_slug": "diff",
+          "turn": 4,
+          "reuse_class": "R1"
+        }
+      ],
+      "lost_functional_correctness_after": []
+    },
+    "retrieval_vs_baseline": {
+      "shared_functionally_correct_checkpoints": 10,
+      "reuse_transitions": {
+        "R1->R1": 5,
+        "R2->R1": 4,
+        "R3->R1": 1
+      },
+      "context_transitions": {
+        "C0->C0": 1,
+        "C1->C3": 4,
+        "C2->C3": 1,
+        "C3->C3": 4
+      },
+      "missed_to_appropriate": [
+        {
+          "task_slug": "addInOrder",
+          "turn": 1,
+          "transition": "R3->R1"
+        },
+        {
+          "task_slug": "nodeArrayMerge",
+          "turn": 1,
+          "transition": "R2->R1"
+        },
+        {
+          "task_slug": "nodeArrayMerge",
+          "turn": 2,
+          "transition": "R2->R1"
+        },
+        {
+          "task_slug": "nodeArrayMerge",
+          "turn": 3,
+          "transition": "R2->R1"
+        },
+        {
+          "task_slug": "nodeArrayMerge",
+          "turn": 4,
+          "transition": "R2->R1"
+        }
+      ],
+      "appropriate_to_missed": [],
+      "newly_functionally_correct_after": [
+        {
+          "task_slug": "diff",
+          "turn": 1,
+          "reuse_class": "R1"
+        },
+        {
+          "task_slug": "diff",
+          "turn": 2,
+          "reuse_class": "R1"
+        },
+        {
+          "task_slug": "diff",
+          "turn": 3,
+          "reuse_class": "R1"
+        },
+        {
+          "task_slug": "diff",
+          "turn": 4,
+          "reuse_class": "R1"
+        }
+      ],
+      "lost_functional_correctness_after": []
+    }
+  },
+  "incorrect_task_diagnosis": {
+    "task_slug": "randomAccessScoreProvider",
+    "scope": "Both new Pilot B conditions; all five checkpoints in each condition",
+    "functional_outcome": "No checkpoint compiled; therefore none is eligible for reuse classification.",
+    "common_failure": "Every generated version calls a nonexistent SearchScoreProvider.exact(...) factory.",
+    "guardrails_only": "The model also invents its own ThreadLocal construction and never discovers the repository's DefaultSearchScoreProvider.exact(...) factory.",
+    "retrieval_condition": "The model correctly adopts the supplied RandomAccessVectorValues.threadLocalSupplier(), but the packet omits DefaultSearchScoreProvider.exact(...), so it still hallucinates SearchScoreProvider.exact(...).",
+    "interpretation": "This is evidence of an incomplete retrieval packet for the integration path, not evidence that explicit complete repository context was ignored. Do not count it in the R0-R3 reuse denominator because it fails the functional gate."
+  },
+  "interpretation": {
+    "guardrails_only": "Guardrails alone preserve the four baseline-like nodeArrayMerge missed-reuse checkpoints; advice without API exposure does not change the reuse path.",
+    "retrieval": "All 14 retrieval-supported eligible correct checkpoints are R1. On the nine checkpoints correct in both new conditions, four nodeArrayMerge checkpoints change from R2/C1 to R1/C3 and five remain R1.",
+    "boundary": "The task packets were selected after Pilot A, there is one run per task and condition, checkpoints are dependent, and the Pilot B primary reviewer knew the condition. Treat this as targeted mechanism evidence, not a population-level causal estimate."
+  },
+  "source_artifacts": [
+    {
+      "path": "experiment/config/pilot-b.json",
+      "sha256": "106d17ad2668993a192a263a05e6963f5cd720e320c5962ce98b4ae24d363c0d",
+      "bytes": 7238
+    },
+    {
+      "path": "results/pilot/pilot-b-functional-summary.json",
+      "sha256": "ee764b4da0cd531123bc90fba7fe4682a382bcc4c63e22fa8761cbaad33d4dcc",
+      "bytes": 22316
+    },
+    {
+      "path": "data/processed/pilot-b-reuse-review.json",
+      "sha256": "99f21219abe8303f9e028eb61eaf0169d6571ed34b19f7a7909e1e70c62885df",
+      "bytes": 21151
+    },
+    {
+      "path": "data/processed/pilot-a-reuse-full-review.json",
+      "sha256": "7fe6044c3c44880c109a2976cef36556ace850ce870b94855fa7e2f68592a7c5",
+      "bytes": 19631
+    },
+    {
+      "path": "experiment/pilot-b/retrieval/addInOrder.txt",
+      "sha256": "957ccc12bc51c9fae4c5aa8aa17120c1dea7ad6d376cf623fc93d05f9c7c0a61",
+      "bytes": 485
+    },
+    {
+      "path": "experiment/pilot-b/retrieval/diff.txt",
+      "sha256": "7c0ba0aeff15635c06a649b7d024be5664eb1babd0b8b2655a09e8cd70df609e",
+      "bytes": 771
+    },
+    {
+      "path": "experiment/pilot-b/retrieval/ensureCapacity.txt",
+      "sha256": "7315c0e2f746328122740621157a977433582265a32207e466e36d8897f707de",
+      "bytes": 564
+    },
+    {
+      "path": "experiment/pilot-b/retrieval/loadDocuments.txt",
+      "sha256": "780ba956ba488b35e2b810ee105487ec2b66191493490cdae3984d37f0224a80",
+      "bytes": 658
+    },
+    {
+      "path": "experiment/pilot-b/retrieval/nodeArrayMerge.txt",
+      "sha256": "33378aecf20ee447ab224c06bf2550e1b0010246e833f3964fdc407c4bcf9334",
+      "bytes": 449
+    },
+    {
+      "path": "experiment/pilot-b/retrieval/randomAccessScoreProvider.txt",
+      "sha256": "3dc449611f8acfee4d551df05a94f549f1c0fe78c44cfc514f42a246f0154b75",
+      "bytes": 645
+    },
+    {
+      "path": "data/generated-trajectories/pilot-b/pilot-b-20260924T233242Z-engineering-guardrails-addInOrder-01/record.json",
+      "sha256": "9e0a20c92be4669fc5fa64d3b2d24fb155c0272f184d1b89bc2a83dbbd381c4e",
+      "bytes": 22728
+    },
+    {
+      "path": "data/generated-trajectories/pilot-b/pilot-b-20260924T233242Z-engineering-guardrails-diff-01/record.json",
+      "sha256": "c2da179d3531b5d1ce8702a89f05364878ea2fd688551774312c38ea3549ceba",
+      "bytes": 56951
+    },
+    {
+      "path": "data/generated-trajectories/pilot-b/pilot-b-20260924T233242Z-engineering-guardrails-ensureCapacity-01/record.json",
+      "sha256": "98871ef68591e140ec8b65e04fccd9ffbb2cf350e8553d87a668120c285efc15",
+      "bytes": 12086
+    },
+    {
+      "path": "data/generated-trajectories/pilot-b/pilot-b-20260924T233242Z-engineering-guardrails-loadDocuments-01/record.json",
+      "sha256": "944acc813bc80b7c575f208402b03f39298d8d2feaa231912e89ca680a9ab9fd",
+      "bytes": 41290
+    },
+    {
+      "path": "data/generated-trajectories/pilot-b/pilot-b-20260924T233242Z-engineering-guardrails-nodeArrayMerge-01/record.json",
+      "sha256": "c523f4debaae6f07122317fb53c44d76f63ddaf4ed73e8468d6792cecf1214da",
+      "bytes": 36576
+    },
+    {
+      "path": "data/generated-trajectories/pilot-b/pilot-b-20260924T233242Z-engineering-guardrails-randomAccessScoreProvider-01/record.json",
+      "sha256": "33b816341b9f3b1a45138bd8481a14d2081096d30cfbdb557b6de78e001dff69",
+      "bytes": 87717
+    },
+    {
+      "path": "data/generated-trajectories/pilot-b/pilot-b-20260924T233242Z-engineering-guardrails-retrieval-addInOrder-01/record.json",
+      "sha256": "8171fe8de5919bc19a2333a1fc716952df1ee23877af39300b527778975ba9c2",
+      "bytes": 23661
+    },
+    {
+      "path": "data/generated-trajectories/pilot-b/pilot-b-20260924T233242Z-engineering-guardrails-retrieval-diff-01/record.json",
+      "sha256": "00715b7c1664d16ada4dd733f0cb5b0f9437784b2e9474430b723db1e7165e5f",
+      "bytes": 34521
+    },
+    {
+      "path": "data/generated-trajectories/pilot-b/pilot-b-20260924T233242Z-engineering-guardrails-retrieval-ensureCapacity-01/record.json",
+      "sha256": "50ef6868989b4ec7b000d0e0a59b2f819d645190aaa3b59593872b85f7bc212f",
+      "bytes": 14833
+    },
+    {
+      "path": "data/generated-trajectories/pilot-b/pilot-b-20260924T233242Z-engineering-guardrails-retrieval-loadDocuments-01/record.json",
+      "sha256": "118f1dad11f21d60663e870bb68c1e09fd7ba33e75ce6f52cdf6c82cf57088d5",
+      "bytes": 45294
+    },
+    {
+      "path": "data/generated-trajectories/pilot-b/pilot-b-20260924T233242Z-engineering-guardrails-retrieval-nodeArrayMerge-01/record.json",
+      "sha256": "5c9bb464dd0011f4e26576df4f6b5bee187f958963c6fea8ee9463e616cd487e",
+      "bytes": 38305
+    },
+    {
+      "path": "data/generated-trajectories/pilot-b/pilot-b-20260924T233242Z-engineering-guardrails-retrieval-randomAccessScoreProvider-01/record.json",
+      "sha256": "3a1030f2e9a7a63abc1bbe8299078819672dede80b9e7f95a1bb90fe9c12ed77",
+      "bytes": 88377
+    }
+  ],
+  "functional_summary_sha256": "ee764b4da0cd531123bc90fba7fe4682a382bcc4c63e22fa8761cbaad33d4dcc",
+  "functional_batch_id": "pilot-b-20260924T233242Z"
+}

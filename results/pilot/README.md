@@ -39,3 +39,8 @@ trajectory dependence, call-difference screen performance, and the documented
 view for the six Pilot B tasks. It records generation integrity, raw outcomes,
 the primary reference-eligible outcomes, paired condition deltas, and hashes of
 the ignored run records and functional reports used to build the summary.
+
+`pilot-b-reuse-summary.json` validates and summarizes the primary reuse review
+of all 23 new eligible correct Pilot B checkpoints. It includes condition-level
+R/C counts, paired checkpoint transitions, the `randomAccessScoreProvider`
+context-gap diagnosis, and source-artifact hashes.
