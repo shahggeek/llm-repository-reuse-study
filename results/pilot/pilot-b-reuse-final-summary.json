@@ -31,8 +31,8 @@
       "reuse_class_counts": {
         "R0": 0,
         "R1": 5,
-        "R2": 4,
-        "R3": 1
+        "R2": 3,
+        "R3": 2
       },
       "context_class_counts": {
         "C0": 1,
@@ -106,7 +106,7 @@
             4
           ],
           "reuse_sequence": [
-            "R2",
+            "R3",
             "R2",
             "R2",
             "R2"
@@ -335,7 +335,7 @@
       "reuse_transitions": {
         "R1->R1": 5,
         "R2->R2": 3,
-        "R2->R3": 1
+        "R3->R3": 1
       },
       "context_transitions": {
         "C0->C0": 1,
@@ -421,8 +421,8 @@
       "shared_functionally_correct_checkpoints": 10,
       "reuse_transitions": {
         "R1->R1": 5,
-        "R2->R1": 4,
-        "R3->R1": 1
+        "R2->R1": 3,
+        "R3->R1": 2
       },
       "context_transitions": {
         "C0->C0": 1,
@@ -439,7 +439,7 @@
         {
           "task_slug": "nodeArrayMerge",
           "turn": 1,
-          "transition": "R2->R1"
+          "transition": "R3->R1"
         },
         {
           "task_slug": "nodeArrayMerge",

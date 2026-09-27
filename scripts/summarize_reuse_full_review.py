@@ -200,6 +200,16 @@ def build_outputs() -> dict[str, Any]:
             "reuse_class_changed": False,
             "missed_reuse_changed": False,
         },
+        "cross_pilot_consistency_correction": {
+            "artifact": "results/pilot/pilot-a-reuse-consistency-correction.json",
+            "task_slug": "nodeArrayMerge",
+            "turn": 1,
+            "prior_reuse_class": "R2",
+            "corrected_reuse_class": "R3",
+            "reason": "System.arraycopy() is a low-level copy mechanism, not partial reuse of NodeArray.addInOrder().",
+            "binary_missed_reuse_changed": False,
+            "context_class_changed": False,
+        },
         "interpretation": "Eleven checkpoint observations contain repository-level missed reuse, but they are repeated states within four trajectories. Six are C1 and five are C2; none occurs with the applicable helper explicit in the model context. Report checkpoint and trajectory units together and do not treat checkpoints as independent.",
     }
     SUMMARY_PATH.write_text(json.dumps(summary, indent=2) + "\n", encoding="utf-8")

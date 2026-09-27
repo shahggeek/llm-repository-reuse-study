@@ -47,7 +47,7 @@ class PilotBReuseSummaryTests(unittest.TestCase):
     def test_baseline_to_retrieval_contains_add_in_order_improvement(self):
         paired = self.result["paired_comparisons"]["retrieval_vs_baseline"]
         self.assertEqual(
-            {"R1->R1": 5, "R2->R1": 4, "R3->R1": 1},
+            {"R1->R1": 5, "R2->R1": 3, "R3->R1": 2},
             paired["reuse_transitions"],
         )
 

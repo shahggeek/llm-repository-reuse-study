@@ -4,12 +4,13 @@
 
 Pilot B reuse review is complete, independently checked, and adjudicated. The
 final labels cover all 23 new checkpoints that are both functionally correct
-and reference-eligible. The existing ten reviewed baseline checkpoints for the
-same six-task subset are reused unchanged.
+and reference-eligible. The ten reviewed baseline checkpoints for the same
+six-task subset include the documented cross-pilot consistency correction to
+`nodeArrayMerge` turn 1.
 
 | Condition | Reviewed checkpoints | R1 | R2 | R3 | Missed-reuse checkpoints | Trajectories with missed reuse |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: |
-| Baseline | 10 | 5 | 4 | 1 | 5 | 2 |
+| Baseline | 10 | 5 | 3 | 2 | 5 | 2 |
 | Guardrails only | 9 | 5 | 3 | 1 | 4 | 1 |
 | Guardrails + retrieval | 14 | 14 | 0 | 0 | 0 | 0 |
 

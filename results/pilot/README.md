@@ -33,7 +33,10 @@ three resolution decisions without overwriting either review.
 `pilot-a-reuse-full-review-summary.json` summarizes the completed manual review
 of all 24 eligible correct checkpoints, including class counts, context counts,
 trajectory dependence, call-difference screen performance, and the documented
-`ensureCapacity` prompt-provenance correction.
+`ensureCapacity` prompt-provenance correction. The separate
+`pilot-a-reuse-consistency-correction.json` records why baseline
+`nodeArrayMerge` turn 1 was changed from R2/C1 to R3/C1 after the same rubric
+boundary was independently adjudicated in Pilot B.
 
 `pilot-b-functional-summary.json` is the durable three-condition functional
 view for the six Pilot B tasks. It records generation integrity, raw outcomes,

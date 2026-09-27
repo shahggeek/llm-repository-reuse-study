@@ -11,8 +11,8 @@
   "reuse_class_counts": {
     "R0": 0,
     "R1": 13,
-    "R2": 8,
-    "R3": 3
+    "R2": 7,
+    "R3": 4
   },
   "context_class_counts": {
     "C0": 2,
@@ -163,7 +163,7 @@
       "task_slug": "nodeArrayMerge",
       "checkpoint_count": 4,
       "class_sequence": [
-        "R2",
+        "R3",
         "R2",
         "R2",
         "R2"
@@ -200,6 +200,16 @@
     "reason": "The exact turn-2 prompt explicitly included ArrayUtil.grow() in the previous generated method. The blinded review packet exposed only the initial context slice.",
     "reuse_class_changed": false,
     "missed_reuse_changed": false
+  },
+  "cross_pilot_consistency_correction": {
+    "artifact": "results/pilot/pilot-a-reuse-consistency-correction.json",
+    "task_slug": "nodeArrayMerge",
+    "turn": 1,
+    "prior_reuse_class": "R2",
+    "corrected_reuse_class": "R3",
+    "reason": "System.arraycopy() is a low-level copy mechanism, not partial reuse of NodeArray.addInOrder().",
+    "binary_missed_reuse_changed": false,
+    "context_class_changed": false
   },
   "interpretation": "Eleven checkpoint observations contain repository-level missed reuse, but they are repeated states within four trajectories. Six are C1 and five are C2; none occurs with the applicable helper explicit in the model context. Report checkpoint and trajectory units together and do not treat checkpoints as independent."
 }

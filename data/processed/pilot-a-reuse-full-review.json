@@ -10,7 +10,8 @@
     "data/generated-trajectories/pilot-a-amendment",
     "work/task-packets",
     "work/amendment-task-packets",
-    "results/pilot/pilot-a-reuse-adjudication.json"
+    "results/pilot/pilot-a-reuse-adjudication.json",
+    "results/pilot/pilot-a-reuse-consistency-correction.json"
   ],
   "records": [
     {
@@ -270,14 +271,14 @@
       "repository": "jvector",
       "turn": 1,
       "run_id": "pilot-a-20260904T213806Z-nodeArrayMerge-01",
-      "reuse_class": "R2",
+      "reuse_class": "R3",
       "context_class": "C1",
-      "candidate_symbol": "NodeArray.addInOrder(); System.arraycopy()",
-      "evidence": "The generated merge reuses System.arraycopy() for tails but writes nodes, scores, and size directly instead of routing additions through addInOrder().",
+      "candidate_symbol": "NodeArray.addInOrder()",
+      "evidence": "The generated merge completely bypasses addInOrder() and directly manages nodes, scores, size, and the capacity consequences of insertion. System.arraycopy() is only a low-level copying mechanism, not partial reuse of the repository insertion abstraction.",
       "context_evidence": "addInOrder() is below the target and absent from the supplied context and prior task history.",
       "maintenance_consequence": "Merge is coupled to NodeArray representation and bypasses insertion policy.",
       "confidence": "high",
-      "review_source": "full-review-extension"
+      "review_source": "retrospective-cross-pilot-consistency-adjudication"
     },
     {
       "task_slug": "nodeArrayMerge",

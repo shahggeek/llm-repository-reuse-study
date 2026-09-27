@@ -46,6 +46,17 @@ class ReuseFullReviewTests(unittest.TestCase):
         self.assertFalse(correction["reuse_class_changed"])
         self.assertFalse(correction["missed_reuse_changed"])
 
+    def test_cross_pilot_consistency_correction_is_frozen(self):
+        correction = self.summary["cross_pilot_consistency_correction"]
+        self.assertEqual(("nodeArrayMerge", 1), (correction["task_slug"], correction["turn"]))
+        self.assertEqual("R2", correction["prior_reuse_class"])
+        self.assertEqual("R3", correction["corrected_reuse_class"])
+        self.assertFalse(correction["binary_missed_reuse_changed"])
+        self.assertEqual(
+            {"R0": 0, "R1": 13, "R2": 7, "R3": 4},
+            self.summary["reuse_class_counts"],
+        )
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -13,7 +13,10 @@ triage artifacts; the candidate flags are not manual missed-reuse labels.
 C0–C3 review of all 24 eligible correct checkpoints. The flat CSV includes
 case evidence, context evidence, maintenance consequences, screen fields, and
 generated/reference code hashes. Rebuild and validate the CSV and aggregate
-summary with `make reuse-full-review`.
+summary with `make reuse-full-review`. The paper-facing review includes the
+documented cross-pilot consistency correction for `nodeArrayMerge` turn 1;
+the decision is preserved in
+`results/pilot/pilot-a-reuse-consistency-correction.json`.
 
 `pilot-b-reuse-review.csv` and `.json` contain the primary R0–R3/C0–C3 review
 of all 23 new eligible correct Pilot B checkpoints across the guardrails-only

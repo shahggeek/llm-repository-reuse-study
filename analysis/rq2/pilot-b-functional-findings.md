@@ -71,6 +71,7 @@ context, or an unrelated implementation error.
 
 The R0–R3 review of all 23 new eligible correct checkpoints is complete. See
 `analysis/rq2/pilot-b-reuse-findings.md` and
-`results/pilot/pilot-b-reuse-summary.json`. The central paired result is four
-`nodeArrayMerge` transitions from R2/C1 under guardrails only to R1/C3 under
-retrieval, with functional correctness held constant.
+`results/pilot/pilot-b-reuse-final-summary.json`. The central paired result is
+the four-turn `nodeArrayMerge` sequence changing from R3/R2/R2/R2 at C1 under
+guardrails only to R1/R1/R1/R1 at C3 under retrieval, with functional
+correctness held constant.

@@ -115,7 +115,8 @@ checkpoints before freezing the paper direction.
 ## 2026-09-23 — Complete Pilot A reuse review and NARROW decision
 
 Applied the clarified R0–R3/C0–C3 rubric to all 24 eligible correct
-checkpoints. Final counts are R0=0, R1=13, R2=8, and R3=3. The 11 R2/R3
+checkpoints. After the 2026-09-26 cross-pilot consistency correction, the
+paper-facing counts are R0=0, R1=13, R2=7, and R3=4. The 11 R2/R3
 checkpoint observations are concentrated in four of ten trajectories:
 `addInOrder` (1/2), `encodeAnisotropic` (2/2), `invert` (4/4), and
 `nodeArrayMerge` (4/4). Treat repeated checkpoints as dependent observations
@@ -497,3 +498,19 @@ shared `addInOrder` turn, and `ensureCapacity` remain appropriately reused.
 Treat turns as dependent repeated observations. Preserve the primary review,
 independent responses, pre-adjudication agreement, adjudication, adjudicated
 review, and final summary as separate artifacts.
+
+## 2026-09-26 — Pilot A cross-pilot reuse-label consistency correction
+
+Correct baseline `nodeArrayMerge` turn 1 from R2/C1 to R3/C1. The Pilot A
+implementation is substantively equivalent to the independently adjudicated
+Pilot B guardrails implementation: both bypass `addInOrder()` and directly
+manage nodes, scores, size, and insertion-related capacity consequences.
+`System.arraycopy()` is a low-level copy mechanism and is not partial reuse of
+the relevant repository insertion abstraction.
+
+Record the prior and corrected labels in
+`results/pilot/pilot-a-reuse-consistency-correction.json`, regenerate all
+paper-facing summaries, and retain the original label in Git history. This
+changes only subtype counts: Pilot A becomes R0=0, R1=13, R2=7, R3=4. The 11
+missed-reuse checkpoints, four affected trajectories, context labels, reviewer
+agreement, and narrow mechanism claim are unchanged.

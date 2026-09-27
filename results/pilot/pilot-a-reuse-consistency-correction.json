@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "status": "retrospective-cross-pilot-consistency-adjudication",
+  "date": "2026-09-26",
+  "rubric": "analysis/rq2/reuse-rubric.md",
+  "scope": "One Pilot A checkpoint whose label became inconsistent with the later independently reviewed application of the frozen rubric.",
+  "principle": "Use R3 when the relevant repository abstraction fully covers the behavior but the implementation independently rebuilds it. A low-level library mechanism does not count as partial reuse of that repository abstraction.",
+  "decision": {
+    "task_slug": "nodeArrayMerge",
+    "turn": 1,
+    "run_id": "pilot-a-20260904T213806Z-nodeArrayMerge-01",
+    "prior_label": "R2",
+    "corrected_label": "R3",
+    "context_class": "C1",
+    "reason": "The implementation bypasses NodeArray.addInOrder() and directly manages nodes, scores, size, and insertion-related capacity consequences. System.arraycopy() only copies tail elements and is not partial reuse of the relevant insertion abstraction. This is the same boundary applied to the near-equivalent Pilot B guardrails implementation during independent adjudication.",
+    "binary_missed_reuse_changed": false,
+    "context_class_changed": false
+  },
+  "effects": {
+    "pilot_a_full_review_counts_before": {"R0": 0, "R1": 13, "R2": 8, "R3": 3},
+    "pilot_a_full_review_counts_after": {"R0": 0, "R1": 13, "R2": 7, "R3": 4},
+    "missed_reuse_checkpoint_count": 11,
+    "missed_reuse_trajectory_count": 4,
+    "paper_mechanism_claim_changed": false
+  },
+  "preservation": "The prior label remains recoverable from Git history and is explicitly recorded here; aggregate outputs are regenerated from the corrected paper-facing review."
+}
