@@ -44,3 +44,11 @@ the ignored run records and functional reports used to build the summary.
 of all 23 new eligible correct Pilot B checkpoints. It includes condition-level
 R/C counts, paired checkpoint transitions, the `randomAccessScoreProvider`
 context-gap diagnosis, and source-artifact hashes.
+
+`pilot-b-reuse-reviewer2-responses.csv` and
+`pilot-b-reuse-reviewer2-submission.json` preserve the returned focused review
+and workbook hash. `pilot-b-reuse-review-agreement.json` freezes the
+pre-adjudication reliability statistics. `pilot-b-reuse-adjudication.json`
+records both disagreements and final decisions without replacing raw labels.
+`pilot-b-reuse-final-summary.json` is the paper-facing adjudicated result,
+including checkpoint transitions and lineage-level interpretation.

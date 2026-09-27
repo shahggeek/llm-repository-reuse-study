@@ -1,0 +1,253 @@
+{
+  "schema_version": 1,
+  "status": "adjudicated-focused-validation-sample",
+  "implementation_count": 20,
+  "paired_case_count": 10,
+  "inputs": {
+    "primary_new_condition_review": "data/processed/pilot-b-reuse-review.json",
+    "primary_baseline_review": "data/processed/pilot-a-reuse-full-review.json",
+    "independent_review": "results/pilot/pilot-b-reuse-reviewer2-responses.csv",
+    "pre_adjudication_agreement": "results/pilot/pilot-b-reuse-review-agreement.json",
+    "rubric": "analysis/rq2/reuse-rubric.md"
+  },
+  "reviewer_clarifications_before_submission": [
+    "An exception helper visible in PB-RV-101 is an incidental convention, not a material candidate for the fixed-message turn.",
+    "When candidates differ in visibility, the single context label follows the candidate that determines the reuse classification; jointly decisive candidates use the lower visibility with an explanation.",
+    "A diagnostic-slice helper is not applicable when an implementation never builds that slice; absence alone is not missed reuse."
+  ],
+  "principles": [
+    "Preserve both reviewers' original labels and report pre-adjudication agreement.",
+    "Use R3 when the relevant repository abstraction fully covers the behavior but the implementation independently rebuilds it; a low-level library mechanism does not count as partial reuse of that abstraction.",
+    "Use C2 when the supplied prompt gives a plausible indirect cue toward the candidate or its abstraction family even when the applicable method is absent."
+  ],
+  "decisions": [
+    {
+      "case_id": "PB-RV-106",
+      "variant": "B",
+      "condition": "engineering-guardrails",
+      "task_slug": "nodeArrayMerge",
+      "turn": 1,
+      "dimension": "reuse_class",
+      "primary_label": "R2",
+      "second_reviewer_label": "R3",
+      "adjudicated_label": "R3",
+      "reason": "The implementation completely bypasses addInOrder() and directly manages nodes, scores, size, and capacity consequences. System.arraycopy() is only a low-level mechanism, not partial reuse of the relevant repository insertion abstraction."
+    },
+    {
+      "case_id": "PB-RV-110",
+      "variant": "B",
+      "condition": "baseline",
+      "task_slug": "addInOrder",
+      "turn": 1,
+      "dimension": "context_class",
+      "primary_label": "C2",
+      "second_reviewer_label": "C1",
+      "adjudicated_label": "C2",
+      "reason": "The supplied ArrayUtil import is an indirect cue toward an array-growth abstraction, although growArrays() is not explicit. The same reviewer classified this identical Pilot A implementation as C2 during the earlier calibration, revealing C1/C2 boundary instability without affecting the R3 missed-reuse judgment."
+    }
+  ],
+  "final_classifications": [
+    {
+      "case_id": "PB-RV-101",
+      "variant": "A",
+      "condition": "engineering-guardrails",
+      "task_slug": "loadDocuments",
+      "turn": 1,
+      "reuse_class": "R1",
+      "context_class": "C0"
+    },
+    {
+      "case_id": "PB-RV-101",
+      "variant": "B",
+      "condition": "engineering-guardrails-retrieval",
+      "task_slug": "loadDocuments",
+      "turn": 1,
+      "reuse_class": "R1",
+      "context_class": "C0"
+    },
+    {
+      "case_id": "PB-RV-102",
+      "variant": "A",
+      "condition": "engineering-guardrails-retrieval",
+      "task_slug": "addInOrder",
+      "turn": 2,
+      "reuse_class": "R1",
+      "context_class": "C3"
+    },
+    {
+      "case_id": "PB-RV-102",
+      "variant": "B",
+      "condition": "engineering-guardrails",
+      "task_slug": "addInOrder",
+      "turn": 2,
+      "reuse_class": "R1",
+      "context_class": "C3"
+    },
+    {
+      "case_id": "PB-RV-103",
+      "variant": "A",
+      "condition": "engineering-guardrails",
+      "task_slug": "ensureCapacity",
+      "turn": 1,
+      "reuse_class": "R1",
+      "context_class": "C3"
+    },
+    {
+      "case_id": "PB-RV-103",
+      "variant": "B",
+      "condition": "engineering-guardrails-retrieval",
+      "task_slug": "ensureCapacity",
+      "turn": 1,
+      "reuse_class": "R1",
+      "context_class": "C3"
+    },
+    {
+      "case_id": "PB-RV-104",
+      "variant": "A",
+      "condition": "engineering-guardrails-retrieval",
+      "task_slug": "ensureCapacity",
+      "turn": 2,
+      "reuse_class": "R1",
+      "context_class": "C3"
+    },
+    {
+      "case_id": "PB-RV-104",
+      "variant": "B",
+      "condition": "engineering-guardrails",
+      "task_slug": "ensureCapacity",
+      "turn": 2,
+      "reuse_class": "R1",
+      "context_class": "C3"
+    },
+    {
+      "case_id": "PB-RV-105",
+      "variant": "A",
+      "condition": "engineering-guardrails",
+      "task_slug": "ensureCapacity",
+      "turn": 3,
+      "reuse_class": "R1",
+      "context_class": "C3"
+    },
+    {
+      "case_id": "PB-RV-105",
+      "variant": "B",
+      "condition": "engineering-guardrails-retrieval",
+      "task_slug": "ensureCapacity",
+      "turn": 3,
+      "reuse_class": "R1",
+      "context_class": "C3"
+    },
+    {
+      "case_id": "PB-RV-106",
+      "variant": "A",
+      "condition": "engineering-guardrails-retrieval",
+      "task_slug": "nodeArrayMerge",
+      "turn": 1,
+      "reuse_class": "R1",
+      "context_class": "C3"
+    },
+    {
+      "case_id": "PB-RV-106",
+      "variant": "B",
+      "condition": "engineering-guardrails",
+      "task_slug": "nodeArrayMerge",
+      "turn": 1,
+      "reuse_class": "R3",
+      "context_class": "C1"
+    },
+    {
+      "case_id": "PB-RV-107",
+      "variant": "A",
+      "condition": "engineering-guardrails",
+      "task_slug": "nodeArrayMerge",
+      "turn": 2,
+      "reuse_class": "R2",
+      "context_class": "C1"
+    },
+    {
+      "case_id": "PB-RV-107",
+      "variant": "B",
+      "condition": "engineering-guardrails-retrieval",
+      "task_slug": "nodeArrayMerge",
+      "turn": 2,
+      "reuse_class": "R1",
+      "context_class": "C3"
+    },
+    {
+      "case_id": "PB-RV-108",
+      "variant": "A",
+      "condition": "engineering-guardrails-retrieval",
+      "task_slug": "nodeArrayMerge",
+      "turn": 3,
+      "reuse_class": "R1",
+      "context_class": "C3"
+    },
+    {
+      "case_id": "PB-RV-108",
+      "variant": "B",
+      "condition": "engineering-guardrails",
+      "task_slug": "nodeArrayMerge",
+      "turn": 3,
+      "reuse_class": "R2",
+      "context_class": "C1"
+    },
+    {
+      "case_id": "PB-RV-109",
+      "variant": "A",
+      "condition": "engineering-guardrails",
+      "task_slug": "nodeArrayMerge",
+      "turn": 4,
+      "reuse_class": "R2",
+      "context_class": "C1"
+    },
+    {
+      "case_id": "PB-RV-109",
+      "variant": "B",
+      "condition": "engineering-guardrails-retrieval",
+      "task_slug": "nodeArrayMerge",
+      "turn": 4,
+      "reuse_class": "R1",
+      "context_class": "C3"
+    },
+    {
+      "case_id": "PB-RV-110",
+      "variant": "A",
+      "condition": "engineering-guardrails-retrieval",
+      "task_slug": "addInOrder",
+      "turn": 1,
+      "reuse_class": "R1",
+      "context_class": "C3"
+    },
+    {
+      "case_id": "PB-RV-110",
+      "variant": "B",
+      "condition": "baseline",
+      "task_slug": "addInOrder",
+      "turn": 1,
+      "reuse_class": "R3",
+      "context_class": "C2"
+    }
+  ],
+  "summary": {
+    "reuse_class_counts": {
+      "R0": 0,
+      "R1": 15,
+      "R2": 3,
+      "R3": 2
+    },
+    "context_class_counts": {
+      "C0": 2,
+      "C1": 4,
+      "C2": 1,
+      "C3": 13
+    },
+    "missed_reuse_events": 5,
+    "missed_reuse_by_context": {
+      "C0": 0,
+      "C1": 4,
+      "C2": 1,
+      "C3": 0
+    }
+  },
+  "interpretation": "The independent review confirms every binary missed-reuse decision. Adjudication refines one guardrails-only nodeArrayMerge checkpoint from R2 to R3 and retains one baseline addInOrder context label at C2. Neither decision changes the paper's narrow mechanism claim."
+}

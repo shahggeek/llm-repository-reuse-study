@@ -20,5 +20,10 @@ of all 23 new eligible correct Pilot B checkpoints across the guardrails-only
 and guardrails-plus-retrieval conditions. The JSON is the human-authored review
 record; the CSV is regenerated and validated by `make reuse-pilot-b`.
 
+`pilot-b-reuse-review-adjudicated.csv` and `.json` preserve the final consensus
+view after the focused independent review. They retain all primary records and
+change only guardrails-only `nodeArrayMerge` turn 1 from R2 to R3, with an
+explicit adjudication identifier. Rebuild them with `make reuse-pilot-b-final`.
+
 Locally derived checkpoint-level tables belong here. Only small, reviewed,
 de-identified research tables should be force-added to Git.

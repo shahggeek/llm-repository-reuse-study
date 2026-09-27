@@ -468,3 +468,32 @@ mapping in a separate concealed key, and do not reveal primary labels or
 analysis summaries before submission. Treat the returned agreement statistics
 as descriptive reliability evidence for this purposive sample, not as an
 independent effect estimate.
+
+## 2026-09-26 — Pilot B independent review adjudicated
+
+Preserve the returned workbook unchanged as
+`outputs/pilot-b-reuse-independent-review/pilot-b-reuse-blinded-review-completed.xlsx`.
+Extract all 20 Review rows to a separate CSV, record the workbook hash, and
+report agreement before adjudication: 19/20 exact R0–R3 agreement (linearly
+weighted κ = 0.903), 20/20 binary missed-reuse agreement, and 19/20 exact
+C0–C3 agreement (linearly weighted κ = 0.953).
+
+Adjudicate `PB-RV-106 B` from primary R2/C1 and reviewer R3/C1 to final R3/C1.
+The implementation completely bypasses `addInOrder()` and directly manages the
+paired arrays and size; `System.arraycopy()` is a low-level mechanism, not
+partial reuse of the relevant insertion abstraction. Later `nodeArrayMerge`
+turns remain R2 because they reuse `IntHashSet` while duplicating insertion.
+
+Retain `PB-RV-110 B` at R3/C2 rather than the returned R3/C1. The supplied
+`ArrayUtil` import is an indirect cue toward the array-growth abstraction even
+though `growArrays()` is absent. The same reviewer previously labeled this
+identical Pilot A implementation C2, so treat the disagreement as C1/C2
+boundary instability; it does not affect the missed-reuse conclusion.
+
+Use trajectory lineage as the primary inferential unit. Among four clean
+guardrails/retrieval paired lineages, `nodeArrayMerge` improves from the
+guardrails sequence R3/R2/R2/R2 to R1/R1/R1/R1, while `loadDocuments`, the
+shared `addInOrder` turn, and `ensureCapacity` remain appropriately reused.
+Treat turns as dependent repeated observations. Preserve the primary review,
+independent responses, pre-adjudication agreement, adjudication, adjudicated
+review, and final summary as separate artifacts.

@@ -1,0 +1,10 @@
+{
+  "schema_version": 1,
+  "source_workbook": "outputs/pilot-b-reuse-independent-review/pilot-b-reuse-blinded-review-completed.xlsx",
+  "source_sheet": "Review",
+  "source_range": "A4:H24",
+  "sha256": "0a9538dc8e0e5106b47ba424dd3246491fb035d4f56944784b154396669e981f",
+  "size_bytes": 23978,
+  "response_rows": 20,
+  "status": "independent-reviewer-submission-preserved-before-adjudication"
+}

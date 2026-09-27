@@ -1,0 +1,586 @@
+{
+  "schema_version": 1,
+  "status": "complete-independent-review-adjudicated",
+  "batch_id": "pilot-b-20260924T233242Z",
+  "unit": "functionally correct, reference-eligible generated checkpoint",
+  "review_reliability": {
+    "implementation_count": 20,
+    "reuse_exact_agreement": {
+      "matches": 19,
+      "n": 20,
+      "rate": 0.95
+    },
+    "reuse_linear_weighted_cohens_kappa": 0.9029126213592233,
+    "binary_missed_reuse_exact_agreement": {
+      "matches": 20,
+      "n": 20,
+      "rate": 1.0
+    },
+    "context_exact_agreement": {
+      "matches": 19,
+      "n": 20,
+      "rate": 0.95
+    },
+    "context_linear_weighted_cohens_kappa": 0.9534883720930233,
+    "reporting_boundary": "Pre-adjudication agreement is preserved; final labels are consensus classifications, not 100% reviewer agreement."
+  },
+  "conditions": {
+    "baseline": {
+      "checkpoints": 10,
+      "trajectories": 4,
+      "reuse_class_counts": {
+        "R0": 0,
+        "R1": 5,
+        "R2": 4,
+        "R3": 1
+      },
+      "context_class_counts": {
+        "C0": 1,
+        "C1": 4,
+        "C2": 1,
+        "C3": 4
+      },
+      "missed_reuse": {
+        "definition": "R2 or R3",
+        "checkpoints": 5,
+        "trajectories": 2,
+        "by_context": {
+          "C0": 0,
+          "C1": 4,
+          "C2": 1,
+          "C3": 0
+        }
+      },
+      "tasks": [
+        {
+          "task_slug": "addInOrder",
+          "turns": [
+            1,
+            2
+          ],
+          "reuse_sequence": [
+            "R3",
+            "R1"
+          ],
+          "context_sequence": [
+            "C2",
+            "C3"
+          ]
+        },
+        {
+          "task_slug": "ensureCapacity",
+          "turns": [
+            1,
+            2,
+            3
+          ],
+          "reuse_sequence": [
+            "R1",
+            "R1",
+            "R1"
+          ],
+          "context_sequence": [
+            "C3",
+            "C3",
+            "C3"
+          ]
+        },
+        {
+          "task_slug": "loadDocuments",
+          "turns": [
+            1
+          ],
+          "reuse_sequence": [
+            "R1"
+          ],
+          "context_sequence": [
+            "C0"
+          ]
+        },
+        {
+          "task_slug": "nodeArrayMerge",
+          "turns": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "reuse_sequence": [
+            "R2",
+            "R2",
+            "R2",
+            "R2"
+          ],
+          "context_sequence": [
+            "C1",
+            "C1",
+            "C1",
+            "C1"
+          ]
+        }
+      ]
+    },
+    "engineering-guardrails": {
+      "checkpoints": 9,
+      "trajectories": 4,
+      "reuse_class_counts": {
+        "R0": 0,
+        "R1": 5,
+        "R2": 3,
+        "R3": 1
+      },
+      "context_class_counts": {
+        "C0": 1,
+        "C1": 4,
+        "C2": 0,
+        "C3": 4
+      },
+      "missed_reuse": {
+        "definition": "R2 or R3",
+        "checkpoints": 4,
+        "trajectories": 1,
+        "by_context": {
+          "C0": 0,
+          "C1": 4,
+          "C2": 0,
+          "C3": 0
+        }
+      },
+      "tasks": [
+        {
+          "task_slug": "addInOrder",
+          "turns": [
+            2
+          ],
+          "reuse_sequence": [
+            "R1"
+          ],
+          "context_sequence": [
+            "C3"
+          ]
+        },
+        {
+          "task_slug": "ensureCapacity",
+          "turns": [
+            1,
+            2,
+            3
+          ],
+          "reuse_sequence": [
+            "R1",
+            "R1",
+            "R1"
+          ],
+          "context_sequence": [
+            "C3",
+            "C3",
+            "C3"
+          ]
+        },
+        {
+          "task_slug": "loadDocuments",
+          "turns": [
+            1
+          ],
+          "reuse_sequence": [
+            "R1"
+          ],
+          "context_sequence": [
+            "C0"
+          ]
+        },
+        {
+          "task_slug": "nodeArrayMerge",
+          "turns": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "reuse_sequence": [
+            "R3",
+            "R2",
+            "R2",
+            "R2"
+          ],
+          "context_sequence": [
+            "C1",
+            "C1",
+            "C1",
+            "C1"
+          ]
+        }
+      ]
+    },
+    "engineering-guardrails-retrieval": {
+      "checkpoints": 14,
+      "trajectories": 5,
+      "reuse_class_counts": {
+        "R0": 0,
+        "R1": 14,
+        "R2": 0,
+        "R3": 0
+      },
+      "context_class_counts": {
+        "C0": 1,
+        "C1": 0,
+        "C2": 0,
+        "C3": 13
+      },
+      "missed_reuse": {
+        "definition": "R2 or R3",
+        "checkpoints": 0,
+        "trajectories": 0,
+        "by_context": {
+          "C0": 0,
+          "C1": 0,
+          "C2": 0,
+          "C3": 0
+        }
+      },
+      "tasks": [
+        {
+          "task_slug": "addInOrder",
+          "turns": [
+            1,
+            2
+          ],
+          "reuse_sequence": [
+            "R1",
+            "R1"
+          ],
+          "context_sequence": [
+            "C3",
+            "C3"
+          ]
+        },
+        {
+          "task_slug": "diff",
+          "turns": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "reuse_sequence": [
+            "R1",
+            "R1",
+            "R1",
+            "R1"
+          ],
+          "context_sequence": [
+            "C3",
+            "C3",
+            "C3",
+            "C3"
+          ]
+        },
+        {
+          "task_slug": "ensureCapacity",
+          "turns": [
+            1,
+            2,
+            3
+          ],
+          "reuse_sequence": [
+            "R1",
+            "R1",
+            "R1"
+          ],
+          "context_sequence": [
+            "C3",
+            "C3",
+            "C3"
+          ]
+        },
+        {
+          "task_slug": "loadDocuments",
+          "turns": [
+            1
+          ],
+          "reuse_sequence": [
+            "R1"
+          ],
+          "context_sequence": [
+            "C0"
+          ]
+        },
+        {
+          "task_slug": "nodeArrayMerge",
+          "turns": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "reuse_sequence": [
+            "R1",
+            "R1",
+            "R1",
+            "R1"
+          ],
+          "context_sequence": [
+            "C3",
+            "C3",
+            "C3",
+            "C3"
+          ]
+        }
+      ]
+    }
+  },
+  "paired_comparisons": {
+    "guardrails_vs_baseline": {
+      "shared_functionally_correct_checkpoints": 9,
+      "reuse_transitions": {
+        "R1->R1": 5,
+        "R2->R2": 3,
+        "R2->R3": 1
+      },
+      "context_transitions": {
+        "C0->C0": 1,
+        "C1->C1": 4,
+        "C3->C3": 4
+      },
+      "missed_to_appropriate": [],
+      "appropriate_to_missed": [],
+      "newly_functionally_correct_after": [],
+      "lost_functional_correctness_after": [
+        {
+          "task_slug": "addInOrder",
+          "turn": 1,
+          "reuse_class": "R3"
+        }
+      ]
+    },
+    "retrieval_vs_guardrails": {
+      "shared_functionally_correct_checkpoints": 9,
+      "reuse_transitions": {
+        "R1->R1": 5,
+        "R2->R1": 3,
+        "R3->R1": 1
+      },
+      "context_transitions": {
+        "C0->C0": 1,
+        "C1->C3": 4,
+        "C3->C3": 4
+      },
+      "missed_to_appropriate": [
+        {
+          "task_slug": "nodeArrayMerge",
+          "turn": 1,
+          "transition": "R3->R1"
+        },
+        {
+          "task_slug": "nodeArrayMerge",
+          "turn": 2,
+          "transition": "R2->R1"
+        },
+        {
+          "task_slug": "nodeArrayMerge",
+          "turn": 3,
+          "transition": "R2->R1"
+        },
+        {
+          "task_slug": "nodeArrayMerge",
+          "turn": 4,
+          "transition": "R2->R1"
+        }
+      ],
+      "appropriate_to_missed": [],
+      "newly_functionally_correct_after": [
+        {
+          "task_slug": "addInOrder",
+          "turn": 1,
+          "reuse_class": "R1"
+        },
+        {
+          "task_slug": "diff",
+          "turn": 1,
+          "reuse_class": "R1"
+        },
+        {
+          "task_slug": "diff",
+          "turn": 2,
+          "reuse_class": "R1"
+        },
+        {
+          "task_slug": "diff",
+          "turn": 3,
+          "reuse_class": "R1"
+        },
+        {
+          "task_slug": "diff",
+          "turn": 4,
+          "reuse_class": "R1"
+        }
+      ],
+      "lost_functional_correctness_after": []
+    },
+    "retrieval_vs_baseline": {
+      "shared_functionally_correct_checkpoints": 10,
+      "reuse_transitions": {
+        "R1->R1": 5,
+        "R2->R1": 4,
+        "R3->R1": 1
+      },
+      "context_transitions": {
+        "C0->C0": 1,
+        "C1->C3": 4,
+        "C2->C3": 1,
+        "C3->C3": 4
+      },
+      "missed_to_appropriate": [
+        {
+          "task_slug": "addInOrder",
+          "turn": 1,
+          "transition": "R3->R1"
+        },
+        {
+          "task_slug": "nodeArrayMerge",
+          "turn": 1,
+          "transition": "R2->R1"
+        },
+        {
+          "task_slug": "nodeArrayMerge",
+          "turn": 2,
+          "transition": "R2->R1"
+        },
+        {
+          "task_slug": "nodeArrayMerge",
+          "turn": 3,
+          "transition": "R2->R1"
+        },
+        {
+          "task_slug": "nodeArrayMerge",
+          "turn": 4,
+          "transition": "R2->R1"
+        }
+      ],
+      "appropriate_to_missed": [],
+      "newly_functionally_correct_after": [
+        {
+          "task_slug": "diff",
+          "turn": 1,
+          "reuse_class": "R1"
+        },
+        {
+          "task_slug": "diff",
+          "turn": 2,
+          "reuse_class": "R1"
+        },
+        {
+          "task_slug": "diff",
+          "turn": 3,
+          "reuse_class": "R1"
+        },
+        {
+          "task_slug": "diff",
+          "turn": 4,
+          "reuse_class": "R1"
+        }
+      ],
+      "lost_functional_correctness_after": []
+    }
+  },
+  "lineage_analysis": {
+    "primary_inferential_unit": "trajectory lineage",
+    "clean_paired_lineages": 4,
+    "improved_lineages": 1,
+    "unchanged_appropriate_lineages": 3,
+    "worsened_lineages": 0,
+    "lineages": [
+      {
+        "task_slug": "addInOrder",
+        "shared_turns": [
+          2
+        ],
+        "guardrails_sequence": [
+          "R1"
+        ],
+        "retrieval_sequence": [
+          "R1"
+        ],
+        "outcome": "unchanged-appropriate"
+      },
+      {
+        "task_slug": "ensureCapacity",
+        "shared_turns": [
+          1,
+          2,
+          3
+        ],
+        "guardrails_sequence": [
+          "R1",
+          "R1",
+          "R1"
+        ],
+        "retrieval_sequence": [
+          "R1",
+          "R1",
+          "R1"
+        ],
+        "outcome": "unchanged-appropriate"
+      },
+      {
+        "task_slug": "loadDocuments",
+        "shared_turns": [
+          1
+        ],
+        "guardrails_sequence": [
+          "R1"
+        ],
+        "retrieval_sequence": [
+          "R1"
+        ],
+        "outcome": "unchanged-appropriate"
+      },
+      {
+        "task_slug": "nodeArrayMerge",
+        "shared_turns": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "guardrails_sequence": [
+          "R3",
+          "R2",
+          "R2",
+          "R2"
+        ],
+        "retrieval_sequence": [
+          "R1",
+          "R1",
+          "R1",
+          "R1"
+        ],
+        "outcome": "improved"
+      }
+    ],
+    "note": "Turns are repeated dependent observations within a lineage and are not independent replicates."
+  },
+  "incorrect_task_diagnosis": {
+    "task_slug": "randomAccessScoreProvider",
+    "scope": "Both new Pilot B conditions; all five checkpoints in each condition",
+    "functional_outcome": "No checkpoint compiled; therefore none is eligible for reuse classification.",
+    "common_failure": "Every generated version calls a nonexistent SearchScoreProvider.exact(...) factory.",
+    "guardrails_only": "The model also invents its own ThreadLocal construction and never discovers the repository's DefaultSearchScoreProvider.exact(...) factory.",
+    "retrieval_condition": "The model correctly adopts the supplied RandomAccessVectorValues.threadLocalSupplier(), but the packet omits DefaultSearchScoreProvider.exact(...), so it still hallucinates SearchScoreProvider.exact(...).",
+    "interpretation": "This is evidence of an incomplete retrieval packet for the integration path, not evidence that explicit complete repository context was ignored. Do not count it in the R0-R3 reuse denominator because it fails the functional gate."
+  },
+  "interpretation": {
+    "guardrails_only": "Guardrails alone leave the nodeArrayMerge lineage on a missed-reuse path (R3, R2, R2, R2); advice without API exposure does not redirect it.",
+    "retrieval": "All 14 retrieval-supported eligible correct checkpoints are R1. In the four clean paired lineages, nodeArrayMerge improves and the other three remain appropriately reused.",
+    "boundary": "This is targeted mechanism evidence from a purposive sample with one run per condition and dependent turns, not a population-level causal estimate."
+  },
+  "source_artifacts": {
+    "adjudicated_review": {
+      "path": "data/processed/pilot-b-reuse-review-adjudicated.json",
+      "sha256": "a794e0c1ab6151cae585785976b9b95200ff1f231c170162386e5f0d055dffa8"
+    },
+    "agreement": "results/pilot/pilot-b-reuse-review-agreement.json",
+    "adjudication": "results/pilot/pilot-b-reuse-adjudication.json"
+  },
+  "functional_batch_id": "pilot-b-20260924T233242Z"
+}
