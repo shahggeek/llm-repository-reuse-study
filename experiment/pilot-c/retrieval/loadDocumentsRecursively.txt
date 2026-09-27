@@ -1,0 +1,18 @@
+Task: loadDocumentsRecursively
+Repository: langchain4j
+Target file: langchain4j/src/main/java/dev/langchain4j/data/document/loader/FileSystemDocumentLoader.java
+
+Available API:
+
+```java
+private static List<Document> loadDocuments(
+        Stream<Path> pathStream,
+        PathMatcher pathMatcher,
+        Path pathMatcherRoot,
+        DocumentParser documentParser)
+```
+
+Behavioral contract visible in the repository:
+
+- The stream overload owns regular-file filtering, relative-path matching, single-file loading, blank-document suppression, warning, and skip-on-load-failure behavior.
+- Pass `(path) -> true` when every regular file under the traversal root is eligible.

@@ -534,3 +534,29 @@ allow an LLM/AI assistant for scoring or rationales; record and exclude any
 AI-assisted submission from the primary result. Target five reviewers and
 accept a minimum of three for exploratory reporting. Preserve each returned
 workbook unchanged and record its SHA-256 before extraction.
+
+## 2026-09-27 — Pilot C cross-repository replication frozen
+
+Freeze a 12-trajectory replication before model contact: two public SR-Eval
+tasks, two conditions, and three independent fresh sessions per cell. Select
+`loadDocumentsRecursively` (`langchain4j`, hash
+`3ac2084e8f23beb3709c38d6`) and `merge` (`spring-ai`, hash
+`0fa49588ebdc16e8fd289f95`). This moves the mechanism check outside JVector
+and adds repeated runs without introducing employer artifacts.
+
+Both reference trajectories passed every cumulative smoke check (six of six)
+in the pinned Java environment. The LangChain4j natural slice contains an
+exact helper call but not the helper declaration or its skip-on-failure
+contract. The Spring AI slice exposes the cache field but not the three
+conversion/reflection helper declarations, giving a stronger latent-reuse
+case. Preserve this visibility difference in interpretation rather than
+collapsing both tasks into one context class.
+
+Use the existing frozen guardrail text in both conditions. Add only the frozen
+task-specific declaration-and-contract packet in the retrieval condition.
+Use GPT-5.6 Sol, High reasoning, Auto off, Codex CLI 0.153.0, a fresh empty
+read-only session for every run, no web search, no test feedback, and no retry
+after model contact. Store repetition explicitly under run-record schema v3.
+Treat turns as dependent and the three sessions as repeated task-level draws;
+do not present the 24 checkpoints as independent samples or a broad causal
+estimate.

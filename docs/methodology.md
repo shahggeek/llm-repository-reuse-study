@@ -39,9 +39,10 @@ subsequent evolution steps?
 | Model | GPT-5.6 Sol |
 | Reasoning | High |
 | Automatic model routing | Disabled |
-| Replications | 1 per trajectory/condition |
+| Replications | 1 per Pilot A/B trajectory/condition; 3 per Pilot C task/condition |
 | Pilot A condition | Baseline instructions |
 | Pilot B conditions | Existing baseline; fixed guardrails; fixed guardrails plus a bounded repository API packet |
+| Pilot C conditions | Fixed guardrails; identical guardrails plus a predeclared bounded repository API packet |
 
 The exact product/interface name, displayed model name, timestamps, permission
 settings, and any observable tool configuration must be stored with every run.
@@ -108,6 +109,14 @@ The retrieval treatment is deliberately targeted using candidates identified
 in the completed Pilot A reuse audit. It tests whether making relevant
 abstractions explicit can change observed behavior in these cases; it does not
 estimate the effectiveness of general-purpose repository retrieval.
+
+Pilot C repeats the guardrails-versus-retrieval contrast outside JVector on
+two executable public tasks from distinct repositories. Task selection,
+candidate symbols, packet contents, prompt hashes, and three repetitions per
+cell are frozen before any Pilot C model contact. Repetition is independent at
+the session level; turns within a trajectory remain dependent. The analysis
+therefore reports task-level patterns and within-task run distributions rather
+than treating the 24 checkpoints as independent observations.
 Each resulting checkpoint is evaluated against five rules:
 
 1. Inspect and reuse applicable existing behavior.

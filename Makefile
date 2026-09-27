@@ -6,6 +6,9 @@ SR_EVAL_PYTHON ?= 3.13
 AMENDMENT_CODEX ?= $(CURDIR)/.tools/codex-cli-0.153.0/node_modules/.bin/codex
 PILOT_B_CODEX ?= $(AMENDMENT_CODEX)
 PILOT_B_CONDITION ?= engineering-guardrails
+PILOT_C_CODEX ?= $(AMENDMENT_CODEX)
+PILOT_C_CONDITION ?= engineering-guardrails
+PILOT_C_REPETITION ?=
 STRUCTURAL_RUN = uv run --python "$(SR_EVAL_PYTHON)" --no-project --with "tree-sitter==0.25.2" --with "tree-sitter-java==0.23.5" --with "lizard==1.17.31"
 TOOL_BIN := $(CURDIR)/.tools/bin
 UV_CACHE_DIR ?= $(CURDIR)/.cache/uv
@@ -14,7 +17,7 @@ export PATH := $(TOOL_BIN):$(PATH)
 export UV_CACHE_DIR
 export UV_PYTHON_INSTALL_DIR
 
-.PHONY: bootstrap check prepare doctor tasks export smoke-dry-run smoke smoke-all pilot-a pilot-a-all test-pilot-a amendment-cli amendment-validate amendment-export amendment-preflight amendment-smoke-dry-run pilot-a-amendment pilot-a-amendment-all test-pilot-a-amendment audit-prompt-context summarize-pilot-a-adjusted structural-check structural-pilot reuse-screen reuse-agreement reuse-full-review pilot-b-check pilot-b-preflight pilot-b pilot-b-all test-pilot-b summarize-pilot-b reuse-pilot-b reuse-pilot-b-final
+.PHONY: bootstrap check prepare doctor tasks export smoke-dry-run smoke smoke-all pilot-a pilot-a-all test-pilot-a amendment-cli amendment-validate amendment-export amendment-preflight amendment-smoke-dry-run pilot-a-amendment pilot-a-amendment-all test-pilot-a-amendment audit-prompt-context summarize-pilot-a-adjusted structural-check structural-pilot reuse-screen reuse-agreement reuse-full-review pilot-b-check pilot-b-preflight pilot-b pilot-b-all test-pilot-b summarize-pilot-b reuse-pilot-b reuse-pilot-b-final pilot-c-check pilot-c-preflight pilot-c pilot-c-all test-pilot-c
 
 bootstrap:
 	bash scripts/bootstrap_tools.sh
@@ -23,6 +26,7 @@ check:
 	$(PYTHON) -m unittest discover -s tests -v
 	$(PYTHON) scripts/pilot.py validate-manifest
 	$(PYTHON) scripts/pilot_b.py
+	$(PYTHON) scripts/pilot_c.py
 
 prepare:
 	bash scripts/prepare_sr_eval.sh "$(SR_EVAL_DIR)"
@@ -127,3 +131,18 @@ reuse-pilot-b-final:
 	node scripts/extract_pilot_b_reuse_review.mjs
 	$(PYTHON) scripts/calculate_pilot_b_reuse_agreement.py
 	$(PYTHON) scripts/finalize_pilot_b_reuse.py
+
+pilot-c-check:
+	$(PYTHON) scripts/pilot_c.py --check-dataset --sr-eval "$(SR_EVAL_DIR)"
+
+pilot-c-preflight:
+	$(PYTHON) scripts/run_pilot_c.py --codex "$(PILOT_C_CODEX)" --preflight
+
+pilot-c:
+	$(PYTHON) scripts/run_pilot_c.py --codex "$(PILOT_C_CODEX)" --condition "$(PILOT_C_CONDITION)" --task "$(TASK)" $(if $(PILOT_C_REPETITION),--repetition "$(PILOT_C_REPETITION)")
+
+pilot-c-all:
+	$(PYTHON) scripts/run_pilot_c.py --codex "$(PILOT_C_CODEX)" --condition "$(PILOT_C_CONDITION)" --all $(if $(PILOT_C_REPETITION),--repetition "$(PILOT_C_REPETITION)")
+
+test-pilot-c:
+	uv run --python "$(SR_EVAL_PYTHON)" --no-project --with "docker==7.1.0" python scripts/evaluate_pilot_c.py --sr-eval "$(SR_EVAL_DIR)" --container "$(CONTAINER)" --condition "$(PILOT_C_CONDITION)" --all $(if $(PILOT_C_REPETITION),--repetition "$(PILOT_C_REPETITION)")

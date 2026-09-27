@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "batch_id": "pilot-c-20260927T143502Z",
+  "model_contacted": false,
+  "tasks": [
+    {
+      "slug": "loadDocumentsRecursively",
+      "hash_id": "3ac2084e8f23beb3709c38d6",
+      "conditions": [
+        {
+          "condition": "engineering-guardrails",
+          "repetitions": 3,
+          "turns_per_repetition": 2,
+          "planned_run_ids": [
+            "pilot-c-20260927T143502Z-engineering-guardrails-loadDocumentsRecursively-r01",
+            "pilot-c-20260927T143502Z-engineering-guardrails-loadDocumentsRecursively-r02",
+            "pilot-c-20260927T143502Z-engineering-guardrails-loadDocumentsRecursively-r03"
+          ],
+          "prompt_skeleton_sha256": [
+            "3a7efce5e41b19a6b33d52935270571896856dbbd99fdd425b8f2ebb033f375a",
+            "777797d74ebe739b1f57218cbebdbb864c50bb183ba70142a4b91a7297a351a3"
+          ]
+        },
+        {
+          "condition": "engineering-guardrails-retrieval",
+          "repetitions": 3,
+          "turns_per_repetition": 2,
+          "planned_run_ids": [
+            "pilot-c-20260927T143502Z-engineering-guardrails-retrieval-loadDocumentsRecursively-r01",
+            "pilot-c-20260927T143502Z-engineering-guardrails-retrieval-loadDocumentsRecursively-r02",
+            "pilot-c-20260927T143502Z-engineering-guardrails-retrieval-loadDocumentsRecursively-r03"
+          ],
+          "prompt_skeleton_sha256": [
+            "9690fcf2704b920ff24381d2183c74f35799cf7b84285324bd10b9b97bfc70b5",
+            "f31873827db5896859ea7542569807cc2702589095a0b1b4e1312beb1a4c9f18"
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "merge",
+      "hash_id": "0fa49588ebdc16e8fd289f95",
+      "conditions": [
+        {
+          "condition": "engineering-guardrails",
+          "repetitions": 3,
+          "turns_per_repetition": 2,
+          "planned_run_ids": [
+            "pilot-c-20260927T143502Z-engineering-guardrails-merge-r01",
+            "pilot-c-20260927T143502Z-engineering-guardrails-merge-r02",
+            "pilot-c-20260927T143502Z-engineering-guardrails-merge-r03"
+          ],
+          "prompt_skeleton_sha256": [
+            "b399b1075b4865f8d0749b725f7080cc082f466d1f9c0d0b689163c17437e8d0",
+            "6fdf11738ebf3a179ff74a81b87d16a9fcfc4b2a7b44667f2548b31fe16d3988"
+          ]
+        },
+        {
+          "condition": "engineering-guardrails-retrieval",
+          "repetitions": 3,
+          "turns_per_repetition": 2,
+          "planned_run_ids": [
+            "pilot-c-20260927T143502Z-engineering-guardrails-retrieval-merge-r01",
+            "pilot-c-20260927T143502Z-engineering-guardrails-retrieval-merge-r02",
+            "pilot-c-20260927T143502Z-engineering-guardrails-retrieval-merge-r03"
+          ],
+          "prompt_skeleton_sha256": [
+            "7ef80f08e97a6bf06638500a19f76799c1999b9bacdb6ef95f23108ffd223b3a",
+            "c31392b0fffc630aae48794a35d24c259dfefaf7d0531b226110ab84af67de99"
+          ]
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "tasks": 2,
+    "repositories": 2,
+    "conditions": 2,
+    "repetitions": 3,
+    "new_trajectories": 12,
+    "prompt_skeletons": 24
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "benchmark_commit": "6cf948d69427687bf61042640223d5b318f7bc4c",
+  "container": "mrgbench_container_1",
+  "executed_at": "2026-09-27T14:30:00Z",
+  "selection_frozen_before_model_contact": true,
+  "tasks": [
+    {
+      "slug": "loadDocumentsRecursively",
+      "hash_id": "3ac2084e8f23beb3709c38d6",
+      "checks": [
+        {"checkpoint_turn": 1, "test_turn": 1, "status": "pass"},
+        {"checkpoint_turn": 2, "test_turn": 1, "status": "pass"},
+        {"checkpoint_turn": 2, "test_turn": 2, "status": "pass"}
+      ]
+    },
+    {
+      "slug": "merge",
+      "hash_id": "0fa49588ebdc16e8fd289f95",
+      "checks": [
+        {"checkpoint_turn": 1, "test_turn": 1, "status": "pass"},
+        {"checkpoint_turn": 2, "test_turn": 1, "status": "pass"},
+        {"checkpoint_turn": 2, "test_turn": 2, "status": "pass"}
+      ]
+    }
+  ],
+  "summary": {
+    "tasks": 2,
+    "checkpoints": 4,
+    "passed_checks": 6,
+    "failed_checks": 0,
+    "same_turn_failures": 0,
+    "status": "pass"
+  }
+}

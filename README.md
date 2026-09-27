@@ -18,8 +18,10 @@ paired guardrail experiment.
 - Pilot A: 18 trajectories (12 structurally rich tasks and 6 controls)
 - Pilot B: 6 reuse-sensitive trajectories across the existing baseline,
   guardrails-only, and guardrails-plus-retrieval conditions
+- Pilot C: 2 non-JVector repositories, 2 prompt conditions, and 3 independent
+  repetitions per task/condition (12 new trajectories)
 - Model: GPT-5.6 Sol, High reasoning, Auto routing disabled
-- Replications: one independent run per condition during the methodology pilot
+- Replications: one per Pilot A/B cell; three per Pilot C task/condition cell
 - Functional gate: each checkpoint must pass its current and all earlier tests
 - Generated code is retained even when it fails; functional status determines
   which analyses it enters
@@ -156,6 +158,25 @@ make test-pilot-b PILOT_B_CONDITION=engineering-guardrails
 make pilot-b-all PILOT_B_CONDITION=engineering-guardrails-retrieval
 make test-pilot-b PILOT_B_CONDITION=engineering-guardrails-retrieval
 ```
+
+Pilot C is a predeclared cross-repository replication on one LangChain4j case
+and one Spring AI case. Both reference histories passed all six cumulative
+smoke checks before selection was frozen. It generates three fresh runs under
+each of two conditions, for 12 trajectories and 24 prompt turns:
+
+```bash
+make pilot-c-check
+make pilot-c-preflight
+make pilot-c-all PILOT_C_CONDITION=engineering-guardrails
+make test-pilot-c PILOT_C_CONDITION=engineering-guardrails
+make pilot-c-all PILOT_C_CONDITION=engineering-guardrails-retrieval
+make test-pilot-c PILOT_C_CONDITION=engineering-guardrails-retrieval
+```
+
+The frozen configuration is
+[`experiment/config/pilot-c.json`](experiment/config/pilot-c.json). Each
+repetition uses a fresh session, receives no test feedback, and cannot be
+retried after model contact.
 
 Generate the validated structural metric table after functional selection:
 

@@ -1,0 +1,18 @@
+Task: merge
+Repository: spring-ai
+Target file: spring-ai-model/src/main/java/org/springframework/ai/model/ModelOptionsUtils.java
+
+Available APIs and repository state:
+
+```java
+private static final ConcurrentHashMap<Class<?>, List<String>> REQUEST_FIELD_NAMES_PER_CLASS
+public static Map<String, Object> objectToMap(Object source)
+public static <T> T mapToClass(Map<String, Object> source, Class<T> clazz)
+public static List<String> getJsonPropertyValues(Class<?> clazz)
+```
+
+Behavioral contracts visible in the repository:
+
+- `objectToMap(...)` returns an empty map for null and omits null-valued entries.
+- `mapToClass(...)` converts a map back to the requested repository model type.
+- `getJsonPropertyValues(...)` returns the class's `@JsonProperty` names; the concurrent map is the repository cache for that lookup.

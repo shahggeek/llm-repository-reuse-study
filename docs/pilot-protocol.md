@@ -57,6 +57,32 @@ plus guardrails versus guardrails alone, and the combined intervention versus
 baseline. With one run per task and condition, do not interpret these contrasts
 as population-level causal estimates.
 
+## Pilot C: cross-repository replication
+
+Pilot C is frozen independently in `experiment/config/pilot-c.json`. It uses
+two non-JVector repositories and only the two new-generation conditions:
+
+1. `engineering-guardrails`
+2. `engineering-guardrails-retrieval`
+
+The selected tasks are `loadDocumentsRecursively` from LangChain4j and `merge`
+from Spring AI. Both supplied reference trajectories passed all current and
+earlier tests at every checkpoint before the selection was frozen (six of six
+cumulative checks). Generate three independent fresh sessions per
+task/condition, for 12 trajectories and 24 turn-level prompts.
+
+The conditions must be identical through the guardrail block. Only the
+retrieval condition receives the frozen declaration-and-contract packet. Do
+not include reference solutions, tests, prior generations, or test outcomes.
+Do not retry a failed or malformed response and do not return test feedback to
+the model. Pair descriptive comparisons by task and repetition number, while
+recognizing that independent sessions are repeated draws rather than matched
+random seeds.
+
+Interpret this as a small replication and mechanism-strengthening exercise,
+not a population-level causal estimate. Report repository, task, repetition,
+checkpoint correctness, reuse class, and context class explicitly.
+
 ## Before generation
 
 1. Run `make check`.

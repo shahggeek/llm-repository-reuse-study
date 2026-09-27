@@ -1,0 +1,91 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/llm-evolution-quality-study/run-record-v3.schema.json",
+  "title": "LLM evolution Pilot C replication run",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "batch_id",
+    "run_id",
+    "repetition",
+    "task_hash",
+    "task_slug",
+    "condition",
+    "benchmark_commit",
+    "product_interface",
+    "model",
+    "started_at",
+    "prompt_sha256",
+    "prompt_source_sha256",
+    "retrieval_packet_sha256",
+    "turns"
+  ],
+  "properties": {
+    "schema_version": {"const": 3},
+    "batch_id": {"type": "string", "minLength": 1},
+    "run_id": {"type": "string", "minLength": 1},
+    "repetition": {"type": "integer", "minimum": 1},
+    "task_hash": {"type": "string", "pattern": "^[0-9a-f]{24}$"},
+    "task_slug": {"type": "string", "minLength": 1},
+    "condition": {
+      "enum": ["engineering-guardrails", "engineering-guardrails-retrieval"]
+    },
+    "benchmark_commit": {"type": "string", "pattern": "^[0-9a-f]{40}$"},
+    "product_interface": {"type": ["string", "null"]},
+    "session_id": {"type": ["string", "null"]},
+    "model": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["display_name", "slug", "reasoning_effort", "automatic_routing"],
+      "properties": {
+        "display_name": {"type": "string"},
+        "slug": {"type": "string"},
+        "reasoning_effort": {"type": "string"},
+        "automatic_routing": {"type": "boolean"},
+        "snapshot": {"type": ["string", "null"]}
+      }
+    },
+    "started_at": {"type": "string", "format": "date-time"},
+    "completed_at": {"type": ["string", "null"], "format": "date-time"},
+    "prompt_sha256": {
+      "type": "object",
+      "additionalProperties": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+    },
+    "prompt_source_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "retrieval_packet_sha256": {
+      "type": ["string", "null"],
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "turns": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["turn", "instruction", "raw_response", "extracted_code", "tests"],
+        "properties": {
+          "turn": {"type": "integer", "minimum": 1, "maximum": 5},
+          "instruction": {"type": "string"},
+          "raw_response": {"type": "string"},
+          "extracted_code": {"type": "string"},
+          "prompt": {"type": "string"},
+          "tests": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["test_turn", "status"],
+              "properties": {
+                "test_turn": {"type": "integer", "minimum": 1, "maximum": 5},
+                "status": {"enum": ["pass", "fail", "error", "not_run"]},
+                "detail": {"type": ["string", "null"]}
+              }
+            }
+          },
+          "cumulatively_correct": {"type": ["boolean", "null"]},
+          "usage": {"type": ["object", "null"]}
+        }
+      }
+    }
+  }
+}
