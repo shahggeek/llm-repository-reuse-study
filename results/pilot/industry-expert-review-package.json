@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "status": "ready-for-distribution",
+  "frozen_at": "2026-09-26",
+  "workbook": {
+    "path": "outputs/industry-expert-review/industry-expert-reuse-review.xlsx",
+    "sha256": "c78c4ba681599273779859e4b5025f10b2f1acc7b8a295e296077a1c595b01ed",
+    "sheet_count": 5,
+    "case_count": 6,
+    "review_rows": 6
+  },
+  "reviewer_instructions": {
+    "path": "outputs/industry-expert-review/industry-expert-review-instructions.md",
+    "sha256": "84b4ff66f718cd1dff7832dc71ac751dcf4c49888767578330ec1bd6f7a750b6"
+  },
+  "concealed_key": {
+    "path": "results/pilot/industry-expert-review-blind-key.json",
+    "sha256": "0e6d25641e20f86ff1d729c778af943a66870468846f9307756843942330bcfa"
+  },
+  "administration_protocol": "analysis/rq2/industry-expert-validation-protocol.md",
+  "review_scope": "Human practical judgment of code-review approval, repository fit, maintainability, duplicated behavior, and future-change risk for six blinded, functionally correct A/B comparisons.",
+  "model_policy": "No LLM or AI assistant may be used for the primary expert review. AI-assisted submissions must be disclosed and excluded from the primary analysis.",
+  "selection": {
+    "positive_reuse_contrasts": 2,
+    "reuse_persistence_contrasts": 1,
+    "appropriate_reuse_or_no_material_difference_controls": 3,
+    "repositories": ["jvector", "langchain4j"],
+    "dependent_lineage_note": "IE-RV-104 and IE-RV-105 are checkpoints from the same nodeArrayMerge trajectory and are not independent replications."
+  },
+  "quality_checks": {
+    "all_displayed_implementations_cumulatively_correct": true,
+    "balanced_retrieval_orientation": "3 variants in A and 3 variants in B",
+    "concealed_treatment_identifiers_absent_from_workbook": true,
+    "formula_error_scan_matches": 0,
+    "data_validation_rules": 13,
+    "all_sheets_visually_reviewed": true
+  }
+}

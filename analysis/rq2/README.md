@@ -3,6 +3,8 @@
 Current artifacts:
 
 - `reuse-rubric.md`: operational R0–R3 and C0–C3 review rules.
+- `industry-expert-validation-protocol.md`: blinded practical-validation
+  protocol for human code-review and maintenance judgments.
 - `pilot-reuse-findings.md`: complete Pilot A reuse findings and NARROW
   decision.
 - `blinded-review-protocol.md`: independent review and agreement procedure.
@@ -21,3 +23,7 @@ Current artifacts:
 The independent calibration and complete Pilot A review are finished. Preserve
 the raw reviewer submissions, agreement output, adjudication record, and
 prompt-provenance correction as separate artifacts.
+
+The industry-expert review is deliberately different from the rubric review:
+experts judge approval, repository fit, maintainability, duplicated behavior,
+and future-change risk rather than reproducing R0–R3/C0–C3 labels.

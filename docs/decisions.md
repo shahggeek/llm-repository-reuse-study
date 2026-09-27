@@ -514,3 +514,23 @@ paper-facing summaries, and retain the original label in Git history. This
 changes only subtype counts: Pilot A becomes R0=0, R1=13, R2=7, R3=4. The 11
 missed-reuse checkpoints, four affected trajectories, context labels, reviewer
 agreement, and narrow mechanism claim are unchanged.
+
+## 2026-09-26 — Industry expert practical-validation package frozen
+
+Use a six-case blinded A/B workbook to test practical significance rather than
+asking industry experts to repeat the R0–R3/C0–C3 coding. Collect merge
+preference, approval decisions, repository-fit and maintainability ratings,
+duplicated-behavior judgment, future-change risk, confidence, and a short
+rationale.
+
+Include three positive/persistence contrasts and three appropriate-reuse or
+no-material-difference controls. Give both variants the same repository context,
+balance the retrieved implementation between A and B, and conceal treatment
+names, run identifiers, prior labels, and findings until all planned responses
+are frozen. Treat the two `nodeArrayMerge` checkpoints as dependent observations.
+
+Require unaided human judgment for the primary analysis. Do not recommend or
+allow an LLM/AI assistant for scoring or rationales; record and exclude any
+AI-assisted submission from the primary result. Target five reviewers and
+accept a minimum of three for exploratory reporting. Preserve each returned
+workbook unchanged and record its SHA-256 before extraction.

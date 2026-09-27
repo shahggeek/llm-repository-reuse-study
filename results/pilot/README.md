@@ -55,3 +55,9 @@ pre-adjudication reliability statistics. `pilot-b-reuse-adjudication.json`
 records both disagreements and final decisions without replacing raw labels.
 `pilot-b-reuse-final-summary.json` is the paper-facing adjudicated result,
 including checkpoint transitions and lineage-level interpretation.
+
+`industry-expert-review-package.json` freezes the six-case practical validation
+package, including workbook and instruction hashes. The reviewer-facing files
+are under `outputs/industry-expert-review/`. Keep
+`industry-expert-review-blind-key.json` concealed until all planned expert
+responses are frozen.

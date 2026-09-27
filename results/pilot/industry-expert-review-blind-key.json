@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "status": "concealed-from-industry-experts",
+  "randomization_seed": 20260926,
+  "instructions": "Do not send this file, treatment names, run identifiers, reuse labels, or study findings to an expert before their completed workbook is returned.",
+  "selection_basis": "Six purposive, functionally correct A/B comparisons: two positive reuse contrasts, one later checkpoint from the same evolving lineage, and three appropriate-reuse or no-material-difference controls.",
+  "cases": [
+    {
+      "case_id": "IE-RV-101",
+      "task_slug": "loadDocuments",
+      "turn": 1,
+      "comparison": "guardrails-vs-retrieval",
+      "expected_role": "no-material-reuse-difference control",
+      "variant_a": {"condition": "engineering-guardrails-retrieval", "run_id": "pilot-b-20260924T233242Z-engineering-guardrails-retrieval-loadDocuments-01"},
+      "variant_b": {"condition": "engineering-guardrails", "run_id": "pilot-b-20260924T233242Z-engineering-guardrails-loadDocuments-01"}
+    },
+    {
+      "case_id": "IE-RV-102",
+      "task_slug": "ensureCapacity",
+      "turn": 1,
+      "comparison": "guardrails-vs-retrieval",
+      "expected_role": "appropriate-reuse control",
+      "variant_a": {"condition": "engineering-guardrails", "run_id": "pilot-b-20260924T233242Z-engineering-guardrails-ensureCapacity-01"},
+      "variant_b": {"condition": "engineering-guardrails-retrieval", "run_id": "pilot-b-20260924T233242Z-engineering-guardrails-retrieval-ensureCapacity-01"}
+    },
+    {
+      "case_id": "IE-RV-103",
+      "task_slug": "ensureCapacity",
+      "turn": 3,
+      "comparison": "guardrails-vs-retrieval",
+      "expected_role": "appropriate-reuse evolved control",
+      "variant_a": {"condition": "engineering-guardrails-retrieval", "run_id": "pilot-b-20260924T233242Z-engineering-guardrails-retrieval-ensureCapacity-01"},
+      "variant_b": {"condition": "engineering-guardrails", "run_id": "pilot-b-20260924T233242Z-engineering-guardrails-ensureCapacity-01"}
+    },
+    {
+      "case_id": "IE-RV-104",
+      "task_slug": "nodeArrayMerge",
+      "turn": 1,
+      "comparison": "guardrails-vs-retrieval",
+      "expected_role": "reuse contrast",
+      "variant_a": {"condition": "engineering-guardrails", "run_id": "pilot-b-20260924T233242Z-engineering-guardrails-nodeArrayMerge-01"},
+      "variant_b": {"condition": "engineering-guardrails-retrieval", "run_id": "pilot-b-20260924T233242Z-engineering-guardrails-retrieval-nodeArrayMerge-01"}
+    },
+    {
+      "case_id": "IE-RV-105",
+      "task_slug": "nodeArrayMerge",
+      "turn": 4,
+      "comparison": "guardrails-vs-retrieval",
+      "expected_role": "reuse-persistence contrast",
+      "variant_a": {"condition": "engineering-guardrails-retrieval", "run_id": "pilot-b-20260924T233242Z-engineering-guardrails-retrieval-nodeArrayMerge-01"},
+      "variant_b": {"condition": "engineering-guardrails", "run_id": "pilot-b-20260924T233242Z-engineering-guardrails-nodeArrayMerge-01"}
+    },
+    {
+      "case_id": "IE-RV-106",
+      "task_slug": "addInOrder",
+      "turn": 1,
+      "comparison": "baseline-vs-retrieval",
+      "expected_role": "reuse contrast",
+      "variant_a": {"condition": "baseline", "run_id": "pilot-a-amendment-20260923T012647Z-addInOrder-01"},
+      "variant_b": {"condition": "engineering-guardrails-retrieval", "run_id": "pilot-b-20260924T233242Z-engineering-guardrails-retrieval-addInOrder-01"}
+    }
+  ]
+}
