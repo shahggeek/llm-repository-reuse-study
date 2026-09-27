@@ -36,6 +36,8 @@ The task-level prompt/context quality review is in
 [`docs/prompt-context-audit.md`](docs/prompt-context-audit.md).
 The first structural result is in
 [`analysis/rq1/pilot-structural-findings.md`](analysis/rq1/pilot-structural-findings.md).
+The cross-repository replication result is in
+[`analysis/rq2/pilot-c-findings.md`](analysis/rq2/pilot-c-findings.md).
 
 To resume the current research state after a break, start with
 [`docs/resume-handoff.md`](docs/resume-handoff.md).

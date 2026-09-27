@@ -1,0 +1,417 @@
+{
+  "schema_version": 1,
+  "batch_id": "pilot-c-20260927T143502Z",
+  "design": {
+    "repositories": 2,
+    "tasks": 2,
+    "conditions": 2,
+    "repetitions_per_task_condition": 3,
+    "trajectories": 12,
+    "checkpoints": 24
+  },
+  "functional": {
+    "passed_checks": 18,
+    "failed_checks": 18,
+    "cumulatively_correct_checkpoints": 12,
+    "ineligible_checkpoints": 12,
+    "by_condition": {
+      "engineering-guardrails": {
+        "checkpoints": 12,
+        "cumulatively_correct_checkpoints": 6,
+        "fully_exposed_candidate_checkpoints": 7,
+        "failure_classes": {
+          "compilation": 2,
+          "pass": 6,
+          "repository-style-gate": 4
+        }
+      },
+      "engineering-guardrails-retrieval": {
+        "checkpoints": 12,
+        "cumulatively_correct_checkpoints": 6,
+        "fully_exposed_candidate_checkpoints": 12,
+        "failure_classes": {
+          "behavioral-contract": 4,
+          "compilation": 2,
+          "pass": 6
+        }
+      }
+    },
+    "by_repository": {
+      "langchain4j": {
+        "checkpoints": 12,
+        "cumulatively_correct_checkpoints": 12,
+        "failure_classes": {
+          "pass": 12
+        }
+      },
+      "spring-ai": {
+        "checkpoints": 12,
+        "cumulatively_correct_checkpoints": 0,
+        "failure_classes": {
+          "behavioral-contract": 4,
+          "compilation": 4,
+          "repository-style-gate": 4
+        }
+      }
+    }
+  },
+  "reuse": {
+    "primary_eligible_checkpoints": 12,
+    "primary_r1_checkpoints": 12,
+    "primary_result": "All eligible checkpoints reused the repository stream helper in both conditions.",
+    "spring_ai_diagnostic_only": {
+      "engineering-guardrails": {
+        "checkpoints": 6,
+        "all_four_packet_symbols_present": 1
+      },
+      "engineering-guardrails-retrieval": {
+        "checkpoints": 6,
+        "all_four_packet_symbols_present": 6
+      }
+    }
+  },
+  "interpretation": [
+    "The LangChain4j case replicates reliable repository-helper reuse but has a ceiling in both conditions, so it does not identify a retrieval increment.",
+    "The Spring AI packet increased complete candidate-symbol uptake from 1/6 to 6/6 checkpoints, but all Spring AI checkpoints remained functionally ineligible.",
+    "Pilot C therefore supports the narrow mechanism distinction that explicit context changes API uptake, while showing that API visibility alone is insufficient for functional repository fit.",
+    "The two tasks do not support a broad cross-repository causal effect claim."
+  ],
+  "checkpoints": [
+    {
+      "run_id": "pilot-c-20260927T143502Z-engineering-guardrails-loadDocumentsRecursively-r01",
+      "repo": "langchain4j",
+      "task": "loadDocumentsRecursively",
+      "condition": "engineering-guardrails",
+      "repetition": 1,
+      "turn": 1,
+      "cumulatively_correct": true,
+      "failure_class": "pass",
+      "candidate_symbols_present": 1,
+      "candidate_symbols_total": 1,
+      "all_candidate_symbols_present": true,
+      "candidate_helper_reused": true
+    },
+    {
+      "run_id": "pilot-c-20260927T143502Z-engineering-guardrails-loadDocumentsRecursively-r01",
+      "repo": "langchain4j",
+      "task": "loadDocumentsRecursively",
+      "condition": "engineering-guardrails",
+      "repetition": 1,
+      "turn": 2,
+      "cumulatively_correct": true,
+      "failure_class": "pass",
+      "candidate_symbols_present": 1,
+      "candidate_symbols_total": 1,
+      "all_candidate_symbols_present": true,
+      "candidate_helper_reused": true
+    },
+    {
+      "run_id": "pilot-c-20260927T143502Z-engineering-guardrails-loadDocumentsRecursively-r02",
+      "repo": "langchain4j",
+      "task": "loadDocumentsRecursively",
+      "condition": "engineering-guardrails",
+      "repetition": 2,
+      "turn": 1,
+      "cumulatively_correct": true,
+      "failure_class": "pass",
+      "candidate_symbols_present": 1,
+      "candidate_symbols_total": 1,
+      "all_candidate_symbols_present": true,
+      "candidate_helper_reused": true
+    },
+    {
+      "run_id": "pilot-c-20260927T143502Z-engineering-guardrails-loadDocumentsRecursively-r02",
+      "repo": "langchain4j",
+      "task": "loadDocumentsRecursively",
+      "condition": "engineering-guardrails",
+      "repetition": 2,
+      "turn": 2,
+      "cumulatively_correct": true,
+      "failure_class": "pass",
+      "candidate_symbols_present": 1,
+      "candidate_symbols_total": 1,
+      "all_candidate_symbols_present": true,
+      "candidate_helper_reused": true
+    },
+    {
+      "run_id": "pilot-c-20260927T143502Z-engineering-guardrails-loadDocumentsRecursively-r03",
+      "repo": "langchain4j",
+      "task": "loadDocumentsRecursively",
+      "condition": "engineering-guardrails",
+      "repetition": 3,
+      "turn": 1,
+      "cumulatively_correct": true,
+      "failure_class": "pass",
+      "candidate_symbols_present": 1,
+      "candidate_symbols_total": 1,
+      "all_candidate_symbols_present": true,
+      "candidate_helper_reused": true
+    },
+    {
+      "run_id": "pilot-c-20260927T143502Z-engineering-guardrails-loadDocumentsRecursively-r03",
+      "repo": "langchain4j",
+      "task": "loadDocumentsRecursively",
+      "condition": "engineering-guardrails",
+      "repetition": 3,
+      "turn": 2,
+      "cumulatively_correct": true,
+      "failure_class": "pass",
+      "candidate_symbols_present": 1,
+      "candidate_symbols_total": 1,
+      "all_candidate_symbols_present": true,
+      "candidate_helper_reused": true
+    },
+    {
+      "run_id": "pilot-c-20260927T143502Z-engineering-guardrails-merge-r01",
+      "repo": "spring-ai",
+      "task": "merge",
+      "condition": "engineering-guardrails",
+      "repetition": 1,
+      "turn": 1,
+      "cumulatively_correct": false,
+      "failure_class": "compilation",
+      "candidate_symbols_present": 3,
+      "candidate_symbols_total": 4,
+      "all_candidate_symbols_present": false,
+      "candidate_helper_reused": false
+    },
+    {
+      "run_id": "pilot-c-20260927T143502Z-engineering-guardrails-merge-r01",
+      "repo": "spring-ai",
+      "task": "merge",
+      "condition": "engineering-guardrails",
+      "repetition": 1,
+      "turn": 2,
+      "cumulatively_correct": false,
+      "failure_class": "compilation",
+      "candidate_symbols_present": 3,
+      "candidate_symbols_total": 4,
+      "all_candidate_symbols_present": false,
+      "candidate_helper_reused": false
+    },
+    {
+      "run_id": "pilot-c-20260927T143502Z-engineering-guardrails-merge-r02",
+      "repo": "spring-ai",
+      "task": "merge",
+      "condition": "engineering-guardrails",
+      "repetition": 2,
+      "turn": 1,
+      "cumulatively_correct": false,
+      "failure_class": "repository-style-gate",
+      "candidate_symbols_present": 3,
+      "candidate_symbols_total": 4,
+      "all_candidate_symbols_present": false,
+      "candidate_helper_reused": false
+    },
+    {
+      "run_id": "pilot-c-20260927T143502Z-engineering-guardrails-merge-r02",
+      "repo": "spring-ai",
+      "task": "merge",
+      "condition": "engineering-guardrails",
+      "repetition": 2,
+      "turn": 2,
+      "cumulatively_correct": false,
+      "failure_class": "repository-style-gate",
+      "candidate_symbols_present": 3,
+      "candidate_symbols_total": 4,
+      "all_candidate_symbols_present": false,
+      "candidate_helper_reused": false
+    },
+    {
+      "run_id": "pilot-c-20260927T143502Z-engineering-guardrails-merge-r03",
+      "repo": "spring-ai",
+      "task": "merge",
+      "condition": "engineering-guardrails",
+      "repetition": 3,
+      "turn": 1,
+      "cumulatively_correct": false,
+      "failure_class": "repository-style-gate",
+      "candidate_symbols_present": 3,
+      "candidate_symbols_total": 4,
+      "all_candidate_symbols_present": false,
+      "candidate_helper_reused": false
+    },
+    {
+      "run_id": "pilot-c-20260927T143502Z-engineering-guardrails-merge-r03",
+      "repo": "spring-ai",
+      "task": "merge",
+      "condition": "engineering-guardrails",
+      "repetition": 3,
+      "turn": 2,
+      "cumulatively_correct": false,
+      "failure_class": "repository-style-gate",
+      "candidate_symbols_present": 4,
+      "candidate_symbols_total": 4,
+      "all_candidate_symbols_present": true,
+      "candidate_helper_reused": false
+    },
+    {
+      "run_id": "pilot-c-20260927T143502Z-engineering-guardrails-retrieval-loadDocumentsRecursively-r01",
+      "repo": "langchain4j",
+      "task": "loadDocumentsRecursively",
+      "condition": "engineering-guardrails-retrieval",
+      "repetition": 1,
+      "turn": 1,
+      "cumulatively_correct": true,
+      "failure_class": "pass",
+      "candidate_symbols_present": 1,
+      "candidate_symbols_total": 1,
+      "all_candidate_symbols_present": true,
+      "candidate_helper_reused": true
+    },
+    {
+      "run_id": "pilot-c-20260927T143502Z-engineering-guardrails-retrieval-loadDocumentsRecursively-r01",
+      "repo": "langchain4j",
+      "task": "loadDocumentsRecursively",
+      "condition": "engineering-guardrails-retrieval",
+      "repetition": 1,
+      "turn": 2,
+      "cumulatively_correct": true,
+      "failure_class": "pass",
+      "candidate_symbols_present": 1,
+      "candidate_symbols_total": 1,
+      "all_candidate_symbols_present": true,
+      "candidate_helper_reused": true
+    },
+    {
+      "run_id": "pilot-c-20260927T143502Z-engineering-guardrails-retrieval-loadDocumentsRecursively-r02",
+      "repo": "langchain4j",
+      "task": "loadDocumentsRecursively",
+      "condition": "engineering-guardrails-retrieval",
+      "repetition": 2,
+      "turn": 1,
+      "cumulatively_correct": true,
+      "failure_class": "pass",
+      "candidate_symbols_present": 1,
+      "candidate_symbols_total": 1,
+      "all_candidate_symbols_present": true,
+      "candidate_helper_reused": true
+    },
+    {
+      "run_id": "pilot-c-20260927T143502Z-engineering-guardrails-retrieval-loadDocumentsRecursively-r02",
+      "repo": "langchain4j",
+      "task": "loadDocumentsRecursively",
+      "condition": "engineering-guardrails-retrieval",
+      "repetition": 2,
+      "turn": 2,
+      "cumulatively_correct": true,
+      "failure_class": "pass",
+      "candidate_symbols_present": 1,
+      "candidate_symbols_total": 1,
+      "all_candidate_symbols_present": true,
+      "candidate_helper_reused": true
+    },
+    {
+      "run_id": "pilot-c-20260927T143502Z-engineering-guardrails-retrieval-loadDocumentsRecursively-r03",
+      "repo": "langchain4j",
+      "task": "loadDocumentsRecursively",
+      "condition": "engineering-guardrails-retrieval",
+      "repetition": 3,
+      "turn": 1,
+      "cumulatively_correct": true,
+      "failure_class": "pass",
+      "candidate_symbols_present": 1,
+      "candidate_symbols_total": 1,
+      "all_candidate_symbols_present": true,
+      "candidate_helper_reused": true
+    },
+    {
+      "run_id": "pilot-c-20260927T143502Z-engineering-guardrails-retrieval-loadDocumentsRecursively-r03",
+      "repo": "langchain4j",
+      "task": "loadDocumentsRecursively",
+      "condition": "engineering-guardrails-retrieval",
+      "repetition": 3,
+      "turn": 2,
+      "cumulatively_correct": true,
+      "failure_class": "pass",
+      "candidate_symbols_present": 1,
+      "candidate_symbols_total": 1,
+      "all_candidate_symbols_present": true,
+      "candidate_helper_reused": true
+    },
+    {
+      "run_id": "pilot-c-20260927T143502Z-engineering-guardrails-retrieval-merge-r01",
+      "repo": "spring-ai",
+      "task": "merge",
+      "condition": "engineering-guardrails-retrieval",
+      "repetition": 1,
+      "turn": 1,
+      "cumulatively_correct": false,
+      "failure_class": "compilation",
+      "candidate_symbols_present": 4,
+      "candidate_symbols_total": 4,
+      "all_candidate_symbols_present": true,
+      "candidate_helper_reused": false
+    },
+    {
+      "run_id": "pilot-c-20260927T143502Z-engineering-guardrails-retrieval-merge-r01",
+      "repo": "spring-ai",
+      "task": "merge",
+      "condition": "engineering-guardrails-retrieval",
+      "repetition": 1,
+      "turn": 2,
+      "cumulatively_correct": false,
+      "failure_class": "compilation",
+      "candidate_symbols_present": 4,
+      "candidate_symbols_total": 4,
+      "all_candidate_symbols_present": true,
+      "candidate_helper_reused": false
+    },
+    {
+      "run_id": "pilot-c-20260927T143502Z-engineering-guardrails-retrieval-merge-r02",
+      "repo": "spring-ai",
+      "task": "merge",
+      "condition": "engineering-guardrails-retrieval",
+      "repetition": 2,
+      "turn": 1,
+      "cumulatively_correct": false,
+      "failure_class": "behavioral-contract",
+      "candidate_symbols_present": 4,
+      "candidate_symbols_total": 4,
+      "all_candidate_symbols_present": true,
+      "candidate_helper_reused": false
+    },
+    {
+      "run_id": "pilot-c-20260927T143502Z-engineering-guardrails-retrieval-merge-r02",
+      "repo": "spring-ai",
+      "task": "merge",
+      "condition": "engineering-guardrails-retrieval",
+      "repetition": 2,
+      "turn": 2,
+      "cumulatively_correct": false,
+      "failure_class": "behavioral-contract",
+      "candidate_symbols_present": 4,
+      "candidate_symbols_total": 4,
+      "all_candidate_symbols_present": true,
+      "candidate_helper_reused": false
+    },
+    {
+      "run_id": "pilot-c-20260927T143502Z-engineering-guardrails-retrieval-merge-r03",
+      "repo": "spring-ai",
+      "task": "merge",
+      "condition": "engineering-guardrails-retrieval",
+      "repetition": 3,
+      "turn": 1,
+      "cumulatively_correct": false,
+      "failure_class": "behavioral-contract",
+      "candidate_symbols_present": 4,
+      "candidate_symbols_total": 4,
+      "all_candidate_symbols_present": true,
+      "candidate_helper_reused": false
+    },
+    {
+      "run_id": "pilot-c-20260927T143502Z-engineering-guardrails-retrieval-merge-r03",
+      "repo": "spring-ai",
+      "task": "merge",
+      "condition": "engineering-guardrails-retrieval",
+      "repetition": 3,
+      "turn": 2,
+      "cumulatively_correct": false,
+      "failure_class": "behavioral-contract",
+      "candidate_symbols_present": 4,
+      "candidate_symbols_total": 4,
+      "all_candidate_symbols_present": true,
+      "candidate_helper_reused": false
+    }
+  ]
+}

@@ -560,3 +560,31 @@ after model contact. Store repetition explicitly under run-record schema v3.
 Treat turns as dependent and the three sessions as repeated task-level draws;
 do not present the 24 checkpoints as independent samples or a broad causal
 estimate.
+
+## 2026-09-27 — Pilot C generation and functional evaluation complete
+
+Close batch `pilot-c-20260927T143502Z` after all 12 planned trajectories and
+24 turns completed. Preserve the one failed CLI startup separately as a
+pre-contact infrastructure trace; it did not initialize a model session and
+is not a model retry. No generation received test feedback or a retry after
+model contact.
+
+The functional gate passes 18/36 cumulative test executions and 12/24
+checkpoints. All 12 LangChain4j checkpoints are cumulatively correct; all 12
+Spring AI checkpoints are ineligible. The Spring failures split into four
+compilation checkpoints, four repository-style/checkstyle checkpoints, and
+four exact behavioral-contract checkpoints. Do not pool these mechanisms as a
+single generic failure mode.
+
+All 12 eligible LangChain4j checkpoints reuse the repository stream helper
+(R1) under both conditions, producing a ceiling and no identifiable retrieval
+increment. For the functionally ineligible Spring AI checkpoints, full use of
+all four supplied repository symbols increases from 1/6 under guardrails to
+6/6 under retrieval. Treat this only as diagnostic API-uptake evidence: the
+primary functional gate excludes these checkpoints from the reuse result.
+
+The defensible Pilot C conclusion is therefore narrow. Explicit API context
+can change which repository symbols the model uses, but visibility alone does
+not guarantee functionally correct repository fit. One replicated task is a
+reuse ceiling and the other has zero eligible checkpoints, so Pilot C does not
+support a broad cross-repository causal claim.
