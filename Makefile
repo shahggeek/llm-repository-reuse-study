@@ -20,7 +20,7 @@ export PATH := $(TOOL_BIN):$(PATH)
 export UV_CACHE_DIR
 export UV_PYTHON_INSTALL_DIR
 
-.PHONY: bootstrap check paper-check paper-pdf industry-review prepare doctor tasks export smoke-dry-run smoke smoke-all pilot-a pilot-a-all test-pilot-a amendment-cli amendment-validate amendment-export amendment-preflight amendment-smoke-dry-run pilot-a-amendment pilot-a-amendment-all test-pilot-a-amendment audit-prompt-context summarize-pilot-a-adjusted structural-check structural-pilot reuse-screen reuse-agreement reuse-full-review pilot-b-check pilot-b-preflight pilot-b pilot-b-all test-pilot-b summarize-pilot-b reuse-pilot-b reuse-pilot-b-final pilot-c-check pilot-c-preflight pilot-c pilot-c-all test-pilot-c summarize-pilot-c
+.PHONY: bootstrap check paper-check paper-pdf industry-review submission-artifact prepare doctor tasks export smoke-dry-run smoke smoke-all pilot-a pilot-a-all test-pilot-a amendment-cli amendment-validate amendment-export amendment-preflight amendment-smoke-dry-run pilot-a-amendment pilot-a-amendment-all test-pilot-a-amendment audit-prompt-context summarize-pilot-a-adjusted structural-check structural-pilot reuse-screen reuse-agreement reuse-full-review pilot-b-check pilot-b-preflight pilot-b pilot-b-all test-pilot-b summarize-pilot-b reuse-pilot-b reuse-pilot-b-final pilot-c-check pilot-c-preflight pilot-c pilot-c-all test-pilot-c summarize-pilot-c
 
 bootstrap:
 	bash scripts/bootstrap_tools.sh
@@ -40,6 +40,9 @@ paper-pdf: paper-check
 
 industry-review:
 	$(INDUSTRY_REVIEW_RUN) python scripts/analyze_industry_expert_reviews.py
+
+submission-artifact:
+	$(PYTHON) scripts/build_submission_artifact.py
 
 prepare:
 	bash scripts/prepare_sr_eval.sh "$(SR_EVAL_DIR)"
