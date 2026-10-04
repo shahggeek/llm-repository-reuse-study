@@ -9,7 +9,10 @@ PILOT_B_CONDITION ?= engineering-guardrails
 PILOT_C_CODEX ?= $(AMENDMENT_CODEX)
 PILOT_C_CONDITION ?= engineering-guardrails
 PILOT_C_REPETITION ?=
+TECTONIC ?= /opt/homebrew/opt/tectonic/bin/tectonic
+TECTONIC_CACHE_DIR ?= /private/tmp/tectonic-cache
 STRUCTURAL_RUN = uv run --python "$(SR_EVAL_PYTHON)" --no-project --with "tree-sitter==0.25.2" --with "tree-sitter-java==0.23.5" --with "lizard==1.17.31"
+INDUSTRY_REVIEW_RUN = uv run --python "$(SR_EVAL_PYTHON)" --no-project --with "numbers-parser==4.19.0"
 TOOL_BIN := $(CURDIR)/.tools/bin
 UV_CACHE_DIR ?= $(CURDIR)/.cache/uv
 UV_PYTHON_INSTALL_DIR ?= $(CURDIR)/.tools/python
@@ -17,7 +20,7 @@ export PATH := $(TOOL_BIN):$(PATH)
 export UV_CACHE_DIR
 export UV_PYTHON_INSTALL_DIR
 
-.PHONY: bootstrap check prepare doctor tasks export smoke-dry-run smoke smoke-all pilot-a pilot-a-all test-pilot-a amendment-cli amendment-validate amendment-export amendment-preflight amendment-smoke-dry-run pilot-a-amendment pilot-a-amendment-all test-pilot-a-amendment audit-prompt-context summarize-pilot-a-adjusted structural-check structural-pilot reuse-screen reuse-agreement reuse-full-review pilot-b-check pilot-b-preflight pilot-b pilot-b-all test-pilot-b summarize-pilot-b reuse-pilot-b reuse-pilot-b-final pilot-c-check pilot-c-preflight pilot-c pilot-c-all test-pilot-c summarize-pilot-c
+.PHONY: bootstrap check paper-check paper-pdf industry-review prepare doctor tasks export smoke-dry-run smoke smoke-all pilot-a pilot-a-all test-pilot-a amendment-cli amendment-validate amendment-export amendment-preflight amendment-smoke-dry-run pilot-a-amendment pilot-a-amendment-all test-pilot-a-amendment audit-prompt-context summarize-pilot-a-adjusted structural-check structural-pilot reuse-screen reuse-agreement reuse-full-review pilot-b-check pilot-b-preflight pilot-b pilot-b-all test-pilot-b summarize-pilot-b reuse-pilot-b reuse-pilot-b-final pilot-c-check pilot-c-preflight pilot-c pilot-c-all test-pilot-c summarize-pilot-c
 
 bootstrap:
 	bash scripts/bootstrap_tools.sh
@@ -27,6 +30,16 @@ check:
 	$(PYTHON) scripts/pilot.py validate-manifest
 	$(PYTHON) scripts/pilot_b.py
 	$(PYTHON) scripts/pilot_c.py
+
+paper-check:
+	$(PYTHON) -m unittest discover -s tests -p "test_paper_claims.py" -v
+
+paper-pdf: paper-check
+	mkdir -p "$(TECTONIC_CACHE_DIR)"
+	cd paper && TECTONIC_CACHE_DIR="$(TECTONIC_CACHE_DIR)" "$(TECTONIC)" --keep-logs --keep-intermediates main.tex
+
+industry-review:
+	$(INDUSTRY_REVIEW_RUN) python scripts/analyze_industry_expert_reviews.py
 
 prepare:
 	bash scripts/prepare_sr_eval.sh "$(SR_EVAL_DIR)"

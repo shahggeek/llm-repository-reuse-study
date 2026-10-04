@@ -38,9 +38,15 @@ The first structural result is in
 [`analysis/rq1/pilot-structural-findings.md`](analysis/rq1/pilot-structural-findings.md).
 The cross-repository replication result is in
 [`analysis/rq2/pilot-c-findings.md`](analysis/rq2/pilot-c-findings.md).
+The frozen four-practitioner validation is summarized in
+[`analysis/rq2/industry-expert-validation-findings.md`](analysis/rq2/industry-expert-validation-findings.md).
 
 To resume the current research state after a break, start with
 [`docs/resume-handoff.md`](docs/resume-handoff.md).
+
+The SANER 2027 IEEE manuscript source is under [paper/](paper/). Its
+claim-to-evidence matrix is the control point for all paper-facing numbers and
+interpretive claims.
 
 ## Repository layout
 
