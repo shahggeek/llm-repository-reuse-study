@@ -18,6 +18,8 @@ class ReuseCandidateScreenTests(unittest.TestCase):
         self.assertEqual(0, screen.callable_occurrences("scale the pivot row", "scale"))
 
     def test_explicit_reference_only_call_has_highest_priority(self):
+        if not screen.PACKET_DIR.is_dir():
+            self.skipTest("requires the archived Pilot A task packets")
         record = {
             "task_slug": "addInOrder",
             "repository": "jvector",

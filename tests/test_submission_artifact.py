@@ -17,6 +17,8 @@ class SubmissionArtifactTests(unittest.TestCase):
         self.assertNotIn("docs/saner-industrial-ethics-inquiry-email.md", self.by_path)
         self.assertNotIn("paper/mock-review-2026-10-03.md", self.by_path)
         self.assertNotIn("paper/saner-readiness-audit.md", self.by_path)
+        self.assertFalse(any(path.startswith("paper/") for path in self.by_path))
+        self.assertFalse(any(path.startswith("outputs/") for path in self.by_path))
         private_root = "Reviewers" + "Work/"
         self.assertFalse(any(path.startswith(private_root) for path in self.by_path))
         self.assertFalse(any(path.startswith("work/infrastructure-failures/") for path in self.by_path))
@@ -42,11 +44,29 @@ class SubmissionArtifactTests(unittest.TestCase):
             self.assertEqual(set(response), {"reviewer_code", "included"})
 
     def test_expected_evidence_counts(self):
+        if not any(
+            path.startswith("data/generated-trajectories/") and path.endswith("/record.json")
+            for path in self.by_path
+        ):
+            self.skipTest("requires the complete local or packaged evidence tree")
         counts = artifact.experiment_counts(self.entries)
         artifact.validate_counts(counts)
 
     def test_secret_and_machine_path_scan(self):
         artifact.reject_private_or_secret_content(self.entries)
+
+    def test_provider_identifiers_are_pseudonymized(self):
+        records = [
+            json.loads(content)
+            for path, content in self.by_path.items()
+            if path.startswith("data/generated-trajectories/")
+            and path.endswith("/record.json")
+        ]
+        if not records:
+            self.skipTest("requires the complete local or packaged evidence tree")
+        self.assertTrue(
+            all(record["session_id"].startswith("session-") for record in records)
+        )
 
 
 if __name__ == "__main__":

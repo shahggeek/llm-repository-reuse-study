@@ -1,13 +1,15 @@
 #!/usr/bin/env python3
-"""Build and verify the sanitized SANER reproducibility artifact."""
+"""Build and verify the privacy-filtered SANER public evidence artifact."""
 
 from __future__ import annotations
 
+import argparse
 import csv
 import gzip
 import hashlib
 import io
 import json
+import re
 import subprocess
 import tarfile
 from dataclasses import dataclass
@@ -17,17 +19,19 @@ from typing import Any
 
 ROOT = Path(__file__).resolve().parents[1]
 ARTIFACT_DIR = ROOT / "artifacts"
-PACKAGE_ID = "saner-2027-reproducibility-artifact-2026-10-03"
+PACKAGE_ID = "saner-2027-public-evidence-candidate-2026-10-04"
 
 INCLUDE_FILES = (
+    ".github/workflows/verify.yml",
     "Makefile",
-    "README.md",
+    "pyproject.toml",
+    "artifacts/PUBLIC_REPOSITORY_README.md",
     "artifacts/SUBMISSION_ARTIFACT_README.md",
-    "paper/README.md",
-    "paper/claim-evidence-matrix.md",
-    "paper/main.tex",
-    "paper/references.bib",
-    "paper/related-work-sources.md",
+    "docs/decisions.md",
+    "docs/methodology.md",
+    "docs/pilot-protocol.md",
+    "docs/practitioner-ethics-record.md",
+    "docs/prompt-context-audit.md",
 )
 
 INCLUDE_ROOTS = (
@@ -35,12 +39,8 @@ INCLUDE_ROOTS = (
     "data/generated-trajectories",
     "data/processed",
     "data/reference-metrics",
-    "docs",
     "environment",
     "experiment",
-    "outputs",
-    "paper/sections",
-    "results/full-study",
     "results/pilot",
     "scripts",
     "tests",
@@ -51,10 +51,13 @@ INCLUDE_ROOTS = (
 )
 
 EXCLUDED_PATHS = {
-    "docs/resume-handoff.md",
-    "docs/saner-industrial-ethics-inquiry-email.md",
-    "paper/mock-review-2026-10-03.md",
-    "paper/saner-readiness-audit.md",
+    "scripts/build_industry_expert_review_workbook.mjs",
+    "scripts/build_pilot_b_reuse_review_workbook.mjs",
+    "scripts/build_reuse_review_workbook.mjs",
+    "scripts/extract_pilot_b_reuse_review.mjs",
+    "scripts/freeze_pilot_evidence.py",
+    "tests/test_industry_expert_review_package.py",
+    "tests/test_paper_claims.py",
 }
 
 EXCLUDED_NAMES = {
@@ -92,11 +95,30 @@ FORBIDDEN_CONTENT = (
     b"GITHUB" + b"_TOKEN=",
 )
 
+EMAIL_PATTERN = re.compile(
+    rb"[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}"
+)
+UUID_PATTERN = re.compile(
+    rb"[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}"
+)
+TEXT_SUFFIXES = {
+    ".csv",
+    ".json",
+    ".jsonl",
+    ".md",
+    ".py",
+    ".sh",
+    ".txt",
+}
+IDENTIFIER_KEYS = {"session_id", "thread_id"}
+
 
 @dataclass(frozen=True)
 class ArtifactEntry:
     path: str
     content: bytes
+    source_sha256: str
+    transformations: tuple[str, ...] = ()
 
 
 def sha256_bytes(content: bytes) -> str:
@@ -188,15 +210,101 @@ def sanitized_practitioner_intake(path: Path) -> bytes:
     return (json.dumps(data, indent=2) + "\n").encode("utf-8")
 
 
+def public_identifier(value: str) -> str:
+    if value.startswith("session-"):
+        return value
+    return "session-" + hashlib.sha256(value.encode("utf-8")).hexdigest()[:16]
+
+
+def sanitize_json_identifiers(value: Any) -> Any:
+    if isinstance(value, dict):
+        return {
+            key: (
+                public_identifier(item)
+                if key in IDENTIFIER_KEYS and isinstance(item, str)
+                else sanitize_json_identifiers(item)
+            )
+            for key, item in value.items()
+        }
+    if isinstance(value, list):
+        return [sanitize_json_identifiers(item) for item in value]
+    return value
+
+
+def sanitize_json_content(content: bytes, json_lines: bool) -> bytes:
+    text = content.decode("utf-8")
+    if json_lines:
+        values = [
+            sanitize_json_identifiers(json.loads(line))
+            for line in text.splitlines()
+            if line.strip()
+        ]
+        return b"".join(
+            json.dumps(value, ensure_ascii=False, separators=(",", ":")).encode("utf-8")
+            + b"\n"
+            for value in values
+        )
+    value = sanitize_json_identifiers(json.loads(text))
+    return (json.dumps(value, indent=2, ensure_ascii=False) + "\n").encode("utf-8")
+
+
+def redact_emails(content: bytes) -> bytes:
+    def replacement(match: re.Match[bytes]) -> bytes:
+        digest = hashlib.sha256(match.group(0).lower()).hexdigest()[:10]
+        return f"[email-redacted-{digest}]".encode("ascii")
+
+    return EMAIL_PATTERN.sub(replacement, content)
+
+
+def pseudonymize_embedded_identifiers(content: bytes) -> bytes:
+    return UUID_PATTERN.sub(
+        lambda match: public_identifier(match.group(0).decode("ascii")).encode("ascii"),
+        content,
+    )
+
+
 def entry_for_path(path: Path) -> ArtifactEntry:
     relative = path.relative_to(ROOT).as_posix()
+    public_relative = (
+        "README.md"
+        if relative == "artifacts/PUBLIC_REPOSITORY_README.md"
+        else relative
+    )
+    source_content = path.read_bytes()
+    transformations: list[str] = []
     if relative == "results/pilot/industry-expert-review-responses.csv":
         content = sanitized_practitioner_responses(path)
+        transformations.append("removed-private-workbook-source-columns")
     elif relative == "results/pilot/industry-expert-review-intake-frozen.json":
         content = sanitized_practitioner_intake(path)
+        transformations.append("removed-private-workbook-paths-and-hashes")
     else:
-        content = path.read_bytes()
-    return ArtifactEntry(relative, content)
+        content = source_content
+    if relative.startswith("data/generated-trajectories/") and path.suffix in {
+        ".json",
+        ".jsonl",
+    }:
+        sanitized = sanitize_json_content(content, path.suffix == ".jsonl")
+        if sanitized != content:
+            content = sanitized
+            transformations.append("pseudonymized-provider-session-identifiers")
+    if path.suffix in TEXT_SUFFIXES:
+        redacted = redact_emails(content)
+        if redacted != content:
+            content = redacted
+            transformations.append("redacted-email-addresses")
+    if relative.startswith("data/generated-trajectories/"):
+        pseudonymized = pseudonymize_embedded_identifiers(content)
+        if pseudonymized != content:
+            content = pseudonymized
+            if "pseudonymized-provider-session-identifiers" not in transformations:
+                transformations.append("pseudonymized-provider-session-identifiers")
+    return ArtifactEntry(
+        public_relative,
+        content,
+        sha256_bytes(source_content),
+        tuple(transformations),
+    )
 
 
 def collect_entries() -> list[ArtifactEntry]:
@@ -206,7 +314,14 @@ def collect_entries() -> list[ArtifactEntry]:
 def reject_private_or_secret_content(entries: list[ArtifactEntry]) -> None:
     findings: list[str] = []
     for entry in entries:
-        if any(pattern in entry.content for pattern in FORBIDDEN_CONTENT):
+        if (
+            any(pattern in entry.content for pattern in FORBIDDEN_CONTENT)
+            or EMAIL_PATTERN.search(entry.content)
+            or (
+                entry.path.startswith("data/generated-trajectories/")
+                and UUID_PATTERN.search(entry.content)
+            )
+        ):
             findings.append(entry.path)
     if findings:
         raise RuntimeError(
@@ -248,7 +363,7 @@ def validate_counts(counts: dict[str, int]) -> None:
         "model_event_streams": 147,
         "model_stderr_logs": 147,
         "functional_test_reports": 6,
-        "review_workbooks": 4,
+        "review_workbooks": 0,
         "practitioner_response_rows": 24,
     }
     if counts != expected:
@@ -259,20 +374,23 @@ def build_manifest(entries: list[ArtifactEntry], source_commit: str) -> dict[str
     protocol = json.loads((ROOT / "experiment/config/protocol.json").read_text())
     counts = experiment_counts(entries)
     validate_counts(counts)
-    files = [
-        {
+    files = []
+    for entry in entries:
+        item = {
             "path": entry.path,
             "bytes": len(entry.content),
             "sha256": sha256_bytes(entry.content),
         }
-        for entry in entries
-    ]
+        if entry.transformations:
+            item["source_sha256"] = entry.source_sha256
+            item["transformations"] = list(entry.transformations)
+        files.append(item)
     return {
         "schema_version": 1,
         "package_id": PACKAGE_ID,
-        "status": "sanitized-submission-candidate",
-        "built_on": "2026-10-03",
-        "source_repository": "https://github.com/shahggeek/llm-evolution-quality-study",
+        "status": "privacy-filtered-public-evidence-candidate",
+        "built_on": "2026-10-04",
+        "source_repository": "private-working-repository",
         "source_commit": source_commit,
         "benchmark": protocol["benchmark"],
         "model": protocol["model"],
@@ -282,8 +400,14 @@ def build_manifest(entries: list[ArtifactEntry], source_commit: str) -> dict[str
             "raw_practitioner_workbooks_included": False,
             "identity_mapping_included": False,
             "private_correspondence_included": False,
+            "manuscript_included": False,
+            "raw_review_workbooks_included": False,
+            "provider_session_identifiers_pseudonymized": True,
+            "email_addresses_redacted": True,
             "machine_specific_paths_permitted": False,
-            "transformed_public_files": sorted(PRIVATE_SOURCE_PATHS),
+            "transformed_public_files": sorted(
+                entry.path for entry in entries if entry.transformations
+            ),
         },
         "verification": {
             "hash_algorithm": "SHA-256",
@@ -298,16 +422,21 @@ def build_manifest(entries: list[ArtifactEntry], source_commit: str) -> dict[str
                 "Raw model outputs, event streams, stderr, and run records",
                 "Functional reports, processed metrics, reuse reviews, and adjudications",
                 "Anonymous practitioner ratings, rationales, and descriptive summaries",
-                "Analysis code, tests, decisions, manuscript sources, and claim controls",
+                "Analysis code, tests, protocol decisions, and public reproduction guidance",
             ],
             "excluded": [
+                "Manuscript sources, author metadata, and internal submission notes",
                 "Raw returned practitioner workbooks and identity/contact mappings",
+                "Reviewer-facing and completed spreadsheet workbooks",
                 "Private correspondence, chair inquiry, internal handoff, and mock-review notes",
                 "Pre-contact failure logs containing machine-specific paths",
                 "SR-Eval clone, tool installations, caches, containers, and local sessions",
             ],
             "known_limitations": [
                 "The model provider did not expose an immutable model snapshot identifier.",
+                "Public prompt copies redact email addresses found in upstream source comments; original-file hashes are recorded for transformed entries.",
+                "Provider session identifiers are replaced by deterministic public pseudonyms.",
+                "Some source evidence is Git-ignored in the private working repository; this manifest binds the exact packaged bytes.",
                 "Functional retesting requires the separately obtained pinned SR-Eval commit and container environment.",
                 "A final archive license must be selected before public deposit.",
             ],
@@ -330,15 +459,18 @@ Package: `{manifest['package_id']}`
 Source commit: `{manifest['source_commit']}`  
 SR-Eval commit: `{manifest['benchmark']['commit']}`
 
-This sanitized submission candidate covers Pilots A, B, and C plus the
+This privacy-filtered public evidence candidate covers Pilots A, B, and C plus the
 anonymous practitioner validation. It contains {counts['run_records']} run
 records, {counts['raw_model_outputs']} raw model turn outputs, and
 {counts['practitioner_response_rows']} anonymous practitioner case responses.
 
 Start with `artifacts/SUBMISSION_ARTIFACT_README.md`. Verify every file against
 `MANIFEST.json` and the archive against the adjacent `.sha256` file. Raw
-returned practitioner workbooks, identity mappings, correspondence, local
-failure logs, and the benchmark clone are not included.
+returned practitioner workbooks, identity mappings, correspondence, manuscript
+sources, local failure logs, and the benchmark clone are not included. Provider
+session identifiers are pseudonymized and email addresses embedded in source
+contexts are redacted; transformed entries retain original-file hashes in the
+manifest.
 
 This package is a verified candidate, not the final public deposit. Select and
 document an appropriate archive license before uploading it to Zenodo or
@@ -404,7 +536,28 @@ def verify_archive(archive_path: Path, manifest: dict[str, Any]) -> None:
                 raise RuntimeError(f"Forbidden content found after packaging: {path}")
 
 
+def parse_args() -> argparse.Namespace:
+    parser = argparse.ArgumentParser(
+        description="Build or verify the privacy-filtered public evidence package."
+    )
+    parser.add_argument(
+        "--verify-inputs",
+        action="store_true",
+        help="validate the complete public input inventory without writing an archive",
+    )
+    return parser.parse_args()
+
+
 def main() -> int:
+    args = parse_args()
+    if args.verify_inputs:
+        entries = collect_entries()
+        reject_private_or_secret_content(entries)
+        counts = experiment_counts(entries)
+        validate_counts(counts)
+        print(json.dumps({"status": "valid", "experiment_counts": counts}, indent=2))
+        return 0
+
     source_commit = require_clean_tree()
     entries = collect_entries()
     reject_private_or_secret_content(entries)

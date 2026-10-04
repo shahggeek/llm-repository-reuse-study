@@ -20,12 +20,18 @@ class PilotBRunnerTests(unittest.TestCase):
     def setUp(self):
         self.config = run_pilot_b.pilot_b.read_json(run_pilot_b.CONFIG_PATH)
 
+    def require_packets(self):
+        if not (ROOT / "work" / "task-packets").is_dir():
+            self.skipTest("requires the archived Pilot A task packets")
+
     def test_every_frozen_packet_loads_with_exact_prompt_source(self):
+        self.require_packets()
         for task in self.config["tasks"]:
             packet = run_pilot_b.load_packet(task)
             self.assertEqual(task["turns"], len(packet["turn_datas"]))
 
     def test_retrieval_prompt_is_guardrail_prompt_plus_frozen_packet(self):
+        self.require_packets()
         for task in self.config["tasks"]:
             packet = run_pilot_b.load_packet(task)
             turn = packet["turn_datas"][0]
@@ -59,6 +65,7 @@ class PilotBRunnerTests(unittest.TestCase):
         self.assertEqual(task["prompt_source_sha256"], retrieval["prompt_source_sha256"])
 
     def test_preflight_renders_all_planned_prompt_skeletons_without_model_contact(self):
+        self.require_packets()
         with tempfile.TemporaryDirectory() as directory:
             report = run_pilot_b.preflight(self.config, Path(directory))
             self.assertFalse(report["model_contacted"])

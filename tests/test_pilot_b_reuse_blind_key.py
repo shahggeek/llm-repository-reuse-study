@@ -25,6 +25,8 @@ class PilotBReuseBlindKeyTests(unittest.TestCase):
         self.assertEqual(5, sum(case["variant_b"]["condition"] == "engineering-guardrails-retrieval" for case in cases))
 
     def test_every_selected_checkpoint_is_cumulatively_correct(self) -> None:
+        if not (ROOT / "data/generated-trajectories/pilot-b").is_dir():
+            self.skipTest("requires the archived generated trajectories")
         for case in self.key["cases"]:
             for variant in ("variant_a", "variant_b"):
                 mapping = case[variant]
@@ -43,6 +45,8 @@ class PilotBReuseBlindKeyTests(unittest.TestCase):
 
     def test_workbook_is_frozen_and_does_not_expose_condition_identifiers(self) -> None:
         workbook = ROOT / self.manifest["workbook"]
+        if not workbook.is_file():
+            self.skipTest("review workbook is intentionally absent from public evidence")
         digest = hashlib.sha256(workbook.read_bytes()).hexdigest()
         self.assertEqual(self.manifest["workbook_sha256"], digest)
         with zipfile.ZipFile(workbook) as archive:

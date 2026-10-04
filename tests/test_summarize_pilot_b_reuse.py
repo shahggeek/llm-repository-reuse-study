@@ -13,6 +13,9 @@ SPEC.loader.exec_module(summary)
 class PilotBReuseSummaryTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
+        trajectory_root = MODULE_PATH.parents[1] / "data" / "generated-trajectories" / "pilot-b"
+        if not any(trajectory_root.glob("*/record.json")):
+            raise unittest.SkipTest("requires the archived Pilot B trajectories")
         cls.result, cls.rows = summary.build_outputs()
 
     def test_review_covers_all_new_eligible_correct_checkpoints(self):

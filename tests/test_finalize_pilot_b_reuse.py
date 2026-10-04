@@ -16,6 +16,9 @@ SPEC.loader.exec_module(finalize)
 class FinalizePilotBReuseTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
+        trajectory_root = ROOT / "data" / "generated-trajectories" / "pilot-b"
+        if not any(trajectory_root.glob("*/record.json")):
+            raise unittest.SkipTest("requires the archived Pilot B trajectories")
         cls.adjudication = finalize.build_adjudication()
         cls.review = finalize.build_adjudicated_review()
         cls.summary = finalize.build_final_summary(cls.review, cls.adjudication)

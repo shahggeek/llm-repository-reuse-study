@@ -20,7 +20,7 @@ export PATH := $(TOOL_BIN):$(PATH)
 export UV_CACHE_DIR
 export UV_PYTHON_INSTALL_DIR
 
-.PHONY: bootstrap check paper-check paper-pdf industry-review submission-artifact prepare doctor tasks export smoke-dry-run smoke smoke-all pilot-a pilot-a-all test-pilot-a amendment-cli amendment-validate amendment-export amendment-preflight amendment-smoke-dry-run pilot-a-amendment pilot-a-amendment-all test-pilot-a-amendment audit-prompt-context summarize-pilot-a-adjusted structural-check structural-pilot reuse-screen reuse-agreement reuse-full-review pilot-b-check pilot-b-preflight pilot-b pilot-b-all test-pilot-b summarize-pilot-b reuse-pilot-b reuse-pilot-b-final pilot-c-check pilot-c-preflight pilot-c pilot-c-all test-pilot-c summarize-pilot-c
+.PHONY: bootstrap check evidence-check paper-check paper-pdf industry-review submission-artifact prepare doctor tasks export smoke-dry-run smoke smoke-all pilot-a pilot-a-all test-pilot-a amendment-cli amendment-validate amendment-export amendment-preflight amendment-smoke-dry-run pilot-a-amendment pilot-a-amendment-all test-pilot-a-amendment audit-prompt-context summarize-pilot-a-adjusted structural-check structural-pilot reuse-screen reuse-agreement reuse-full-review pilot-b-check pilot-b-preflight pilot-b pilot-b-all test-pilot-b summarize-pilot-b reuse-pilot-b reuse-pilot-b-extract reuse-pilot-b-final pilot-c-check pilot-c-preflight pilot-c pilot-c-all test-pilot-c summarize-pilot-c
 
 bootstrap:
 	bash scripts/bootstrap_tools.sh
@@ -30,6 +30,9 @@ check:
 	$(PYTHON) scripts/pilot.py validate-manifest
 	$(PYTHON) scripts/pilot_b.py
 	$(PYTHON) scripts/pilot_c.py
+
+evidence-check: check
+	$(PYTHON) scripts/build_submission_artifact.py --verify-inputs
 
 paper-check:
 	$(PYTHON) -m unittest discover -s tests -p "test_paper_claims.py" -v
@@ -143,8 +146,10 @@ summarize-pilot-b:
 reuse-pilot-b:
 	$(PYTHON) scripts/summarize_pilot_b_reuse.py
 
-reuse-pilot-b-final:
+reuse-pilot-b-extract:
 	node scripts/extract_pilot_b_reuse_review.mjs
+
+reuse-pilot-b-final:
 	$(PYTHON) scripts/calculate_pilot_b_reuse_agreement.py
 	$(PYTHON) scripts/finalize_pilot_b_reuse.py
 
