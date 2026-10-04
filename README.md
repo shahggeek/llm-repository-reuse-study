@@ -1,15 +1,18 @@
 # LLM Evolution Quality Study
 
-Research code and experimental artifacts for studying structural quality, reuse,
-constraint adherence, and downstream maintenance effort in LLM-generated Java
-code under progressive requirement refinement.
+Private working repository for a study of repository-level reuse in
+LLM-generated Java code under progressive requirement refinement. The final
+paper asks when functionally correct implementations miss existing repository
+abstractions, whether that choice persists, how bounded API context changes the
+outcome in targeted tasks, and whether practitioners perceive the resulting
+implementations differently.
 
 The pilot extends the public [SR-Eval](https://github.com/AjaxZhan/SR-Eval)
 Java repository-level benchmark. SR-Eval supplies progressive requirements,
 turn-specific reference solutions, tests, and repository environments. This
 repository adds a frozen pilot sample, cumulative functional checks,
-reference-normalized structural analysis, missed-reuse review, and a small
-paired guardrail experiment.
+reference-normalized structural screening, semantic missed-reuse review,
+targeted guardrail/API-context probes, and blinded practitioner validation.
 
 ## Pilot at a glance
 
@@ -25,6 +28,8 @@ paired guardrail experiment.
 - Functional gate: each checkpoint must pass its current and all earlier tests
 - Generated code is retained even when it fails; functional status determines
   which analyses it enters
+- Final pilot decision: **NARROW** from generic structural quality to
+  repository reuse, persistence, and explicit API context
 
 The full rationale and predeclared decision rules are in
 [`docs/pilot-protocol.md`](docs/pilot-protocol.md). The decision history is in
@@ -44,9 +49,20 @@ The frozen four-practitioner validation is summarized in
 To resume the current research state after a break, start with
 [`docs/resume-handoff.md`](docs/resume-handoff.md).
 
-The SANER 2027 IEEE manuscript source is under [paper/](paper/). Its
+The SANER 2027 IEEE manuscript source is under [paper/](paper/). It is private
+working material and must not be copied into the public evidence repository. Its
 claim-to-evidence matrix is the control point for all paper-facing numbers and
 interpretive claims.
+
+## Private working repository versus public evidence
+
+This repository contains manuscript and internal research-management material
+and must remain private. `scripts/build_submission_artifact.py` creates a
+privacy-filtered public evidence candidate using an explicit allowlist. The
+public package excludes the manuscript, correspondence, raw returned
+workbooks, reviewer-facing spreadsheets, machine-specific logs, and identity
+mappings. It also pseudonymizes provider session identifiers and redacts email
+addresses embedded in upstream source comments.
 
 ## Repository layout
 
@@ -64,15 +80,21 @@ scripts/                  validation, export, and smoke-test harness
 tests/                    harness tests
 ```
 
-Raw generations, local benchmark checkouts, database files, Docker archives,
-and smoke-test logs are ignored by Git. Small derived tables intended for the
-paper may be committed after review.
+Raw generations, task packets, local benchmark checkouts, database files,
+Docker archives, and smoke-test logs are ignored by Git in this private working
+repository. The public evidence package copies the required deidentified raw
+generations, task packets, and functional reports and binds every packaged file
+with SHA-256.
 
 ## Quick start
 
-Prerequisites: Python 3.12+, Docker, Maven (inside the SR-Eval image), and enough
+Prerequisites: Python 3.9+ for core verification, Docker, Maven (inside the
+SR-Eval image), and enough
 disk space for the benchmark's Java environment. The bootstrap target installs
 pinned Git LFS and `uv` binaries locally under the ignored `.tools/` directory.
+Core verification uses only the Python standard library. Optional dependency
+groups and exact versions for Docker evaluation, structural analysis, and
+private review-workbook import are recorded in `pyproject.toml`.
 
 ```bash
 make bootstrap
@@ -82,6 +104,17 @@ make doctor
 make tasks
 make smoke-dry-run
 ```
+
+`make check` is the clean-clone core verification. Tests requiring archived raw
+evidence are reported as skipped when those ignored inputs are absent. Run
+`make evidence-check` when the complete local or packaged evidence tree is
+present; it fails if any expected trajectory or functional report is missing.
+
+The `.mjs` workbook construction and extraction utilities use the workspace-
+provided `@oai/artifact-tool` and are retained only in the private working
+repository for provenance. They and the workbooks they process are excluded
+from the public evidence package. Public verification starts from the frozen,
+deidentified CSV/JSON review records.
 
 `make prepare` clones the pinned SR-Eval revision into `.cache/SR-Eval`, fetches
 the Java environment's Git LFS objects, and reconstructs its archive. It does

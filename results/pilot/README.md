@@ -49,6 +49,8 @@ boundary was independently adjudicated in Pilot B.
 view for the six Pilot B tasks. It records generation integrity, raw outcomes,
 the primary reference-eligible outcomes, paired condition deltas, and hashes of
 the ignored run records and functional reports used to build the summary.
+`pilot-b-preflight-summary.json` records the pre-contact validation of task
+packets, run identities, prompt skeletons, and the pinned execution interface.
 
 `pilot-b-reuse-summary.json` validates and summarizes the primary reuse review
 of all 23 new eligible correct Pilot B checkpoints. It includes condition-level
@@ -62,9 +64,19 @@ pre-adjudication reliability statistics. `pilot-b-reuse-adjudication.json`
 records both disagreements and final decisions without replacing raw labels.
 `pilot-b-reuse-final-summary.json` is the paper-facing adjudicated result,
 including checkpoint transitions and lineage-level interpretation.
+`pilot-b-reuse-blind-key.json` and `pilot-b-reuse-review-package.json` preserve
+the concealed case mapping and frozen review-package hashes.
+
+`pilot-c-reference-smoke.json` records the reference executability screen.
+`pilot-c-preflight-summary.json` records the frozen two-repository,
+two-condition, three-repetition execution plan before model contact.
+`pilot-c-functional-reuse-summary.json` is the final boundary-check result,
+including functional outcomes, eligible reuse labels, and diagnostic API-symbol
+uptake for the ineligible Spring AI task.
 
 `industry-expert-review-package.json` freezes the six-case practical validation
 package, including workbook and instruction hashes. The reviewer-facing files
-are under `outputs/industry-expert-review/`. Keep
+are under `outputs/industry-expert-review/` in the private working repository.
 `industry-expert-review-blind-key.json` was concealed until recruitment closed
-and all four included workbooks were frozen on 2026-10-03.
+and all four included workbooks were frozen on 2026-10-03. Public packages use
+the deidentified extracted response table and exclude the workbooks.

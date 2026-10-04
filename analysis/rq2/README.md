@@ -1,4 +1,9 @@
-# RQ2 — Reusability
+# Original Pilot RQ2 and final paper evidence — Repository reuse
+
+This directory began as the original Pilot RQ2 workspace. After the NARROW
+decision, repository reuse became the paper's main focus, so it also contains
+evidence used by Paper RQ1--RQ4. The final question mapping is documented in
+`../../docs/methodology.md`.
 
 Current artifacts:
 
@@ -10,8 +15,10 @@ Current artifacts:
 - `pilot-reuse-findings.md`: complete Pilot A reuse findings and NARROW
   decision.
 - `blinded-review-protocol.md`: independent review and agreement procedure.
-- `../../outputs/pilot-a-reuse-independent-review/pilot-a-reuse-blinded-review.xlsx`:
-  blinded A/B reviewer workbook.
+- The blinded A/B reviewer workbook is retained under
+  `outputs/pilot-a-reuse-independent-review/` in the private working repository.
+  Public evidence uses the extracted response CSV, source-workbook hash,
+  agreement report, and adjudication record; the workbook itself is excluded.
 - `../../data/processed/pilot-a-reuse-candidates.csv`: compact screen output.
 - `../../data/processed/pilot-a-reuse-candidates.json`: complete screen evidence.
 - `../../results/pilot/pilot-a-reuse-screen-summary.json`: aggregate screen.

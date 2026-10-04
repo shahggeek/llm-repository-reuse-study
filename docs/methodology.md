@@ -11,7 +11,13 @@ The unit of analysis is a `(trajectory, turn, condition, run)` checkpoint. A
 trajectory is one SR-Eval Java repository task. A checkpoint is the complete
 replacement method produced after a turn.
 
-## Research questions
+## Research-question evolution
+
+The project began with four broad pilot questions. The protocol and data for
+those questions remain part of the audit trail; they were not rewritten after
+observing results.
+
+### Original pilot questions
 
 **RQ1 — Structural evolution.** How does reference-normalized structural
 overhead change across progressive requirement refinements for functionally
@@ -27,6 +33,35 @@ software-engineering constraints across progressive requirement refinements?
 **RQ4 — Evolutionary consequence.** Are structural overhead, missed reuse, or
 constraint violations associated with increased effort or reduced success in
 subsequent evolution steps?
+
+The frozen pilot decision was **NARROW**. Generic pooled structural overhead
+was weak, and the available runs were insufficient for a defensible downstream-
+effort analysis. The final paper therefore focuses on the stronger repository-
+reuse signal and adds the separately planned practitioner validation.
+
+### Final paper questions
+
+**Paper RQ1 — Missed reuse and context.** Among functionally correct
+checkpoints, when does generated code miss repository-level reuse, and what
+repository context was available?
+
+**Paper RQ2 — Persistence.** When missed reuse appears early in a trajectory,
+how does the reuse choice evolve across later requirement refinements?
+
+**Paper RQ3 — Guardrails and explicit API context.** In targeted
+reuse-sensitive tasks, how do general engineering guardrails and explicit
+repository API context change functional and reuse outcomes?
+
+**Paper RQ4 — Practitioner validation.** Do independent industry practitioners
+perceive paired implementations as different in repository fit,
+maintainability, or approval readiness?
+
+| Original pilot question | Final treatment |
+|---|---|
+| Structural evolution | Retained as a feasibility screen and supporting negative result |
+| Reusability | Narrowed into Paper RQ1 and Paper RQ2 |
+| Constraint adherence | Refocused into the targeted mechanism probe in Paper RQ3 |
+| Evolutionary consequence | Not pursued as a primary inference; replaced by the separately designed practitioner validation in Paper RQ4 |
 
 ## Experimental factors
 
@@ -55,7 +90,7 @@ For checkpoint `t`, run tests `1..t` against the implementation generated at
 turn `t`. A checkpoint is cumulatively correct only if all those tests pass.
 This catches regressions that a current-turn-only test would miss.
 
-All generated outputs are retained. The primary RQ1 and RQ2 analyses use
+All generated outputs are retained. The original pilot RQ1 and RQ2 analyses use
 cumulatively correct checkpoints. Failure patterns remain available for RQ4 and
 for reporting selection effects.
 
@@ -133,8 +168,9 @@ review without claiming a human-subject result.
 
 For turn `t+1`, record added/deleted lines, AST edit size when available,
 replacement of existing implementation, functional regression, and repair
-attempts. The pilot checks whether these variables have sufficient variation to
-support RQ4; it does not fit a high-powered causal model.
+attempts. This was the original Pilot RQ4 feasibility plan. It did not produce
+enough evidence for a primary paper claim and is not the manuscript's Paper
+RQ4, which concerns practitioner validation.
 
 ## Reproducibility and exclusions
 

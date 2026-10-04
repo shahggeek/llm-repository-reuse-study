@@ -1,7 +1,11 @@
 # Pilot Protocol
 
-Status: **Pilot A frozen**. Batch `pilot-a-20260904T213806Z` may begin under the
-committed protocol. No LLM generations had been recorded at this freeze.
+Status: **historical frozen protocol**. At the time of this freeze, batch
+`pilot-a-20260904T213806Z` had not begun and no LLM generations had been
+recorded. The study is now complete. The later decision trail and results must
+be read in `docs/decisions.md`, `docs/methodology.md`, and `results/pilot/`;
+this file intentionally preserves the pre-generation rules rather than
+rewriting them after observing outcomes.
 
 Pilot A uses Codex CLI 0.153.0 with explicit model slug `gpt-5.6-sol`, High
 reasoning, automatic routing disabled, web search disabled, and a read-only

@@ -1,5 +1,16 @@
-# RQ4 — Evolutionary consequence
+# Paper RQ4 — Practitioner validation
 
-Relate prior-turn structural overhead, missed reuse, and constraint violations
-to next-turn edit size, regression, success, and repair effort. Treat the pilot
-as a feasibility and signal-variation check.
+Paper RQ4 asks whether independent industry practitioners perceive paired
+implementations as different in repository fit, maintainability, future-change
+risk, and approval readiness.
+
+The protocol and results are retained under `analysis/rq2/` because the cases
+validate the repository-reuse mechanism:
+
+- `../rq2/industry-expert-validation-protocol.md`
+- `../rq2/industry-expert-validation-findings.md`
+
+The original Pilot RQ4 concerned downstream evolutionary effort. That
+feasibility question was not promoted to a primary manuscript claim after the
+study narrowed; it is preserved only in `docs/methodology.md` as protocol
+history.
