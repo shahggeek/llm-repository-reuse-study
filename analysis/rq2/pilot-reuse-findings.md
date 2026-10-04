@@ -15,8 +15,8 @@ trajectories and four repositories:
 | --- | --- | ---: |
 | R0 | No credible reuse opportunity | 0 |
 | R1 | Appropriate reuse or acceptable equivalent | 13 |
-| R2 | Partial reuse with meaningful duplication | 8 |
-| R3 | Existing functionality reimplemented | 3 |
+| R2 | Partial reuse with meaningful duplication | 7 |
+| R3 | Existing functionality reimplemented | 4 |
 
 Eleven of 24 checkpoint observations are R2/R3. They are not independent
 events: all 11 occur within four trajectories.
@@ -26,7 +26,7 @@ events: all 11 occur within four trajectories.
 | `addInOrder` | 2 | 1 | R3 → R1 |
 | `encodeAnisotropic` | 2 | 2 | R3 → R3 |
 | `invert` | 4 | 4 | R2 → R2 → R2 → R2 |
-| `nodeArrayMerge` | 4 | 4 | R2 → R2 → R2 → R2 |
+| `nodeArrayMerge` | 4 | 4 | R3 → R2 → R2 → R2 |
 
 The other six trajectories contain 13 R1 checkpoints and no R2/R3 event.
 Therefore, report both **11/24 checkpoints** and **4/10 trajectories**; do not

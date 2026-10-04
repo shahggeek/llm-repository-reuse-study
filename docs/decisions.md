@@ -610,3 +610,21 @@ effect estimate. The comparator was preferred by 3/4 reviewers in evolved
 control IE-RV-103, showing that reviewers did not uniformly select the decoded
 retrieval arm. Do not compute population-level significance or claim
 representativeness from this convenience sample.
+
+## 2026-10-03 — Practitioner ethics disclosure documented
+
+Record that all four practitioners received written instructions stating that
+their anonymized ratings, broad experience categories, and rationales could be
+reported in a research paper or artifact; all four recorded consent. They could
+stop before returning the workbook. Participation was voluntary. Compensation
+was offered for their time, all four declined it, and they completed the review
+voluntarily. The workbook collected anonymous codes and broad professional
+categories but no names, employers, contact information, proprietary code, or
+organization-specific information.
+
+The practitioner review was conducted independently and outside an institution
+providing an applicable ethics-review body for this work. No formal
+institutional review or exemption determination was obtained before
+recruitment. State this directly in the paper; do not claim that the study was
+IRB-approved or IRB-exempt. Preserve a permanent ethics record and ask the
+SANER Industrial Track chairs whether additional disclosure is required.
