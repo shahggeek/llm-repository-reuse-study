@@ -16,12 +16,18 @@ class PilotCRunnerTests(unittest.TestCase):
     def setUp(self):
         self.config = run_pilot_c.pilot_c.read_json(run_pilot_c.CONFIG_PATH)
 
+    def require_dataset(self):
+        if not (ROOT / ".cache" / "SR-Eval").is_dir():
+            self.skipTest("requires the separately obtained pinned SR-Eval checkout")
+
     def test_packets_load_with_exact_prompt_source(self):
+        self.require_dataset()
         for task in self.config["tasks"]:
             packet = run_pilot_c.load_packet(self.config, task)
             self.assertEqual(task["turns"], len(packet["turn_datas"]))
 
     def test_retrieval_prompt_is_guardrail_prompt_plus_packet(self):
+        self.require_dataset()
         for task in self.config["tasks"]:
             packet = run_pilot_c.load_packet(self.config, task)
             turn = packet["turn_datas"][0]
@@ -52,6 +58,7 @@ class PilotCRunnerTests(unittest.TestCase):
         self.assertEqual(task["retrieval_sha256"], record["retrieval_packet_sha256"])
 
     def test_preflight_counts_all_repeated_trajectories(self):
+        self.require_dataset()
         with tempfile.TemporaryDirectory() as directory:
             report = run_pilot_c.preflight(self.config, Path(directory))
             self.assertFalse(report["model_contacted"])

@@ -17,6 +17,8 @@ class PilotCConfigTests(unittest.TestCase):
         self.config = pilot_c.read_json(pilot_c.DEFAULT_CONFIG)
 
     def test_frozen_config_and_dataset_are_valid(self):
+        if not (ROOT / ".cache" / "SR-Eval").is_dir():
+            self.skipTest("requires the separately obtained pinned SR-Eval checkout")
         self.assertEqual([], pilot_c.validate_config(self.config, check_dataset=True))
 
     def test_rejects_jvector_or_single_repository_design(self):
