@@ -1,0 +1,623 @@
+{
+  "schema_version": 1,
+  "status": "decoded-after-frozen-intake",
+  "recruitment_closed_on": "2026-10-03",
+  "reviewers": 4,
+  "cases": 6,
+  "judgments": 24,
+  "inference_boundary": "Descriptive purposive evidence only; IE-RV-104 and IE-RV-105 are dependent checkpoints from one nodeArrayMerge lineage.",
+  "profiles": [
+    {
+      "reviewer_code": "EXP-01",
+      "software_development_experience": "16+ years",
+      "java_experience": "16+ years",
+      "role_level": "Architect",
+      "code_review_frequency": "Less than monthly",
+      "large_multimodule_experience": "Yes",
+      "normal_coding_assistant_use": "Weekly",
+      "review_date": "2026-09-30"
+    },
+    {
+      "reviewer_code": "EXP-02",
+      "software_development_experience": "11–15 years",
+      "java_experience": "6–10 years",
+      "role_level": "Senior software engineer",
+      "code_review_frequency": "Weekly",
+      "large_multimodule_experience": "Yes",
+      "normal_coding_assistant_use": "Weekly",
+      "review_date": "2026-10-01"
+    },
+    {
+      "reviewer_code": "EXP-03",
+      "software_development_experience": "6–10 years",
+      "java_experience": "6–10 years",
+      "role_level": "Senior software engineer",
+      "code_review_frequency": "Daily",
+      "large_multimodule_experience": "Yes",
+      "normal_coding_assistant_use": "Daily",
+      "review_date": "2026-10-02"
+    },
+    {
+      "reviewer_code": "EXP-04",
+      "software_development_experience": "16+ years",
+      "java_experience": "11–15 years",
+      "role_level": "Staff/principal engineer",
+      "code_review_frequency": "Daily",
+      "large_multimodule_experience": "Yes",
+      "normal_coding_assistant_use": "Daily",
+      "review_date": "2026-10-03"
+    }
+  ],
+  "all_cases": {
+    "observations": 24,
+    "preferred_arm": {
+      "comparator": 4,
+      "retrieval": 20
+    },
+    "retrieval_decision": {
+      "Approve": 20,
+      "Request changes": 4
+    },
+    "comparator_decision": {
+      "Approve": 10,
+      "Reject": 1,
+      "Request changes": 13
+    },
+    "repository_fit_delta": {
+      "median": 2.0,
+      "positive": 18,
+      "zero": 3,
+      "negative": 3,
+      "observations": 24
+    },
+    "maintainability_delta": {
+      "median": 2.0,
+      "positive": 21,
+      "zero": 0,
+      "negative": 3,
+      "observations": 24
+    },
+    "duplicated_behavior_arm": {
+      "both": 1,
+      "comparator": 14,
+      "neither": 5,
+      "retrieval": 4
+    },
+    "higher_future_risk_arm": {
+      "comparator": 16,
+      "retrieval": 5,
+      "same": 2,
+      "unsure": 1
+    },
+    "confidence": {
+      "High": 22,
+      "Medium": 2
+    }
+  },
+  "primary_contrasts": {
+    "case_ids": [
+      "IE-RV-104",
+      "IE-RV-105",
+      "IE-RV-106"
+    ],
+    "observations": 12,
+    "preferred_arm": {
+      "retrieval": 12
+    },
+    "retrieval_decision": {
+      "Approve": 12
+    },
+    "comparator_decision": {
+      "Approve": 3,
+      "Request changes": 9
+    },
+    "repository_fit_delta": {
+      "median": 2.0,
+      "positive": 12,
+      "zero": 0,
+      "negative": 0,
+      "observations": 12
+    },
+    "maintainability_delta": {
+      "median": 2.0,
+      "positive": 12,
+      "zero": 0,
+      "negative": 0,
+      "observations": 12
+    },
+    "duplicated_behavior_arm": {
+      "comparator": 10,
+      "neither": 2
+    },
+    "higher_future_risk_arm": {
+      "comparator": 9,
+      "retrieval": 2,
+      "unsure": 1
+    },
+    "confidence": {
+      "High": 12
+    },
+    "dependent_lineage_note": "IE-RV-104 and IE-RV-105 are two checkpoints from the same trajectory, not independent replications."
+  },
+  "controls": {
+    "case_ids": [
+      "IE-RV-101",
+      "IE-RV-102",
+      "IE-RV-103"
+    ],
+    "observations": 12,
+    "preferred_arm": {
+      "comparator": 4,
+      "retrieval": 8
+    },
+    "retrieval_decision": {
+      "Approve": 8,
+      "Request changes": 4
+    },
+    "comparator_decision": {
+      "Approve": 7,
+      "Reject": 1,
+      "Request changes": 4
+    },
+    "repository_fit_delta": {
+      "median": 1.0,
+      "positive": 6,
+      "zero": 3,
+      "negative": 3,
+      "observations": 12
+    },
+    "maintainability_delta": {
+      "median": 2.0,
+      "positive": 9,
+      "zero": 0,
+      "negative": 3,
+      "observations": 12
+    },
+    "duplicated_behavior_arm": {
+      "both": 1,
+      "comparator": 4,
+      "neither": 3,
+      "retrieval": 4
+    },
+    "higher_future_risk_arm": {
+      "comparator": 7,
+      "retrieval": 3,
+      "same": 2
+    },
+    "confidence": {
+      "High": 10,
+      "Medium": 2
+    }
+  },
+  "per_case": {
+    "IE-RV-101": {
+      "observations": 4,
+      "preferred_arm": {
+        "comparator": 1,
+        "retrieval": 3
+      },
+      "retrieval_decision": {
+        "Approve": 3,
+        "Request changes": 1
+      },
+      "comparator_decision": {
+        "Approve": 2,
+        "Reject": 1,
+        "Request changes": 1
+      },
+      "repository_fit_delta": {
+        "median": 1.5,
+        "positive": 2,
+        "zero": 1,
+        "negative": 1,
+        "observations": 4
+      },
+      "maintainability_delta": {
+        "median": 2.0,
+        "positive": 3,
+        "zero": 0,
+        "negative": 1,
+        "observations": 4
+      },
+      "duplicated_behavior_arm": {
+        "neither": 1,
+        "retrieval": 3
+      },
+      "higher_future_risk_arm": {
+        "comparator": 2,
+        "retrieval": 1,
+        "same": 1
+      },
+      "confidence": {
+        "High": 4
+      },
+      "task_slug": "loadDocuments",
+      "turn": 1,
+      "expected_role": "no-material-reuse-difference control",
+      "comparator_condition": "engineering-guardrails"
+    },
+    "IE-RV-102": {
+      "observations": 4,
+      "preferred_arm": {
+        "retrieval": 4
+      },
+      "retrieval_decision": {
+        "Approve": 3,
+        "Request changes": 1
+      },
+      "comparator_decision": {
+        "Approve": 2,
+        "Request changes": 2
+      },
+      "repository_fit_delta": {
+        "median": 2.0,
+        "positive": 3,
+        "zero": 1,
+        "negative": 0,
+        "observations": 4
+      },
+      "maintainability_delta": {
+        "median": 2.0,
+        "positive": 4,
+        "zero": 0,
+        "negative": 0,
+        "observations": 4
+      },
+      "duplicated_behavior_arm": {
+        "both": 1,
+        "comparator": 1,
+        "neither": 2
+      },
+      "higher_future_risk_arm": {
+        "comparator": 3,
+        "same": 1
+      },
+      "confidence": {
+        "High": 4
+      },
+      "task_slug": "ensureCapacity",
+      "turn": 1,
+      "expected_role": "appropriate-reuse control",
+      "comparator_condition": "engineering-guardrails"
+    },
+    "IE-RV-103": {
+      "observations": 4,
+      "preferred_arm": {
+        "comparator": 3,
+        "retrieval": 1
+      },
+      "retrieval_decision": {
+        "Approve": 2,
+        "Request changes": 2
+      },
+      "comparator_decision": {
+        "Approve": 3,
+        "Request changes": 1
+      },
+      "repository_fit_delta": {
+        "median": -1.0,
+        "positive": 1,
+        "zero": 1,
+        "negative": 2,
+        "observations": 4
+      },
+      "maintainability_delta": {
+        "median": 0.5,
+        "positive": 2,
+        "zero": 0,
+        "negative": 2,
+        "observations": 4
+      },
+      "duplicated_behavior_arm": {
+        "comparator": 3,
+        "retrieval": 1
+      },
+      "higher_future_risk_arm": {
+        "comparator": 2,
+        "retrieval": 2
+      },
+      "confidence": {
+        "High": 2,
+        "Medium": 2
+      },
+      "task_slug": "ensureCapacity",
+      "turn": 3,
+      "expected_role": "appropriate-reuse evolved control",
+      "comparator_condition": "engineering-guardrails"
+    },
+    "IE-RV-104": {
+      "observations": 4,
+      "preferred_arm": {
+        "retrieval": 4
+      },
+      "retrieval_decision": {
+        "Approve": 4
+      },
+      "comparator_decision": {
+        "Approve": 1,
+        "Request changes": 3
+      },
+      "repository_fit_delta": {
+        "median": 2.0,
+        "positive": 4,
+        "zero": 0,
+        "negative": 0,
+        "observations": 4
+      },
+      "maintainability_delta": {
+        "median": 2.0,
+        "positive": 4,
+        "zero": 0,
+        "negative": 0,
+        "observations": 4
+      },
+      "duplicated_behavior_arm": {
+        "comparator": 3,
+        "neither": 1
+      },
+      "higher_future_risk_arm": {
+        "comparator": 3,
+        "retrieval": 1
+      },
+      "confidence": {
+        "High": 4
+      },
+      "task_slug": "nodeArrayMerge",
+      "turn": 1,
+      "expected_role": "reuse contrast",
+      "comparator_condition": "engineering-guardrails"
+    },
+    "IE-RV-105": {
+      "observations": 4,
+      "preferred_arm": {
+        "retrieval": 4
+      },
+      "retrieval_decision": {
+        "Approve": 4
+      },
+      "comparator_decision": {
+        "Approve": 1,
+        "Request changes": 3
+      },
+      "repository_fit_delta": {
+        "median": 2.0,
+        "positive": 4,
+        "zero": 0,
+        "negative": 0,
+        "observations": 4
+      },
+      "maintainability_delta": {
+        "median": 2.0,
+        "positive": 4,
+        "zero": 0,
+        "negative": 0,
+        "observations": 4
+      },
+      "duplicated_behavior_arm": {
+        "comparator": 3,
+        "neither": 1
+      },
+      "higher_future_risk_arm": {
+        "comparator": 2,
+        "retrieval": 1,
+        "unsure": 1
+      },
+      "confidence": {
+        "High": 4
+      },
+      "task_slug": "nodeArrayMerge",
+      "turn": 4,
+      "expected_role": "reuse-persistence contrast",
+      "comparator_condition": "engineering-guardrails"
+    },
+    "IE-RV-106": {
+      "observations": 4,
+      "preferred_arm": {
+        "retrieval": 4
+      },
+      "retrieval_decision": {
+        "Approve": 4
+      },
+      "comparator_decision": {
+        "Approve": 1,
+        "Request changes": 3
+      },
+      "repository_fit_delta": {
+        "median": 2.5,
+        "positive": 4,
+        "zero": 0,
+        "negative": 0,
+        "observations": 4
+      },
+      "maintainability_delta": {
+        "median": 2.5,
+        "positive": 4,
+        "zero": 0,
+        "negative": 0,
+        "observations": 4
+      },
+      "duplicated_behavior_arm": {
+        "comparator": 4
+      },
+      "higher_future_risk_arm": {
+        "comparator": 4
+      },
+      "confidence": {
+        "High": 4
+      },
+      "task_slug": "addInOrder",
+      "turn": 1,
+      "expected_role": "reuse contrast",
+      "comparator_condition": "baseline"
+    }
+  },
+  "per_reviewer": {
+    "EXP-01": {
+      "observations": 6,
+      "preferred_arm": {
+        "comparator": 1,
+        "retrieval": 5
+      },
+      "retrieval_decision": {
+        "Approve": 5,
+        "Request changes": 1
+      },
+      "comparator_decision": {
+        "Approve": 1,
+        "Request changes": 5
+      },
+      "repository_fit_delta": {
+        "median": 2.0,
+        "positive": 5,
+        "zero": 0,
+        "negative": 1,
+        "observations": 6
+      },
+      "maintainability_delta": {
+        "median": 2.0,
+        "positive": 5,
+        "zero": 0,
+        "negative": 1,
+        "observations": 6
+      },
+      "duplicated_behavior_arm": {
+        "comparator": 5,
+        "retrieval": 1
+      },
+      "higher_future_risk_arm": {
+        "comparator": 5,
+        "retrieval": 1
+      },
+      "confidence": {
+        "High": 5,
+        "Medium": 1
+      }
+    },
+    "EXP-02": {
+      "observations": 6,
+      "preferred_arm": {
+        "comparator": 1,
+        "retrieval": 5
+      },
+      "retrieval_decision": {
+        "Approve": 6
+      },
+      "comparator_decision": {
+        "Approve": 6
+      },
+      "repository_fit_delta": {
+        "median": 1.0,
+        "positive": 3,
+        "zero": 3,
+        "negative": 0,
+        "observations": 6
+      },
+      "maintainability_delta": {
+        "median": 2.0,
+        "positive": 6,
+        "zero": 0,
+        "negative": 0,
+        "observations": 6
+      },
+      "duplicated_behavior_arm": {
+        "comparator": 2,
+        "neither": 3,
+        "retrieval": 1
+      },
+      "higher_future_risk_arm": {
+        "comparator": 4,
+        "retrieval": 1,
+        "unsure": 1
+      },
+      "confidence": {
+        "High": 6
+      }
+    },
+    "EXP-03": {
+      "observations": 6,
+      "preferred_arm": {
+        "comparator": 1,
+        "retrieval": 5
+      },
+      "retrieval_decision": {
+        "Approve": 4,
+        "Request changes": 2
+      },
+      "comparator_decision": {
+        "Approve": 2,
+        "Reject": 1,
+        "Request changes": 3
+      },
+      "repository_fit_delta": {
+        "median": 4.0,
+        "positive": 5,
+        "zero": 0,
+        "negative": 1,
+        "observations": 6
+      },
+      "maintainability_delta": {
+        "median": 2.0,
+        "positive": 5,
+        "zero": 0,
+        "negative": 1,
+        "observations": 6
+      },
+      "duplicated_behavior_arm": {
+        "both": 1,
+        "comparator": 3,
+        "neither": 1,
+        "retrieval": 1
+      },
+      "higher_future_risk_arm": {
+        "comparator": 2,
+        "retrieval": 2,
+        "same": 2
+      },
+      "confidence": {
+        "High": 6
+      }
+    },
+    "EXP-04": {
+      "observations": 6,
+      "preferred_arm": {
+        "comparator": 1,
+        "retrieval": 5
+      },
+      "retrieval_decision": {
+        "Approve": 5,
+        "Request changes": 1
+      },
+      "comparator_decision": {
+        "Approve": 1,
+        "Request changes": 5
+      },
+      "repository_fit_delta": {
+        "median": 2.0,
+        "positive": 5,
+        "zero": 0,
+        "negative": 1,
+        "observations": 6
+      },
+      "maintainability_delta": {
+        "median": 2.0,
+        "positive": 5,
+        "zero": 0,
+        "negative": 1,
+        "observations": 6
+      },
+      "duplicated_behavior_arm": {
+        "comparator": 4,
+        "neither": 1,
+        "retrieval": 1
+      },
+      "higher_future_risk_arm": {
+        "comparator": 5,
+        "retrieval": 1
+      },
+      "confidence": {
+        "High": 5,
+        "Medium": 1
+      }
+    }
+  }
+}

@@ -3,6 +3,13 @@
 Pilot summaries and reviewed figures belong here. Raw smoke-test logs are saved
 under `smoke-tests/` and ignored by Git.
 
+`industry-expert-review-intake-frozen.json` records closure of recruitment at
+four included reviewers and hashes every returned workbook before decoding.
+`industry-expert-review-responses.csv` is the decoded 24-row analysis table,
+and `industry-expert-review-summary.json` contains the descriptive reviewer-,
+case-, control-, and planned-contrast summaries. The two `nodeArrayMerge`
+cases are dependent checkpoints from one lineage.
+
 `pilot-a-adjusted-functional-summary.json` is the durable clean analysis view.
 It substitutes the frozen amendment runs for the two prompt-confounded original
 trajectories, applies all checkpoint-level exclusions, and records the
@@ -59,5 +66,5 @@ including checkpoint transitions and lineage-level interpretation.
 `industry-expert-review-package.json` freezes the six-case practical validation
 package, including workbook and instruction hashes. The reviewer-facing files
 are under `outputs/industry-expert-review/`. Keep
-`industry-expert-review-blind-key.json` concealed until all planned expert
-responses are frozen.
+`industry-expert-review-blind-key.json` was concealed until recruitment closed
+and all four included workbooks were frozen on 2026-10-03.

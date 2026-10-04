@@ -588,3 +588,25 @@ can change which repository symbols the model uses, but visibility alone does
 not guarantee functionally correct repository fit. One replicated task is a
 reuse ceiling and the other has zero eligible checkpoints, so Pilot C does not
 support a broad cross-repository causal claim.
+
+## 2026-10-03 — Industry-expert recruitment closed and decoded
+
+Close recruitment at four complete reviewers after satisfying the
+preregistered exploratory minimum of three; record that the target of five was
+not reached. Preserve the four returned Numbers workbooks unchanged and freeze
+their SHA-256 hashes in `industry-expert-review-intake-frozen.json` before
+opening the concealed A/B key. All four reviewers consented, completed all six
+cases with rationales, and reported no AI assistance.
+
+Report only descriptive evidence. In the three preselected reuse-sensitive
+contrasts, all four reviewers preferred the retrieval-supported implementation
+in every case (12/12 paired judgments), approved it in all 12 judgments, and
+gave it higher repository-fit and maintainability scores in all 12; both median
+paired differences are +2. Preserve the dependence warning: IE-RV-104 and
+IE-RV-105 are checkpoints from the same `nodeArrayMerge` lineage.
+
+Use the controls as calibration rather than pooling every case into a general
+effect estimate. The comparator was preferred by 3/4 reviewers in evolved
+control IE-RV-103, showing that reviewers did not uniformly select the decoded
+retrieval arm. Do not compute population-level significance or claim
+representativeness from this convenience sample.

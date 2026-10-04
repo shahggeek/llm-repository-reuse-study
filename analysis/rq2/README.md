@@ -5,6 +5,8 @@ Current artifacts:
 - `reuse-rubric.md`: operational R0–R3 and C0–C3 review rules.
 - `industry-expert-validation-protocol.md`: blinded practical-validation
   protocol for human code-review and maintenance judgments.
+- `industry-expert-validation-findings.md`: frozen four-reviewer descriptive
+  results, control-case disagreements, themes, and interpretation boundary.
 - `pilot-reuse-findings.md`: complete Pilot A reuse findings and NARROW
   decision.
 - `blinded-review-protocol.md`: independent review and agreement procedure.
