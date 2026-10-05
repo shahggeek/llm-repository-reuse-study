@@ -21,6 +21,12 @@ ROOT = Path(__file__).resolve().parents[1]
 ARTIFACT_DIR = ROOT / "artifacts"
 PACKAGE_ID = "saner-2027-public-evidence-candidate-2026-10-05"
 
+PUBLIC_FILE_MAP = {
+    "artifacts/PUBLIC_MAKEFILE": "Makefile",
+    "artifacts/PUBLIC_REPOSITORY_README.md": "README.md",
+    "artifacts/PUBLIC_VERIFY_WORKFLOW.yml": ".github/workflows/verify.yml",
+}
+
 INCLUDE_FILES = (
     "CITATION.cff",
     "LICENSE",
@@ -172,6 +178,8 @@ def collect_paths() -> list[Path]:
     selected: set[Path] = set()
     for relative in INCLUDE_FILES:
         path = ROOT / relative
+        if not path.exists() and relative in PUBLIC_FILE_MAP:
+            path = ROOT / PUBLIC_FILE_MAP[relative]
         if should_include(path):
             selected.add(path)
     for relative in INCLUDE_ROOTS:
@@ -303,11 +311,7 @@ def pseudonymize_embedded_identifiers(content: bytes) -> bytes:
 
 def entry_for_path(path: Path) -> ArtifactEntry:
     relative = path.relative_to(ROOT).as_posix()
-    public_relative = {
-        "artifacts/PUBLIC_MAKEFILE": "Makefile",
-        "artifacts/PUBLIC_REPOSITORY_README.md": "README.md",
-        "artifacts/PUBLIC_VERIFY_WORKFLOW.yml": ".github/workflows/verify.yml",
-    }.get(relative, relative)
+    public_relative = PUBLIC_FILE_MAP.get(relative, relative)
     source_content = path.read_bytes()
     transformations: list[str] = []
     if relative == "results/pilot/industry-expert-review-responses.csv":
