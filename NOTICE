@@ -1,0 +1,10 @@
+Repository-Reuse Study — Public Evidence
+Copyright 2026 Gaurav V Shah
+
+Study-authored software, tests, schemas, prompt templates, analysis code, and
+documentation are licensed under the Apache License, Version 2.0, only to the
+extent described in LICENSE_SCOPE.md.
+
+This repository also contains evidence and limited excerpts associated with
+third-party projects. The top-level Apache License does not replace or expand
+rights in that material. See THIRD_PARTY_LICENSES.md.

@@ -64,6 +64,13 @@ workbooks, reviewer-facing spreadsheets, machine-specific logs, and identity
 mappings. It also pseudonymizes provider session identifiers and redacts email
 addresses embedded in upstream source comments.
 
+The public package uses scoped licensing. Apache-2.0 applies only to
+study-authored material listed in `LICENSE_SCOPE.md`. Because SR-Eval and
+MRG-Bench do not state a redistribution license, their authored task
+instructions and rendered prompt text are omitted and can be reconstructed
+locally from a separately obtained pinned checkout. See
+`THIRD_PARTY_LICENSES.md` for attribution and exclusions.
+
 ## Repository layout
 
 ```text

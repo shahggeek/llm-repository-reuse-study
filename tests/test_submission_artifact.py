@@ -23,6 +23,17 @@ class SubmissionArtifactTests(unittest.TestCase):
         self.assertFalse(any(path.startswith(private_root) for path in self.by_path))
         self.assertFalse(any(path.startswith("work/infrastructure-failures/") for path in self.by_path))
         self.assertFalse(any(path.startswith("work/pilot-c-precontact-failures/") for path in self.by_path))
+        self.assertFalse(any(path.startswith("work/") for path in self.by_path))
+
+    def test_scoped_license_and_attribution_files_are_included(self):
+        for path in (
+            "CITATION.cff",
+            "LICENSE",
+            "LICENSE_SCOPE.md",
+            "NOTICE",
+            "THIRD_PARTY_LICENSES.md",
+        ):
+            self.assertIn(path, self.by_path)
 
     def test_practitioner_response_release_removes_private_sources(self):
         content = self.by_path[
@@ -66,6 +77,37 @@ class SubmissionArtifactTests(unittest.TestCase):
             self.skipTest("requires the complete local or packaged evidence tree")
         self.assertTrue(
             all(record["session_id"].startswith("session-") for record in records)
+        )
+
+    def test_benchmark_authored_prompt_text_is_omitted_but_hash_bound(self):
+        records = [
+            json.loads(content)
+            for path, content in self.by_path.items()
+            if path.startswith("data/generated-trajectories/")
+            and path.endswith("/record.json")
+        ]
+        if not records:
+            self.skipTest("requires the complete local or packaged evidence tree")
+        omission = artifact.BENCHMARK_TEXT_OMISSION
+        for record in records:
+            self.assertFalse(
+                record["public_prompt_policy"]["benchmark_authored_text_included"]
+            )
+            for turn in record["turns"]:
+                self.assertEqual(omission, turn["instruction"])
+                self.assertEqual(omission, turn["prompt"])
+                self.assertEqual(64, len(turn["instruction_source_sha256"]))
+                self.assertEqual(64, len(turn["rendered_prompt_sha256"]))
+
+        prompt_files = [
+            content.decode("utf-8")
+            for path, content in self.by_path.items()
+            if path.startswith("data/generated-trajectories/")
+            and path.endswith(".prompt.txt")
+        ]
+        self.assertEqual(147, len(prompt_files))
+        self.assertTrue(
+            all("Benchmark-derived prompt omitted" in content for content in prompt_files)
         )
 
 

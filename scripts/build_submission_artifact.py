@@ -19,11 +19,16 @@ from typing import Any
 
 ROOT = Path(__file__).resolve().parents[1]
 ARTIFACT_DIR = ROOT / "artifacts"
-PACKAGE_ID = "saner-2027-public-evidence-candidate-2026-10-04"
+PACKAGE_ID = "saner-2027-public-evidence-candidate-2026-10-05"
 
 INCLUDE_FILES = (
     ".github/workflows/verify.yml",
+    "CITATION.cff",
+    "LICENSE",
+    "LICENSE_SCOPE.md",
     "Makefile",
+    "NOTICE",
+    "THIRD_PARTY_LICENSES.md",
     "pyproject.toml",
     "artifacts/PUBLIC_REPOSITORY_README.md",
     "artifacts/SUBMISSION_ARTIFACT_README.md",
@@ -44,10 +49,6 @@ INCLUDE_ROOTS = (
     "results/pilot",
     "scripts",
     "tests",
-    "work/amendment-task-packets",
-    "work/pilot-b-preflight",
-    "work/pilot-c-preflight",
-    "work/task-packets",
 )
 
 EXCLUDED_PATHS = {
@@ -111,6 +112,12 @@ TEXT_SUFFIXES = {
     ".txt",
 }
 IDENTIFIER_KEYS = {"session_id", "thread_id"}
+BENCHMARK_TEXT_OMISSION = (
+    "[OMITTED FROM PUBLIC ARTIFACT: benchmark-authored prompt text is not "
+    "redistributed because SR-Eval and MRG-Bench do not state a redistribution "
+    "license. Use scripts/reconstruct_prompts.py with the separately obtained "
+    "pinned SR-Eval checkout.]"
+)
 
 
 @dataclass(frozen=True)
@@ -210,6 +217,36 @@ def sanitized_practitioner_intake(path: Path) -> bytes:
     return (json.dumps(data, indent=2) + "\n").encode("utf-8")
 
 
+def omitted_prompt_file(content: bytes) -> bytes:
+    digest = sha256_bytes(content)
+    return (
+        "# Benchmark-derived prompt omitted from the public artifact\n\n"
+        f"Original SHA-256: `{digest}`\n\n"
+        f"{BENCHMARK_TEXT_OMISSION}\n"
+    ).encode("utf-8")
+
+
+def sanitized_generated_record(content: bytes) -> bytes:
+    data = json.loads(content.decode("utf-8"))
+    for turn in data.get("turns", []):
+        instruction = turn.get("instruction")
+        prompt = turn.get("prompt")
+        if isinstance(instruction, str):
+            turn["instruction_source_sha256"] = sha256_bytes(instruction.encode("utf-8"))
+            turn["instruction"] = BENCHMARK_TEXT_OMISSION
+        if isinstance(prompt, str):
+            turn["rendered_prompt_sha256"] = sha256_bytes(prompt.encode("utf-8"))
+            turn["prompt"] = BENCHMARK_TEXT_OMISSION
+    data["public_prompt_policy"] = {
+        "benchmark_authored_text_included": False,
+        "reconstruction_command": (
+            "python3 scripts/reconstruct_prompts.py "
+            "--sr-eval .cache/SR-Eval --output reconstructed-prompts"
+        ),
+    }
+    return (json.dumps(data, indent=2, ensure_ascii=False) + "\n").encode("utf-8")
+
+
 def public_identifier(value: str) -> str:
     if value.startswith("session-"):
         return value
@@ -278,6 +315,16 @@ def entry_for_path(path: Path) -> ArtifactEntry:
     elif relative == "results/pilot/industry-expert-review-intake-frozen.json":
         content = sanitized_practitioner_intake(path)
         transformations.append("removed-private-workbook-paths-and-hashes")
+    elif relative.startswith("data/generated-trajectories/") and relative.endswith(
+        ".prompt.txt"
+    ):
+        content = omitted_prompt_file(source_content)
+        transformations.append("omitted-unlicensed-benchmark-prompt-text")
+    elif relative.startswith("data/generated-trajectories/") and relative.endswith(
+        "/record.json"
+    ):
+        content = sanitized_generated_record(source_content)
+        transformations.append("omitted-unlicensed-benchmark-prompt-text")
     else:
         content = source_content
     if relative.startswith("data/generated-trajectories/") and path.suffix in {
@@ -338,7 +385,9 @@ def experiment_counts(entries: list[ArtifactEntry]) -> dict[str, int]:
 
     return {
         "run_records": count("data/generated-trajectories/", "/record.json"),
-        "rendered_prompts": count("data/generated-trajectories/", ".prompt.txt"),
+        "prompt_omission_records": count(
+            "data/generated-trajectories/", ".prompt.txt"
+        ),
         "raw_model_outputs": count("data/generated-trajectories/", ".raw.md"),
         "model_event_streams": count("data/generated-trajectories/", ".events.jsonl"),
         "model_stderr_logs": count("data/generated-trajectories/", ".stderr.txt"),
@@ -358,7 +407,7 @@ def experiment_counts(entries: list[ArtifactEntry]) -> dict[str, int]:
 def validate_counts(counts: dict[str, int]) -> None:
     expected = {
         "run_records": 44,
-        "rendered_prompts": 147,
+        "prompt_omission_records": 147,
         "raw_model_outputs": 147,
         "model_event_streams": 147,
         "model_stderr_logs": 147,
@@ -389,7 +438,7 @@ def build_manifest(entries: list[ArtifactEntry], source_commit: str) -> dict[str
         "schema_version": 1,
         "package_id": PACKAGE_ID,
         "status": "privacy-filtered-public-evidence-candidate",
-        "built_on": "2026-10-04",
+        "built_on": "2026-10-05",
         "source_repository": "private-working-repository",
         "source_commit": source_commit,
         "benchmark": protocol["benchmark"],
@@ -404,6 +453,7 @@ def build_manifest(entries: list[ArtifactEntry], source_commit: str) -> dict[str
             "raw_review_workbooks_included": False,
             "provider_session_identifiers_pseudonymized": True,
             "email_addresses_redacted": True,
+            "benchmark_authored_prompt_text_included": False,
             "machine_specific_paths_permitted": False,
             "transformed_public_files": sorted(
                 entry.path for entry in entries if entry.transformations
@@ -418,7 +468,7 @@ def build_manifest(entries: list[ArtifactEntry], source_commit: str) -> dict[str
         },
         "scope": {
             "included": [
-                "Pilot A, amendment, Pilot B, and Pilot C protocols and exact prompts",
+                "Pilot A, amendment, Pilot B, and Pilot C protocols and hash-bound prompt omission records",
                 "Raw model outputs, event streams, stderr, and run records",
                 "Functional reports, processed metrics, reuse reviews, and adjudications",
                 "Anonymous practitioner ratings, rationales, and descriptive summaries",
@@ -431,18 +481,18 @@ def build_manifest(entries: list[ArtifactEntry], source_commit: str) -> dict[str
                 "Private correspondence, chair inquiry, internal handoff, and mock-review notes",
                 "Pre-contact failure logs containing machine-specific paths",
                 "SR-Eval clone, tool installations, caches, containers, and local sessions",
+                "SR-Eval/MRG-Bench-authored task instructions and rendered prompt text; these are reconstructed from a separately obtained pinned checkout",
             ],
             "known_limitations": [
                 "The model provider did not expose an immutable model snapshot identifier.",
-                "Public prompt copies redact email addresses found in upstream source comments; original-file hashes are recorded for transformed entries.",
+                "Benchmark-authored task instructions and rendered prompt text are omitted because SR-Eval and MRG-Bench do not state a redistribution license; original hashes bind the omitted text and a reconstruction tool verifies it against a separately obtained checkout.",
                 "Provider session identifiers are replaced by deterministic public pseudonyms.",
                 "Some source evidence is Git-ignored in the private working repository; this manifest binds the exact packaged bytes.",
                 "Functional retesting requires the separately obtained pinned SR-Eval commit and container environment.",
-                "A final archive license must be selected before public deposit.",
+                "The repository license applies only to study-authored material as defined in LICENSE_SCOPE.md.",
             ],
         },
         "release_blockers": [
-            "Select and document the archive license and third-party-material treatment.",
             "Upload the verified archive to a stable repository and add its DOI to the manuscript.",
         ],
         "file_count": len(files),
@@ -459,7 +509,7 @@ Package: `{manifest['package_id']}`
 Source commit: `{manifest['source_commit']}`  
 SR-Eval commit: `{manifest['benchmark']['commit']}`
 
-This privacy-filtered public evidence candidate covers Pilots A, B, and C plus the
+This privacy- and license-filtered public evidence candidate covers Pilots A, B, and C plus the
 anonymous practitioner validation. It contains {counts['run_records']} run
 records, {counts['raw_model_outputs']} raw model turn outputs, and
 {counts['practitioner_response_rows']} anonymous practitioner case responses.
@@ -468,13 +518,15 @@ Start with `artifacts/SUBMISSION_ARTIFACT_README.md`. Verify every file against
 `MANIFEST.json` and the archive against the adjacent `.sha256` file. Raw
 returned practitioner workbooks, identity mappings, correspondence, manuscript
 sources, local failure logs, and the benchmark clone are not included. Provider
-session identifiers are pseudonymized and email addresses embedded in source
-contexts are redacted; transformed entries retain original-file hashes in the
-manifest.
+session identifiers are pseudonymized. Benchmark-authored task instructions and
+rendered prompts are omitted because SR-Eval and MRG-Bench do not state a
+redistribution license. Their original hashes are retained, and
+`scripts/reconstruct_prompts.py` verifies exact reconstruction after the user
+separately obtains the pinned SR-Eval checkout.
 
-This package is a verified candidate, not the final public deposit. Select and
-document an appropriate archive license before uploading it to Zenodo or
-another permanent repository.
+Study-authored material is licensed as described in `LICENSE_SCOPE.md`.
+Third-party and evidence material is governed by `THIRD_PARTY_LICENSES.md`.
+This package is a verified candidate, not the final permanent deposit.
 """
     return text.encode("utf-8")
 
