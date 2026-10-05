@@ -15,6 +15,21 @@ __pycache__/
 # Locally reconstructed benchmark-authored prompts (not redistributed)
 reconstructed-prompts/
 
+# Manuscript sources and builds stay in the private working repository
+/paper/
+/manuscript/
+/submission/
+/main.tex
+/main.pdf
+*.aux
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.synctex.gz
+
 # OS and editor files
 .DS_Store
 .idea/
