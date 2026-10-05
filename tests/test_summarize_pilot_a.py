@@ -1,4 +1,6 @@
 import importlib.util
+import json
+import tempfile
 import unittest
 from pathlib import Path
 
@@ -58,6 +60,14 @@ class PilotAAdjustedSummaryTests(unittest.TestCase):
         self.assertEqual("experiment/config/protocol.json", digest["path"])
         self.assertEqual(64, len(digest["sha256"]))
         self.assertGreater(digest["bytes"], 0)
+
+    def test_frozen_created_at_is_preserved(self):
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / "summary.json"
+            path.write_text(json.dumps({"created_at": "2026-01-02T03:04:05+00:00"}))
+            self.assertEqual(
+                "2026-01-02T03:04:05+00:00", summary.frozen_created_at(path)
+            )
 
 
 if __name__ == "__main__":

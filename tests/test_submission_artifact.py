@@ -35,6 +35,24 @@ class SubmissionArtifactTests(unittest.TestCase):
         ):
             self.assertIn(path, self.by_path)
 
+    def test_public_makefile_exposes_only_public_commands(self):
+        content = self.by_path["Makefile"].decode("utf-8")
+        self.assertIn("evidence-check:", content)
+        self.assertIn("reconstruct-prompts:", content)
+        for private_target in (
+            "paper-pdf",
+            "industry-review",
+            "submission-artifact",
+            "reuse-pilot-b-extract",
+        ):
+            self.assertNotIn(private_target, content)
+        self.assertNotIn("artifacts/PUBLIC_MAKEFILE", self.by_path)
+
+    def test_public_ci_requires_complete_evidence_inventory(self):
+        content = self.by_path[".github/workflows/verify.yml"].decode("utf-8")
+        self.assertIn("make evidence-check", content)
+        self.assertNotIn("artifacts/PUBLIC_VERIFY_WORKFLOW.yml", self.by_path)
+
     def test_practitioner_response_release_removes_private_sources(self):
         content = self.by_path[
             "results/pilot/industry-expert-review-responses.csv"

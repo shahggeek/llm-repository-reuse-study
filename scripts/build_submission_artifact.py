@@ -22,16 +22,16 @@ ARTIFACT_DIR = ROOT / "artifacts"
 PACKAGE_ID = "saner-2027-public-evidence-candidate-2026-10-05"
 
 INCLUDE_FILES = (
-    ".github/workflows/verify.yml",
     "CITATION.cff",
     "LICENSE",
     "LICENSE_SCOPE.md",
-    "Makefile",
     "NOTICE",
     "THIRD_PARTY_LICENSES.md",
     "pyproject.toml",
+    "artifacts/PUBLIC_MAKEFILE",
     "artifacts/PUBLIC_REPOSITORY_README.md",
     "artifacts/SUBMISSION_ARTIFACT_README.md",
+    "artifacts/PUBLIC_VERIFY_WORKFLOW.yml",
     "docs/decisions.md",
     "docs/methodology.md",
     "docs/pilot-protocol.md",
@@ -125,6 +125,7 @@ class ArtifactEntry:
     path: str
     content: bytes
     source_sha256: str
+    source_bytes: int
     transformations: tuple[str, ...] = ()
 
 
@@ -302,11 +303,11 @@ def pseudonymize_embedded_identifiers(content: bytes) -> bytes:
 
 def entry_for_path(path: Path) -> ArtifactEntry:
     relative = path.relative_to(ROOT).as_posix()
-    public_relative = (
-        "README.md"
-        if relative == "artifacts/PUBLIC_REPOSITORY_README.md"
-        else relative
-    )
+    public_relative = {
+        "artifacts/PUBLIC_MAKEFILE": "Makefile",
+        "artifacts/PUBLIC_REPOSITORY_README.md": "README.md",
+        "artifacts/PUBLIC_VERIFY_WORKFLOW.yml": ".github/workflows/verify.yml",
+    }.get(relative, relative)
     source_content = path.read_bytes()
     transformations: list[str] = []
     if relative == "results/pilot/industry-expert-review-responses.csv":
@@ -350,6 +351,7 @@ def entry_for_path(path: Path) -> ArtifactEntry:
         public_relative,
         content,
         sha256_bytes(source_content),
+        len(source_content),
         tuple(transformations),
     )
 
@@ -432,6 +434,7 @@ def build_manifest(entries: list[ArtifactEntry], source_commit: str) -> dict[str
         }
         if entry.transformations:
             item["source_sha256"] = entry.source_sha256
+            item["source_bytes"] = entry.source_bytes
             item["transformations"] = list(entry.transformations)
         files.append(item)
     return {

@@ -15,6 +15,7 @@ ROOT = Path(__file__).resolve().parents[1]
 CONFIG_PATH = ROOT / "experiment/config/pilot-b.json"
 REPORT_DIR = ROOT / "results/pilot/generated-tests"
 OUTPUT_PATH = ROOT / "results/pilot/pilot-b-functional-summary.json"
+PUBLIC_MANIFEST_PATH = ROOT / "MANIFEST.json"
 
 NEW_CONDITIONS = (
     "engineering-guardrails",
@@ -50,11 +51,32 @@ def write_json(path: Path, value: dict[str, Any]) -> None:
 
 
 def artifact_digest(path: Path) -> dict[str, Any]:
+    relative = path.relative_to(ROOT).as_posix()
+    if PUBLIC_MANIFEST_PATH.exists():
+        manifest = read_json(PUBLIC_MANIFEST_PATH)
+        item = next(
+            (candidate for candidate in manifest.get("files", []) if candidate.get("path") == relative),
+            None,
+        )
+        if item and "source_sha256" in item and "source_bytes" in item:
+            return {
+                "path": relative,
+                "sha256": item["source_sha256"],
+                "bytes": item["source_bytes"],
+            }
     return {
-        "path": str(path.relative_to(ROOT)),
+        "path": relative,
         "sha256": hashlib.sha256(path.read_bytes()).hexdigest(),
         "bytes": path.stat().st_size,
     }
+
+
+def frozen_created_at(path: Path) -> str:
+    if path.exists():
+        value = read_json(path).get("created_at")
+        if isinstance(value, str) and value:
+            return value
+    return dt.datetime.now(dt.timezone.utc).isoformat()
 
 
 def empty_counts() -> dict[str, int]:
@@ -244,7 +266,7 @@ def build_summary(
 
     return {
         "schema_version": 1,
-        "created_at": dt.datetime.now(dt.timezone.utc).isoformat(),
+        "created_at": frozen_created_at(OUTPUT_PATH),
         "batch_id": batch_id,
         "study_role": config["study_role"],
         "generation_integrity": {
