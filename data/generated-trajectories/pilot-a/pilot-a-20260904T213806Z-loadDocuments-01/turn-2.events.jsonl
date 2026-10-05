@@ -1,0 +1,4 @@
+{"type":"thread.started","thread_id":"session-ae7710ef0653fe17"}
+{"type":"turn.started"}
+{"type":"item.completed","item":{"id":"item_0","type":"agent_message","text":"```java\npublic static List<Document> loadDocuments(Path directoryPath, DocumentParser documentParser) {\n    try (Stream<Path> paths = Files.list(directoryPath)) {\n        return paths.filter(Files::isRegularFile)\n                .map(path -> loadDocument(path, documentParser))\n                .collect(java.util.stream.Collectors.toList());\n    } catch (IOException e) {\n        throw new RuntimeException(e);\n    }\n}\n```"}}
+{"type":"turn.completed","usage":{"input_tokens":12093,"cached_input_tokens":11520,"cache_write_input_tokens":0,"output_tokens":339,"reasoning_output_tokens":247}}

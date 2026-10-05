@@ -1,0 +1,119 @@
+{
+  "schema_version": 1,
+  "batch_id": "pilot-a-20260904T213806Z",
+  "run_id": "pilot-a-20260904T213806Z-set-01",
+  "task_hash": "4959408a29d07ab85f1fdf99",
+  "task_slug": "set",
+  "condition": "baseline",
+  "benchmark_commit": "6cf948d69427687bf61042640223d5b318f7bc4c",
+  "product_interface": "Codex CLI 0.153.0",
+  "session_id": "session-491e0bf21be6e403",
+  "model": {
+    "display_name": "GPT-5.6 Sol",
+    "slug": "gpt-5.6-sol",
+    "reasoning_effort": "High",
+    "automatic_routing": false,
+    "snapshot": null
+  },
+  "started_at": "2026-09-04T22:37:07.797243+00:00",
+  "completed_at": "2026-09-04T22:37:46.130669+00:00",
+  "prompt_sha256": {
+    "experiment/prompts/system.txt": "4875eb8f21bbf16bf8230730213406471017c29630afb9b027ef115f510c66da",
+    "experiment/prompts/turn-1.txt": "493fa28970d6f5b28586e31d468c2243cdbb045a7f21de56582d73bc290688ca",
+    "experiment/prompts/code-edit.txt": "e15919aa205033e555720259b3a3cfa36e17f26dea0a0f8a9423341a22fe8b57",
+    "experiment/prompts/engineering-guardrails.txt": "d24d0f0fc97807691f18afb0529b017abad7761f8a67da858d6e2d0f7e6bbee5"
+  },
+  "turns": [
+    {
+      "turn": 1,
+      "instruction": "[OMITTED FROM PUBLIC ARTIFACT: benchmark-authored prompt text is not redistributed because SR-Eval and MRG-Bench do not state a redistribution license. Use scripts/reconstruct_prompts.py with the separately obtained pinned SR-Eval checkout.]",
+      "prompt": "[OMITTED FROM PUBLIC ARTIFACT: benchmark-authored prompt text is not redistributed because SR-Eval and MRG-Bench do not state a redistribution license. Use scripts/reconstruct_prompts.py with the separately obtained pinned SR-Eval checkout.]",
+      "raw_response": "```java\nvoid set(Solution_ bestSolution) {\n    synchronized (this) {\n        this.versionedBestSolution =\n                new VersionedBestSolution<>(bestSolution, this.currentVersion);\n        this.currentVersion = this.currentVersion.add(BigInteger.ONE);\n    }\n}\n```",
+      "extracted_code": "void set(Solution_ bestSolution) {\n    synchronized (this) {\n        this.versionedBestSolution =\n                new VersionedBestSolution<>(bestSolution, this.currentVersion);\n        this.currentVersion = this.currentVersion.add(BigInteger.ONE);\n    }\n}",
+      "tests": [
+        {
+          "test_turn": 1,
+          "status": "fail",
+          "detail": "[ERROR] COMPILATION ERROR : \n[ERROR] /timefold-solver/core/src/main/java/ai/timefold/solver/core/impl/solver/ConsumerSupport.java:[54,27] method set in class ai.timefold.solver.core.impl.solver.BestSolutionHolder<Solution_> cannot be applied to given types;\n  required: Solution_\n  found:    Solution_,java.util.function.BooleanSupplier\n  reason: actual and formal argument lists differ in length\n[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.14.0:compile (default-compile) on project timefold-solver-core: Compilation failure\n[ERROR] /timefold-solver/core/src/main/java/ai/timefold/solver/core/impl/solver/ConsumerSupport.java:[54,27] method set in class ai.timefold.solver.core.impl.solver.BestSolutionHolder<Solution_> cannot be applied to given types;\n[ERROR]   required: Solution_\n[ERROR]   found:    Solution_,java.util.function.BooleanSupplier\n[ERROR]   reason: actual and formal argument lists differ in length\n[ERROR] \n[ERROR] -> [Help 1]\n[ERROR] \n[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.\n[ERROR] Re-run Maven using the -X switch to enable full debug logging.\n[ERROR] \n[ERROR] For more information about the errors and possible solutions, please read the following articles:\n[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException"
+        }
+      ],
+      "cumulatively_correct": false,
+      "usage": {
+        "input_tokens": 19957,
+        "cached_input_tokens": 9600,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1171,
+        "reasoning_output_tokens": 1006
+      },
+      "instruction_source_sha256": "c79c738d8026044c0d8c183aea1ac0fecbcd2bef390a3cd390294119ce5ecfb1",
+      "rendered_prompt_sha256": "276fd195934121cc992eea0000197f3490fd9c03458b05f9243f7410aec4a73e"
+    },
+    {
+      "turn": 2,
+      "instruction": "[OMITTED FROM PUBLIC ARTIFACT: benchmark-authored prompt text is not redistributed because SR-Eval and MRG-Bench do not state a redistribution license. Use scripts/reconstruct_prompts.py with the separately obtained pinned SR-Eval checkout.]",
+      "prompt": "[OMITTED FROM PUBLIC ARTIFACT: benchmark-authored prompt text is not redistributed because SR-Eval and MRG-Bench do not state a redistribution license. Use scripts/reconstruct_prompts.py with the separately obtained pinned SR-Eval checkout.]",
+      "raw_response": "```java\nvoid set(Solution_ bestSolution, BooleanSupplier isEveryProblemChangeProcessed) {\n    synchronized (this) {\n        if (!isEveryProblemChangeProcessed.getAsBoolean()) {\n            return;\n        }\n        this.versionedBestSolution =\n                new VersionedBestSolution<>(bestSolution, this.currentVersion);\n        this.currentVersion = this.currentVersion.add(BigInteger.ONE);\n    }\n}\n```",
+      "extracted_code": "void set(Solution_ bestSolution, BooleanSupplier isEveryProblemChangeProcessed) {\n    synchronized (this) {\n        if (!isEveryProblemChangeProcessed.getAsBoolean()) {\n            return;\n        }\n        this.versionedBestSolution =\n                new VersionedBestSolution<>(bestSolution, this.currentVersion);\n        this.currentVersion = this.currentVersion.add(BigInteger.ONE);\n    }\n}",
+      "tests": [
+        {
+          "test_turn": 1,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "test_turn": 2,
+          "status": "pass",
+          "detail": "SUCCESS"
+        }
+      ],
+      "cumulatively_correct": true,
+      "usage": {
+        "input_tokens": 11209,
+        "cached_input_tokens": 9984,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 86,
+        "reasoning_output_tokens": 0
+      },
+      "instruction_source_sha256": "5f7449654b1bd0be245393f640bf5a1ae09655af793b37ba4aa65caa93185519",
+      "rendered_prompt_sha256": "21cebb3d231fd30f4f3054af5e915dc91a446a77a884724a27b881c60754f55b"
+    },
+    {
+      "turn": 3,
+      "instruction": "[OMITTED FROM PUBLIC ARTIFACT: benchmark-authored prompt text is not redistributed because SR-Eval and MRG-Bench do not state a redistribution license. Use scripts/reconstruct_prompts.py with the separately obtained pinned SR-Eval checkout.]",
+      "prompt": "[OMITTED FROM PUBLIC ARTIFACT: benchmark-authored prompt text is not redistributed because SR-Eval and MRG-Bench do not state a redistribution license. Use scripts/reconstruct_prompts.py with the separately obtained pinned SR-Eval checkout.]",
+      "raw_response": "```java\nvoid set(Solution_ bestSolution, BooleanSupplier isEveryProblemChangeProcessed) {\n    synchronized (this) {\n        if (!isEveryProblemChangeProcessed.getAsBoolean()) {\n            return;\n        }\n\n        this.versionedBestSolution =\n                new VersionedBestSolution<>(bestSolution, this.currentVersion);\n        this.currentVersion = this.currentVersion.add(BigInteger.ONE);\n    }\n}\n```",
+      "extracted_code": "void set(Solution_ bestSolution, BooleanSupplier isEveryProblemChangeProcessed) {\n    synchronized (this) {\n        if (!isEveryProblemChangeProcessed.getAsBoolean()) {\n            return;\n        }\n\n        this.versionedBestSolution =\n                new VersionedBestSolution<>(bestSolution, this.currentVersion);\n        this.currentVersion = this.currentVersion.add(BigInteger.ONE);\n    }\n}",
+      "tests": [
+        {
+          "test_turn": 1,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "test_turn": 2,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "test_turn": 3,
+          "status": "pass",
+          "detail": "SUCCESS"
+        }
+      ],
+      "cumulatively_correct": true,
+      "usage": {
+        "input_tokens": 11510,
+        "cached_input_tokens": 11008,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 153,
+        "reasoning_output_tokens": 65
+      },
+      "instruction_source_sha256": "0490b36f588f5d706ac9b400cd2f11fcd1f7df87e4fbac5113c3cd26f22dd93f",
+      "rendered_prompt_sha256": "756cd62d7e7b7c31fd65c4c8c52c92070730dd2d7c1bf16a5826fe888a142d7a"
+    }
+  ],
+  "public_prompt_policy": {
+    "benchmark_authored_text_included": false,
+    "reconstruction_command": "python3 scripts/reconstruct_prompts.py --sr-eval .cache/SR-Eval --output reconstructed-prompts"
+  }
+}

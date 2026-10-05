@@ -1,0 +1,5 @@
+# Benchmark-derived prompt omitted from the public artifact
+
+Original SHA-256: `ebebda0a5f6b95d35f8e0d884c792222f9e6ca7488b6e6428d2bfad2b14f4431`
+
+[OMITTED FROM PUBLIC ARTIFACT: benchmark-authored prompt text is not redistributed because SR-Eval and MRG-Bench do not state a redistribution license. Use scripts/reconstruct_prompts.py with the separately obtained pinned SR-Eval checkout.]

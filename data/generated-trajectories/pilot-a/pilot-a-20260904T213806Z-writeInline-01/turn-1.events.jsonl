@@ -1,0 +1,4 @@
+{"type":"thread.started","thread_id":"session-d30ae9c7bd47c74b"}
+{"type":"turn.started"}
+{"type":"item.completed","item":{"id":"item_0","type":"agent_message","text":"```java\npublic synchronized void writeInline(\n        int ordinal, Map<FeatureId, Feature.State> stateMap) throws IOException {\n    long position =\n            startOffset\n                    + headerSize\n                    + (long) ordinal * layer0BlockSize\n                    + Integer.BYTES;\n\n    out.seek(position);\n\n    for (Feature feature : inlineFeatures) {\n        Feature.State state = stateMap.get(feature.id());\n        if (state != null) {\n            feature.writeInline(out, state);\n        } else {\n            out.seek(out.position() + feature.inlineSize());\n        }\n    }\n}\n```"}}
+{"type":"turn.completed","usage":{"input_tokens":19316,"cached_input_tokens":9344,"cache_write_input_tokens":0,"output_tokens":2623,"reasoning_output_tokens":2375}}

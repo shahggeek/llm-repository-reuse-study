@@ -1,0 +1,4 @@
+{"type":"thread.started","thread_id":"session-b659d03a1337291a"}
+{"type":"turn.started"}
+{"type":"item.completed","item":{"id":"item_0","type":"agent_message","text":"```java\npublic static String underlineToCamel(String string) {\n    StringBuilder result = new StringBuilder(string.length());\n\n    for (int i = 0; i < string.length(); i++) {\n        char current = string.charAt(i);\n        if (current == '_') {\n            current = Character.toUpperCase(string.charAt(++i));\n        }\n        result.append(current);\n    }\n\n    return result.toString();\n}\n```"}}
+{"type":"turn.completed","usage":{"input_tokens":10094,"cached_input_tokens":9088,"cache_write_input_tokens":0,"output_tokens":169,"reasoning_output_tokens":75}}

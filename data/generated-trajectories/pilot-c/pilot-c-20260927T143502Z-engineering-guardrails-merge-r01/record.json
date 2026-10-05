@@ -1,0 +1,88 @@
+{
+  "schema_version": 3,
+  "batch_id": "pilot-c-20260927T143502Z",
+  "run_id": "pilot-c-20260927T143502Z-engineering-guardrails-merge-r01",
+  "repetition": 1,
+  "task_hash": "0fa49588ebdc16e8fd289f95",
+  "task_slug": "merge",
+  "condition": "engineering-guardrails",
+  "benchmark_commit": "6cf948d69427687bf61042640223d5b318f7bc4c",
+  "product_interface": "Codex CLI 0.153.0",
+  "session_id": "session-8432a03396515a0a",
+  "model": {
+    "display_name": "GPT-5.6 Sol",
+    "slug": "gpt-5.6-sol",
+    "reasoning_effort": "High",
+    "automatic_routing": false,
+    "snapshot": null
+  },
+  "started_at": "2026-09-27T14:47:02.195457+00:00",
+  "completed_at": "2026-09-27T14:48:23.074398+00:00",
+  "prompt_sha256": {
+    "experiment/prompts/system.txt": "4875eb8f21bbf16bf8230730213406471017c29630afb9b027ef115f510c66da",
+    "experiment/prompts/turn-1.txt": "493fa28970d6f5b28586e31d468c2243cdbb045a7f21de56582d73bc290688ca",
+    "experiment/prompts/code-edit.txt": "e15919aa205033e555720259b3a3cfa36e17f26dea0a0f8a9423341a22fe8b57",
+    "experiment/prompts/engineering-guardrails.txt": "d24d0f0fc97807691f18afb0529b017abad7761f8a67da858d6e2d0f7e6bbee5"
+  },
+  "prompt_source_sha256": "258138fe575563a5f0880f73d5099451bb2a37cb98f0ac950e1b435edc55e8aa",
+  "retrieval_packet_sha256": null,
+  "turns": [
+    {
+      "turn": 1,
+      "instruction": "[OMITTED FROM PUBLIC ARTIFACT: benchmark-authored prompt text is not redistributed because SR-Eval and MRG-Bench do not state a redistribution license. Use scripts/reconstruct_prompts.py with the separately obtained pinned SR-Eval checkout.]",
+      "prompt": "[OMITTED FROM PUBLIC ARTIFACT: benchmark-authored prompt text is not redistributed because SR-Eval and MRG-Bench do not state a redistribution license. Use scripts/reconstruct_prompts.py with the separately obtained pinned SR-Eval checkout.]",
+      "raw_response": "```java\npublic static <T> T merge(Object source, Object target, Class<T> clazz, List<String> acceptedFieldNames) {\n\tMap<String, Object> sourceMap = objectToMap(source);\n\tMap<String, Object> targetMap = objectToMap(target);\n\n\tList<String> fieldNames = acceptedFieldNames;\n\tif (CollectionUtils.isEmpty(fieldNames)) {\n\t\tfieldNames = REQUEST_FIELD_NAMES_PER_CLASS.computeIfAbsent(clazz,\n\t\t\t\ttype -> Arrays.stream(type.getDeclaredFields())\n\t\t\t\t\t.filter(field -> field.isAnnotationPresent(JsonProperty.class))\n\t\t\t\t\t.map(field -> field.getAnnotation(JsonProperty.class).value())\n\t\t\t\t\t.collect(Collectors.toList()));\n\t}\n\n\tMap<String, Object> mergedMap = mergeMaps(sourceMap, targetMap, fieldNames);\n\treturn mapToClass(mergedMap, clazz);\n}\n```",
+      "extracted_code": "public static <T> T merge(Object source, Object target, Class<T> clazz, List<String> acceptedFieldNames) {\n\tMap<String, Object> sourceMap = objectToMap(source);\n\tMap<String, Object> targetMap = objectToMap(target);\n\n\tList<String> fieldNames = acceptedFieldNames;\n\tif (CollectionUtils.isEmpty(fieldNames)) {\n\t\tfieldNames = REQUEST_FIELD_NAMES_PER_CLASS.computeIfAbsent(clazz,\n\t\t\t\ttype -> Arrays.stream(type.getDeclaredFields())\n\t\t\t\t\t.filter(field -> field.isAnnotationPresent(JsonProperty.class))\n\t\t\t\t\t.map(field -> field.getAnnotation(JsonProperty.class).value())\n\t\t\t\t\t.collect(Collectors.toList()));\n\t}\n\n\tMap<String, Object> mergedMap = mergeMaps(sourceMap, targetMap, fieldNames);\n\treturn mapToClass(mergedMap, clazz);\n}",
+      "tests": [
+        {
+          "test_turn": 1,
+          "status": "fail",
+          "detail": "[ERROR] COMPILATION ERROR : \n[ERROR] /spring-ai/spring-ai-model/src/main/java/org/springframework/ai/model/ModelOptionsUtils.java:[191,49] cannot find symbol\n  symbol:   method mergeMaps(java.util.Map<java.lang.String,java.lang.Object>,java.util.Map<java.lang.String,java.lang.Object>,java.util.List<java.lang.String>)\n  location: class org.springframework.ai.model.ModelOptionsUtils\n[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.11.0:compile (java-compile) on project spring-ai-model: Compilation failure\n[ERROR] /spring-ai/spring-ai-model/src/main/java/org/springframework/ai/model/ModelOptionsUtils.java:[191,49] cannot find symbol\n[ERROR]   symbol:   method mergeMaps(java.util.Map<java.lang.String,java.lang.Object>,java.util.Map<java.lang.String,java.lang.Object>,java.util.List<java.lang.String>)\n[ERROR]   location: class org.springframework.ai.model.ModelOptionsUtils\n[ERROR] \n[ERROR] -> [Help 1]\n[ERROR] \n[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.\n[ERROR] Re-run Maven using the -X switch to enable full debug logging.\n[ERROR] \n[ERROR] For more information about the errors and possible solutions, please read the following articles:\n[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException"
+        }
+      ],
+      "cumulatively_correct": false,
+      "usage": {
+        "input_tokens": 27151,
+        "cached_input_tokens": 8832,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 3350,
+        "reasoning_output_tokens": 2977
+      },
+      "instruction_source_sha256": "1bf6c819656c4855d92ea3f8d7bc63d4cbb8b8291739fd020ef5bbd3dc937ffb",
+      "rendered_prompt_sha256": "b399b1075b4865f8d0749b725f7080cc082f466d1f9c0d0b689163c17437e8d0"
+    },
+    {
+      "turn": 2,
+      "instruction": "[OMITTED FROM PUBLIC ARTIFACT: benchmark-authored prompt text is not redistributed because SR-Eval and MRG-Bench do not state a redistribution license. Use scripts/reconstruct_prompts.py with the separately obtained pinned SR-Eval checkout.]",
+      "prompt": "[OMITTED FROM PUBLIC ARTIFACT: benchmark-authored prompt text is not redistributed because SR-Eval and MRG-Bench do not state a redistribution license. Use scripts/reconstruct_prompts.py with the separately obtained pinned SR-Eval checkout.]",
+      "raw_response": "```java\npublic static <T> T merge(Object source, Object target, Class<T> clazz, List<String> acceptedFieldNames) {\n\tMap<String, Object> sourceMap = objectToMap(source);\n\tMap<String, Object> targetMap = objectToMap(target);\n\n\tList<String> fieldNames = acceptedFieldNames;\n\tif (CollectionUtils.isEmpty(fieldNames)) {\n\t\tfieldNames = REQUEST_FIELD_NAMES_PER_CLASS.computeIfAbsent(clazz,\n\t\t\t\ttype -> Arrays.stream(type.getDeclaredFields())\n\t\t\t\t\t.filter(field -> field.isAnnotationPresent(JsonProperty.class))\n\t\t\t\t\t.map(field -> field.getAnnotation(JsonProperty.class).value())\n\t\t\t\t\t.collect(Collectors.toList()));\n\t}\n\n\tif (fieldNames.isEmpty()) {\n\t\tthrow new IllegalArgumentException(\n\t\t\t\t\"Class \" + clazz.getName() + \" has no fields annotated with @JsonProperty\");\n\t}\n\n\tMap<String, Object> mergedMap = mergeMaps(sourceMap, targetMap, fieldNames);\n\treturn mapToClass(mergedMap, clazz);\n}\n```",
+      "extracted_code": "public static <T> T merge(Object source, Object target, Class<T> clazz, List<String> acceptedFieldNames) {\n\tMap<String, Object> sourceMap = objectToMap(source);\n\tMap<String, Object> targetMap = objectToMap(target);\n\n\tList<String> fieldNames = acceptedFieldNames;\n\tif (CollectionUtils.isEmpty(fieldNames)) {\n\t\tfieldNames = REQUEST_FIELD_NAMES_PER_CLASS.computeIfAbsent(clazz,\n\t\t\t\ttype -> Arrays.stream(type.getDeclaredFields())\n\t\t\t\t\t.filter(field -> field.isAnnotationPresent(JsonProperty.class))\n\t\t\t\t\t.map(field -> field.getAnnotation(JsonProperty.class).value())\n\t\t\t\t\t.collect(Collectors.toList()));\n\t}\n\n\tif (fieldNames.isEmpty()) {\n\t\tthrow new IllegalArgumentException(\n\t\t\t\t\"Class \" + clazz.getName() + \" has no fields annotated with @JsonProperty\");\n\t}\n\n\tMap<String, Object> mergedMap = mergeMaps(sourceMap, targetMap, fieldNames);\n\treturn mapToClass(mergedMap, clazz);\n}",
+      "tests": [
+        {
+          "test_turn": 1,
+          "status": "fail",
+          "detail": "[ERROR] COMPILATION ERROR : \n[ERROR] /spring-ai/spring-ai-model/src/main/java/org/springframework/ai/model/ModelOptionsUtils.java:[196,49] cannot find symbol\n  symbol:   method mergeMaps(java.util.Map<java.lang.String,java.lang.Object>,java.util.Map<java.lang.String,java.lang.Object>,java.util.List<java.lang.String>)\n  location: class org.springframework.ai.model.ModelOptionsUtils\n[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.11.0:compile (java-compile) on project spring-ai-model: Compilation failure\n[ERROR] /spring-ai/spring-ai-model/src/main/java/org/springframework/ai/model/ModelOptionsUtils.java:[196,49] cannot find symbol\n[ERROR]   symbol:   method mergeMaps(java.util.Map<java.lang.String,java.lang.Object>,java.util.Map<java.lang.String,java.lang.Object>,java.util.List<java.lang.String>)\n[ERROR]   location: class org.springframework.ai.model.ModelOptionsUtils\n[ERROR] \n[ERROR] -> [Help 1]\n[ERROR] \n[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.\n[ERROR] Re-run Maven using the -X switch to enable full debug logging.\n[ERROR] \n[ERROR] For more information about the errors and possible solutions, please read the following articles:\n[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException"
+        },
+        {
+          "test_turn": 2,
+          "status": "fail",
+          "detail": "[ERROR] COMPILATION ERROR : \n[ERROR] /spring-ai/spring-ai-model/src/main/java/org/springframework/ai/model/ModelOptionsUtils.java:[196,49] cannot find symbol\n  symbol:   method mergeMaps(java.util.Map<java.lang.String,java.lang.Object>,java.util.Map<java.lang.String,java.lang.Object>,java.util.List<java.lang.String>)\n  location: class org.springframework.ai.model.ModelOptionsUtils\n[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.11.0:compile (java-compile) on project spring-ai-model: Compilation failure\n[ERROR] /spring-ai/spring-ai-model/src/main/java/org/springframework/ai/model/ModelOptionsUtils.java:[196,49] cannot find symbol\n[ERROR]   symbol:   method mergeMaps(java.util.Map<java.lang.String,java.lang.Object>,java.util.Map<java.lang.String,java.lang.Object>,java.util.List<java.lang.String>)\n[ERROR]   location: class org.springframework.ai.model.ModelOptionsUtils\n[ERROR] \n[ERROR] -> [Help 1]\n[ERROR] \n[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.\n[ERROR] Re-run Maven using the -X switch to enable full debug logging.\n[ERROR] \n[ERROR] For more information about the errors and possible solutions, please read the following articles:\n[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException"
+        }
+      ],
+      "cumulatively_correct": false,
+      "usage": {
+        "input_tokens": 12785,
+        "cached_input_tokens": 9088,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 618,
+        "reasoning_output_tokens": 408
+      },
+      "instruction_source_sha256": "a4cc84f967bf45bdf70ab09c2e2612f79ecf5194e6e699f7e4b2d323eefab2ed",
+      "rendered_prompt_sha256": "fdfb839e3714fbabb49d08e2d2a69d80f4f595eaefbe7c49ac6e8ca17317d738"
+    }
+  ],
+  "public_prompt_policy": {
+    "benchmark_authored_text_included": false,
+    "reconstruction_command": "python3 scripts/reconstruct_prompts.py --sr-eval .cache/SR-Eval --output reconstructed-prompts"
+  }
+}

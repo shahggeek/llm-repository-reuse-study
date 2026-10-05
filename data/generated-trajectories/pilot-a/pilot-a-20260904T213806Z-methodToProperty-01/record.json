@@ -1,0 +1,119 @@
+{
+  "schema_version": 1,
+  "batch_id": "pilot-a-20260904T213806Z",
+  "run_id": "pilot-a-20260904T213806Z-methodToProperty-01",
+  "task_hash": "3311fcb30839fc3620dccd19",
+  "task_slug": "methodToProperty",
+  "condition": "baseline",
+  "benchmark_commit": "6cf948d69427687bf61042640223d5b318f7bc4c",
+  "product_interface": "Codex CLI 0.153.0",
+  "session_id": "session-dd0dc117d7a79331",
+  "model": {
+    "display_name": "GPT-5.6 Sol",
+    "slug": "gpt-5.6-sol",
+    "reasoning_effort": "High",
+    "automatic_routing": false,
+    "snapshot": null
+  },
+  "started_at": "2026-09-04T22:36:34.529875+00:00",
+  "completed_at": "2026-09-04T22:37:07.739506+00:00",
+  "prompt_sha256": {
+    "experiment/prompts/system.txt": "4875eb8f21bbf16bf8230730213406471017c29630afb9b027ef115f510c66da",
+    "experiment/prompts/turn-1.txt": "493fa28970d6f5b28586e31d468c2243cdbb045a7f21de56582d73bc290688ca",
+    "experiment/prompts/code-edit.txt": "e15919aa205033e555720259b3a3cfa36e17f26dea0a0f8a9423341a22fe8b57",
+    "experiment/prompts/engineering-guardrails.txt": "d24d0f0fc97807691f18afb0529b017abad7761f8a67da858d6e2d0f7e6bbee5"
+  },
+  "turns": [
+    {
+      "turn": 1,
+      "instruction": "[OMITTED FROM PUBLIC ARTIFACT: benchmark-authored prompt text is not redistributed because SR-Eval and MRG-Bench do not state a redistribution license. Use scripts/reconstruct_prompts.py with the separately obtained pinned SR-Eval checkout.]",
+      "prompt": "[OMITTED FROM PUBLIC ARTIFACT: benchmark-authored prompt text is not redistributed because SR-Eval and MRG-Bench do not state a redistribution license. Use scripts/reconstruct_prompts.py with the separately obtained pinned SR-Eval checkout.]",
+      "raw_response": "```java\npublic static String methodToProperty(String name) {\n    if (name == null || !name.startsWith(\"get\")) {\n        throw new IllegalArgumentException(String.format(\n                \"Error parsing property name '%s'.  Didn't start with 'is', 'get' or 'set'.\",\n                name));\n    }\n\n    String property = name.substring(3);\n    if (property.isEmpty()) {\n        return property;\n    }\n\n    return Character.toLowerCase(property.charAt(0)) + property.substring(1);\n}\n```",
+      "extracted_code": "public static String methodToProperty(String name) {\n    if (name == null || !name.startsWith(\"get\")) {\n        throw new IllegalArgumentException(String.format(\n                \"Error parsing property name '%s'.  Didn't start with 'is', 'get' or 'set'.\",\n                name));\n    }\n\n    String property = name.substring(3);\n    if (property.isEmpty()) {\n        return property;\n    }\n\n    return Character.toLowerCase(property.charAt(0)) + property.substring(1);\n}",
+      "tests": [
+        {
+          "test_turn": 1,
+          "status": "pass",
+          "detail": "SUCCESS"
+        }
+      ],
+      "cumulatively_correct": true,
+      "usage": {
+        "input_tokens": 17931,
+        "cached_input_tokens": 13824,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 680,
+        "reasoning_output_tokens": 467
+      },
+      "instruction_source_sha256": "1f076fc4fd5681bc3c56aac999f70daf42415ae10c653f8b81af212de6329d78",
+      "rendered_prompt_sha256": "9fc86ce9cbfe39981b2a2a13c7739cafaa2e576e6baa4da7d09e197a616ebc5d"
+    },
+    {
+      "turn": 2,
+      "instruction": "[OMITTED FROM PUBLIC ARTIFACT: benchmark-authored prompt text is not redistributed because SR-Eval and MRG-Bench do not state a redistribution license. Use scripts/reconstruct_prompts.py with the separately obtained pinned SR-Eval checkout.]",
+      "prompt": "[OMITTED FROM PUBLIC ARTIFACT: benchmark-authored prompt text is not redistributed because SR-Eval and MRG-Bench do not state a redistribution license. Use scripts/reconstruct_prompts.py with the separately obtained pinned SR-Eval checkout.]",
+      "raw_response": "```java\npublic static String methodToProperty(String name) {\n    if (name == null || (!name.startsWith(\"get\") && !name.startsWith(\"set\"))) {\n        throw new IllegalArgumentException(String.format(\n                \"Error parsing property name '%s'.  Didn't start with 'is', 'get' or 'set'.\",\n                name));\n    }\n\n    String property = name.substring(3);\n    if (property.isEmpty()) {\n        return property;\n    }\n\n    return Character.toLowerCase(property.charAt(0)) + property.substring(1);\n}\n```",
+      "extracted_code": "public static String methodToProperty(String name) {\n    if (name == null || (!name.startsWith(\"get\") && !name.startsWith(\"set\"))) {\n        throw new IllegalArgumentException(String.format(\n                \"Error parsing property name '%s'.  Didn't start with 'is', 'get' or 'set'.\",\n                name));\n    }\n\n    String property = name.substring(3);\n    if (property.isEmpty()) {\n        return property;\n    }\n\n    return Character.toLowerCase(property.charAt(0)) + property.substring(1);\n}",
+      "tests": [
+        {
+          "test_turn": 1,
+          "status": "fail",
+          "detail": "[ERROR] Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.109 s <<< FAILURE! -- in com.mybatisflex.coretest.StringUtilTest\n[ERROR] com.mybatisflex.coretest.StringUtilTest.testMethod2Property -- Time elapsed: 0.014 s <<< FAILURE!\njava.lang.AssertionError: expected java.lang.RuntimeException to be thrown, but nothing was thrown\n\tat org.junit.Assert.assertThrows(Assert.java:1028)\n\tat org.junit.Assert.assertThrows(Assert.java:981)\n\tat com.mybatisflex.coretest.StringUtilTest.testMethod2Property(StringUtilTest.java:45)\n\tat java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)\n\tat java.base/java.lang.reflect.Method.invoke(Method.java:580)\n\tat org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)\n\tat org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)\n\tat org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)\n\tat org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)\n\tat org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)\n\tat org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)\n\tat org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)\n\tat org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103)\n\tat org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:63)\n\tat org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)\n\tat org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)\n\tat org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)\n\tat org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)\n\tat org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)\n\tat org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)\n\tat org.junit.runners.ParentRunner.run(ParentRunner.java:413)\n\tat org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:316)\n\tat org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:240)\n\tat org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:214)\n\tat org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:155)\n\tat org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)\n\tat org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)\n\tat org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)\n\tat org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)\n[ERROR] Failures: \n[ERROR]   StringUtilTest.testMethod2Property:45 expected java.lang.RuntimeException to be thrown, but nothing was thrown\n[ERROR] Tests run: 1, Failures: 1, Errors: 0, Skipped: 0\n[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:3.2.5:test (default-test) on project mybatis-flex-core: There are test failures.\n[ERROR] \n[ERROR] Please refer to /mybatis-flex/mybatis-flex-core/target/surefire-reports for the individual test results.\n[ERROR] Please refer to dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.\n[ERROR] -> [Help 1]\n[ERROR] \n[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.\n[ERROR] Re-run Maven using the -X switch to enable full debug logging.\n[ERROR] \n[ERROR] For more information about the errors and possible solutions, please read the following articles:\n[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException"
+        },
+        {
+          "test_turn": 2,
+          "status": "pass",
+          "detail": "SUCCESS"
+        }
+      ],
+      "cumulatively_correct": false,
+      "usage": {
+        "input_tokens": 9904,
+        "cached_input_tokens": 8960,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 121,
+        "reasoning_output_tokens": 0
+      },
+      "instruction_source_sha256": "f3a9600fa5d6d6f620ed9333241a37a73ac92592f161c3514ff8edc6e03b153c",
+      "rendered_prompt_sha256": "d5c98b9d77b0ad94880223fec008be1259887eb1533ae5ee10853e86644c146d"
+    },
+    {
+      "turn": 3,
+      "instruction": "[OMITTED FROM PUBLIC ARTIFACT: benchmark-authored prompt text is not redistributed because SR-Eval and MRG-Bench do not state a redistribution license. Use scripts/reconstruct_prompts.py with the separately obtained pinned SR-Eval checkout.]",
+      "prompt": "[OMITTED FROM PUBLIC ARTIFACT: benchmark-authored prompt text is not redistributed because SR-Eval and MRG-Bench do not state a redistribution license. Use scripts/reconstruct_prompts.py with the separately obtained pinned SR-Eval checkout.]",
+      "raw_response": "```java\npublic static String methodToProperty(String name) {\n    if (name == null) {\n        throw new IllegalArgumentException(String.format(\n                \"Error parsing property name '%s'.  Didn't start with 'is', 'get' or 'set'.\",\n                name));\n    }\n\n    String property;\n    if (name.startsWith(\"is\")) {\n        property = name.substring(2);\n    } else if (name.startsWith(\"get\") || name.startsWith(\"set\")) {\n        property = name.substring(3);\n    } else {\n        throw new IllegalArgumentException(String.format(\n                \"Error parsing property name '%s'.  Didn't start with 'is', 'get' or 'set'.\",\n                name));\n    }\n\n    if (property.isEmpty()) {\n        return property;\n    }\n\n    return property.substring(0, 1).toLowerCase(Locale.ENGLISH)\n            + property.substring(1);\n}\n```",
+      "extracted_code": "public static String methodToProperty(String name) {\n    if (name == null) {\n        throw new IllegalArgumentException(String.format(\n                \"Error parsing property name '%s'.  Didn't start with 'is', 'get' or 'set'.\",\n                name));\n    }\n\n    String property;\n    if (name.startsWith(\"is\")) {\n        property = name.substring(2);\n    } else if (name.startsWith(\"get\") || name.startsWith(\"set\")) {\n        property = name.substring(3);\n    } else {\n        throw new IllegalArgumentException(String.format(\n                \"Error parsing property name '%s'.  Didn't start with 'is', 'get' or 'set'.\",\n                name));\n    }\n\n    if (property.isEmpty()) {\n        return property;\n    }\n\n    return property.substring(0, 1).toLowerCase(Locale.ENGLISH)\n            + property.substring(1);\n}",
+      "tests": [
+        {
+          "test_turn": 1,
+          "status": "fail",
+          "detail": "[ERROR] Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.110 s <<< FAILURE! -- in com.mybatisflex.coretest.StringUtilTest\n[ERROR] com.mybatisflex.coretest.StringUtilTest.testMethod2Property -- Time elapsed: 0.014 s <<< FAILURE!\njava.lang.AssertionError: expected java.lang.RuntimeException to be thrown, but nothing was thrown\n\tat org.junit.Assert.assertThrows(Assert.java:1028)\n\tat org.junit.Assert.assertThrows(Assert.java:981)\n\tat com.mybatisflex.coretest.StringUtilTest.testMethod2Property(StringUtilTest.java:44)\n\tat java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)\n\tat java.base/java.lang.reflect.Method.invoke(Method.java:580)\n\tat org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)\n\tat org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)\n\tat org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)\n\tat org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)\n\tat org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)\n\tat org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)\n\tat org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)\n\tat org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103)\n\tat org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:63)\n\tat org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)\n\tat org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)\n\tat org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)\n\tat org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)\n\tat org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)\n\tat org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)\n\tat org.junit.runners.ParentRunner.run(ParentRunner.java:413)\n\tat org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:316)\n\tat org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:240)\n\tat org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:214)\n\tat org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:155)\n\tat org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)\n\tat org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)\n\tat org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)\n\tat org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)\n[ERROR] Failures: \n[ERROR]   StringUtilTest.testMethod2Property:44 expected java.lang.RuntimeException to be thrown, but nothing was thrown\n[ERROR] Tests run: 1, Failures: 1, Errors: 0, Skipped: 0\n[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:3.2.5:test (default-test) on project mybatis-flex-core: There are test failures.\n[ERROR] \n[ERROR] Please refer to /mybatis-flex/mybatis-flex-core/target/surefire-reports for the individual test results.\n[ERROR] Please refer to dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.\n[ERROR] -> [Help 1]\n[ERROR] \n[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.\n[ERROR] Re-run Maven using the -X switch to enable full debug logging.\n[ERROR] \n[ERROR] For more information about the errors and possible solutions, please read the following articles:\n[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException"
+        },
+        {
+          "test_turn": 2,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "test_turn": 3,
+          "status": "fail",
+          "detail": "[ERROR] Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.106 s <<< FAILURE! -- in com.mybatisflex.coretest.StringUtilTest\n[ERROR] com.mybatisflex.coretest.StringUtilTest.testMethod2Property -- Time elapsed: 0.016 s <<< FAILURE!\njava.lang.AssertionError: unexpected exception type thrown; expected:<com.mybatisflex.core.exception.MybatisFlexException> but was:<java.lang.IllegalArgumentException>\n\tat org.junit.Assert.assertThrows(Assert.java:1020)\n\tat org.junit.Assert.assertThrows(Assert.java:981)\n\tat com.mybatisflex.coretest.StringUtilTest.testMethod2Property(StringUtilTest.java:45)\n\tat java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)\n\tat java.base/java.lang.reflect.Method.invoke(Method.java:580)\n\tat org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)\n\tat org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)\n\tat org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)\n\tat org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)\n\tat org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)\n\tat org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)\n\tat org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)\n\tat org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103)\n\tat org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:63)\n\tat org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)\n\tat org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)\n\tat org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)\n\tat org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)\n\tat org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)\n\tat org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)\n\tat org.junit.runners.ParentRunner.run(ParentRunner.java:413)\n\tat org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:316)\n\tat org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:240)\n\tat org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:214)\n\tat org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:155)\n\tat org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)\n\tat org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)\n\tat org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)\n\tat org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)\nCaused by: java.lang.IllegalArgumentException: Error parsing property name 'name'.  Didn't start with 'is', 'get' or 'set'.\n\tat com.mybatisflex.core.util.StringUtil.methodToProperty(StringUtil.java:47)\n\tat com.mybatisflex.coretest.StringUtilTest.lambda$testMethod2Property$0(StringUtilTest.java:45)\n\tat org.junit.Assert.assertThrows(Assert.java:1001)\n\t... 28 more\n[ERROR] Failures: \n[ERROR]   StringUtilTest.testMethod2Property:45 unexpected exception type thrown; expected:<com.mybatisflex.core.exception.MybatisFlexException> but was:<java.lang.IllegalArgumentException>\n[ERROR] Tests run: 1, Failures: 1, Errors: 0, Skipped: 0\n[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:3.2.5:test (default-test) on project mybatis-flex-core: There are test failures.\n[ERROR] \n[ERROR] Please refer to /mybatis-flex/mybatis-flex-core/target/surefire-reports for the individual test results.\n[ERROR] Please refer to dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.\n[ERROR] -> [Help 1]\n[ERROR] \n[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.\n[ERROR] Re-run Maven using the -X switch to enable full debug logging.\n[ERROR] \n[ERROR] For more information about the errors and possible solutions, please read the following articles:\n[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException"
+        }
+      ],
+      "cumulatively_correct": false,
+      "usage": {
+        "input_tokens": 10256,
+        "cached_input_tokens": 9728,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 252,
+        "reasoning_output_tokens": 56
+      },
+      "instruction_source_sha256": "651973889cdd985a133c2af01246a914ce39627050888e81ef9a3b9cad0a92da",
+      "rendered_prompt_sha256": "b3ecce4e7335eea2e1edcaa1d72075b4527f039bd866dc4733763506498c8ca9"
+    }
+  ],
+  "public_prompt_policy": {
+    "benchmark_authored_text_included": false,
+    "reconstruction_command": "python3 scripts/reconstruct_prompts.py --sr-eval .cache/SR-Eval --output reconstructed-prompts"
+  }
+}

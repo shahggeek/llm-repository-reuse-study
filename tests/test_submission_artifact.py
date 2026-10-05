@@ -60,6 +60,11 @@ class SubmissionArtifactTests(unittest.TestCase):
         self.assertIn("make evidence-check", content)
         self.assertNotIn("artifacts/PUBLIC_VERIFY_WORKFLOW.yml", self.by_path)
 
+    def test_public_readme_discloses_filtered_history(self):
+        content = self.by_path["README.md"].decode("utf-8")
+        self.assertIn("Public history provenance", content)
+        self.assertIn("commit hashes necessarily differ", content)
+
     def test_practitioner_response_release_removes_private_sources(self):
         content = self.by_path[
             "results/pilot/industry-expert-review-responses.csv"

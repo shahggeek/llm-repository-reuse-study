@@ -1,0 +1,234 @@
+{
+  "schema_version": 1,
+  "batch_id": "pilot-c-20260927T143502Z",
+  "condition": "engineering-guardrails",
+  "benchmark_commit": "6cf948d69427687bf61042640223d5b318f7bc4c",
+  "container": "mrgbench_container_1",
+  "started_at": "2026-09-27T14:55:20.403575+00:00",
+  "runs": [
+    {
+      "slug": "loadDocumentsRecursively",
+      "hash_id": "3ac2084e8f23beb3709c38d6",
+      "condition": "engineering-guardrails",
+      "repetition": 1,
+      "run_id": "pilot-c-20260927T143502Z-engineering-guardrails-loadDocumentsRecursively-r01",
+      "checkpoints": [
+        {
+          "turn": 1,
+          "cumulatively_correct": true,
+          "tests": [
+            {
+              "test_turn": 1,
+              "status": "pass",
+              "detail": "SUCCESS"
+            }
+          ]
+        },
+        {
+          "turn": 2,
+          "cumulatively_correct": true,
+          "tests": [
+            {
+              "test_turn": 1,
+              "status": "pass",
+              "detail": "SUCCESS"
+            },
+            {
+              "test_turn": 2,
+              "status": "pass",
+              "detail": "SUCCESS"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "loadDocumentsRecursively",
+      "hash_id": "3ac2084e8f23beb3709c38d6",
+      "condition": "engineering-guardrails",
+      "repetition": 2,
+      "run_id": "pilot-c-20260927T143502Z-engineering-guardrails-loadDocumentsRecursively-r02",
+      "checkpoints": [
+        {
+          "turn": 1,
+          "cumulatively_correct": true,
+          "tests": [
+            {
+              "test_turn": 1,
+              "status": "pass",
+              "detail": "SUCCESS"
+            }
+          ]
+        },
+        {
+          "turn": 2,
+          "cumulatively_correct": true,
+          "tests": [
+            {
+              "test_turn": 1,
+              "status": "pass",
+              "detail": "SUCCESS"
+            },
+            {
+              "test_turn": 2,
+              "status": "pass",
+              "detail": "SUCCESS"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "loadDocumentsRecursively",
+      "hash_id": "3ac2084e8f23beb3709c38d6",
+      "condition": "engineering-guardrails",
+      "repetition": 3,
+      "run_id": "pilot-c-20260927T143502Z-engineering-guardrails-loadDocumentsRecursively-r03",
+      "checkpoints": [
+        {
+          "turn": 1,
+          "cumulatively_correct": true,
+          "tests": [
+            {
+              "test_turn": 1,
+              "status": "pass",
+              "detail": "SUCCESS"
+            }
+          ]
+        },
+        {
+          "turn": 2,
+          "cumulatively_correct": true,
+          "tests": [
+            {
+              "test_turn": 1,
+              "status": "pass",
+              "detail": "SUCCESS"
+            },
+            {
+              "test_turn": 2,
+              "status": "pass",
+              "detail": "SUCCESS"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "merge",
+      "hash_id": "0fa49588ebdc16e8fd289f95",
+      "condition": "engineering-guardrails",
+      "repetition": 1,
+      "run_id": "pilot-c-20260927T143502Z-engineering-guardrails-merge-r01",
+      "checkpoints": [
+        {
+          "turn": 1,
+          "cumulatively_correct": false,
+          "tests": [
+            {
+              "test_turn": 1,
+              "status": "fail",
+              "detail": "[ERROR] COMPILATION ERROR : \n[ERROR] /spring-ai/spring-ai-model/src/main/java/org/springframework/ai/model/ModelOptionsUtils.java:[191,49] cannot find symbol\n  symbol:   method mergeMaps(java.util.Map<java.lang.String,java.lang.Object>,java.util.Map<java.lang.String,java.lang.Object>,java.util.List<java.lang.String>)\n  location: class org.springframework.ai.model.ModelOptionsUtils\n[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.11.0:compile (java-compile) on project spring-ai-model: Compilation failure\n[ERROR] /spring-ai/spring-ai-model/src/main/java/org/springframework/ai/model/ModelOptionsUtils.java:[191,49] cannot find symbol\n[ERROR]   symbol:   method mergeMaps(java.util.Map<java.lang.String,java.lang.Object>,java.util.Map<java.lang.String,java.lang.Object>,java.util.List<java.lang.String>)\n[ERROR]   location: class org.springframework.ai.model.ModelOptionsUtils\n[ERROR] \n[ERROR] -> [Help 1]\n[ERROR] \n[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.\n[ERROR] Re-run Maven using the -X switch to enable full debug logging.\n[ERROR] \n[ERROR] For more information about the errors and possible solutions, please read the following articles:\n[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException"
+            }
+          ]
+        },
+        {
+          "turn": 2,
+          "cumulatively_correct": false,
+          "tests": [
+            {
+              "test_turn": 1,
+              "status": "fail",
+              "detail": "[ERROR] COMPILATION ERROR : \n[ERROR] /spring-ai/spring-ai-model/src/main/java/org/springframework/ai/model/ModelOptionsUtils.java:[196,49] cannot find symbol\n  symbol:   method mergeMaps(java.util.Map<java.lang.String,java.lang.Object>,java.util.Map<java.lang.String,java.lang.Object>,java.util.List<java.lang.String>)\n  location: class org.springframework.ai.model.ModelOptionsUtils\n[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.11.0:compile (java-compile) on project spring-ai-model: Compilation failure\n[ERROR] /spring-ai/spring-ai-model/src/main/java/org/springframework/ai/model/ModelOptionsUtils.java:[196,49] cannot find symbol\n[ERROR]   symbol:   method mergeMaps(java.util.Map<java.lang.String,java.lang.Object>,java.util.Map<java.lang.String,java.lang.Object>,java.util.List<java.lang.String>)\n[ERROR]   location: class org.springframework.ai.model.ModelOptionsUtils\n[ERROR] \n[ERROR] -> [Help 1]\n[ERROR] \n[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.\n[ERROR] Re-run Maven using the -X switch to enable full debug logging.\n[ERROR] \n[ERROR] For more information about the errors and possible solutions, please read the following articles:\n[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException"
+            },
+            {
+              "test_turn": 2,
+              "status": "fail",
+              "detail": "[ERROR] COMPILATION ERROR : \n[ERROR] /spring-ai/spring-ai-model/src/main/java/org/springframework/ai/model/ModelOptionsUtils.java:[196,49] cannot find symbol\n  symbol:   method mergeMaps(java.util.Map<java.lang.String,java.lang.Object>,java.util.Map<java.lang.String,java.lang.Object>,java.util.List<java.lang.String>)\n  location: class org.springframework.ai.model.ModelOptionsUtils\n[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.11.0:compile (java-compile) on project spring-ai-model: Compilation failure\n[ERROR] /spring-ai/spring-ai-model/src/main/java/org/springframework/ai/model/ModelOptionsUtils.java:[196,49] cannot find symbol\n[ERROR]   symbol:   method mergeMaps(java.util.Map<java.lang.String,java.lang.Object>,java.util.Map<java.lang.String,java.lang.Object>,java.util.List<java.lang.String>)\n[ERROR]   location: class org.springframework.ai.model.ModelOptionsUtils\n[ERROR] \n[ERROR] -> [Help 1]\n[ERROR] \n[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.\n[ERROR] Re-run Maven using the -X switch to enable full debug logging.\n[ERROR] \n[ERROR] For more information about the errors and possible solutions, please read the following articles:\n[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "merge",
+      "hash_id": "0fa49588ebdc16e8fd289f95",
+      "condition": "engineering-guardrails",
+      "repetition": 2,
+      "run_id": "pilot-c-20260927T143502Z-engineering-guardrails-merge-r02",
+      "checkpoints": [
+        {
+          "turn": 1,
+          "cumulatively_correct": false,
+          "tests": [
+            {
+              "test_turn": 1,
+              "status": "fail",
+              "detail": "[ERROR] /spring-ai/spring-ai-model/src/main/java/org/springframework/ai/model/ModelOptionsUtils.java:58:8: Unused import - org.springframework.util.CollectionUtils. [UnusedImports]\nAudit done.\n[ERROR] Failed to execute goal org.apache.maven.plugins:maven-checkstyle-plugin:3.5.0:check (checkstyle-validation) on project spring-ai-model: Failed during checkstyle execution: There is 1 error reported by Checkstyle 9.3 with src/checkstyle/checkstyle.xml ruleset. -> [Help 1]\n[ERROR] \n[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.\n[ERROR] Re-run Maven using the -X switch to enable full debug logging.\n[ERROR] \n[ERROR] For more information about the errors and possible solutions, please read the following articles:\n[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoExecutionException"
+            }
+          ]
+        },
+        {
+          "turn": 2,
+          "cumulatively_correct": false,
+          "tests": [
+            {
+              "test_turn": 1,
+              "status": "fail",
+              "detail": "[ERROR] /spring-ai/spring-ai-model/src/main/java/org/springframework/ai/model/ModelOptionsUtils.java:58:8: Unused import - org.springframework.util.CollectionUtils. [UnusedImports]\nAudit done.\n[ERROR] Failed to execute goal org.apache.maven.plugins:maven-checkstyle-plugin:3.5.0:check (checkstyle-validation) on project spring-ai-model: Failed during checkstyle execution: There is 1 error reported by Checkstyle 9.3 with src/checkstyle/checkstyle.xml ruleset. -> [Help 1]\n[ERROR] \n[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.\n[ERROR] Re-run Maven using the -X switch to enable full debug logging.\n[ERROR] \n[ERROR] For more information about the errors and possible solutions, please read the following articles:\n[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoExecutionException"
+            },
+            {
+              "test_turn": 2,
+              "status": "fail",
+              "detail": "[ERROR] /spring-ai/spring-ai-model/src/main/java/org/springframework/ai/model/ModelOptionsUtils.java:58:8: Unused import - org.springframework.util.CollectionUtils. [UnusedImports]\nAudit done.\n[ERROR] Failed to execute goal org.apache.maven.plugins:maven-checkstyle-plugin:3.5.0:check (checkstyle-validation) on project spring-ai-model: Failed during checkstyle execution: There is 1 error reported by Checkstyle 9.3 with src/checkstyle/checkstyle.xml ruleset. -> [Help 1]\n[ERROR] \n[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.\n[ERROR] Re-run Maven using the -X switch to enable full debug logging.\n[ERROR] \n[ERROR] For more information about the errors and possible solutions, please read the following articles:\n[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoExecutionException"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "merge",
+      "hash_id": "0fa49588ebdc16e8fd289f95",
+      "condition": "engineering-guardrails",
+      "repetition": 3,
+      "run_id": "pilot-c-20260927T143502Z-engineering-guardrails-merge-r03",
+      "checkpoints": [
+        {
+          "turn": 1,
+          "cumulatively_correct": false,
+          "tests": [
+            {
+              "test_turn": 1,
+              "status": "fail",
+              "detail": "[ERROR] /spring-ai/spring-ai-model/src/main/java/org/springframework/ai/model/ModelOptionsUtils.java:58:8: Unused import - org.springframework.util.CollectionUtils. [UnusedImports]\nAudit done.\n[ERROR] Failed to execute goal org.apache.maven.plugins:maven-checkstyle-plugin:3.5.0:check (checkstyle-validation) on project spring-ai-model: Failed during checkstyle execution: There is 1 error reported by Checkstyle 9.3 with src/checkstyle/checkstyle.xml ruleset. -> [Help 1]\n[ERROR] \n[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.\n[ERROR] Re-run Maven using the -X switch to enable full debug logging.\n[ERROR] \n[ERROR] For more information about the errors and possible solutions, please read the following articles:\n[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoExecutionException"
+            }
+          ]
+        },
+        {
+          "turn": 2,
+          "cumulatively_correct": false,
+          "tests": [
+            {
+              "test_turn": 1,
+              "status": "fail",
+              "detail": "[ERROR] /spring-ai/spring-ai-model/src/main/java/org/springframework/ai/model/ModelOptionsUtils.java:58:8: Unused import - org.springframework.util.CollectionUtils. [UnusedImports]\nAudit done.\n[ERROR] Failed to execute goal org.apache.maven.plugins:maven-checkstyle-plugin:3.5.0:check (checkstyle-validation) on project spring-ai-model: Failed during checkstyle execution: There is 1 error reported by Checkstyle 9.3 with src/checkstyle/checkstyle.xml ruleset. -> [Help 1]\n[ERROR] \n[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.\n[ERROR] Re-run Maven using the -X switch to enable full debug logging.\n[ERROR] \n[ERROR] For more information about the errors and possible solutions, please read the following articles:\n[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoExecutionException"
+            },
+            {
+              "test_turn": 2,
+              "status": "fail",
+              "detail": "[ERROR] /spring-ai/spring-ai-model/src/main/java/org/springframework/ai/model/ModelOptionsUtils.java:58:8: Unused import - org.springframework.util.CollectionUtils. [UnusedImports]\nAudit done.\n[ERROR] Failed to execute goal org.apache.maven.plugins:maven-checkstyle-plugin:3.5.0:check (checkstyle-validation) on project spring-ai-model: Failed during checkstyle execution: There is 1 error reported by Checkstyle 9.3 with src/checkstyle/checkstyle.xml ruleset. -> [Help 1]\n[ERROR] \n[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.\n[ERROR] Re-run Maven using the -X switch to enable full debug logging.\n[ERROR] \n[ERROR] For more information about the errors and possible solutions, please read the following articles:\n[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoExecutionException"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "completed_at": "2026-09-27T15:07:23.652638+00:00",
+  "summary": {
+    "runs": 6,
+    "checkpoints": 12,
+    "cumulatively_correct_checkpoints": 6,
+    "passed_checks": 9,
+    "failed_checks": 9
+  }
+}

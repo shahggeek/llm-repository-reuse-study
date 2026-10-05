@@ -1,0 +1,4 @@
+{"type":"thread.started","thread_id":"session-7f06fc122c275f41"}
+{"type":"turn.started"}
+{"type":"item.completed","item":{"id":"item_0","type":"agent_message","text":"```java\npublic static List<Document> loadDocuments(Path directoryPath, DocumentParser documentParser) {\n    if (!isDirectory(directoryPath)) {\n        throw new IllegalArgumentException(\"Illegal directoryPath.\");\n    }\n\n    try (Stream<Path> pathStream = Files.list(directoryPath)) {\n        return loadDocuments(\n                pathStream.filter(Files::isRegularFile),\n                path -> true,\n                directoryPath,\n                documentParser);\n    } catch (IOException e) {\n        throw new RuntimeException(e);\n    }\n}\n```"}}
+{"type":"turn.completed","usage":{"input_tokens":12167,"cached_input_tokens":10752,"cache_write_input_tokens":0,"output_tokens":299,"reasoning_output_tokens":188}}

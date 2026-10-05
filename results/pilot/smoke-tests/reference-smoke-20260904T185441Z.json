@@ -1,0 +1,76 @@
+{
+  "schema_version": 1,
+  "benchmark_commit": "6cf948d69427687bf61042640223d5b318f7bc4c",
+  "container": "mrgbench_container_1",
+  "started_at": "2026-09-04T18:54:41.093704+00:00",
+  "tasks": [
+    {
+      "slug": "copyToTarget",
+      "hash_id": "6f8e8f1f18bd0ff1f3419f91",
+      "checks": [
+        {
+          "checkpoint_turn": 1,
+          "test_turn": 1,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "checkpoint_turn": 2,
+          "test_turn": 1,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "checkpoint_turn": 2,
+          "test_turn": 2,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "checkpoint_turn": 3,
+          "test_turn": 1,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "checkpoint_turn": 3,
+          "test_turn": 2,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "checkpoint_turn": 3,
+          "test_turn": 3,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "checkpoint_turn": 4,
+          "test_turn": 1,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "checkpoint_turn": 4,
+          "test_turn": 2,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "checkpoint_turn": 4,
+          "test_turn": 3,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "checkpoint_turn": 4,
+          "test_turn": 4,
+          "status": "pass",
+          "detail": "SUCCESS"
+        }
+      ]
+    }
+  ],
+  "completed_at": "2026-09-04T19:02:35.871507+00:00",
+  "status": "pass"
+}

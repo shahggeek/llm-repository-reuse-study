@@ -1,0 +1,204 @@
+{
+  "schema_version": 2,
+  "batch_id": "pilot-b-20260924T233242Z",
+  "run_id": "pilot-b-20260924T233242Z-engineering-guardrails-nodeArrayMerge-01",
+  "task_hash": "29066589401870d85f4e87b3",
+  "task_slug": "nodeArrayMerge",
+  "condition": "engineering-guardrails",
+  "benchmark_commit": "6cf948d69427687bf61042640223d5b318f7bc4c",
+  "product_interface": "Codex CLI 0.153.0",
+  "session_id": "session-12d5fe095a6de68f",
+  "model": {
+    "display_name": "GPT-5.6 Sol",
+    "slug": "gpt-5.6-sol",
+    "reasoning_effort": "High",
+    "automatic_routing": false,
+    "snapshot": null
+  },
+  "started_at": "2026-09-25T00:21:51.634633+00:00",
+  "completed_at": "2026-09-25T00:24:15.991498+00:00",
+  "prompt_sha256": {
+    "experiment/prompts/system.txt": "4875eb8f21bbf16bf8230730213406471017c29630afb9b027ef115f510c66da",
+    "experiment/prompts/turn-1.txt": "493fa28970d6f5b28586e31d468c2243cdbb045a7f21de56582d73bc290688ca",
+    "experiment/prompts/code-edit.txt": "e15919aa205033e555720259b3a3cfa36e17f26dea0a0f8a9423341a22fe8b57",
+    "experiment/prompts/engineering-guardrails.txt": "d24d0f0fc97807691f18afb0529b017abad7761f8a67da858d6e2d0f7e6bbee5"
+  },
+  "prompt_source_sha256": "a67c637e5a220daac23342c2a7cbc0e3bb4199345695400d1a87ac5162101999",
+  "retrieval_packet_sha256": null,
+  "turns": [
+    {
+      "turn": 1,
+      "instruction": "[OMITTED FROM PUBLIC ARTIFACT: benchmark-authored prompt text is not redistributed because SR-Eval and MRG-Bench do not state a redistribution license. Use scripts/reconstruct_prompts.py with the separately obtained pinned SR-Eval checkout.]",
+      "prompt": "[OMITTED FROM PUBLIC ARTIFACT: benchmark-authored prompt text is not redistributed because SR-Eval and MRG-Bench do not state a redistribution license. Use scripts/reconstruct_prompts.py with the separately obtained pinned SR-Eval checkout.]",
+      "raw_response": "```java\nstatic NodeArray merge(NodeArray a1, NodeArray a2) {\n    int size1 = a1.size;\n    int size2 = a2.size;\n    NodeArray merged = new NodeArray(size1 + size2);\n\n    int i = 0;\n    int j = 0;\n    int dest = 0;\n\n    while (i < size1 && j < size2) {\n        if (Float.compare(a1.scores[i], a2.scores[j]) >= 0) {\n            merged.nodes[dest] = a1.nodes[i];\n            merged.scores[dest] = a1.scores[i];\n            i++;\n        } else {\n            merged.nodes[dest] = a2.nodes[j];\n            merged.scores[dest] = a2.scores[j];\n            j++;\n        }\n        dest++;\n    }\n\n    if (i < size1) {\n        int remaining = size1 - i;\n        System.arraycopy(a1.nodes, i, merged.nodes, dest, remaining);\n        System.arraycopy(a1.scores, i, merged.scores, dest, remaining);\n        dest += remaining;\n    } else if (j < size2) {\n        int remaining = size2 - j;\n        System.arraycopy(a2.nodes, j, merged.nodes, dest, remaining);\n        System.arraycopy(a2.scores, j, merged.scores, dest, remaining);\n        dest += remaining;\n    }\n\n    merged.size = dest;\n    return merged;\n}\n```",
+      "extracted_code": "static NodeArray merge(NodeArray a1, NodeArray a2) {\n    int size1 = a1.size;\n    int size2 = a2.size;\n    NodeArray merged = new NodeArray(size1 + size2);\n\n    int i = 0;\n    int j = 0;\n    int dest = 0;\n\n    while (i < size1 && j < size2) {\n        if (Float.compare(a1.scores[i], a2.scores[j]) >= 0) {\n            merged.nodes[dest] = a1.nodes[i];\n            merged.scores[dest] = a1.scores[i];\n            i++;\n        } else {\n            merged.nodes[dest] = a2.nodes[j];\n            merged.scores[dest] = a2.scores[j];\n            j++;\n        }\n        dest++;\n    }\n\n    if (i < size1) {\n        int remaining = size1 - i;\n        System.arraycopy(a1.nodes, i, merged.nodes, dest, remaining);\n        System.arraycopy(a1.scores, i, merged.scores, dest, remaining);\n        dest += remaining;\n    } else if (j < size2) {\n        int remaining = size2 - j;\n        System.arraycopy(a2.nodes, j, merged.nodes, dest, remaining);\n        System.arraycopy(a2.scores, j, merged.scores, dest, remaining);\n        dest += remaining;\n    }\n\n    merged.size = dest;\n    return merged;\n}",
+      "tests": [
+        {
+          "test_turn": 1,
+          "status": "pass",
+          "detail": "SUCCESS"
+        }
+      ],
+      "cumulatively_correct": true,
+      "usage": {
+        "input_tokens": 24418,
+        "cached_input_tokens": 15744,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 2368,
+        "reasoning_output_tokens": 1900
+      },
+      "instruction_source_sha256": "92e333e496d15194226491d0c4a133c7802b749dac9bae0dbd7e6e0c9a9d25bc",
+      "rendered_prompt_sha256": "ab0a7e7a0d2f0b73978027c7239be0598c619f4b20f49eda7668e6538d0be355"
+    },
+    {
+      "turn": 2,
+      "instruction": "[OMITTED FROM PUBLIC ARTIFACT: benchmark-authored prompt text is not redistributed because SR-Eval and MRG-Bench do not state a redistribution license. Use scripts/reconstruct_prompts.py with the separately obtained pinned SR-Eval checkout.]",
+      "prompt": "[OMITTED FROM PUBLIC ARTIFACT: benchmark-authored prompt text is not redistributed because SR-Eval and MRG-Bench do not state a redistribution license. Use scripts/reconstruct_prompts.py with the separately obtained pinned SR-Eval checkout.]",
+      "raw_response": "```java\nstatic NodeArray merge(NodeArray a1, NodeArray a2) {\n    int size1 = a1.size;\n    int size2 = a2.size;\n    NodeArray merged = new NodeArray(size1 + size2);\n    IntHashSet seenAtScore = new IntHashSet();\n\n    int i = 0;\n    int j = 0;\n    int dest = 0;\n    float currentScore = 0.0f;\n    boolean hasCurrentScore = false;\n\n    while (i < size1 || j < size2) {\n        int node;\n        float score;\n\n        if (j >= size2\n                || (i < size1 && Float.compare(a1.scores[i], a2.scores[j]) >= 0)) {\n            node = a1.nodes[i];\n            score = a1.scores[i];\n            i++;\n        } else {\n            node = a2.nodes[j];\n            score = a2.scores[j];\n            j++;\n        }\n\n        if (!hasCurrentScore || Float.compare(score, currentScore) != 0) {\n            seenAtScore.clear();\n            currentScore = score;\n            hasCurrentScore = true;\n        }\n\n        if (seenAtScore.add(node)) {\n            merged.nodes[dest] = node;\n            merged.scores[dest] = score;\n            dest++;\n        }\n    }\n\n    merged.size = dest;\n    return merged;\n}\n```",
+      "extracted_code": "static NodeArray merge(NodeArray a1, NodeArray a2) {\n    int size1 = a1.size;\n    int size2 = a2.size;\n    NodeArray merged = new NodeArray(size1 + size2);\n    IntHashSet seenAtScore = new IntHashSet();\n\n    int i = 0;\n    int j = 0;\n    int dest = 0;\n    float currentScore = 0.0f;\n    boolean hasCurrentScore = false;\n\n    while (i < size1 || j < size2) {\n        int node;\n        float score;\n\n        if (j >= size2\n                || (i < size1 && Float.compare(a1.scores[i], a2.scores[j]) >= 0)) {\n            node = a1.nodes[i];\n            score = a1.scores[i];\n            i++;\n        } else {\n            node = a2.nodes[j];\n            score = a2.scores[j];\n            j++;\n        }\n\n        if (!hasCurrentScore || Float.compare(score, currentScore) != 0) {\n            seenAtScore.clear();\n            currentScore = score;\n            hasCurrentScore = true;\n        }\n\n        if (seenAtScore.add(node)) {\n            merged.nodes[dest] = node;\n            merged.scores[dest] = score;\n            dest++;\n        }\n    }\n\n    merged.size = dest;\n    return merged;\n}",
+      "tests": [
+        {
+          "test_turn": 1,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "test_turn": 2,
+          "status": "pass",
+          "detail": "SUCCESS"
+        }
+      ],
+      "cumulatively_correct": true,
+      "usage": {
+        "input_tokens": 23570,
+        "cached_input_tokens": 19584,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 975,
+        "reasoning_output_tokens": 588
+      },
+      "instruction_source_sha256": "d66cc81acac554db0a671bce6aa437feb0cc96b14c8d7b9d013e76ff5e6555cf",
+      "rendered_prompt_sha256": "088b5e245c974ef4a921b528b9f7e3ee066d62a37b647acf768db2caf4b1fab0"
+    },
+    {
+      "turn": 3,
+      "instruction": "[OMITTED FROM PUBLIC ARTIFACT: benchmark-authored prompt text is not redistributed because SR-Eval and MRG-Bench do not state a redistribution license. Use scripts/reconstruct_prompts.py with the separately obtained pinned SR-Eval checkout.]",
+      "prompt": "[OMITTED FROM PUBLIC ARTIFACT: benchmark-authored prompt text is not redistributed because SR-Eval and MRG-Bench do not state a redistribution license. Use scripts/reconstruct_prompts.py with the separately obtained pinned SR-Eval checkout.]",
+      "raw_response": "```java\nstatic NodeArray merge(NodeArray a1, NodeArray a2) {\n    int size1 = a1.size;\n    int size2 = a2.size;\n    NodeArray merged = new NodeArray(size1 + size2);\n    IntHashSet seenAtScore = new IntHashSet();\n\n    int i = 0;\n    int j = 0;\n    int dest = 0;\n\n    while (i < size1 || j < size2) {\n        float currentScore;\n        if (j >= size2\n                || (i < size1 && Float.compare(a1.scores[i], a2.scores[j]) >= 0)) {\n            currentScore = a1.scores[i];\n        } else {\n            currentScore = a2.scores[j];\n        }\n\n        seenAtScore.clear();\n\n        while ((i < size1 && Float.compare(a1.scores[i], currentScore) == 0)\n                || (j < size2 && Float.compare(a2.scores[j], currentScore) == 0)) {\n            int node;\n\n            if (i < size1 && Float.compare(a1.scores[i], currentScore) == 0) {\n                node = a1.nodes[i++];\n            } else {\n                node = a2.nodes[j++];\n            }\n\n            if (seenAtScore.add(node)) {\n                merged.nodes[dest] = node;\n                merged.scores[dest] = currentScore;\n                dest++;\n            }\n        }\n    }\n\n    merged.size = dest;\n    return merged;\n}\n```",
+      "extracted_code": "static NodeArray merge(NodeArray a1, NodeArray a2) {\n    int size1 = a1.size;\n    int size2 = a2.size;\n    NodeArray merged = new NodeArray(size1 + size2);\n    IntHashSet seenAtScore = new IntHashSet();\n\n    int i = 0;\n    int j = 0;\n    int dest = 0;\n\n    while (i < size1 || j < size2) {\n        float currentScore;\n        if (j >= size2\n                || (i < size1 && Float.compare(a1.scores[i], a2.scores[j]) >= 0)) {\n            currentScore = a1.scores[i];\n        } else {\n            currentScore = a2.scores[j];\n        }\n\n        seenAtScore.clear();\n\n        while ((i < size1 && Float.compare(a1.scores[i], currentScore) == 0)\n                || (j < size2 && Float.compare(a2.scores[j], currentScore) == 0)) {\n            int node;\n\n            if (i < size1 && Float.compare(a1.scores[i], currentScore) == 0) {\n                node = a1.nodes[i++];\n            } else {\n                node = a2.nodes[j++];\n            }\n\n            if (seenAtScore.add(node)) {\n                merged.nodes[dest] = node;\n                merged.scores[dest] = currentScore;\n                dest++;\n            }\n        }\n    }\n\n    merged.size = dest;\n    return merged;\n}",
+      "tests": [
+        {
+          "test_turn": 1,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "test_turn": 2,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "test_turn": 3,
+          "status": "pass",
+          "detail": "SUCCESS"
+        }
+      ],
+      "cumulatively_correct": true,
+      "usage": {
+        "input_tokens": 13677,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 780,
+        "reasoning_output_tokens": 456
+      },
+      "instruction_source_sha256": "354b960c4e860a0c2d7d6f8b2c0652ed5410f795d0d90371f7db600c70aea514",
+      "rendered_prompt_sha256": "6cf2d9215ce2204d24aabc6fab4b061ba7a3135a9dc99f4c2a439e2d91435670"
+    },
+    {
+      "turn": 4,
+      "instruction": "[OMITTED FROM PUBLIC ARTIFACT: benchmark-authored prompt text is not redistributed because SR-Eval and MRG-Bench do not state a redistribution license. Use scripts/reconstruct_prompts.py with the separately obtained pinned SR-Eval checkout.]",
+      "prompt": "[OMITTED FROM PUBLIC ARTIFACT: benchmark-authored prompt text is not redistributed because SR-Eval and MRG-Bench do not state a redistribution license. Use scripts/reconstruct_prompts.py with the separately obtained pinned SR-Eval checkout.]",
+      "raw_response": "```java\nstatic NodeArray merge(NodeArray a1, NodeArray a2) {\n    int size1 = a1.size;\n    int size2 = a2.size;\n    NodeArray merged = new NodeArray(size1 + size2);\n    IntHashSet seenAtScore = new IntHashSet();\n\n    int i = 0;\n    int j = 0;\n    int dest = 0;\n\n    while (i < size1 || j < size2) {\n        float currentScore;\n        if (j >= size2\n                || (i < size1 && Float.compare(a1.scores[i], a2.scores[j]) >= 0)) {\n            currentScore = a1.scores[i];\n        } else {\n            currentScore = a2.scores[j];\n        }\n\n        seenAtScore.clear();\n\n        while ((i < size1 && Float.compare(a1.scores[i], currentScore) == 0)\n                || (j < size2 && Float.compare(a2.scores[j], currentScore) == 0)) {\n            int node;\n\n            if (i < size1 && Float.compare(a1.scores[i], currentScore) == 0) {\n                node = a1.nodes[i++];\n            } else {\n                node = a2.nodes[j++];\n            }\n\n            if (seenAtScore.add(node)) {\n                merged.nodes[dest] = node;\n                merged.scores[dest] = currentScore;\n                dest++;\n            }\n        }\n    }\n\n    merged.size = dest;\n    return merged;\n}\n```",
+      "extracted_code": "static NodeArray merge(NodeArray a1, NodeArray a2) {\n    int size1 = a1.size;\n    int size2 = a2.size;\n    NodeArray merged = new NodeArray(size1 + size2);\n    IntHashSet seenAtScore = new IntHashSet();\n\n    int i = 0;\n    int j = 0;\n    int dest = 0;\n\n    while (i < size1 || j < size2) {\n        float currentScore;\n        if (j >= size2\n                || (i < size1 && Float.compare(a1.scores[i], a2.scores[j]) >= 0)) {\n            currentScore = a1.scores[i];\n        } else {\n            currentScore = a2.scores[j];\n        }\n\n        seenAtScore.clear();\n\n        while ((i < size1 && Float.compare(a1.scores[i], currentScore) == 0)\n                || (j < size2 && Float.compare(a2.scores[j], currentScore) == 0)) {\n            int node;\n\n            if (i < size1 && Float.compare(a1.scores[i], currentScore) == 0) {\n                node = a1.nodes[i++];\n            } else {\n                node = a2.nodes[j++];\n            }\n\n            if (seenAtScore.add(node)) {\n                merged.nodes[dest] = node;\n                merged.scores[dest] = currentScore;\n                dest++;\n            }\n        }\n    }\n\n    merged.size = dest;\n    return merged;\n}",
+      "tests": [
+        {
+          "test_turn": 1,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "test_turn": 2,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "test_turn": 3,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "test_turn": 4,
+          "status": "pass",
+          "detail": "SUCCESS"
+        }
+      ],
+      "cumulatively_correct": true,
+      "usage": {
+        "input_tokens": 14915,
+        "cached_input_tokens": 11776,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 441,
+        "reasoning_output_tokens": 117
+      },
+      "instruction_source_sha256": "af144366c0041ded762d92596fb1e101e7c4df8797c47b1ea67361283bfa65b8",
+      "rendered_prompt_sha256": "dacefcd52c469cd2cbeaf9b6be31297e28c3945160320f275349c54f0396ee4f"
+    },
+    {
+      "turn": 5,
+      "instruction": "[OMITTED FROM PUBLIC ARTIFACT: benchmark-authored prompt text is not redistributed because SR-Eval and MRG-Bench do not state a redistribution license. Use scripts/reconstruct_prompts.py with the separately obtained pinned SR-Eval checkout.]",
+      "prompt": "[OMITTED FROM PUBLIC ARTIFACT: benchmark-authored prompt text is not redistributed because SR-Eval and MRG-Bench do not state a redistribution license. Use scripts/reconstruct_prompts.py with the separately obtained pinned SR-Eval checkout.]",
+      "raw_response": "```java\nstatic NodeArray merge(NodeArray a1, NodeArray a2) {\n    int size1 = a1.size;\n    int size2 = a2.size;\n    NodeArray merged = new NodeArray(size1 + size2);\n    IntHashSet seenAtScore = new IntHashSet();\n\n    int i = 0;\n    int j = 0;\n    int dest = 0;\n    float lastScore = 0.0f;\n    boolean hasLastScore = false;\n\n    while (i < size1 && j < size2) {\n        int node;\n        float score;\n\n        if (Float.compare(a1.scores[i], a2.scores[j]) >= 0) {\n            node = a1.nodes[i];\n            score = a1.scores[i++];\n        } else {\n            node = a2.nodes[j];\n            score = a2.scores[j++];\n        }\n\n        if (!hasLastScore || Float.compare(score, lastScore) != 0) {\n            seenAtScore.clear();\n            lastScore = score;\n            hasLastScore = true;\n        }\n\n        if (seenAtScore.add(node)) {\n            merged.nodes[dest] = node;\n            merged.scores[dest] = score;\n            dest++;\n        }\n    }\n\n    int[] remainingNodes;\n    float[] remainingScores;\n    int remainingIndex;\n    int remainingSize;\n\n    if (i < size1) {\n        remainingNodes = a1.nodes;\n        remainingScores = a1.scores;\n        remainingIndex = i;\n        remainingSize = size1;\n    } else {\n        remainingNodes = a2.nodes;\n        remainingScores = a2.scores;\n        remainingIndex = j;\n        remainingSize = size2;\n    }\n\n    if (hasLastScore) {\n        while (remainingIndex < remainingSize\n                && Float.compare(remainingScores[remainingIndex], lastScore) == 0) {\n            int node = remainingNodes[remainingIndex];\n            if (seenAtScore.add(node)) {\n                merged.nodes[dest] = node;\n                merged.scores[dest] = remainingScores[remainingIndex];\n                dest++;\n            }\n            remainingIndex++;\n        }\n    }\n\n    int remaining = remainingSize - remainingIndex;\n    if (remaining > 0) {\n        System.arraycopy(remainingNodes, remainingIndex, merged.nodes, dest, remaining);\n        System.arraycopy(remainingScores, remainingIndex, merged.scores, dest, remaining);\n        dest += remaining;\n    }\n\n    merged.size = dest;\n    return merged;\n}\n```",
+      "extracted_code": "static NodeArray merge(NodeArray a1, NodeArray a2) {\n    int size1 = a1.size;\n    int size2 = a2.size;\n    NodeArray merged = new NodeArray(size1 + size2);\n    IntHashSet seenAtScore = new IntHashSet();\n\n    int i = 0;\n    int j = 0;\n    int dest = 0;\n    float lastScore = 0.0f;\n    boolean hasLastScore = false;\n\n    while (i < size1 && j < size2) {\n        int node;\n        float score;\n\n        if (Float.compare(a1.scores[i], a2.scores[j]) >= 0) {\n            node = a1.nodes[i];\n            score = a1.scores[i++];\n        } else {\n            node = a2.nodes[j];\n            score = a2.scores[j++];\n        }\n\n        if (!hasLastScore || Float.compare(score, lastScore) != 0) {\n            seenAtScore.clear();\n            lastScore = score;\n            hasLastScore = true;\n        }\n\n        if (seenAtScore.add(node)) {\n            merged.nodes[dest] = node;\n            merged.scores[dest] = score;\n            dest++;\n        }\n    }\n\n    int[] remainingNodes;\n    float[] remainingScores;\n    int remainingIndex;\n    int remainingSize;\n\n    if (i < size1) {\n        remainingNodes = a1.nodes;\n        remainingScores = a1.scores;\n        remainingIndex = i;\n        remainingSize = size1;\n    } else {\n        remainingNodes = a2.nodes;\n        remainingScores = a2.scores;\n        remainingIndex = j;\n        remainingSize = size2;\n    }\n\n    if (hasLastScore) {\n        while (remainingIndex < remainingSize\n                && Float.compare(remainingScores[remainingIndex], lastScore) == 0) {\n            int node = remainingNodes[remainingIndex];\n            if (seenAtScore.add(node)) {\n                merged.nodes[dest] = node;\n                merged.scores[dest] = remainingScores[remainingIndex];\n                dest++;\n            }\n            remainingIndex++;\n        }\n    }\n\n    int remaining = remainingSize - remainingIndex;\n    if (remaining > 0) {\n        System.arraycopy(remainingNodes, remainingIndex, merged.nodes, dest, remaining);\n        System.arraycopy(remainingScores, remainingIndex, merged.scores, dest, remaining);\n        dest += remaining;\n    }\n\n    merged.size = dest;\n    return merged;\n}",
+      "tests": [
+        {
+          "test_turn": 1,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "test_turn": 2,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "test_turn": 3,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "test_turn": 4,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "test_turn": 5,
+          "status": "fail",
+          "detail": "00:42:31,026 [ERROR] Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.091 s <<< FAILURE! -- in io.github.jbellis.jvector.graph.TestNodeArray\n00:42:31,028 [ERROR] io.github.jbellis.jvector.graph.TestNodeArray.testMergeCandidatesSimple -- Time elapsed: 0.029 s <<< FAILURE!\narrays first differed at element [0]; expected:<200> but was:<100>\n\tat __randomizedtesting.SeedInfo.seed([B158A2F5FFE9EBA9:6348F9AC0718EA04]:0)\n\tat org.junit.internal.ComparisonCriteria.arrayEquals(ComparisonCriteria.java:78)\n\tat org.junit.internal.ComparisonCriteria.arrayEquals(ComparisonCriteria.java:28)\n\tat org.junit.Assert.internalArrayEquals(Assert.java:534)\n\tat org.junit.Assert.assertArrayEquals(Assert.java:418)\n\tat org.junit.Assert.assertArrayEquals(Assert.java:429)\n\tat io.github.jbellis.jvector.graph.TestNodeArray.testMergeCandidatesSimple(TestNodeArray.java:214)\n\tat java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)\n\tat java.base/java.lang.reflect.Method.invoke(Method.java:580)\n\tat com.carrotsearch.randomizedtesting.RandomizedRunner.invoke(RandomizedRunner.java:1758)\n\tat com.carrotsearch.randomizedtesting.RandomizedRunner$8.evaluate(RandomizedRunner.java:946)\n\tat com.carrotsearch.randomizedtesting.rules.StatementAdapter.evaluate(StatementAdapter.java:36)\n\tat com.carrotsearch.randomizedtesting.ThreadLeakControl$StatementRunner.run(ThreadLeakControl.java:390)\n\tat com.carrotsearch.randomizedtesting.ThreadLeakControl.forkTimeoutingTask(ThreadLeakControl.java:843)\n\tat com.carrotsearch.randomizedtesting.ThreadLeakControl$3.evaluate(ThreadLeakControl.java:490)\n\tat com.carrotsearch.randomizedtesting.RandomizedRunner.runSingleTest(RandomizedRunner.java:955)\n\tat com.carrotsearch.randomizedtesting.RandomizedRunner$5.evaluate(RandomizedRunner.java:840)\n\tat com.carrotsearch.randomizedtesting.RandomizedRunner$6.evaluate(RandomizedRunner.java:891)\n\tat com.carrotsearch.randomizedtesting.RandomizedRunner$7.evaluate(RandomizedRunner.java:902)\n\tat com.carrotsearch.randomizedtesting.rules.StatementAdapter.evaluate(StatementAdapter.java:36)\n\tat com.carrotsearch.randomizedtesting.ThreadLeakControl$StatementRunner.run(ThreadLeakControl.java:390)\n\tat com.carrotsearch.randomizedtesting.ThreadLeakControl.forkTimeoutingTask(ThreadLeakControl.java:843)\n\tat com.carrotsearch.randomizedtesting.ThreadLeakControl$2.evaluate(ThreadLeakControl.java:426)\n\tat com.carrotsearch.randomizedtesting.RandomizedRunner.runSuite(RandomizedRunner.java:716)\n\tat com.carrotsearch.randomizedtesting.RandomizedRunner.access$200(RandomizedRunner.java:138)\n\tat com.carrotsearch.randomizedtesting.RandomizedRunner$2.run(RandomizedRunner.java:637)\nCaused by: java.lang.AssertionError: expected:<200> but was:<100>\n\tat org.junit.Assert.fail(Assert.java:89)\n\tat org.junit.Assert.failNotEquals(Assert.java:835)\n\tat org.junit.Assert.assertEquals(Assert.java:120)\n\tat org.junit.Assert.assertEquals(Assert.java:146)\n\tat org.junit.internal.ExactComparisonCriteria.assertElementsEqual(ExactComparisonCriteria.java:8)\n\tat org.junit.internal.ComparisonCriteria.arrayEquals(ComparisonCriteria.java:76)\n\t... 24 more\n00:42:31,050 [INFO] \n00:42:31,050 [INFO] Results:\n00:42:31,050 [INFO] \n00:42:31,050 [ERROR] Failures: \n00:42:31,050 [ERROR]   TestNodeArray.testMergeCandidatesSimple:214 arrays first differed at element [0]; expected:<200> but was:<100>\n00:42:31,050 [INFO] \n00:42:31,050 [ERROR] Tests run: 1, Failures: 1, Errors: 0, Skipped: 0\n00:42:31,050 [INFO] \n00:42:31,053 [INFO] ------------------------------------------------------------------------\n00:42:31,054 [INFO] Reactor Summary for JVector parent 4.0.0-rc.3-SNAPSHOT:\n00:42:31,054 [INFO] \n00:42:31,056 [INFO] JVector parent ..................................... SUCCESS [  0.348 s]\n00:42:31,056 [INFO] Base ............................................... SUCCESS [  5.675 s]\n00:42:31,056 [INFO] Twenty ............................................. SUCCESS [  0.498 s]\n00:42:31,056 [INFO] Native ............................................. SUCCESS [  2.010 s]\n00:42:31,056 [INFO] JVector Examples ................................... SUCCESS [  1.370 s]\n00:42:31,057 [INFO] Tests .............................................. FAILURE [  3.649 s]\n00:42:31,057 [INFO] JVector ............................................ SKIPPED\n00:42:31,057 [INFO] benchmarks-jmh ..................................... SKIPPED\n00:42:31,057 [INFO] ------------------------------------------------------------------------\n00:42:31,057 [INFO] BUILD FAILURE\n00:42:31,057 [INFO] ------------------------------------------------------------------------\n00:42:31,058 [INFO] Total time:  13.807 s\n00:42:31,059 [INFO] Finished at: 2026-09-25T00:42:31Z\n00:42:31,059 [INFO] ------------------------------------------------------------------------\n00:42:31,061 [ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:3.1.2:test (simd) on project jvector-tests: There are test failures.\n00:42:31,063 [ERROR] \n00:42:31,064 [ERROR] Please refer to /jvector/jvector-tests/target/surefire-reports for the individual test results.\n00:42:31,064 [ERROR] Please refer to dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.\n00:42:31,064 [ERROR] -> [Help 1]\n00:42:31,064 [ERROR] \n00:42:31,064 [ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.\n00:42:31,064 [ERROR] Re-run Maven using the -X switch to enable full debug logging.\n00:42:31,064 [ERROR] \n00:42:31,064 [ERROR] For more information about the errors and possible solutions, please read the following articles:\n00:42:31,064 [ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException\n00:42:31,064 [ERROR] \n00:42:31,064 [ERROR] After correcting the problems, you can resume the build with the command\n00:42:31,064 [ERROR]   mvn <args> -rf :jvector-tests"
+        }
+      ],
+      "cumulatively_correct": false,
+      "usage": {
+        "input_tokens": 15810,
+        "cached_input_tokens": 13440,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 2162,
+        "reasoning_output_tokens": 1631
+      },
+      "instruction_source_sha256": "1c355cd790004673ed435bdcfea775cb795b05385e67dfa5e67868bc26e10b32",
+      "rendered_prompt_sha256": "25e51bbda4311199a0e7c3efc48bc88cb80d3d394bc64e58fe5a94fc7aad1504"
+    }
+  ],
+  "public_prompt_policy": {
+    "benchmark_authored_text_included": false,
+    "reconstruction_command": "python3 scripts/reconstruct_prompts.py --sr-eval .cache/SR-Eval --output reconstructed-prompts"
+  }
+}

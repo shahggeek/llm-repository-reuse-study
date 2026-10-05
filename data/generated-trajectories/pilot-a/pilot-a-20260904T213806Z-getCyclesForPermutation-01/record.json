@@ -1,0 +1,158 @@
+{
+  "schema_version": 1,
+  "batch_id": "pilot-a-20260904T213806Z",
+  "run_id": "pilot-a-20260904T213806Z-getCyclesForPermutation-01",
+  "task_hash": "73b5560db41ec359450f1ff1",
+  "task_slug": "getCyclesForPermutation",
+  "condition": "baseline",
+  "benchmark_commit": "6cf948d69427687bf61042640223d5b318f7bc4c",
+  "product_interface": "Codex CLI 0.153.0",
+  "session_id": "session-46df5382b1c97e98",
+  "model": {
+    "display_name": "GPT-5.6 Sol",
+    "slug": "gpt-5.6-sol",
+    "reasoning_effort": "High",
+    "automatic_routing": false,
+    "snapshot": null
+  },
+  "started_at": "2026-09-04T22:28:20.679918+00:00",
+  "completed_at": "2026-09-04T22:30:52.930308+00:00",
+  "prompt_sha256": {
+    "experiment/prompts/system.txt": "4875eb8f21bbf16bf8230730213406471017c29630afb9b027ef115f510c66da",
+    "experiment/prompts/turn-1.txt": "493fa28970d6f5b28586e31d468c2243cdbb045a7f21de56582d73bc290688ca",
+    "experiment/prompts/code-edit.txt": "e15919aa205033e555720259b3a3cfa36e17f26dea0a0f8a9423341a22fe8b57",
+    "experiment/prompts/engineering-guardrails.txt": "d24d0f0fc97807691f18afb0529b017abad7761f8a67da858d6e2d0f7e6bbee5"
+  },
+  "turns": [
+    {
+      "turn": 1,
+      "instruction": "[OMITTED FROM PUBLIC ARTIFACT: benchmark-authored prompt text is not redistributed because SR-Eval and MRG-Bench do not state a redistribution license. Use scripts/reconstruct_prompts.py with the separately obtained pinned SR-Eval checkout.]",
+      "prompt": "[OMITTED FROM PUBLIC ARTIFACT: benchmark-authored prompt text is not redistributed because SR-Eval and MRG-Bench do not state a redistribution license. Use scripts/reconstruct_prompts.py with the separately obtained pinned SR-Eval checkout.]",
+      "raw_response": "```java\nstatic KOptCycle getCyclesForPermutation(KOptDescriptor<?> kOptDescriptor) {\n    int[] permutation = kOptDescriptor.removedEdgeIndexToTourOrder();\n    boolean[] visited = new boolean[permutation.length];\n    int[] indexToCycle = new int[permutation.length];\n    int cycleCount = 0;\n\n    for (int i = 0; i < permutation.length; i++) {\n        if (visited[i]) {\n            continue;\n        }\n\n        int current = i;\n        while (!visited[current]) {\n            visited[current] = true;\n            indexToCycle[current] = cycleCount;\n            current = permutation[current];\n        }\n        cycleCount++;\n    }\n\n    return new KOptCycle(cycleCount, indexToCycle);\n}\n```",
+      "extracted_code": "static KOptCycle getCyclesForPermutation(KOptDescriptor<?> kOptDescriptor) {\n    int[] permutation = kOptDescriptor.removedEdgeIndexToTourOrder();\n    boolean[] visited = new boolean[permutation.length];\n    int[] indexToCycle = new int[permutation.length];\n    int cycleCount = 0;\n\n    for (int i = 0; i < permutation.length; i++) {\n        if (visited[i]) {\n            continue;\n        }\n\n        int current = i;\n        while (!visited[current]) {\n            visited[current] = true;\n            indexToCycle[current] = cycleCount;\n            current = permutation[current];\n        }\n        cycleCount++;\n    }\n\n    return new KOptCycle(cycleCount, indexToCycle);\n}",
+      "tests": [
+        {
+          "test_turn": 1,
+          "status": "pass",
+          "detail": "SUCCESS"
+        }
+      ],
+      "cumulatively_correct": true,
+      "usage": {
+        "input_tokens": 17709,
+        "cached_input_tokens": 13696,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1366,
+        "reasoning_output_tokens": 1089
+      },
+      "instruction_source_sha256": "b0444b12335f14dbccc3487f28bb1e4126c0950bfcd3ef37509686173dcb844c",
+      "rendered_prompt_sha256": "a11210e1feb4b444659a403d5f22238532d0ee8a6228c021cb92169d18329b18"
+    },
+    {
+      "turn": 2,
+      "instruction": "[OMITTED FROM PUBLIC ARTIFACT: benchmark-authored prompt text is not redistributed because SR-Eval and MRG-Bench do not state a redistribution license. Use scripts/reconstruct_prompts.py with the separately obtained pinned SR-Eval checkout.]",
+      "prompt": "[OMITTED FROM PUBLIC ARTIFACT: benchmark-authored prompt text is not redistributed because SR-Eval and MRG-Bench do not state a redistribution license. Use scripts/reconstruct_prompts.py with the separately obtained pinned SR-Eval checkout.]",
+      "raw_response": "```java\nstatic KOptCycle getCyclesForPermutation(KOptDescriptor<?> kOptDescriptor) {\n    int[] removedEdgeIndexToTourOrder =\n            kOptDescriptor.removedEdgeIndexToTourOrder();\n    int[] inverseRemovedEdgeIndexToTourOrder =\n            kOptDescriptor.inverseRemovedEdgeIndexToTourOrder();\n    int[] addedEdgeToOtherEndpoint =\n            kOptDescriptor.addedEdgeToOtherEndpoint();\n\n    int[] indexToCycle = new int[addedEdgeToOtherEndpoint.length];\n    BitSet unvisited = new BitSet(addedEdgeToOtherEndpoint.length);\n    unvisited.set(1, addedEdgeToOtherEndpoint.length);\n\n    int cycleCount = 0;\n    while (!unvisited.isEmpty()) {\n        int start = unvisited.nextSetBit(1);\n        int current = start;\n\n        do {\n            unvisited.clear(current);\n            indexToCycle[current] = cycleCount;\n\n            int tourOrder = removedEdgeIndexToTourOrder[current];\n            int adjacentTourOrder = (tourOrder & 1) == 0\n                    ? tourOrder - 1\n                    : tourOrder + 1;\n            int adjacentEndpoint =\n                    inverseRemovedEdgeIndexToTourOrder[adjacentTourOrder];\n\n            unvisited.clear(adjacentEndpoint);\n            indexToCycle[adjacentEndpoint] = cycleCount;\n\n            current = addedEdgeToOtherEndpoint[adjacentEndpoint];\n        } while (current != start);\n\n        cycleCount++;\n    }\n\n    return new KOptCycle(cycleCount, indexToCycle);\n}\n```",
+      "extracted_code": "static KOptCycle getCyclesForPermutation(KOptDescriptor<?> kOptDescriptor) {\n    int[] removedEdgeIndexToTourOrder =\n            kOptDescriptor.removedEdgeIndexToTourOrder();\n    int[] inverseRemovedEdgeIndexToTourOrder =\n            kOptDescriptor.inverseRemovedEdgeIndexToTourOrder();\n    int[] addedEdgeToOtherEndpoint =\n            kOptDescriptor.addedEdgeToOtherEndpoint();\n\n    int[] indexToCycle = new int[addedEdgeToOtherEndpoint.length];\n    BitSet unvisited = new BitSet(addedEdgeToOtherEndpoint.length);\n    unvisited.set(1, addedEdgeToOtherEndpoint.length);\n\n    int cycleCount = 0;\n    while (!unvisited.isEmpty()) {\n        int start = unvisited.nextSetBit(1);\n        int current = start;\n\n        do {\n            unvisited.clear(current);\n            indexToCycle[current] = cycleCount;\n\n            int tourOrder = removedEdgeIndexToTourOrder[current];\n            int adjacentTourOrder = (tourOrder & 1) == 0\n                    ? tourOrder - 1\n                    : tourOrder + 1;\n            int adjacentEndpoint =\n                    inverseRemovedEdgeIndexToTourOrder[adjacentTourOrder];\n\n            unvisited.clear(adjacentEndpoint);\n            indexToCycle[adjacentEndpoint] = cycleCount;\n\n            current = addedEdgeToOtherEndpoint[adjacentEndpoint];\n        } while (current != start);\n\n        cycleCount++;\n    }\n\n    return new KOptCycle(cycleCount, indexToCycle);\n}",
+      "tests": [
+        {
+          "test_turn": 1,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "test_turn": 2,
+          "status": "fail",
+          "detail": "[ERROR] Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.170 s <<< FAILURE! -- in ai.timefold.solver.core.impl.heuristic.selector.move.generic.list.kopt.KOptUtilsTest\n[ERROR] ai.timefold.solver.core.impl.heuristic.selector.move.generic.list.kopt.KOptUtilsTest.testGetCyclesForPermutationThreeCycle -- Time elapsed: 0.128 s <<< FAILURE!\norg.opentest4j.AssertionFailedError: \nexpected: 3\n but was: 1\n\tat ai.timefold.solver.core.impl.heuristic.selector.move.generic.list.kopt.KOptUtilsTest.testGetCyclesForPermutationThreeCycle(KOptUtilsTest.java:142)\n\tat java.base/java.lang.reflect.Method.invoke(Method.java:580)\n\tat java.base/java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:507)\n\tat java.base/java.util.concurrent.ForkJoinPool$WorkQueue.topLevelExec(ForkJoinPool.java:1489)\n\tat java.base/java.util.concurrent.ForkJoinPool.scan(ForkJoinPool.java:2071)\n\tat java.base/java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:2033)\n\tat java.base/java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:187)\n[ERROR] Failures: \n[ERROR]   KOptUtilsTest.testGetCyclesForPermutationThreeCycle:142 \nexpected: 3\n but was: 1\n[ERROR] Tests run: 1, Failures: 1, Errors: 0, Skipped: 0\n[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:3.5.3:test (default-test) on project timefold-solver-core: There are test failures.\n[ERROR] \n[ERROR] See /timefold-solver/core/target/surefire-reports for the individual test results.\n[ERROR] See dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.\n[ERROR] -> [Help 1]\n[ERROR] \n[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.\n[ERROR] Re-run Maven using the -X switch to enable full debug logging.\n[ERROR] \n[ERROR] For more information about the errors and possible solutions, please read the following articles:\n[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException"
+        }
+      ],
+      "cumulatively_correct": false,
+      "usage": {
+        "input_tokens": 21282,
+        "cached_input_tokens": 8832,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 3830,
+        "reasoning_output_tokens": 3422
+      },
+      "instruction_source_sha256": "f8cb3c4c81d81d9d6f4f7ff9ebe477650356e461cead9f14b9f20c7d9a8d8bc1",
+      "rendered_prompt_sha256": "01a3ec4d5b947778604d3ceb6e0dc871a04536f2ef36a9486b407985e933d957"
+    },
+    {
+      "turn": 3,
+      "instruction": "[OMITTED FROM PUBLIC ARTIFACT: benchmark-authored prompt text is not redistributed because SR-Eval and MRG-Bench do not state a redistribution license. Use scripts/reconstruct_prompts.py with the separately obtained pinned SR-Eval checkout.]",
+      "prompt": "[OMITTED FROM PUBLIC ARTIFACT: benchmark-authored prompt text is not redistributed because SR-Eval and MRG-Bench do not state a redistribution license. Use scripts/reconstruct_prompts.py with the separately obtained pinned SR-Eval checkout.]",
+      "raw_response": "```java\nstatic KOptCycle getCyclesForPermutation(KOptDescriptor<?> kOptDescriptor) {\n    int[] addedEdgeToOtherEndpoint =\n            kOptDescriptor.addedEdgeToOtherEndpoint();\n\n    int[] indexToCycle = new int[addedEdgeToOtherEndpoint.length];\n    BitSet unvisited = new BitSet(addedEdgeToOtherEndpoint.length);\n    unvisited.set(0, addedEdgeToOtherEndpoint.length);\n\n    int cycleCount = 0;\n    while (!unvisited.isEmpty()) {\n        int startEndpoint = unvisited.nextSetBit(0);\n        int currentEndpoint = startEndpoint;\n\n        do {\n            unvisited.clear(currentEndpoint);\n            indexToCycle[currentEndpoint] = cycleCount;\n\n            currentEndpoint = addedEdgeToOtherEndpoint[currentEndpoint];\n            unvisited.clear(currentEndpoint);\n            indexToCycle[currentEndpoint] = cycleCount;\n\n            currentEndpoint = currentEndpoint ^ 1;\n        } while (currentEndpoint != startEndpoint);\n\n        cycleCount++;\n    }\n\n    return new KOptCycle(cycleCount, indexToCycle);\n}\n```",
+      "extracted_code": "static KOptCycle getCyclesForPermutation(KOptDescriptor<?> kOptDescriptor) {\n    int[] addedEdgeToOtherEndpoint =\n            kOptDescriptor.addedEdgeToOtherEndpoint();\n\n    int[] indexToCycle = new int[addedEdgeToOtherEndpoint.length];\n    BitSet unvisited = new BitSet(addedEdgeToOtherEndpoint.length);\n    unvisited.set(0, addedEdgeToOtherEndpoint.length);\n\n    int cycleCount = 0;\n    while (!unvisited.isEmpty()) {\n        int startEndpoint = unvisited.nextSetBit(0);\n        int currentEndpoint = startEndpoint;\n\n        do {\n            unvisited.clear(currentEndpoint);\n            indexToCycle[currentEndpoint] = cycleCount;\n\n            currentEndpoint = addedEdgeToOtherEndpoint[currentEndpoint];\n            unvisited.clear(currentEndpoint);\n            indexToCycle[currentEndpoint] = cycleCount;\n\n            currentEndpoint = currentEndpoint ^ 1;\n        } while (currentEndpoint != startEndpoint);\n\n        cycleCount++;\n    }\n\n    return new KOptCycle(cycleCount, indexToCycle);\n}",
+      "tests": [
+        {
+          "test_turn": 1,
+          "status": "fail",
+          "detail": "[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.145 s <<< FAILURE! -- in ai.timefold.solver.core.impl.heuristic.selector.move.generic.list.kopt.KOptUtilsTest\n[ERROR] ai.timefold.solver.core.impl.heuristic.selector.move.generic.list.kopt.KOptUtilsTest.testGetCyclesForPermutationThreeCycle -- Time elapsed: 0.101 s <<< ERROR!\njava.lang.ArrayIndexOutOfBoundsException: Index 13 out of bounds for length 13\n\tat ai.timefold.solver.core.impl.heuristic.selector.move.generic.list.kopt.KOptUtils.getCyclesForPermutation(KOptUtils.java:61)\n\tat ai.timefold.solver.core.impl.heuristic.selector.move.generic.list.kopt.KOptUtilsTest.testGetCyclesForPermutationThreeCycle(KOptUtilsTest.java:141)\n\tat java.base/java.lang.reflect.Method.invoke(Method.java:580)\n\tat java.base/java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:507)\n\tat java.base/java.util.concurrent.ForkJoinPool$WorkQueue.topLevelExec(ForkJoinPool.java:1489)\n\tat java.base/java.util.concurrent.ForkJoinPool.scan(ForkJoinPool.java:2071)\n\tat java.base/java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:2033)\n\tat java.base/java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:187)\n[ERROR] Errors: \n[ERROR]   KOptUtilsTest.testGetCyclesForPermutationThreeCycle:141 » ArrayIndexOutOfBounds Index 13 out of bounds for length 13\n[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0\n[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:3.5.3:test (default-test) on project timefold-solver-core: \n[ERROR] \n[ERROR] See /timefold-solver/core/target/surefire-reports for the individual test results.\n[ERROR] See dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.\n[ERROR] -> [Help 1]\n[ERROR] \n[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.\n[ERROR] Re-run Maven using the -X switch to enable full debug logging.\n[ERROR] \n[ERROR] For more information about the errors and possible solutions, please read the following articles:\n[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException"
+        },
+        {
+          "test_turn": 2,
+          "status": "fail",
+          "detail": "[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.129 s <<< FAILURE! -- in ai.timefold.solver.core.impl.heuristic.selector.move.generic.list.kopt.KOptUtilsTest\n[ERROR] ai.timefold.solver.core.impl.heuristic.selector.move.generic.list.kopt.KOptUtilsTest.testGetCyclesForPermutationThreeCycle -- Time elapsed: 0.091 s <<< ERROR!\njava.lang.ArrayIndexOutOfBoundsException: Index 13 out of bounds for length 13\n\tat ai.timefold.solver.core.impl.heuristic.selector.move.generic.list.kopt.KOptUtils.getCyclesForPermutation(KOptUtils.java:61)\n\tat ai.timefold.solver.core.impl.heuristic.selector.move.generic.list.kopt.KOptUtilsTest.testGetCyclesForPermutationThreeCycle(KOptUtilsTest.java:141)\n\tat java.base/java.lang.reflect.Method.invoke(Method.java:580)\n\tat java.base/java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:507)\n\tat java.base/java.util.concurrent.ForkJoinPool$WorkQueue.topLevelExec(ForkJoinPool.java:1489)\n\tat java.base/java.util.concurrent.ForkJoinPool.scan(ForkJoinPool.java:2071)\n\tat java.base/java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:2033)\n\tat java.base/java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:187)\n[ERROR] Errors: \n[ERROR]   KOptUtilsTest.testGetCyclesForPermutationThreeCycle:141 » ArrayIndexOutOfBounds Index 13 out of bounds for length 13\n[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0\n[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:3.5.3:test (default-test) on project timefold-solver-core: \n[ERROR] \n[ERROR] See /timefold-solver/core/target/surefire-reports for the individual test results.\n[ERROR] See dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.\n[ERROR] -> [Help 1]\n[ERROR] \n[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.\n[ERROR] Re-run Maven using the -X switch to enable full debug logging.\n[ERROR] \n[ERROR] For more information about the errors and possible solutions, please read the following articles:\n[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException"
+        },
+        {
+          "test_turn": 3,
+          "status": "fail",
+          "detail": "[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.137 s <<< FAILURE! -- in ai.timefold.solver.core.impl.heuristic.selector.move.generic.list.kopt.KOptUtilsTest\n[ERROR] ai.timefold.solver.core.impl.heuristic.selector.move.generic.list.kopt.KOptUtilsTest.testGetCyclesForPermutationThreeCycle -- Time elapsed: 0.096 s <<< ERROR!\njava.lang.ArrayIndexOutOfBoundsException: Index 13 out of bounds for length 13\n\tat ai.timefold.solver.core.impl.heuristic.selector.move.generic.list.kopt.KOptUtils.getCyclesForPermutation(KOptUtils.java:61)\n\tat ai.timefold.solver.core.impl.heuristic.selector.move.generic.list.kopt.KOptUtilsTest.testGetCyclesForPermutationThreeCycle(KOptUtilsTest.java:141)\n\tat java.base/java.lang.reflect.Method.invoke(Method.java:580)\n\tat java.base/java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:507)\n\tat java.base/java.util.concurrent.ForkJoinPool$WorkQueue.topLevelExec(ForkJoinPool.java:1489)\n\tat java.base/java.util.concurrent.ForkJoinPool.scan(ForkJoinPool.java:2071)\n\tat java.base/java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:2033)\n\tat java.base/java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:187)\n[ERROR] Errors: \n[ERROR]   KOptUtilsTest.testGetCyclesForPermutationThreeCycle:141 » ArrayIndexOutOfBounds Index 13 out of bounds for length 13\n[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0\n[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:3.5.3:test (default-test) on project timefold-solver-core: \n[ERROR] \n[ERROR] See /timefold-solver/core/target/surefire-reports for the individual test results.\n[ERROR] See dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.\n[ERROR] -> [Help 1]\n[ERROR] \n[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.\n[ERROR] Re-run Maven using the -X switch to enable full debug logging.\n[ERROR] \n[ERROR] For more information about the errors and possible solutions, please read the following articles:\n[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException"
+        }
+      ],
+      "cumulatively_correct": false,
+      "usage": {
+        "input_tokens": 14850,
+        "cached_input_tokens": 10496,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1652,
+        "reasoning_output_tokens": 1427
+      },
+      "instruction_source_sha256": "3670f8402d228d332dc85105aef762590af72b08a11678bd4fa8d7c43bc89192",
+      "rendered_prompt_sha256": "0373c31f84c5023a047cc0c252afec7ba79cae5fa22c0e7c7800c295e637596e"
+    },
+    {
+      "turn": 4,
+      "instruction": "[OMITTED FROM PUBLIC ARTIFACT: benchmark-authored prompt text is not redistributed because SR-Eval and MRG-Bench do not state a redistribution license. Use scripts/reconstruct_prompts.py with the separately obtained pinned SR-Eval checkout.]",
+      "prompt": "[OMITTED FROM PUBLIC ARTIFACT: benchmark-authored prompt text is not redistributed because SR-Eval and MRG-Bench do not state a redistribution license. Use scripts/reconstruct_prompts.py with the separately obtained pinned SR-Eval checkout.]",
+      "raw_response": "```java\nstatic KOptCycle getCyclesForPermutation(KOptDescriptor<?> kOptDescriptor) {\n    int[] removedEdgeIndexToTourOrder =\n            kOptDescriptor.removedEdgeIndexToTourOrder();\n    int[] addedEdgeToOtherEndpoint =\n            kOptDescriptor.addedEdgeToOtherEndpoint();\n    int[] inverseRemovedEdgeIndexToTourOrder =\n            kOptDescriptor.inverseRemovedEdgeIndexToTourOrder();\n\n    int[] indexToCycle = new int[removedEdgeIndexToTourOrder.length];\n    BitSet unvisited = new BitSet(removedEdgeIndexToTourOrder.length);\n    unvisited.set(1, removedEdgeIndexToTourOrder.length);\n\n    int cycleCount = 0;\n    while (!unvisited.isEmpty()) {\n        int startEndpoint = unvisited.nextSetBit(1);\n        int currentEndpoint = startEndpoint;\n\n        do {\n            unvisited.clear(currentEndpoint);\n            indexToCycle[currentEndpoint] = cycleCount;\n\n            int tourOrder = removedEdgeIndexToTourOrder[currentEndpoint];\n            int addedEdgeEndpoint = addedEdgeToOtherEndpoint[tourOrder];\n            currentEndpoint =\n                    inverseRemovedEdgeIndexToTourOrder[addedEdgeEndpoint];\n        } while (currentEndpoint != startEndpoint);\n\n        cycleCount++;\n    }\n\n    return new KOptCycle(cycleCount, indexToCycle);\n}\n```",
+      "extracted_code": "static KOptCycle getCyclesForPermutation(KOptDescriptor<?> kOptDescriptor) {\n    int[] removedEdgeIndexToTourOrder =\n            kOptDescriptor.removedEdgeIndexToTourOrder();\n    int[] addedEdgeToOtherEndpoint =\n            kOptDescriptor.addedEdgeToOtherEndpoint();\n    int[] inverseRemovedEdgeIndexToTourOrder =\n            kOptDescriptor.inverseRemovedEdgeIndexToTourOrder();\n\n    int[] indexToCycle = new int[removedEdgeIndexToTourOrder.length];\n    BitSet unvisited = new BitSet(removedEdgeIndexToTourOrder.length);\n    unvisited.set(1, removedEdgeIndexToTourOrder.length);\n\n    int cycleCount = 0;\n    while (!unvisited.isEmpty()) {\n        int startEndpoint = unvisited.nextSetBit(1);\n        int currentEndpoint = startEndpoint;\n\n        do {\n            unvisited.clear(currentEndpoint);\n            indexToCycle[currentEndpoint] = cycleCount;\n\n            int tourOrder = removedEdgeIndexToTourOrder[currentEndpoint];\n            int addedEdgeEndpoint = addedEdgeToOtherEndpoint[tourOrder];\n            currentEndpoint =\n                    inverseRemovedEdgeIndexToTourOrder[addedEdgeEndpoint];\n        } while (currentEndpoint != startEndpoint);\n\n        cycleCount++;\n    }\n\n    return new KOptCycle(cycleCount, indexToCycle);\n}",
+      "tests": [
+        {
+          "test_turn": 1,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "test_turn": 2,
+          "status": "fail",
+          "detail": "[ERROR] Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.181 s <<< FAILURE! -- in ai.timefold.solver.core.impl.heuristic.selector.move.generic.list.kopt.KOptUtilsTest\n[ERROR] ai.timefold.solver.core.impl.heuristic.selector.move.generic.list.kopt.KOptUtilsTest.testGetCyclesForPermutationThreeCycle -- Time elapsed: 0.136 s <<< FAILURE!\norg.opentest4j.AssertionFailedError: \nexpected: 3\n but was: 6\n\tat ai.timefold.solver.core.impl.heuristic.selector.move.generic.list.kopt.KOptUtilsTest.testGetCyclesForPermutationThreeCycle(KOptUtilsTest.java:142)\n\tat java.base/java.lang.reflect.Method.invoke(Method.java:580)\n\tat java.base/java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:507)\n\tat java.base/java.util.concurrent.ForkJoinPool$WorkQueue.topLevelExec(ForkJoinPool.java:1489)\n\tat java.base/java.util.concurrent.ForkJoinPool.scan(ForkJoinPool.java:2071)\n\tat java.base/java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:2033)\n\tat java.base/java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:187)\n[ERROR] Failures: \n[ERROR]   KOptUtilsTest.testGetCyclesForPermutationThreeCycle:142 \nexpected: 3\n but was: 6\n[ERROR] Tests run: 1, Failures: 1, Errors: 0, Skipped: 0\n[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:3.5.3:test (default-test) on project timefold-solver-core: There are test failures.\n[ERROR] \n[ERROR] See /timefold-solver/core/target/surefire-reports for the individual test results.\n[ERROR] See dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.\n[ERROR] -> [Help 1]\n[ERROR] \n[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.\n[ERROR] Re-run Maven using the -X switch to enable full debug logging.\n[ERROR] \n[ERROR] For more information about the errors and possible solutions, please read the following articles:\n[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException"
+        },
+        {
+          "test_turn": 3,
+          "status": "fail",
+          "detail": "[ERROR] Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.172 s <<< FAILURE! -- in ai.timefold.solver.core.impl.heuristic.selector.move.generic.list.kopt.KOptUtilsTest\n[ERROR] ai.timefold.solver.core.impl.heuristic.selector.move.generic.list.kopt.KOptUtilsTest.testGetCyclesForPermutationThreeCycle -- Time elapsed: 0.129 s <<< FAILURE!\norg.opentest4j.AssertionFailedError: \nexpected: 3\n but was: 6\n\tat ai.timefold.solver.core.impl.heuristic.selector.move.generic.list.kopt.KOptUtilsTest.testGetCyclesForPermutationThreeCycle(KOptUtilsTest.java:142)\n\tat java.base/java.lang.reflect.Method.invoke(Method.java:580)\n\tat java.base/java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:507)\n\tat java.base/java.util.concurrent.ForkJoinPool$WorkQueue.topLevelExec(ForkJoinPool.java:1489)\n\tat java.base/java.util.concurrent.ForkJoinPool.scan(ForkJoinPool.java:2071)\n\tat java.base/java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:2033)\n\tat java.base/java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:187)\n[ERROR] Failures: \n[ERROR]   KOptUtilsTest.testGetCyclesForPermutationThreeCycle:142 \nexpected: 3\n but was: 6\n[ERROR] Tests run: 1, Failures: 1, Errors: 0, Skipped: 0\n[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:3.5.3:test (default-test) on project timefold-solver-core: There are test failures.\n[ERROR] \n[ERROR] See /timefold-solver/core/target/surefire-reports for the individual test results.\n[ERROR] See dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.\n[ERROR] -> [Help 1]\n[ERROR] \n[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.\n[ERROR] Re-run Maven using the -X switch to enable full debug logging.\n[ERROR] \n[ERROR] For more information about the errors and possible solutions, please read the following articles:\n[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException"
+        },
+        {
+          "test_turn": 4,
+          "status": "fail",
+          "detail": "[ERROR] Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.172 s <<< FAILURE! -- in ai.timefold.solver.core.impl.heuristic.selector.move.generic.list.kopt.KOptUtilsTest\n[ERROR] ai.timefold.solver.core.impl.heuristic.selector.move.generic.list.kopt.KOptUtilsTest.testGetCyclesForPermutationThreeCycle -- Time elapsed: 0.131 s <<< FAILURE!\norg.opentest4j.AssertionFailedError: \nexpected: 3\n but was: 6\n\tat ai.timefold.solver.core.impl.heuristic.selector.move.generic.list.kopt.KOptUtilsTest.testGetCyclesForPermutationThreeCycle(KOptUtilsTest.java:142)\n\tat java.base/java.lang.reflect.Method.invoke(Method.java:580)\n\tat java.base/java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:507)\n\tat java.base/java.util.concurrent.ForkJoinPool$WorkQueue.topLevelExec(ForkJoinPool.java:1489)\n\tat java.base/java.util.concurrent.ForkJoinPool.scan(ForkJoinPool.java:2071)\n\tat java.base/java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:2033)\n\tat java.base/java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:187)\n[ERROR] Failures: \n[ERROR]   KOptUtilsTest.testGetCyclesForPermutationThreeCycle:142 \nexpected: 3\n but was: 6\n[ERROR] Tests run: 1, Failures: 1, Errors: 0, Skipped: 0\n[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:3.5.3:test (default-test) on project timefold-solver-core: There are test failures.\n[ERROR] \n[ERROR] See /timefold-solver/core/target/surefire-reports for the individual test results.\n[ERROR] See dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.\n[ERROR] -> [Help 1]\n[ERROR] \n[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.\n[ERROR] Re-run Maven using the -X switch to enable full debug logging.\n[ERROR] \n[ERROR] For more information about the errors and possible solutions, please read the following articles:\n[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException"
+        }
+      ],
+      "cumulatively_correct": false,
+      "usage": {
+        "input_tokens": 16829,
+        "cached_input_tokens": 14720,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 568,
+        "reasoning_output_tokens": 289
+      },
+      "instruction_source_sha256": "93afeccc1f3f0273462c74945e5fb4a0402acf31429a3cab2a765d7d2b05ab7a",
+      "rendered_prompt_sha256": "7a29c42914e5886e580a16203de771b58a3e7ed56780ecc8c7b03dc349ec166d"
+    }
+  ],
+  "public_prompt_policy": {
+    "benchmark_authored_text_included": false,
+    "reconstruction_command": "python3 scripts/reconstruct_prompts.py --sr-eval .cache/SR-Eval --output reconstructed-prompts"
+  }
+}

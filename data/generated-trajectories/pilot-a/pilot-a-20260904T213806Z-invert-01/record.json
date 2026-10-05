@@ -1,0 +1,158 @@
+{
+  "schema_version": 1,
+  "batch_id": "pilot-a-20260904T213806Z",
+  "run_id": "pilot-a-20260904T213806Z-invert-01",
+  "task_hash": "38770cee6b092a934344568e",
+  "task_slug": "invert",
+  "condition": "baseline",
+  "benchmark_commit": "6cf948d69427687bf61042640223d5b318f7bc4c",
+  "product_interface": "Codex CLI 0.153.0",
+  "session_id": "session-1dd23ddfdd8130db",
+  "model": {
+    "display_name": "GPT-5.6 Sol",
+    "slug": "gpt-5.6-sol",
+    "reasoning_effort": "High",
+    "automatic_routing": false,
+    "snapshot": null
+  },
+  "started_at": "2026-09-04T21:47:23.833321+00:00",
+  "completed_at": "2026-09-04T21:48:19.671420+00:00",
+  "prompt_sha256": {
+    "experiment/prompts/system.txt": "4875eb8f21bbf16bf8230730213406471017c29630afb9b027ef115f510c66da",
+    "experiment/prompts/turn-1.txt": "493fa28970d6f5b28586e31d468c2243cdbb045a7f21de56582d73bc290688ca",
+    "experiment/prompts/code-edit.txt": "e15919aa205033e555720259b3a3cfa36e17f26dea0a0f8a9423341a22fe8b57",
+    "experiment/prompts/engineering-guardrails.txt": "d24d0f0fc97807691f18afb0529b017abad7761f8a67da858d6e2d0f7e6bbee5"
+  },
+  "turns": [
+    {
+      "turn": 1,
+      "instruction": "[OMITTED FROM PUBLIC ARTIFACT: benchmark-authored prompt text is not redistributed because SR-Eval and MRG-Bench do not state a redistribution license. Use scripts/reconstruct_prompts.py with the separately obtained pinned SR-Eval checkout.]",
+      "prompt": "[OMITTED FROM PUBLIC ARTIFACT: benchmark-authored prompt text is not redistributed because SR-Eval and MRG-Bench do not state a redistribution license. Use scripts/reconstruct_prompts.py with the separately obtained pinned SR-Eval checkout.]",
+      "raw_response": "```java\npublic Matrix invert() {\n    int n = data.length;\n    Matrix augmented = new Matrix(n, 2 * n);\n\n    // Append the identity matrix to the original matrix.\n    for (int i = 0; i < n; i++) {\n        for (int j = 0; j < n; j++) {\n            augmented.set(i, j, get(i, j));\n            augmented.set(i, n + j, i == j ? 1.0f : 0.0f);\n        }\n    }\n\n    // Perform Gaussian elimination.\n    for (int column = 0; column < n; column++) {\n        float pivot = augmented.get(column, column);\n\n        for (int j = 0; j < 2 * n; j++) {\n            augmented.set(column, j, augmented.get(column, j) / pivot);\n        }\n\n        for (int row = 0; row < n; row++) {\n            if (row == column) {\n                continue;\n            }\n\n            float factor = augmented.get(row, column);\n            for (int j = 0; j < 2 * n; j++) {\n                augmented.set(\n                        row,\n                        j,\n                        augmented.get(row, j) - factor * augmented.get(column, j));\n            }\n        }\n    }\n\n    // Extract the inverse from the right half.\n    Matrix inverse = new Matrix(n, n);\n    for (int i = 0; i < n; i++) {\n        for (int j = 0; j < n; j++) {\n            inverse.set(i, j, augmented.get(i, n + j));\n        }\n    }\n\n    return inverse;\n}\n```",
+      "extracted_code": "public Matrix invert() {\n    int n = data.length;\n    Matrix augmented = new Matrix(n, 2 * n);\n\n    // Append the identity matrix to the original matrix.\n    for (int i = 0; i < n; i++) {\n        for (int j = 0; j < n; j++) {\n            augmented.set(i, j, get(i, j));\n            augmented.set(i, n + j, i == j ? 1.0f : 0.0f);\n        }\n    }\n\n    // Perform Gaussian elimination.\n    for (int column = 0; column < n; column++) {\n        float pivot = augmented.get(column, column);\n\n        for (int j = 0; j < 2 * n; j++) {\n            augmented.set(column, j, augmented.get(column, j) / pivot);\n        }\n\n        for (int row = 0; row < n; row++) {\n            if (row == column) {\n                continue;\n            }\n\n            float factor = augmented.get(row, column);\n            for (int j = 0; j < 2 * n; j++) {\n                augmented.set(\n                        row,\n                        j,\n                        augmented.get(row, j) - factor * augmented.get(column, j));\n            }\n        }\n    }\n\n    // Extract the inverse from the right half.\n    Matrix inverse = new Matrix(n, n);\n    for (int i = 0; i < n; i++) {\n        for (int j = 0; j < n; j++) {\n            inverse.set(i, j, augmented.get(i, n + j));\n        }\n    }\n\n    return inverse;\n}",
+      "tests": [
+        {
+          "test_turn": 1,
+          "status": "pass",
+          "detail": "SUCCESS"
+        }
+      ],
+      "cumulatively_correct": true,
+      "usage": {
+        "input_tokens": 9086,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 435,
+        "reasoning_output_tokens": 81
+      },
+      "instruction_source_sha256": "b890d37341bd7028b01aa657eaf1516f8c0a3d2e866b81dd407b02c0e84c2753",
+      "rendered_prompt_sha256": "946b134543d1eaec69671e7858243444ee012c6d50b1767a44f17ab1ac62ae9e"
+    },
+    {
+      "turn": 2,
+      "instruction": "[OMITTED FROM PUBLIC ARTIFACT: benchmark-authored prompt text is not redistributed because SR-Eval and MRG-Bench do not state a redistribution license. Use scripts/reconstruct_prompts.py with the separately obtained pinned SR-Eval checkout.]",
+      "prompt": "[OMITTED FROM PUBLIC ARTIFACT: benchmark-authored prompt text is not redistributed because SR-Eval and MRG-Bench do not state a redistribution license. Use scripts/reconstruct_prompts.py with the separately obtained pinned SR-Eval checkout.]",
+      "raw_response": "```java\npublic Matrix invert() {\n    int rows = data.length;\n    int columns = rows == 0 ? 0 : data[0].length();\n\n    if (rows != columns) {\n        throw new IllegalArgumentException(\"matrix must be square\");\n    }\n\n    int n = rows;\n    Matrix augmented = new Matrix(n, 2 * n);\n\n    // Append the identity matrix to the original matrix.\n    for (int i = 0; i < n; i++) {\n        for (int j = 0; j < n; j++) {\n            augmented.set(i, j, get(i, j));\n            augmented.set(i, n + j, i == j ? 1.0f : 0.0f);\n        }\n    }\n\n    // Perform Gaussian elimination.\n    for (int column = 0; column < n; column++) {\n        float pivot = augmented.get(column, column);\n\n        for (int j = 0; j < 2 * n; j++) {\n            augmented.set(column, j, augmented.get(column, j) / pivot);\n        }\n\n        for (int row = 0; row < n; row++) {\n            if (row == column) {\n                continue;\n            }\n\n            float factor = augmented.get(row, column);\n            for (int j = 0; j < 2 * n; j++) {\n                augmented.set(\n                        row,\n                        j,\n                        augmented.get(row, j) - factor * augmented.get(column, j));\n            }\n        }\n    }\n\n    // Extract the inverse from the right half.\n    Matrix inverse = new Matrix(n, n);\n    for (int i = 0; i < n; i++) {\n        for (int j = 0; j < n; j++) {\n            inverse.set(i, j, augmented.get(i, n + j));\n        }\n    }\n\n    return inverse;\n}\n```",
+      "extracted_code": "public Matrix invert() {\n    int rows = data.length;\n    int columns = rows == 0 ? 0 : data[0].length();\n\n    if (rows != columns) {\n        throw new IllegalArgumentException(\"matrix must be square\");\n    }\n\n    int n = rows;\n    Matrix augmented = new Matrix(n, 2 * n);\n\n    // Append the identity matrix to the original matrix.\n    for (int i = 0; i < n; i++) {\n        for (int j = 0; j < n; j++) {\n            augmented.set(i, j, get(i, j));\n            augmented.set(i, n + j, i == j ? 1.0f : 0.0f);\n        }\n    }\n\n    // Perform Gaussian elimination.\n    for (int column = 0; column < n; column++) {\n        float pivot = augmented.get(column, column);\n\n        for (int j = 0; j < 2 * n; j++) {\n            augmented.set(column, j, augmented.get(column, j) / pivot);\n        }\n\n        for (int row = 0; row < n; row++) {\n            if (row == column) {\n                continue;\n            }\n\n            float factor = augmented.get(row, column);\n            for (int j = 0; j < 2 * n; j++) {\n                augmented.set(\n                        row,\n                        j,\n                        augmented.get(row, j) - factor * augmented.get(column, j));\n            }\n        }\n    }\n\n    // Extract the inverse from the right half.\n    Matrix inverse = new Matrix(n, n);\n    for (int i = 0; i < n; i++) {\n        for (int j = 0; j < n; j++) {\n            inverse.set(i, j, augmented.get(i, n + j));\n        }\n    }\n\n    return inverse;\n}",
+      "tests": [
+        {
+          "test_turn": 1,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "test_turn": 2,
+          "status": "pass",
+          "detail": "SUCCESS"
+        }
+      ],
+      "cumulatively_correct": true,
+      "usage": {
+        "input_tokens": 10085,
+        "cached_input_tokens": 8960,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 484,
+        "reasoning_output_tokens": 84
+      },
+      "instruction_source_sha256": "fc18d0cc40ac016c28f314be3d8819fa4a5877d8563cf268ecc8d6adc1e781df",
+      "rendered_prompt_sha256": "36cf859f4d9184bf06c79251e7dbdc8d61ebc8567aeb89260be7d3a8a5f4404d"
+    },
+    {
+      "turn": 3,
+      "instruction": "[OMITTED FROM PUBLIC ARTIFACT: benchmark-authored prompt text is not redistributed because SR-Eval and MRG-Bench do not state a redistribution license. Use scripts/reconstruct_prompts.py with the separately obtained pinned SR-Eval checkout.]",
+      "prompt": "[OMITTED FROM PUBLIC ARTIFACT: benchmark-authored prompt text is not redistributed because SR-Eval and MRG-Bench do not state a redistribution license. Use scripts/reconstruct_prompts.py with the separately obtained pinned SR-Eval checkout.]",
+      "raw_response": "```java\npublic Matrix invert() {\n    int rows = data.length;\n    int columns = rows == 0 ? 0 : data[0].length();\n\n    if (rows != columns) {\n        throw new IllegalArgumentException(\"matrix must be square\");\n    }\n\n    int n = rows;\n    Matrix augmented = new Matrix(n, 2 * n);\n\n    // Append the identity matrix to the original matrix.\n    for (int i = 0; i < n; i++) {\n        for (int j = 0; j < n; j++) {\n            augmented.set(i, j, get(i, j));\n            augmented.set(i, n + j, i == j ? 1.0f : 0.0f);\n        }\n    }\n\n    // Perform Gaussian elimination with partial pivoting.\n    for (int column = 0; column < n; column++) {\n        int pivotRow = column;\n        float largestValue = abs(augmented.get(column, column));\n\n        for (int row = column + 1; row < n; row++) {\n            float value = abs(augmented.get(row, column));\n            if (value > largestValue) {\n                largestValue = value;\n                pivotRow = row;\n            }\n        }\n\n        if (pivotRow != column) {\n            VectorFloat<?> temporary = augmented.data[column];\n            augmented.data[column] = augmented.data[pivotRow];\n            augmented.data[pivotRow] = temporary;\n        }\n\n        float pivot = augmented.get(column, column);\n        for (int j = 0; j < 2 * n; j++) {\n            augmented.set(column, j, augmented.get(column, j) / pivot);\n        }\n\n        for (int row = 0; row < n; row++) {\n            if (row == column) {\n                continue;\n            }\n\n            float factor = augmented.get(row, column);\n            for (int j = 0; j < 2 * n; j++) {\n                augmented.set(\n                        row,\n                        j,\n                        augmented.get(row, j) - factor * augmented.get(column, j));\n            }\n        }\n    }\n\n    // Extract the inverse from the right half.\n    Matrix inverse = new Matrix(n, n);\n    for (int i = 0; i < n; i++) {\n        for (int j = 0; j < n; j++) {\n            inverse.set(i, j, augmented.get(i, n + j));\n        }\n    }\n\n    return inverse;\n}\n```",
+      "extracted_code": "public Matrix invert() {\n    int rows = data.length;\n    int columns = rows == 0 ? 0 : data[0].length();\n\n    if (rows != columns) {\n        throw new IllegalArgumentException(\"matrix must be square\");\n    }\n\n    int n = rows;\n    Matrix augmented = new Matrix(n, 2 * n);\n\n    // Append the identity matrix to the original matrix.\n    for (int i = 0; i < n; i++) {\n        for (int j = 0; j < n; j++) {\n            augmented.set(i, j, get(i, j));\n            augmented.set(i, n + j, i == j ? 1.0f : 0.0f);\n        }\n    }\n\n    // Perform Gaussian elimination with partial pivoting.\n    for (int column = 0; column < n; column++) {\n        int pivotRow = column;\n        float largestValue = abs(augmented.get(column, column));\n\n        for (int row = column + 1; row < n; row++) {\n            float value = abs(augmented.get(row, column));\n            if (value > largestValue) {\n                largestValue = value;\n                pivotRow = row;\n            }\n        }\n\n        if (pivotRow != column) {\n            VectorFloat<?> temporary = augmented.data[column];\n            augmented.data[column] = augmented.data[pivotRow];\n            augmented.data[pivotRow] = temporary;\n        }\n\n        float pivot = augmented.get(column, column);\n        for (int j = 0; j < 2 * n; j++) {\n            augmented.set(column, j, augmented.get(column, j) / pivot);\n        }\n\n        for (int row = 0; row < n; row++) {\n            if (row == column) {\n                continue;\n            }\n\n            float factor = augmented.get(row, column);\n            for (int j = 0; j < 2 * n; j++) {\n                augmented.set(\n                        row,\n                        j,\n                        augmented.get(row, j) - factor * augmented.get(column, j));\n            }\n        }\n    }\n\n    // Extract the inverse from the right half.\n    Matrix inverse = new Matrix(n, n);\n    for (int i = 0; i < n; i++) {\n        for (int j = 0; j < n; j++) {\n            inverse.set(i, j, augmented.get(i, n + j));\n        }\n    }\n\n    return inverse;\n}",
+      "tests": [
+        {
+          "test_turn": 1,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "test_turn": 2,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "test_turn": 3,
+          "status": "pass",
+          "detail": "SUCCESS"
+        }
+      ],
+      "cumulatively_correct": true,
+      "usage": {
+        "input_tokens": 11049,
+        "cached_input_tokens": 9856,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 585,
+        "reasoning_output_tokens": 61
+      },
+      "instruction_source_sha256": "fae2c2113dbcd230d171e93c53cbc4188dad763cf7bee3473e4333b73254e420",
+      "rendered_prompt_sha256": "8e3ddcef3b6b213af16f06e14f54b0c2f778a57bbe06901b479ba1e1a45aaa17"
+    },
+    {
+      "turn": 4,
+      "instruction": "[OMITTED FROM PUBLIC ARTIFACT: benchmark-authored prompt text is not redistributed because SR-Eval and MRG-Bench do not state a redistribution license. Use scripts/reconstruct_prompts.py with the separately obtained pinned SR-Eval checkout.]",
+      "prompt": "[OMITTED FROM PUBLIC ARTIFACT: benchmark-authored prompt text is not redistributed because SR-Eval and MRG-Bench do not state a redistribution license. Use scripts/reconstruct_prompts.py with the separately obtained pinned SR-Eval checkout.]",
+      "raw_response": "```java\npublic Matrix invert() {\n    int rows = data.length;\n    int columns = rows == 0 ? 0 : data[0].length();\n\n    if (rows != columns) {\n        throw new IllegalArgumentException(\"matrix must be square\");\n    }\n\n    int n = rows;\n    Matrix augmented = new Matrix(n, 2 * n);\n    final float singularityThreshold = 1.0e-8f;\n\n    // Append the identity matrix to the original matrix.\n    for (int i = 0; i < n; i++) {\n        for (int j = 0; j < n; j++) {\n            augmented.set(i, j, get(i, j));\n            augmented.set(i, n + j, i == j ? 1.0f : 0.0f);\n        }\n    }\n\n    // Perform Gaussian elimination with partial pivoting.\n    for (int column = 0; column < n; column++) {\n        int pivotRow = column;\n        float largestValue = abs(augmented.get(column, column));\n\n        for (int row = column + 1; row < n; row++) {\n            float value = abs(augmented.get(row, column));\n            if (value > largestValue) {\n                largestValue = value;\n                pivotRow = row;\n            }\n        }\n\n        if (largestValue <= singularityThreshold) {\n            throw new IllegalArgumentException(\"matrix is singular and cannot be inverted\");\n        }\n\n        if (pivotRow != column) {\n            VectorFloat<?> temporary = augmented.data[column];\n            augmented.data[column] = augmented.data[pivotRow];\n            augmented.data[pivotRow] = temporary;\n        }\n\n        float pivot = augmented.get(column, column);\n        for (int j = 0; j < 2 * n; j++) {\n            augmented.set(column, j, augmented.get(column, j) / pivot);\n        }\n\n        for (int row = 0; row < n; row++) {\n            if (row == column) {\n                continue;\n            }\n\n            float factor = augmented.get(row, column);\n            for (int j = 0; j < 2 * n; j++) {\n                augmented.set(\n                        row,\n                        j,\n                        augmented.get(row, j) - factor * augmented.get(column, j));\n            }\n        }\n    }\n\n    // Extract the inverse from the right half.\n    Matrix inverse = new Matrix(n, n);\n    for (int i = 0; i < n; i++) {\n        for (int j = 0; j < n; j++) {\n            inverse.set(i, j, augmented.get(i, n + j));\n        }\n    }\n\n    return inverse;\n}\n```",
+      "extracted_code": "public Matrix invert() {\n    int rows = data.length;\n    int columns = rows == 0 ? 0 : data[0].length();\n\n    if (rows != columns) {\n        throw new IllegalArgumentException(\"matrix must be square\");\n    }\n\n    int n = rows;\n    Matrix augmented = new Matrix(n, 2 * n);\n    final float singularityThreshold = 1.0e-8f;\n\n    // Append the identity matrix to the original matrix.\n    for (int i = 0; i < n; i++) {\n        for (int j = 0; j < n; j++) {\n            augmented.set(i, j, get(i, j));\n            augmented.set(i, n + j, i == j ? 1.0f : 0.0f);\n        }\n    }\n\n    // Perform Gaussian elimination with partial pivoting.\n    for (int column = 0; column < n; column++) {\n        int pivotRow = column;\n        float largestValue = abs(augmented.get(column, column));\n\n        for (int row = column + 1; row < n; row++) {\n            float value = abs(augmented.get(row, column));\n            if (value > largestValue) {\n                largestValue = value;\n                pivotRow = row;\n            }\n        }\n\n        if (largestValue <= singularityThreshold) {\n            throw new IllegalArgumentException(\"matrix is singular and cannot be inverted\");\n        }\n\n        if (pivotRow != column) {\n            VectorFloat<?> temporary = augmented.data[column];\n            augmented.data[column] = augmented.data[pivotRow];\n            augmented.data[pivotRow] = temporary;\n        }\n\n        float pivot = augmented.get(column, column);\n        for (int j = 0; j < 2 * n; j++) {\n            augmented.set(column, j, augmented.get(column, j) / pivot);\n        }\n\n        for (int row = 0; row < n; row++) {\n            if (row == column) {\n                continue;\n            }\n\n            float factor = augmented.get(row, column);\n            for (int j = 0; j < 2 * n; j++) {\n                augmented.set(\n                        row,\n                        j,\n                        augmented.get(row, j) - factor * augmented.get(column, j));\n            }\n        }\n    }\n\n    // Extract the inverse from the right half.\n    Matrix inverse = new Matrix(n, n);\n    for (int i = 0; i < n; i++) {\n        for (int j = 0; j < n; j++) {\n            inverse.set(i, j, augmented.get(i, n + j));\n        }\n    }\n\n    return inverse;\n}",
+      "tests": [
+        {
+          "test_turn": 1,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "test_turn": 2,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "test_turn": 3,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "test_turn": 4,
+          "status": "pass",
+          "detail": "SUCCESS"
+        }
+      ],
+      "cumulatively_correct": true,
+      "usage": {
+        "input_tokens": 12245,
+        "cached_input_tokens": 10880,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 728,
+        "reasoning_output_tokens": 160
+      },
+      "instruction_source_sha256": "823ac677059ca39c97264b1a4b5fdab5f1ed119a8af013da3e234b9a8302ff00",
+      "rendered_prompt_sha256": "8b78d53d7ccc2e4c5af40914d34de19b5c7b9e3a800b3be7e15f86d972cc56bd"
+    }
+  ],
+  "public_prompt_policy": {
+    "benchmark_authored_text_included": false,
+    "reconstruction_command": "python3 scripts/reconstruct_prompts.py --sr-eval .cache/SR-Eval --output reconstructed-prompts"
+  }
+}

@@ -1,0 +1,21 @@
+# Local benchmark, tools, and environments
+.cache/
+.tools/
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Secrets and local configuration
+.env
+.env.*
+!.env.example
+
+# Locally reconstructed benchmark-authored prompts (not redistributed)
+reconstructed-prompts/
+
+# OS and editor files
+.DS_Store
+.idea/
+.vscode/

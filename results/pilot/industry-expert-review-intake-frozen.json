@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "status": "frozen-before-treatment-decoding",
+  "recruitment_closed_on": "2026-10-03",
+  "planned_target_reviewers": 5,
+  "final_included_reviewers": 4,
+  "closure_reason": "Recruitment closed after four complete responses; the preregistered exploratory minimum of three was satisfied.",
+  "protocol": {
+    "path": "analysis/rq2/industry-expert-validation-protocol.md",
+    "sha256": "b63bd383201af95bc95642e2347c0475854b257011c12c89f9482a3dd96b63d3"
+  },
+  "blank_workbook": {
+    "path": "outputs/industry-expert-review/industry-expert-reuse-review.xlsx",
+    "sha256": "c78c4ba681599273779859e4b5025f10b2f1acc7b8a295e296077a1c595b01ed"
+  },
+  "blind_key": {
+    "path": "results/pilot/industry-expert-review-blind-key.json",
+    "sha256": "0e6d25641e20f86ff1d729c778af943a66870468846f9307756843942330bcfa",
+    "state_at_freeze": "not-opened-for-response-analysis"
+  },
+  "responses": [
+    {
+      "reviewer_code": "EXP-01",
+      "included": true
+    },
+    {
+      "reviewer_code": "EXP-02",
+      "included": true
+    },
+    {
+      "reviewer_code": "EXP-03",
+      "included": true
+    },
+    {
+      "reviewer_code": "EXP-04",
+      "included": true
+    }
+  ],
+  "notes": [
+    "All four reviewers recorded consent Yes and AI-assistance use No.",
+    "EXP-04 exact experience years will be categorized during extraction without altering the source workbook."
+  ],
+  "public_release_note": "Private returned-workbook paths and hashes are intentionally omitted from the public artifact. Original files remain unchanged in the author's private research record."
+}

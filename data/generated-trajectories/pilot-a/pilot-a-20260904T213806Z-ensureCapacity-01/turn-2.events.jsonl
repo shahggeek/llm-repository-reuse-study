@@ -1,0 +1,4 @@
+{"type":"thread.started","thread_id":"session-0f60af279971a185"}
+{"type":"turn.started"}
+{"type":"item.completed","item":{"id":"item_0","type":"agent_message","text":"```java\npublic static FixedBitSet ensureCapacity(FixedBitSet bits, int numBits) {\n    if (numBits < bits.numBits) {\n        return bits;\n    }\n\n    int numWords = bits2words(numBits);\n    long[] backingArray = bits.getBits();\n\n    if (numWords >= backingArray.length) {\n        backingArray = Arrays.copyOf(backingArray, numWords + 1);\n    }\n\n    return new FixedBitSet(backingArray, backingArray.length << 6);\n}\n```"}}
+{"type":"turn.completed","usage":{"input_tokens":9839,"cached_input_tokens":8832,"cache_write_input_tokens":0,"output_tokens":482,"reasoning_output_tokens":368}}

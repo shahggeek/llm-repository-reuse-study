@@ -1,0 +1,119 @@
+{
+  "schema_version": 1,
+  "batch_id": "pilot-a-amendment-20260923T012647Z",
+  "run_id": "pilot-a-amendment-20260923T012647Z-addInOrder-01",
+  "task_hash": "892c3ff660b30a2824182053",
+  "task_slug": "addInOrder",
+  "condition": "baseline",
+  "benchmark_commit": "6cf948d69427687bf61042640223d5b318f7bc4c",
+  "product_interface": "Codex CLI 0.153.0",
+  "session_id": "session-de85459c8be28336",
+  "model": {
+    "display_name": "GPT-5.6 Sol",
+    "slug": "gpt-5.6-sol",
+    "reasoning_effort": "High",
+    "automatic_routing": false,
+    "snapshot": null
+  },
+  "started_at": "2026-09-23T01:46:43.557521+00:00",
+  "completed_at": "2026-09-23T01:47:31.605989+00:00",
+  "prompt_sha256": {
+    "experiment/prompts/system.txt": "4875eb8f21bbf16bf8230730213406471017c29630afb9b027ef115f510c66da",
+    "experiment/prompts/turn-1.txt": "493fa28970d6f5b28586e31d468c2243cdbb045a7f21de56582d73bc290688ca",
+    "experiment/prompts/code-edit.txt": "e15919aa205033e555720259b3a3cfa36e17f26dea0a0f8a9423341a22fe8b57",
+    "experiment/prompts/engineering-guardrails.txt": "d24d0f0fc97807691f18afb0529b017abad7761f8a67da858d6e2d0f7e6bbee5"
+  },
+  "turns": [
+    {
+      "turn": 1,
+      "instruction": "[OMITTED FROM PUBLIC ARTIFACT: benchmark-authored prompt text is not redistributed because SR-Eval and MRG-Bench do not state a redistribution license. Use scripts/reconstruct_prompts.py with the separately obtained pinned SR-Eval checkout.]",
+      "prompt": "[OMITTED FROM PUBLIC ARTIFACT: benchmark-authored prompt text is not redistributed because SR-Eval and MRG-Bench do not state a redistribution license. Use scripts/reconstruct_prompts.py with the separately obtained pinned SR-Eval checkout.]",
+      "raw_response": "```java\npublic void addInOrder(int newNode, float newScore) {\n    if (size > 0 && scores[size - 1] < newScore) {\n        throw new IllegalArgumentException(\"Nodes must be added in descending score order\");\n    }\n\n    if (size == nodes.length) {\n        int newCapacity = Math.max(1, nodes.length + (nodes.length >> 1));\n        nodes = Arrays.copyOf(nodes, newCapacity);\n        scores = Arrays.copyOf(scores, newCapacity);\n    }\n\n    nodes[size] = newNode;\n    scores[size] = newScore;\n    size++;\n}\n```",
+      "extracted_code": "public void addInOrder(int newNode, float newScore) {\n    if (size > 0 && scores[size - 1] < newScore) {\n        throw new IllegalArgumentException(\"Nodes must be added in descending score order\");\n    }\n\n    if (size == nodes.length) {\n        int newCapacity = Math.max(1, nodes.length + (nodes.length >> 1));\n        nodes = Arrays.copyOf(nodes, newCapacity);\n        scores = Arrays.copyOf(scores, newCapacity);\n    }\n\n    nodes[size] = newNode;\n    scores[size] = newScore;\n    size++;\n}",
+      "tests": [
+        {
+          "test_turn": 1,
+          "status": "pass",
+          "detail": "SUCCESS"
+        }
+      ],
+      "cumulatively_correct": true,
+      "usage": {
+        "input_tokens": 17693,
+        "cached_input_tokens": 10240,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 807,
+        "reasoning_output_tokens": 567
+      },
+      "instruction_source_sha256": "a7ac42f959e1e041ad37f86e23495f5597e341461b0c04b7bb0908f64ba78874",
+      "rendered_prompt_sha256": "3e1dafbeba5b443ae7df3dc4280dfb0cefc7a96cebc051fc9dae9387945c70bf"
+    },
+    {
+      "turn": 2,
+      "instruction": "[OMITTED FROM PUBLIC ARTIFACT: benchmark-authored prompt text is not redistributed because SR-Eval and MRG-Bench do not state a redistribution license. Use scripts/reconstruct_prompts.py with the separately obtained pinned SR-Eval checkout.]",
+      "prompt": "[OMITTED FROM PUBLIC ARTIFACT: benchmark-authored prompt text is not redistributed because SR-Eval and MRG-Bench do not state a redistribution license. Use scripts/reconstruct_prompts.py with the separately obtained pinned SR-Eval checkout.]",
+      "raw_response": "```java\npublic void addInOrder(int newNode, float newScore) {\n    if (size == nodes.length) {\n        growArrays();\n    }\n\n    nodes[size] = newNode;\n    scores[size] = newScore;\n    size++;\n}\n```",
+      "extracted_code": "public void addInOrder(int newNode, float newScore) {\n    if (size == nodes.length) {\n        growArrays();\n    }\n\n    nodes[size] = newNode;\n    scores[size] = newScore;\n    size++;\n}",
+      "tests": [
+        {
+          "test_turn": 1,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "test_turn": 2,
+          "status": "pass",
+          "detail": "SUCCESS"
+        }
+      ],
+      "cumulatively_correct": true,
+      "usage": {
+        "input_tokens": 9939,
+        "cached_input_tokens": 8704,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 163,
+        "reasoning_output_tokens": 104
+      },
+      "instruction_source_sha256": "85fa2148ebbd018fe57dd8a37e81c2faff2a0d66b79c3a3b1c8c9f6a6bc364e1",
+      "rendered_prompt_sha256": "58feb4654bbc57134ba275a2b8b44171823b20231cde53efee04c2b68c179b45"
+    },
+    {
+      "turn": 3,
+      "instruction": "[OMITTED FROM PUBLIC ARTIFACT: benchmark-authored prompt text is not redistributed because SR-Eval and MRG-Bench do not state a redistribution license. Use scripts/reconstruct_prompts.py with the separately obtained pinned SR-Eval checkout.]",
+      "prompt": "[OMITTED FROM PUBLIC ARTIFACT: benchmark-authored prompt text is not redistributed because SR-Eval and MRG-Bench do not state a redistribution license. Use scripts/reconstruct_prompts.py with the separately obtained pinned SR-Eval checkout.]",
+      "raw_response": "```java\npublic void addInOrder(int newNode, float newScore) {\n    if (size == nodes.length) {\n        growArrays();\n    }\n\n    if (size > 0) {\n        assert newScore <= scores[size - 1];\n    }\n\n    nodes[size] = newNode;\n    scores[size] = newScore;\n    size++;\n}\n```",
+      "extracted_code": "public void addInOrder(int newNode, float newScore) {\n    if (size == nodes.length) {\n        growArrays();\n    }\n\n    if (size > 0) {\n        assert newScore <= scores[size - 1];\n    }\n\n    nodes[size] = newNode;\n    scores[size] = newScore;\n    size++;\n}",
+      "tests": [
+        {
+          "test_turn": 1,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "test_turn": 2,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "test_turn": 3,
+          "status": "fail",
+          "detail": "01:51:02,413 [ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.077 s <<< FAILURE! -- in io.github.jbellis.jvector.graph.TestNodeArray\n01:51:02,414 [ERROR] io.github.jbellis.jvector.graph.TestNodeArray.testMergeCandidatesSimple -- Time elapsed: 0.023 s <<< ERROR!\njava.lang.NullPointerException: Cannot invoke \"String.contains(java.lang.CharSequence)\" because \"message\" is null\n\tat __randomizedtesting.SeedInfo.seed([946A85A90F9C09E7:467ADEF0F76D084A]:0)\n\tat io.github.jbellis.jvector.graph.TestNodeArray.testMergeCandidatesSimple(TestNodeArray.java:202)\n\tat java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)\n\tat java.base/java.lang.reflect.Method.invoke(Method.java:580)\n\tat com.carrotsearch.randomizedtesting.RandomizedRunner.invoke(RandomizedRunner.java:1758)\n\tat com.carrotsearch.randomizedtesting.RandomizedRunner$8.evaluate(RandomizedRunner.java:946)\n\tat com.carrotsearch.randomizedtesting.rules.StatementAdapter.evaluate(StatementAdapter.java:36)\n\tat com.carrotsearch.randomizedtesting.ThreadLeakControl$StatementRunner.run(ThreadLeakControl.java:390)\n\tat com.carrotsearch.randomizedtesting.ThreadLeakControl.forkTimeoutingTask(ThreadLeakControl.java:843)\n\tat com.carrotsearch.randomizedtesting.ThreadLeakControl$3.evaluate(ThreadLeakControl.java:490)\n\tat com.carrotsearch.randomizedtesting.RandomizedRunner.runSingleTest(RandomizedRunner.java:955)\n\tat com.carrotsearch.randomizedtesting.RandomizedRunner$5.evaluate(RandomizedRunner.java:840)\n\tat com.carrotsearch.randomizedtesting.RandomizedRunner$6.evaluate(RandomizedRunner.java:891)\n\tat com.carrotsearch.randomizedtesting.RandomizedRunner$7.evaluate(RandomizedRunner.java:902)\n\tat com.carrotsearch.randomizedtesting.rules.StatementAdapter.evaluate(StatementAdapter.java:36)\n\tat com.carrotsearch.randomizedtesting.ThreadLeakControl$StatementRunner.run(ThreadLeakControl.java:390)\n\tat com.carrotsearch.randomizedtesting.ThreadLeakControl.forkTimeoutingTask(ThreadLeakControl.java:843)\n\tat com.carrotsearch.randomizedtesting.ThreadLeakControl$2.evaluate(ThreadLeakControl.java:426)\n\tat com.carrotsearch.randomizedtesting.RandomizedRunner.runSuite(RandomizedRunner.java:716)\n\tat com.carrotsearch.randomizedtesting.RandomizedRunner.access$200(RandomizedRunner.java:138)\n\tat com.carrotsearch.randomizedtesting.RandomizedRunner$2.run(RandomizedRunner.java:637)\n01:51:02,430 [INFO] \n01:51:02,430 [INFO] Results:\n01:51:02,430 [INFO] \n01:51:02,430 [ERROR] Errors: \n01:51:02,430 [ERROR]   TestNodeArray.testMergeCandidatesSimple:202 » NullPointer Cannot invoke \"String.contains(java.lang.CharSequence)\" because \"message\" is null\n01:51:02,431 [INFO] \n01:51:02,431 [ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0\n01:51:02,431 [INFO] \n01:51:02,434 [INFO] ------------------------------------------------------------------------\n01:51:02,434 [INFO] Reactor Summary for JVector parent 4.0.0-rc.3-SNAPSHOT:\n01:51:02,435 [INFO] \n01:51:02,437 [INFO] JVector parent ..................................... SUCCESS [  0.337 s]\n01:51:02,437 [INFO] Base ............................................... SUCCESS [  5.396 s]\n01:51:02,437 [INFO] Twenty ............................................. SUCCESS [  0.519 s]\n01:51:02,438 [INFO] Native ............................................. SUCCESS [  2.121 s]\n01:51:02,438 [INFO] JVector Examples ................................... SUCCESS [  1.267 s]\n01:51:02,438 [INFO] Tests .............................................. FAILURE [  3.532 s]\n01:51:02,438 [INFO] JVector ............................................ SKIPPED\n01:51:02,438 [INFO] benchmarks-jmh ..................................... SKIPPED\n01:51:02,438 [INFO] ------------------------------------------------------------------------\n01:51:02,439 [INFO] BUILD FAILURE\n01:51:02,439 [INFO] ------------------------------------------------------------------------\n01:51:02,439 [INFO] Total time:  13.425 s\n01:51:02,441 [INFO] Finished at: 2026-09-23T01:51:02Z\n01:51:02,442 [INFO] ------------------------------------------------------------------------\n01:51:02,444 [ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:3.1.2:test (simd) on project jvector-tests: \n01:51:02,444 [ERROR] \n01:51:02,444 [ERROR] Please refer to /jvector/jvector-tests/target/surefire-reports for the individual test results.\n01:51:02,444 [ERROR] Please refer to dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.\n01:51:02,444 [ERROR] -> [Help 1]\n01:51:02,444 [ERROR] \n01:51:02,444 [ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.\n01:51:02,444 [ERROR] Re-run Maven using the -X switch to enable full debug logging.\n01:51:02,444 [ERROR] \n01:51:02,444 [ERROR] For more information about the errors and possible solutions, please read the following articles:\n01:51:02,444 [ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException\n01:51:02,444 [ERROR] \n01:51:02,444 [ERROR] After correcting the problems, you can resume the build with the command\n01:51:02,445 [ERROR]   mvn <args> -rf :jvector-tests"
+        }
+      ],
+      "cumulatively_correct": false,
+      "usage": {
+        "input_tokens": 10251,
+        "cached_input_tokens": 8576,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 79,
+        "reasoning_output_tokens": 0
+      },
+      "instruction_source_sha256": "8d0bd115be9e960494c281ca5302149ace53384f09eb68bb93900653bd3e1b70",
+      "rendered_prompt_sha256": "3a18670fd5fad2aa285ba2e9a521bdee2fef21e55e9c05c4e13fc7022c9d85b3"
+    }
+  ],
+  "public_prompt_policy": {
+    "benchmark_authored_text_included": false,
+    "reconstruction_command": "python3 scripts/reconstruct_prompts.py --sr-eval .cache/SR-Eval --output reconstructed-prompts"
+  }
+}

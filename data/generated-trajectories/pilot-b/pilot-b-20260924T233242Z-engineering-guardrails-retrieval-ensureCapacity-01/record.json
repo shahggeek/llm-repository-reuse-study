@@ -1,0 +1,123 @@
+{
+  "schema_version": 2,
+  "batch_id": "pilot-b-20260924T233242Z",
+  "run_id": "pilot-b-20260924T233242Z-engineering-guardrails-retrieval-ensureCapacity-01",
+  "task_hash": "b4e1056e5ea2a627db586be4",
+  "task_slug": "ensureCapacity",
+  "condition": "engineering-guardrails-retrieval",
+  "benchmark_commit": "6cf948d69427687bf61042640223d5b318f7bc4c",
+  "product_interface": "Codex CLI 0.153.0",
+  "session_id": "session-0fb9657fa27ee256",
+  "model": {
+    "display_name": "GPT-5.6 Sol",
+    "slug": "gpt-5.6-sol",
+    "reasoning_effort": "High",
+    "automatic_routing": false,
+    "snapshot": null
+  },
+  "started_at": "2026-09-25T00:49:28.301420+00:00",
+  "completed_at": "2026-09-25T00:50:20.240001+00:00",
+  "prompt_sha256": {
+    "experiment/prompts/system.txt": "4875eb8f21bbf16bf8230730213406471017c29630afb9b027ef115f510c66da",
+    "experiment/prompts/turn-1.txt": "493fa28970d6f5b28586e31d468c2243cdbb045a7f21de56582d73bc290688ca",
+    "experiment/prompts/code-edit.txt": "e15919aa205033e555720259b3a3cfa36e17f26dea0a0f8a9423341a22fe8b57",
+    "experiment/prompts/engineering-guardrails.txt": "d24d0f0fc97807691f18afb0529b017abad7761f8a67da858d6e2d0f7e6bbee5",
+    "experiment/prompts/retrieval-context.txt": "dcd0d2aa88419517f7f1b4d8a07749142ac96ef27c0790175805133e53e1fcca",
+    "experiment/pilot-b/retrieval/ensureCapacity.txt": "7315c0e2f746328122740621157a977433582265a32207e466e36d8897f707de"
+  },
+  "prompt_source_sha256": "4475f79a70a06a09b5c70db3b1dc3c8d187735eb3bd132182b82793da6815f29",
+  "retrieval_packet_sha256": "7315c0e2f746328122740621157a977433582265a32207e466e36d8897f707de",
+  "turns": [
+    {
+      "turn": 1,
+      "instruction": "[OMITTED FROM PUBLIC ARTIFACT: benchmark-authored prompt text is not redistributed because SR-Eval and MRG-Bench do not state a redistribution license. Use scripts/reconstruct_prompts.py with the separately obtained pinned SR-Eval checkout.]",
+      "prompt": "[OMITTED FROM PUBLIC ARTIFACT: benchmark-authored prompt text is not redistributed because SR-Eval and MRG-Bench do not state a redistribution license. Use scripts/reconstruct_prompts.py with the separately obtained pinned SR-Eval checkout.]",
+      "raw_response": "```java\npublic static FixedBitSet ensureCapacity(FixedBitSet bits, int numBits) {\n    if (numBits < bits.numBits) {\n        return bits;\n    }\n\n    int numWords = bits2words(numBits);\n    long[] words = bits.getBits();\n    if (numWords >= words.length) {\n        words = ArrayUtil.grow(words, numWords + 1);\n    }\n    return new FixedBitSet(words, words.length << 6);\n}\n```",
+      "extracted_code": "public static FixedBitSet ensureCapacity(FixedBitSet bits, int numBits) {\n    if (numBits < bits.numBits) {\n        return bits;\n    }\n\n    int numWords = bits2words(numBits);\n    long[] words = bits.getBits();\n    if (numWords >= words.length) {\n        words = ArrayUtil.grow(words, numWords + 1);\n    }\n    return new FixedBitSet(words, words.length << 6);\n}",
+      "tests": [
+        {
+          "test_turn": 1,
+          "status": "pass",
+          "detail": "SUCCESS"
+        }
+      ],
+      "cumulatively_correct": true,
+      "usage": {
+        "input_tokens": 16450,
+        "cached_input_tokens": 7936,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 964,
+        "reasoning_output_tokens": 733
+      },
+      "instruction_source_sha256": "a211d99e11bd3a4e2c9d96b0ae1bbffc3de0f2e34208a1efe6865067258d763a",
+      "rendered_prompt_sha256": "4039961167c062c35be01b6120cccd2dc60320a87a409474ccdd8d1b71f021a4"
+    },
+    {
+      "turn": 2,
+      "instruction": "[OMITTED FROM PUBLIC ARTIFACT: benchmark-authored prompt text is not redistributed because SR-Eval and MRG-Bench do not state a redistribution license. Use scripts/reconstruct_prompts.py with the separately obtained pinned SR-Eval checkout.]",
+      "prompt": "[OMITTED FROM PUBLIC ARTIFACT: benchmark-authored prompt text is not redistributed because SR-Eval and MRG-Bench do not state a redistribution license. Use scripts/reconstruct_prompts.py with the separately obtained pinned SR-Eval checkout.]",
+      "raw_response": "```java\npublic static FixedBitSet ensureCapacity(FixedBitSet bits, int numBits) {\n    if (numBits < bits.numBits) {\n        return bits;\n    }\n\n    int numWords = bits2words(numBits);\n    long[] words = bits.getBits();\n    if (numWords >= words.length) {\n        words = ArrayUtil.grow(words, numWords + 1);\n    }\n\n    return new FixedBitSet(words, words.length << 6);\n}\n```",
+      "extracted_code": "public static FixedBitSet ensureCapacity(FixedBitSet bits, int numBits) {\n    if (numBits < bits.numBits) {\n        return bits;\n    }\n\n    int numWords = bits2words(numBits);\n    long[] words = bits.getBits();\n    if (numWords >= words.length) {\n        words = ArrayUtil.grow(words, numWords + 1);\n    }\n\n    return new FixedBitSet(words, words.length << 6);\n}",
+      "tests": [
+        {
+          "test_turn": 1,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "test_turn": 2,
+          "status": "pass",
+          "detail": "SUCCESS"
+        }
+      ],
+      "cumulatively_correct": true,
+      "usage": {
+        "input_tokens": 10371,
+        "cached_input_tokens": 8192,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 334,
+        "reasoning_output_tokens": 227
+      },
+      "instruction_source_sha256": "136e936bf634fa2d329202687c86a8a1e4bd8427bba75f5398efd0894bf3912b",
+      "rendered_prompt_sha256": "51ff0a1465a74d381909be4daad161e729fd8e0624e2193bd729d06df69d264b"
+    },
+    {
+      "turn": 3,
+      "instruction": "[OMITTED FROM PUBLIC ARTIFACT: benchmark-authored prompt text is not redistributed because SR-Eval and MRG-Bench do not state a redistribution license. Use scripts/reconstruct_prompts.py with the separately obtained pinned SR-Eval checkout.]",
+      "prompt": "[OMITTED FROM PUBLIC ARTIFACT: benchmark-authored prompt text is not redistributed because SR-Eval and MRG-Bench do not state a redistribution license. Use scripts/reconstruct_prompts.py with the separately obtained pinned SR-Eval checkout.]",
+      "raw_response": "```java\npublic static FixedBitSet ensureCapacity(FixedBitSet bits, int numBits) {\n    if (numBits < bits.numBits) {\n        return bits;\n    }\n\n    int numWords = bits2words(numBits);\n    long[] words = bits.getBits();\n    if (numWords >= words.length) {\n        words = ArrayUtil.grow(words, numWords + 1);\n    }\n\n    return new FixedBitSet(words, words.length << 6);\n}\n```",
+      "extracted_code": "public static FixedBitSet ensureCapacity(FixedBitSet bits, int numBits) {\n    if (numBits < bits.numBits) {\n        return bits;\n    }\n\n    int numWords = bits2words(numBits);\n    long[] words = bits.getBits();\n    if (numWords >= words.length) {\n        words = ArrayUtil.grow(words, numWords + 1);\n    }\n\n    return new FixedBitSet(words, words.length << 6);\n}",
+      "tests": [
+        {
+          "test_turn": 1,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "test_turn": 2,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "test_turn": 3,
+          "status": "pass",
+          "detail": "SUCCESS"
+        }
+      ],
+      "cumulatively_correct": true,
+      "usage": {
+        "input_tokens": 11713,
+        "cached_input_tokens": 10240,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 808,
+        "reasoning_output_tokens": 701
+      },
+      "instruction_source_sha256": "e2f5dbce0fb55e38bdeb63ddff6d7b5e05e96ade103b1d2a1f7eca6d14437165",
+      "rendered_prompt_sha256": "92f98fa3e4d4d6d8a4bb8a07a94c4e641ee37564158f276ab0f9f8ad01f30057"
+    }
+  ],
+  "public_prompt_policy": {
+    "benchmark_authored_text_included": false,
+    "reconstruction_command": "python3 scripts/reconstruct_prompts.py --sr-eval .cache/SR-Eval --output reconstructed-prompts"
+  }
+}

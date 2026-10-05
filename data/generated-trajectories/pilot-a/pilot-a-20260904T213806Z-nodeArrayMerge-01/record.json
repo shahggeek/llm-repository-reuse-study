@@ -1,0 +1,202 @@
+{
+  "schema_version": 1,
+  "batch_id": "pilot-a-20260904T213806Z",
+  "run_id": "pilot-a-20260904T213806Z-nodeArrayMerge-01",
+  "task_hash": "29066589401870d85f4e87b3",
+  "task_slug": "nodeArrayMerge",
+  "condition": "baseline",
+  "benchmark_commit": "6cf948d69427687bf61042640223d5b318f7bc4c",
+  "product_interface": "Codex CLI 0.153.0",
+  "session_id": "session-80ae566fdbb3c48c",
+  "model": {
+    "display_name": "GPT-5.6 Sol",
+    "slug": "gpt-5.6-sol",
+    "reasoning_effort": "High",
+    "automatic_routing": false,
+    "snapshot": null
+  },
+  "started_at": "2026-09-04T21:48:19.733401+00:00",
+  "completed_at": "2026-09-04T21:50:03.424455+00:00",
+  "prompt_sha256": {
+    "experiment/prompts/system.txt": "4875eb8f21bbf16bf8230730213406471017c29630afb9b027ef115f510c66da",
+    "experiment/prompts/turn-1.txt": "493fa28970d6f5b28586e31d468c2243cdbb045a7f21de56582d73bc290688ca",
+    "experiment/prompts/code-edit.txt": "e15919aa205033e555720259b3a3cfa36e17f26dea0a0f8a9423341a22fe8b57",
+    "experiment/prompts/engineering-guardrails.txt": "d24d0f0fc97807691f18afb0529b017abad7761f8a67da858d6e2d0f7e6bbee5"
+  },
+  "turns": [
+    {
+      "turn": 1,
+      "instruction": "[OMITTED FROM PUBLIC ARTIFACT: benchmark-authored prompt text is not redistributed because SR-Eval and MRG-Bench do not state a redistribution license. Use scripts/reconstruct_prompts.py with the separately obtained pinned SR-Eval checkout.]",
+      "prompt": "[OMITTED FROM PUBLIC ARTIFACT: benchmark-authored prompt text is not redistributed because SR-Eval and MRG-Bench do not state a redistribution license. Use scripts/reconstruct_prompts.py with the separately obtained pinned SR-Eval checkout.]",
+      "raw_response": "```java\nstatic NodeArray merge(NodeArray a1, NodeArray a2) {\n    NodeArray merged = new NodeArray(a1.size + a2.size);\n\n    int i = 0;\n    int j = 0;\n    int k = 0;\n\n    while (i < a1.size && j < a2.size) {\n        if (a1.scores[i] >= a2.scores[j]) {\n            merged.nodes[k] = a1.nodes[i];\n            merged.scores[k] = a1.scores[i];\n            i++;\n        } else {\n            merged.nodes[k] = a2.nodes[j];\n            merged.scores[k] = a2.scores[j];\n            j++;\n        }\n        k++;\n    }\n\n    int remainingA = a1.size - i;\n    if (remainingA > 0) {\n        System.arraycopy(a1.nodes, i, merged.nodes, k, remainingA);\n        System.arraycopy(a1.scores, i, merged.scores, k, remainingA);\n        k += remainingA;\n    }\n\n    int remainingB = a2.size - j;\n    if (remainingB > 0) {\n        System.arraycopy(a2.nodes, j, merged.nodes, k, remainingB);\n        System.arraycopy(a2.scores, j, merged.scores, k, remainingB);\n        k += remainingB;\n    }\n\n    merged.size = k;\n    return merged;\n}\n```",
+      "extracted_code": "static NodeArray merge(NodeArray a1, NodeArray a2) {\n    NodeArray merged = new NodeArray(a1.size + a2.size);\n\n    int i = 0;\n    int j = 0;\n    int k = 0;\n\n    while (i < a1.size && j < a2.size) {\n        if (a1.scores[i] >= a2.scores[j]) {\n            merged.nodes[k] = a1.nodes[i];\n            merged.scores[k] = a1.scores[i];\n            i++;\n        } else {\n            merged.nodes[k] = a2.nodes[j];\n            merged.scores[k] = a2.scores[j];\n            j++;\n        }\n        k++;\n    }\n\n    int remainingA = a1.size - i;\n    if (remainingA > 0) {\n        System.arraycopy(a1.nodes, i, merged.nodes, k, remainingA);\n        System.arraycopy(a1.scores, i, merged.scores, k, remainingA);\n        k += remainingA;\n    }\n\n    int remainingB = a2.size - j;\n    if (remainingB > 0) {\n        System.arraycopy(a2.nodes, j, merged.nodes, k, remainingB);\n        System.arraycopy(a2.scores, j, merged.scores, k, remainingB);\n        k += remainingB;\n    }\n\n    merged.size = k;\n    return merged;\n}",
+      "tests": [
+        {
+          "test_turn": 1,
+          "status": "pass",
+          "detail": "SUCCESS"
+        }
+      ],
+      "cumulatively_correct": true,
+      "usage": {
+        "input_tokens": 18267,
+        "cached_input_tokens": 8832,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 873,
+        "reasoning_output_tokens": 474
+      },
+      "instruction_source_sha256": "92e333e496d15194226491d0c4a133c7802b749dac9bae0dbd7e6e0c9a9d25bc",
+      "rendered_prompt_sha256": "c5167bf2d9fc445349926287b74fa707e93ceb0f34e68b179bbd0d1f4c698d14"
+    },
+    {
+      "turn": 2,
+      "instruction": "[OMITTED FROM PUBLIC ARTIFACT: benchmark-authored prompt text is not redistributed because SR-Eval and MRG-Bench do not state a redistribution license. Use scripts/reconstruct_prompts.py with the separately obtained pinned SR-Eval checkout.]",
+      "prompt": "[OMITTED FROM PUBLIC ARTIFACT: benchmark-authored prompt text is not redistributed because SR-Eval and MRG-Bench do not state a redistribution license. Use scripts/reconstruct_prompts.py with the separately obtained pinned SR-Eval checkout.]",
+      "raw_response": "```java\nstatic NodeArray merge(NodeArray a1, NodeArray a2) {\n    NodeArray merged = new NodeArray(a1.size + a2.size);\n    IntHashSet nodesAtCurrentScore = new IntHashSet();\n\n    int i = 0;\n    int j = 0;\n    float currentScore = 0.0f;\n    boolean hasCurrentScore = false;\n\n    while (i < a1.size || j < a2.size) {\n        int node;\n        float score;\n\n        if (j >= a2.size || (i < a1.size && a1.scores[i] >= a2.scores[j])) {\n            node = a1.nodes[i];\n            score = a1.scores[i++];\n        } else {\n            node = a2.nodes[j];\n            score = a2.scores[j++];\n        }\n\n        if (!hasCurrentScore || Float.compare(score, currentScore) != 0) {\n            currentScore = score;\n            hasCurrentScore = true;\n            nodesAtCurrentScore.clear();\n        }\n\n        if (nodesAtCurrentScore.add(node)) {\n            merged.nodes[merged.size] = node;\n            merged.scores[merged.size] = score;\n            merged.size++;\n        }\n    }\n\n    return merged;\n}\n```",
+      "extracted_code": "static NodeArray merge(NodeArray a1, NodeArray a2) {\n    NodeArray merged = new NodeArray(a1.size + a2.size);\n    IntHashSet nodesAtCurrentScore = new IntHashSet();\n\n    int i = 0;\n    int j = 0;\n    float currentScore = 0.0f;\n    boolean hasCurrentScore = false;\n\n    while (i < a1.size || j < a2.size) {\n        int node;\n        float score;\n\n        if (j >= a2.size || (i < a1.size && a1.scores[i] >= a2.scores[j])) {\n            node = a1.nodes[i];\n            score = a1.scores[i++];\n        } else {\n            node = a2.nodes[j];\n            score = a2.scores[j++];\n        }\n\n        if (!hasCurrentScore || Float.compare(score, currentScore) != 0) {\n            currentScore = score;\n            hasCurrentScore = true;\n            nodesAtCurrentScore.clear();\n        }\n\n        if (nodesAtCurrentScore.add(node)) {\n            merged.nodes[merged.size] = node;\n            merged.scores[merged.size] = score;\n            merged.size++;\n        }\n    }\n\n    return merged;\n}",
+      "tests": [
+        {
+          "test_turn": 1,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "test_turn": 2,
+          "status": "pass",
+          "detail": "SUCCESS"
+        }
+      ],
+      "cumulatively_correct": true,
+      "usage": {
+        "input_tokens": 10460,
+        "cached_input_tokens": 9088,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 911,
+        "reasoning_output_tokens": 643
+      },
+      "instruction_source_sha256": "d66cc81acac554db0a671bce6aa437feb0cc96b14c8d7b9d013e76ff5e6555cf",
+      "rendered_prompt_sha256": "3bb7b82fbbe977a5e3a005687bbeff06fa14dc08fe14fd7272a07d37b1888ad5"
+    },
+    {
+      "turn": 3,
+      "instruction": "[OMITTED FROM PUBLIC ARTIFACT: benchmark-authored prompt text is not redistributed because SR-Eval and MRG-Bench do not state a redistribution license. Use scripts/reconstruct_prompts.py with the separately obtained pinned SR-Eval checkout.]",
+      "prompt": "[OMITTED FROM PUBLIC ARTIFACT: benchmark-authored prompt text is not redistributed because SR-Eval and MRG-Bench do not state a redistribution license. Use scripts/reconstruct_prompts.py with the separately obtained pinned SR-Eval checkout.]",
+      "raw_response": "```java\nstatic NodeArray merge(NodeArray a1, NodeArray a2) {\n    NodeArray merged = new NodeArray(a1.size + a2.size);\n    IntHashSet nodesAtCurrentScore = new IntHashSet();\n\n    int i = 0;\n    int j = 0;\n\n    while (i < a1.size || j < a2.size) {\n        float currentScore;\n\n        if (i >= a1.size) {\n            currentScore = a2.scores[j];\n        } else if (j >= a2.size) {\n            currentScore = a1.scores[i];\n        } else {\n            currentScore = Float.compare(a1.scores[i], a2.scores[j]) >= 0\n                    ? a1.scores[i]\n                    : a2.scores[j];\n        }\n\n        nodesAtCurrentScore.clear();\n\n        while (i < a1.size && Float.compare(a1.scores[i], currentScore) == 0) {\n            if (nodesAtCurrentScore.add(a1.nodes[i])) {\n                merged.nodes[merged.size] = a1.nodes[i];\n                merged.scores[merged.size] = currentScore;\n                merged.size++;\n            }\n            i++;\n        }\n\n        while (j < a2.size && Float.compare(a2.scores[j], currentScore) == 0) {\n            if (nodesAtCurrentScore.add(a2.nodes[j])) {\n                merged.nodes[merged.size] = a2.nodes[j];\n                merged.scores[merged.size] = currentScore;\n                merged.size++;\n            }\n            j++;\n        }\n    }\n\n    return merged;\n}\n```",
+      "extracted_code": "static NodeArray merge(NodeArray a1, NodeArray a2) {\n    NodeArray merged = new NodeArray(a1.size + a2.size);\n    IntHashSet nodesAtCurrentScore = new IntHashSet();\n\n    int i = 0;\n    int j = 0;\n\n    while (i < a1.size || j < a2.size) {\n        float currentScore;\n\n        if (i >= a1.size) {\n            currentScore = a2.scores[j];\n        } else if (j >= a2.size) {\n            currentScore = a1.scores[i];\n        } else {\n            currentScore = Float.compare(a1.scores[i], a2.scores[j]) >= 0\n                    ? a1.scores[i]\n                    : a2.scores[j];\n        }\n\n        nodesAtCurrentScore.clear();\n\n        while (i < a1.size && Float.compare(a1.scores[i], currentScore) == 0) {\n            if (nodesAtCurrentScore.add(a1.nodes[i])) {\n                merged.nodes[merged.size] = a1.nodes[i];\n                merged.scores[merged.size] = currentScore;\n                merged.size++;\n            }\n            i++;\n        }\n\n        while (j < a2.size && Float.compare(a2.scores[j], currentScore) == 0) {\n            if (nodesAtCurrentScore.add(a2.nodes[j])) {\n                merged.nodes[merged.size] = a2.nodes[j];\n                merged.scores[merged.size] = currentScore;\n                merged.size++;\n            }\n            j++;\n        }\n    }\n\n    return merged;\n}",
+      "tests": [
+        {
+          "test_turn": 1,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "test_turn": 2,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "test_turn": 3,
+          "status": "pass",
+          "detail": "SUCCESS"
+        }
+      ],
+      "cumulatively_correct": true,
+      "usage": {
+        "input_tokens": 11707,
+        "cached_input_tokens": 10240,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 551,
+        "reasoning_output_tokens": 211
+      },
+      "instruction_source_sha256": "354b960c4e860a0c2d7d6f8b2c0652ed5410f795d0d90371f7db600c70aea514",
+      "rendered_prompt_sha256": "bb22b9f0b9e39c7cee67e202abf97a9b7119bef973dec0bb2ab1c094ba411a14"
+    },
+    {
+      "turn": 4,
+      "instruction": "[OMITTED FROM PUBLIC ARTIFACT: benchmark-authored prompt text is not redistributed because SR-Eval and MRG-Bench do not state a redistribution license. Use scripts/reconstruct_prompts.py with the separately obtained pinned SR-Eval checkout.]",
+      "prompt": "[OMITTED FROM PUBLIC ARTIFACT: benchmark-authored prompt text is not redistributed because SR-Eval and MRG-Bench do not state a redistribution license. Use scripts/reconstruct_prompts.py with the separately obtained pinned SR-Eval checkout.]",
+      "raw_response": "```java\nstatic NodeArray merge(NodeArray a1, NodeArray a2) {\n    NodeArray merged = new NodeArray(a1.size + a2.size);\n    IntHashSet nodesAtCurrentScore = new IntHashSet();\n\n    int i = 0;\n    int j = 0;\n\n    while (i < a1.size || j < a2.size) {\n        boolean scoreComesFromA = i < a1.size\n                && (j >= a2.size\n                || Float.compare(a1.scores[i], a2.scores[j]) >= 0);\n\n        float currentScore = scoreComesFromA\n                ? a1.scores[i]\n                : a2.scores[j];\n\n        nodesAtCurrentScore.clear();\n\n        while (i < a1.size\n                && Float.compare(a1.scores[i], currentScore) == 0) {\n            if (nodesAtCurrentScore.add(a1.nodes[i])) {\n                merged.nodes[merged.size] = a1.nodes[i];\n                merged.scores[merged.size] = a1.scores[i];\n                merged.size++;\n            }\n            i++;\n        }\n\n        while (j < a2.size\n                && Float.compare(a2.scores[j], currentScore) == 0) {\n            if (nodesAtCurrentScore.add(a2.nodes[j])) {\n                merged.nodes[merged.size] = a2.nodes[j];\n                merged.scores[merged.size] = a2.scores[j];\n                merged.size++;\n            }\n            j++;\n        }\n    }\n\n    return merged;\n}\n```",
+      "extracted_code": "static NodeArray merge(NodeArray a1, NodeArray a2) {\n    NodeArray merged = new NodeArray(a1.size + a2.size);\n    IntHashSet nodesAtCurrentScore = new IntHashSet();\n\n    int i = 0;\n    int j = 0;\n\n    while (i < a1.size || j < a2.size) {\n        boolean scoreComesFromA = i < a1.size\n                && (j >= a2.size\n                || Float.compare(a1.scores[i], a2.scores[j]) >= 0);\n\n        float currentScore = scoreComesFromA\n                ? a1.scores[i]\n                : a2.scores[j];\n\n        nodesAtCurrentScore.clear();\n\n        while (i < a1.size\n                && Float.compare(a1.scores[i], currentScore) == 0) {\n            if (nodesAtCurrentScore.add(a1.nodes[i])) {\n                merged.nodes[merged.size] = a1.nodes[i];\n                merged.scores[merged.size] = a1.scores[i];\n                merged.size++;\n            }\n            i++;\n        }\n\n        while (j < a2.size\n                && Float.compare(a2.scores[j], currentScore) == 0) {\n            if (nodesAtCurrentScore.add(a2.nodes[j])) {\n                merged.nodes[merged.size] = a2.nodes[j];\n                merged.scores[merged.size] = a2.scores[j];\n                merged.size++;\n            }\n            j++;\n        }\n    }\n\n    return merged;\n}",
+      "tests": [
+        {
+          "test_turn": 1,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "test_turn": 2,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "test_turn": 3,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "test_turn": 4,
+          "status": "pass",
+          "detail": "SUCCESS"
+        }
+      ],
+      "cumulatively_correct": true,
+      "usage": {
+        "input_tokens": 12672,
+        "cached_input_tokens": 11520,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 794,
+        "reasoning_output_tokens": 465
+      },
+      "instruction_source_sha256": "af144366c0041ded762d92596fb1e101e7c4df8797c47b1ea67361283bfa65b8",
+      "rendered_prompt_sha256": "34166ee73d8cef6100b143aec548ac72a4f6c10ace62473020a5310141991009"
+    },
+    {
+      "turn": 5,
+      "instruction": "[OMITTED FROM PUBLIC ARTIFACT: benchmark-authored prompt text is not redistributed because SR-Eval and MRG-Bench do not state a redistribution license. Use scripts/reconstruct_prompts.py with the separately obtained pinned SR-Eval checkout.]",
+      "prompt": "[OMITTED FROM PUBLIC ARTIFACT: benchmark-authored prompt text is not redistributed because SR-Eval and MRG-Bench do not state a redistribution license. Use scripts/reconstruct_prompts.py with the separately obtained pinned SR-Eval checkout.]",
+      "raw_response": "```java\nstatic NodeArray merge(NodeArray a1, NodeArray a2) {\n    NodeArray merged = new NodeArray(a1.size + a2.size);\n    IntHashSet nodesAtCurrentScore = new IntHashSet();\n\n    int i = 0;\n    int j = 0;\n    float lastScore = 0.0f;\n    boolean hasLastScore = false;\n\n    while (i < a1.size && j < a2.size) {\n        int node;\n        float score;\n\n        if (Float.compare(a1.scores[i], a2.scores[j]) >= 0) {\n            node = a1.nodes[i];\n            score = a1.scores[i++];\n        } else {\n            node = a2.nodes[j];\n            score = a2.scores[j++];\n        }\n\n        if (!hasLastScore || Float.compare(score, lastScore) != 0) {\n            nodesAtCurrentScore.clear();\n            lastScore = score;\n            hasLastScore = true;\n        }\n\n        if (nodesAtCurrentScore.add(node)) {\n            merged.nodes[merged.size] = node;\n            merged.scores[merged.size] = score;\n            merged.size++;\n        }\n    }\n\n    NodeArray remaining = i < a1.size ? a1 : a2;\n    int remainingIndex = i < a1.size ? i : j;\n\n    while (remainingIndex < remaining.size\n            && hasLastScore\n            && Float.compare(remaining.scores[remainingIndex], lastScore) == 0) {\n        int node = remaining.nodes[remainingIndex];\n\n        if (nodesAtCurrentScore.add(node)) {\n            merged.nodes[merged.size] = node;\n            merged.scores[merged.size] = remaining.scores[remainingIndex];\n            merged.size++;\n        }\n\n        remainingIndex++;\n    }\n\n    int remainingCount = remaining.size - remainingIndex;\n    if (remainingCount > 0) {\n        System.arraycopy(\n                remaining.nodes, remainingIndex,\n                merged.nodes, merged.size,\n                remainingCount);\n        System.arraycopy(\n                remaining.scores, remainingIndex,\n                merged.scores, merged.size,\n                remainingCount);\n        merged.size += remainingCount;\n    }\n\n    return merged;\n}\n```",
+      "extracted_code": "static NodeArray merge(NodeArray a1, NodeArray a2) {\n    NodeArray merged = new NodeArray(a1.size + a2.size);\n    IntHashSet nodesAtCurrentScore = new IntHashSet();\n\n    int i = 0;\n    int j = 0;\n    float lastScore = 0.0f;\n    boolean hasLastScore = false;\n\n    while (i < a1.size && j < a2.size) {\n        int node;\n        float score;\n\n        if (Float.compare(a1.scores[i], a2.scores[j]) >= 0) {\n            node = a1.nodes[i];\n            score = a1.scores[i++];\n        } else {\n            node = a2.nodes[j];\n            score = a2.scores[j++];\n        }\n\n        if (!hasLastScore || Float.compare(score, lastScore) != 0) {\n            nodesAtCurrentScore.clear();\n            lastScore = score;\n            hasLastScore = true;\n        }\n\n        if (nodesAtCurrentScore.add(node)) {\n            merged.nodes[merged.size] = node;\n            merged.scores[merged.size] = score;\n            merged.size++;\n        }\n    }\n\n    NodeArray remaining = i < a1.size ? a1 : a2;\n    int remainingIndex = i < a1.size ? i : j;\n\n    while (remainingIndex < remaining.size\n            && hasLastScore\n            && Float.compare(remaining.scores[remainingIndex], lastScore) == 0) {\n        int node = remaining.nodes[remainingIndex];\n\n        if (nodesAtCurrentScore.add(node)) {\n            merged.nodes[merged.size] = node;\n            merged.scores[merged.size] = remaining.scores[remainingIndex];\n            merged.size++;\n        }\n\n        remainingIndex++;\n    }\n\n    int remainingCount = remaining.size - remainingIndex;\n    if (remainingCount > 0) {\n        System.arraycopy(\n                remaining.nodes, remainingIndex,\n                merged.nodes, merged.size,\n                remainingCount);\n        System.arraycopy(\n                remaining.scores, remainingIndex,\n                merged.scores, merged.size,\n                remainingCount);\n        merged.size += remainingCount;\n    }\n\n    return merged;\n}",
+      "tests": [
+        {
+          "test_turn": 1,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "test_turn": 2,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "test_turn": 3,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "test_turn": 4,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "test_turn": 5,
+          "status": "fail",
+          "detail": "22:56:46,361 [ERROR] Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.078 s <<< FAILURE! -- in io.github.jbellis.jvector.graph.TestNodeArray\n22:56:46,363 [ERROR] io.github.jbellis.jvector.graph.TestNodeArray.testMergeCandidatesSimple -- Time elapsed: 0.024 s <<< FAILURE!\narrays first differed at element [0]; expected:<200> but was:<100>\n\tat __randomizedtesting.SeedInfo.seed([BF662D90C96F0A30:6D7676C9319E0B9D]:0)\n\tat org.junit.internal.ComparisonCriteria.arrayEquals(ComparisonCriteria.java:78)\n\tat org.junit.internal.ComparisonCriteria.arrayEquals(ComparisonCriteria.java:28)\n\tat org.junit.Assert.internalArrayEquals(Assert.java:534)\n\tat org.junit.Assert.assertArrayEquals(Assert.java:418)\n\tat org.junit.Assert.assertArrayEquals(Assert.java:429)\n\tat io.github.jbellis.jvector.graph.TestNodeArray.testMergeCandidatesSimple(TestNodeArray.java:214)\n\tat java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)\n\tat java.base/java.lang.reflect.Method.invoke(Method.java:580)\n\tat com.carrotsearch.randomizedtesting.RandomizedRunner.invoke(RandomizedRunner.java:1758)\n\tat com.carrotsearch.randomizedtesting.RandomizedRunner$8.evaluate(RandomizedRunner.java:946)\n\tat com.carrotsearch.randomizedtesting.rules.StatementAdapter.evaluate(StatementAdapter.java:36)\n\tat com.carrotsearch.randomizedtesting.ThreadLeakControl$StatementRunner.run(ThreadLeakControl.java:390)\n\tat com.carrotsearch.randomizedtesting.ThreadLeakControl.forkTimeoutingTask(ThreadLeakControl.java:843)\n\tat com.carrotsearch.randomizedtesting.ThreadLeakControl$3.evaluate(ThreadLeakControl.java:490)\n\tat com.carrotsearch.randomizedtesting.RandomizedRunner.runSingleTest(RandomizedRunner.java:955)\n\tat com.carrotsearch.randomizedtesting.RandomizedRunner$5.evaluate(RandomizedRunner.java:840)\n\tat com.carrotsearch.randomizedtesting.RandomizedRunner$6.evaluate(RandomizedRunner.java:891)\n\tat com.carrotsearch.randomizedtesting.RandomizedRunner$7.evaluate(RandomizedRunner.java:902)\n\tat com.carrotsearch.randomizedtesting.rules.StatementAdapter.evaluate(StatementAdapter.java:36)\n\tat com.carrotsearch.randomizedtesting.ThreadLeakControl$StatementRunner.run(ThreadLeakControl.java:390)\n\tat com.carrotsearch.randomizedtesting.ThreadLeakControl.forkTimeoutingTask(ThreadLeakControl.java:843)\n\tat com.carrotsearch.randomizedtesting.ThreadLeakControl$2.evaluate(ThreadLeakControl.java:426)\n\tat com.carrotsearch.randomizedtesting.RandomizedRunner.runSuite(RandomizedRunner.java:716)\n\tat com.carrotsearch.randomizedtesting.RandomizedRunner.access$200(RandomizedRunner.java:138)\n\tat com.carrotsearch.randomizedtesting.RandomizedRunner$2.run(RandomizedRunner.java:637)\nCaused by: java.lang.AssertionError: expected:<200> but was:<100>\n\tat org.junit.Assert.fail(Assert.java:89)\n\tat org.junit.Assert.failNotEquals(Assert.java:835)\n\tat org.junit.Assert.assertEquals(Assert.java:120)\n\tat org.junit.Assert.assertEquals(Assert.java:146)\n\tat org.junit.internal.ExactComparisonCriteria.assertElementsEqual(ExactComparisonCriteria.java:8)\n\tat org.junit.internal.ComparisonCriteria.arrayEquals(ComparisonCriteria.java:76)\n\t... 24 more\n22:56:46,382 [INFO] \n22:56:46,382 [INFO] Results:\n22:56:46,382 [INFO] \n22:56:46,382 [ERROR] Failures: \n22:56:46,382 [ERROR]   TestNodeArray.testMergeCandidatesSimple:214 arrays first differed at element [0]; expected:<200> but was:<100>\n22:56:46,382 [INFO] \n22:56:46,382 [ERROR] Tests run: 1, Failures: 1, Errors: 0, Skipped: 0\n22:56:46,382 [INFO] \n22:56:46,385 [INFO] ------------------------------------------------------------------------\n22:56:46,386 [INFO] Reactor Summary for JVector parent 4.0.0-rc.3-SNAPSHOT:\n22:56:46,386 [INFO] \n22:56:46,388 [INFO] JVector parent ..................................... SUCCESS [  0.366 s]\n22:56:46,388 [INFO] Base ............................................... SUCCESS [  5.689 s]\n22:56:46,388 [INFO] Twenty ............................................. SUCCESS [  0.547 s]\n22:56:46,388 [INFO] Native ............................................. SUCCESS [  2.167 s]\n22:56:46,388 [INFO] JVector Examples ................................... SUCCESS [  1.318 s]\n22:56:46,388 [INFO] Tests .............................................. FAILURE [  3.758 s]\n22:56:46,388 [INFO] JVector ............................................ SKIPPED\n22:56:46,389 [INFO] benchmarks-jmh ..................................... SKIPPED\n22:56:46,389 [INFO] ------------------------------------------------------------------------\n22:56:46,389 [INFO] BUILD FAILURE\n22:56:46,389 [INFO] ------------------------------------------------------------------------\n22:56:46,389 [INFO] Total time:  14.118 s\n22:56:46,390 [INFO] Finished at: 2026-09-04T22:56:46Z\n22:56:46,391 [INFO] ------------------------------------------------------------------------\n22:56:46,394 [ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:3.1.2:test (simd) on project jvector-tests: There are test failures.\n22:56:46,395 [ERROR] \n22:56:46,395 [ERROR] Please refer to /jvector/jvector-tests/target/surefire-reports for the individual test results.\n22:56:46,395 [ERROR] Please refer to dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.\n22:56:46,395 [ERROR] -> [Help 1]\n22:56:46,395 [ERROR] \n22:56:46,395 [ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.\n22:56:46,395 [ERROR] Re-run Maven using the -X switch to enable full debug logging.\n22:56:46,395 [ERROR] \n22:56:46,395 [ERROR] For more information about the errors and possible solutions, please read the following articles:\n22:56:46,395 [ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException\n22:56:46,395 [ERROR] \n22:56:46,395 [ERROR] After correcting the problems, you can resume the build with the command\n22:56:46,395 [ERROR]   mvn <args> -rf :jvector-tests"
+        }
+      ],
+      "cumulatively_correct": false,
+      "usage": {
+        "input_tokens": 13865,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1438,
+        "reasoning_output_tokens": 976
+      },
+      "instruction_source_sha256": "1c355cd790004673ed435bdcfea775cb795b05385e67dfa5e67868bc26e10b32",
+      "rendered_prompt_sha256": "a9fa231eac17c98b70492cd674f040a06c00ab9ea2aed6e2cfdb05069db8d3cd"
+    }
+  ],
+  "public_prompt_policy": {
+    "benchmark_authored_text_included": false,
+    "reconstruction_command": "python3 scripts/reconstruct_prompts.py --sr-eval .cache/SR-Eval --output reconstructed-prompts"
+  }
+}

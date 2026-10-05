@@ -1,0 +1,4 @@
+{"type":"thread.started","thread_id":"session-ae7710ef0653fe17"}
+{"type":"turn.started"}
+{"type":"item.completed","item":{"id":"item_0","type":"agent_message","text":"```java\npublic static List<Document> loadDocuments(Path directoryPath, DocumentParser documentParser){\n    if (!Files.isDirectory(directoryPath)) {\n        throw new IllegalArgumentException(\"Illegal directoryPath.\");\n    }\n    return new ArrayList<>();\n}\n```"}}
+{"type":"turn.completed","usage":{"input_tokens":11685,"cached_input_tokens":0,"cache_write_input_tokens":0,"output_tokens":153,"reasoning_output_tokens":97}}

@@ -1,0 +1,121 @@
+{
+  "schema_version": 2,
+  "batch_id": "pilot-b-20260924T233242Z",
+  "run_id": "pilot-b-20260924T233242Z-engineering-guardrails-addInOrder-01",
+  "task_hash": "892c3ff660b30a2824182053",
+  "task_slug": "addInOrder",
+  "condition": "engineering-guardrails",
+  "benchmark_commit": "6cf948d69427687bf61042640223d5b318f7bc4c",
+  "product_interface": "Codex CLI 0.153.0",
+  "session_id": "session-ab73acf2b5638cb9",
+  "model": {
+    "display_name": "GPT-5.6 Sol",
+    "slug": "gpt-5.6-sol",
+    "reasoning_effort": "High",
+    "automatic_routing": false,
+    "snapshot": null
+  },
+  "started_at": "2026-09-25T00:20:21.518758+00:00",
+  "completed_at": "2026-09-25T00:21:05.577291+00:00",
+  "prompt_sha256": {
+    "experiment/prompts/system.txt": "4875eb8f21bbf16bf8230730213406471017c29630afb9b027ef115f510c66da",
+    "experiment/prompts/turn-1.txt": "493fa28970d6f5b28586e31d468c2243cdbb045a7f21de56582d73bc290688ca",
+    "experiment/prompts/code-edit.txt": "e15919aa205033e555720259b3a3cfa36e17f26dea0a0f8a9423341a22fe8b57",
+    "experiment/prompts/engineering-guardrails.txt": "d24d0f0fc97807691f18afb0529b017abad7761f8a67da858d6e2d0f7e6bbee5"
+  },
+  "prompt_source_sha256": "be59bb0935d99d4da768aee6f024be92f4661d67ba086f7e31e08a1d2e547302",
+  "retrieval_packet_sha256": null,
+  "turns": [
+    {
+      "turn": 1,
+      "instruction": "[OMITTED FROM PUBLIC ARTIFACT: benchmark-authored prompt text is not redistributed because SR-Eval and MRG-Bench do not state a redistribution license. Use scripts/reconstruct_prompts.py with the separately obtained pinned SR-Eval checkout.]",
+      "prompt": "[OMITTED FROM PUBLIC ARTIFACT: benchmark-authored prompt text is not redistributed because SR-Eval and MRG-Bench do not state a redistribution license. Use scripts/reconstruct_prompts.py with the separately obtained pinned SR-Eval checkout.]",
+      "raw_response": "```java\npublic void addInOrder(int newNode, float newScore) {\n    if (size == nodes.length) {\n        nodes = ArrayUtil.grow(nodes);\n        scores = ArrayUtil.grow(scores);\n    }\n\n    nodes[size] = newNode;\n    scores[size] = newScore;\n    size++;\n}\n```",
+      "extracted_code": "public void addInOrder(int newNode, float newScore) {\n    if (size == nodes.length) {\n        nodes = ArrayUtil.grow(nodes);\n        scores = ArrayUtil.grow(scores);\n    }\n\n    nodes[size] = newNode;\n    scores[size] = newScore;\n    size++;\n}",
+      "tests": [
+        {
+          "test_turn": 1,
+          "status": "fail",
+          "detail": "00:34:21,256 [ERROR] COMPILATION ERROR : \n00:34:21,256 [INFO] -------------------------------------------------------------\n00:34:21,256 [ERROR] /jvector/jvector-base/src/main/java/io/github/jbellis/jvector/graph/NodeArray.java:[152,27] no suitable method found for grow(float[])\n    method io.github.jbellis.jvector.util.ArrayUtil.<T>grow(T[],int) is not applicable\n      (cannot infer type-variable(s) T\n        (actual and formal argument lists differ in length))\n    method io.github.jbellis.jvector.util.ArrayUtil.grow(int[]) is not applicable\n      (argument mismatch; float[] cannot be converted to int[])\n00:34:21,257 [INFO] 1 error\n00:34:21,257 [INFO] -------------------------------------------------------------\n00:34:21,261 [INFO] ------------------------------------------------------------------------\n00:34:21,261 [INFO] Reactor Summary for JVector parent 4.0.0-rc.3-SNAPSHOT:\n00:34:21,261 [INFO] \n00:34:21,263 [INFO] JVector parent ..................................... SUCCESS [  0.367 s]\n00:34:21,263 [INFO] Base ............................................... FAILURE [  4.679 s]\n00:34:21,263 [INFO] Twenty ............................................. SKIPPED\n00:34:21,264 [INFO] Native ............................................. SKIPPED\n00:34:21,264 [INFO] JVector Examples ................................... SKIPPED\n00:34:21,265 [INFO] Tests .............................................. SKIPPED\n00:34:21,265 [INFO] JVector ............................................ SKIPPED\n00:34:21,265 [INFO] benchmarks-jmh ..................................... SKIPPED\n00:34:21,265 [INFO] ------------------------------------------------------------------------\n00:34:21,265 [INFO] BUILD FAILURE\n00:34:21,265 [INFO] ------------------------------------------------------------------------\n00:34:21,266 [INFO] Total time:  5.307 s\n00:34:21,268 [INFO] Finished at: 2026-09-25T00:34:21Z\n00:34:21,268 [INFO] ------------------------------------------------------------------------\n00:34:21,275 [ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.11.0:compile (default-compile) on project jvector-base: Compilation failure\n00:34:21,275 [ERROR] /jvector/jvector-base/src/main/java/io/github/jbellis/jvector/graph/NodeArray.java:[152,27] no suitable method found for grow(float[])\n00:34:21,275 [ERROR]     method io.github.jbellis.jvector.util.ArrayUtil.<T>grow(T[],int) is not applicable\n00:34:21,275 [ERROR]       (cannot infer type-variable(s) T\n00:34:21,276 [ERROR]         (actual and formal argument lists differ in length))\n00:34:21,276 [ERROR]     method io.github.jbellis.jvector.util.ArrayUtil.grow(int[]) is not applicable\n00:34:21,276 [ERROR]       (argument mismatch; float[] cannot be converted to int[])\n00:34:21,276 [ERROR] \n00:34:21,276 [ERROR] -> [Help 1]\n00:34:21,276 [ERROR] \n00:34:21,276 [ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.\n00:34:21,276 [ERROR] Re-run Maven using the -X switch to enable full debug logging.\n00:34:21,276 [ERROR] \n00:34:21,276 [ERROR] For more information about the errors and possible solutions, please read the following articles:\n00:34:21,276 [ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException\n00:34:21,277 [ERROR] \n00:34:21,277 [ERROR] After correcting the problems, you can resume the build with the command\n00:34:21,277 [ERROR]   mvn <args> -rf :jvector-base"
+        }
+      ],
+      "cumulatively_correct": false,
+      "usage": {
+        "input_tokens": 26901,
+        "cached_input_tokens": 17408,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1397,
+        "reasoning_output_tokens": 1123
+      },
+      "instruction_source_sha256": "a7ac42f959e1e041ad37f86e23495f5597e341461b0c04b7bb0908f64ba78874",
+      "rendered_prompt_sha256": "0ee1aaef3bc19d9bd5915fe5872cdca23c9d1512d3f7b046aa55320cafb1a236"
+    },
+    {
+      "turn": 2,
+      "instruction": "[OMITTED FROM PUBLIC ARTIFACT: benchmark-authored prompt text is not redistributed because SR-Eval and MRG-Bench do not state a redistribution license. Use scripts/reconstruct_prompts.py with the separately obtained pinned SR-Eval checkout.]",
+      "prompt": "[OMITTED FROM PUBLIC ARTIFACT: benchmark-authored prompt text is not redistributed because SR-Eval and MRG-Bench do not state a redistribution license. Use scripts/reconstruct_prompts.py with the separately obtained pinned SR-Eval checkout.]",
+      "raw_response": "```java\npublic void addInOrder(int newNode, float newScore) {\n    if (size == nodes.length) {\n        growArrays();\n    }\n\n    nodes[size] = newNode;\n    scores[size] = newScore;\n    size++;\n}\n```",
+      "extracted_code": "public void addInOrder(int newNode, float newScore) {\n    if (size == nodes.length) {\n        growArrays();\n    }\n\n    nodes[size] = newNode;\n    scores[size] = newScore;\n    size++;\n}",
+      "tests": [
+        {
+          "test_turn": 1,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "test_turn": 2,
+          "status": "pass",
+          "detail": "SUCCESS"
+        }
+      ],
+      "cumulatively_correct": true,
+      "usage": {
+        "input_tokens": 21375,
+        "cached_input_tokens": 10496,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 187,
+        "reasoning_output_tokens": 48
+      },
+      "instruction_source_sha256": "85fa2148ebbd018fe57dd8a37e81c2faff2a0d66b79c3a3b1c8c9f6a6bc364e1",
+      "rendered_prompt_sha256": "6c118273ee0dc96afa5f095d6fff118c06c4968b7d67ca1cc890f6f537b305e2"
+    },
+    {
+      "turn": 3,
+      "instruction": "[OMITTED FROM PUBLIC ARTIFACT: benchmark-authored prompt text is not redistributed because SR-Eval and MRG-Bench do not state a redistribution license. Use scripts/reconstruct_prompts.py with the separately obtained pinned SR-Eval checkout.]",
+      "prompt": "[OMITTED FROM PUBLIC ARTIFACT: benchmark-authored prompt text is not redistributed because SR-Eval and MRG-Bench do not state a redistribution license. Use scripts/reconstruct_prompts.py with the separately obtained pinned SR-Eval checkout.]",
+      "raw_response": "```java\npublic void addInOrder(int newNode, float newScore) {\n    if (size == nodes.length) {\n        growArrays();\n    }\n\n    assert size == 0 || newScore <= scores[size - 1];\n\n    nodes[size] = newNode;\n    scores[size] = newScore;\n    size++;\n}\n```",
+      "extracted_code": "public void addInOrder(int newNode, float newScore) {\n    if (size == nodes.length) {\n        growArrays();\n    }\n\n    assert size == 0 || newScore <= scores[size - 1];\n\n    nodes[size] = newNode;\n    scores[size] = newScore;\n    size++;\n}",
+      "tests": [
+        {
+          "test_turn": 1,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "test_turn": 2,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "test_turn": 3,
+          "status": "fail",
+          "detail": "00:35:53,127 [ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.072 s <<< FAILURE! -- in io.github.jbellis.jvector.graph.TestNodeArray\n00:35:53,128 [ERROR] io.github.jbellis.jvector.graph.TestNodeArray.testMergeCandidatesSimple -- Time elapsed: 0.019 s <<< ERROR!\njava.lang.NullPointerException: Cannot invoke \"String.contains(java.lang.CharSequence)\" because \"message\" is null\n\tat __randomizedtesting.SeedInfo.seed([8C94EA5BF5531D9E:5E84B1020DA21C33]:0)\n\tat io.github.jbellis.jvector.graph.TestNodeArray.testMergeCandidatesSimple(TestNodeArray.java:202)\n\tat java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)\n\tat java.base/java.lang.reflect.Method.invoke(Method.java:580)\n\tat com.carrotsearch.randomizedtesting.RandomizedRunner.invoke(RandomizedRunner.java:1758)\n\tat com.carrotsearch.randomizedtesting.RandomizedRunner$8.evaluate(RandomizedRunner.java:946)\n\tat com.carrotsearch.randomizedtesting.rules.StatementAdapter.evaluate(StatementAdapter.java:36)\n\tat com.carrotsearch.randomizedtesting.ThreadLeakControl$StatementRunner.run(ThreadLeakControl.java:390)\n\tat com.carrotsearch.randomizedtesting.ThreadLeakControl.forkTimeoutingTask(ThreadLeakControl.java:843)\n\tat com.carrotsearch.randomizedtesting.ThreadLeakControl$3.evaluate(ThreadLeakControl.java:490)\n\tat com.carrotsearch.randomizedtesting.RandomizedRunner.runSingleTest(RandomizedRunner.java:955)\n\tat com.carrotsearch.randomizedtesting.RandomizedRunner$5.evaluate(RandomizedRunner.java:840)\n\tat com.carrotsearch.randomizedtesting.RandomizedRunner$6.evaluate(RandomizedRunner.java:891)\n\tat com.carrotsearch.randomizedtesting.RandomizedRunner$7.evaluate(RandomizedRunner.java:902)\n\tat com.carrotsearch.randomizedtesting.rules.StatementAdapter.evaluate(StatementAdapter.java:36)\n\tat com.carrotsearch.randomizedtesting.ThreadLeakControl$StatementRunner.run(ThreadLeakControl.java:390)\n\tat com.carrotsearch.randomizedtesting.ThreadLeakControl.forkTimeoutingTask(ThreadLeakControl.java:843)\n\tat com.carrotsearch.randomizedtesting.ThreadLeakControl$2.evaluate(ThreadLeakControl.java:426)\n\tat com.carrotsearch.randomizedtesting.RandomizedRunner.runSuite(RandomizedRunner.java:716)\n\tat com.carrotsearch.randomizedtesting.RandomizedRunner.access$200(RandomizedRunner.java:138)\n\tat com.carrotsearch.randomizedtesting.RandomizedRunner$2.run(RandomizedRunner.java:637)\n00:35:53,146 [INFO] \n00:35:53,147 [INFO] Results:\n00:35:53,147 [INFO] \n00:35:53,147 [ERROR] Errors: \n00:35:53,147 [ERROR]   TestNodeArray.testMergeCandidatesSimple:202 » NullPointer Cannot invoke \"String.contains(java.lang.CharSequence)\" because \"message\" is null\n00:35:53,147 [INFO] \n00:35:53,147 [ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0\n00:35:53,147 [INFO] \n00:35:53,150 [INFO] ------------------------------------------------------------------------\n00:35:53,151 [INFO] Reactor Summary for JVector parent 4.0.0-rc.3-SNAPSHOT:\n00:35:53,151 [INFO] \n00:35:53,153 [INFO] JVector parent ..................................... SUCCESS [  0.363 s]\n00:35:53,153 [INFO] Base ............................................... SUCCESS [  5.592 s]\n00:35:53,153 [INFO] Twenty ............................................. SUCCESS [  0.486 s]\n00:35:53,153 [INFO] Native ............................................. SUCCESS [  2.112 s]\n00:35:53,154 [INFO] JVector Examples ................................... SUCCESS [  1.430 s]\n00:35:53,154 [INFO] Tests .............................................. FAILURE [  3.758 s]\n00:35:53,154 [INFO] JVector ............................................ SKIPPED\n00:35:53,154 [INFO] benchmarks-jmh ..................................... SKIPPED\n00:35:53,154 [INFO] ------------------------------------------------------------------------\n00:35:53,154 [INFO] BUILD FAILURE\n00:35:53,154 [INFO] ------------------------------------------------------------------------\n00:35:53,155 [INFO] Total time:  14.003 s\n00:35:53,156 [INFO] Finished at: 2026-09-25T00:35:53Z\n00:35:53,156 [INFO] ------------------------------------------------------------------------\n00:35:53,159 [ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:3.1.2:test (simd) on project jvector-tests: \n00:35:53,160 [ERROR] \n00:35:53,160 [ERROR] Please refer to /jvector/jvector-tests/target/surefire-reports for the individual test results.\n00:35:53,160 [ERROR] Please refer to dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.\n00:35:53,160 [ERROR] -> [Help 1]\n00:35:53,160 [ERROR] \n00:35:53,160 [ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.\n00:35:53,161 [ERROR] Re-run Maven using the -X switch to enable full debug logging.\n00:35:53,161 [ERROR] \n00:35:53,161 [ERROR] For more information about the errors and possible solutions, please read the following articles:\n00:35:53,161 [ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException\n00:35:53,161 [ERROR] \n00:35:53,161 [ERROR] After correcting the problems, you can resume the build with the command\n00:35:53,161 [ERROR]   mvn <args> -rf :jvector-tests"
+        }
+      ],
+      "cumulatively_correct": false,
+      "usage": {
+        "input_tokens": 11050,
+        "cached_input_tokens": 8960,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 73,
+        "reasoning_output_tokens": 0
+      },
+      "instruction_source_sha256": "8d0bd115be9e960494c281ca5302149ace53384f09eb68bb93900653bd3e1b70",
+      "rendered_prompt_sha256": "de359f52090400e7c232e396b026d87d44c626b2e293c04541ce3c98a4f06d54"
+    }
+  ],
+  "public_prompt_policy": {
+    "benchmark_authored_text_included": false,
+    "reconstruction_command": "python3 scripts/reconstruct_prompts.py --sr-eval .cache/SR-Eval --output reconstructed-prompts"
+  }
+}

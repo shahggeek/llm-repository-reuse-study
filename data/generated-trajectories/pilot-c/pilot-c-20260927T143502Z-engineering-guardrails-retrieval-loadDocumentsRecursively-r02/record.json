@@ -1,0 +1,90 @@
+{
+  "schema_version": 3,
+  "batch_id": "pilot-c-20260927T143502Z",
+  "run_id": "pilot-c-20260927T143502Z-engineering-guardrails-retrieval-loadDocumentsRecursively-r02",
+  "repetition": 2,
+  "task_hash": "3ac2084e8f23beb3709c38d6",
+  "task_slug": "loadDocumentsRecursively",
+  "condition": "engineering-guardrails-retrieval",
+  "benchmark_commit": "6cf948d69427687bf61042640223d5b318f7bc4c",
+  "product_interface": "Codex CLI 0.153.0",
+  "session_id": "session-de2f84ab0d653297",
+  "model": {
+    "display_name": "GPT-5.6 Sol",
+    "slug": "gpt-5.6-sol",
+    "reasoning_effort": "High",
+    "automatic_routing": false,
+    "snapshot": null
+  },
+  "started_at": "2026-09-27T14:51:14.028837+00:00",
+  "completed_at": "2026-09-27T14:51:41.123095+00:00",
+  "prompt_sha256": {
+    "experiment/prompts/system.txt": "4875eb8f21bbf16bf8230730213406471017c29630afb9b027ef115f510c66da",
+    "experiment/prompts/turn-1.txt": "493fa28970d6f5b28586e31d468c2243cdbb045a7f21de56582d73bc290688ca",
+    "experiment/prompts/code-edit.txt": "e15919aa205033e555720259b3a3cfa36e17f26dea0a0f8a9423341a22fe8b57",
+    "experiment/prompts/engineering-guardrails.txt": "d24d0f0fc97807691f18afb0529b017abad7761f8a67da858d6e2d0f7e6bbee5",
+    "experiment/prompts/retrieval-context.txt": "dcd0d2aa88419517f7f1b4d8a07749142ac96ef27c0790175805133e53e1fcca",
+    "experiment/pilot-c/retrieval/loadDocumentsRecursively.txt": "34184e39fecf71a73ea894f09fd473544947c1d58b6d90306a3214f05cc72306"
+  },
+  "prompt_source_sha256": "fb288fcbce3fc44f3e17e3d8cfde5304ab6aa4d5adf829069b1262fe6518fef1",
+  "retrieval_packet_sha256": "34184e39fecf71a73ea894f09fd473544947c1d58b6d90306a3214f05cc72306",
+  "turns": [
+    {
+      "turn": 1,
+      "instruction": "[OMITTED FROM PUBLIC ARTIFACT: benchmark-authored prompt text is not redistributed because SR-Eval and MRG-Bench do not state a redistribution license. Use scripts/reconstruct_prompts.py with the separately obtained pinned SR-Eval checkout.]",
+      "prompt": "[OMITTED FROM PUBLIC ARTIFACT: benchmark-authored prompt text is not redistributed because SR-Eval and MRG-Bench do not state a redistribution license. Use scripts/reconstruct_prompts.py with the separately obtained pinned SR-Eval checkout.]",
+      "raw_response": "```java\npublic static List<Document> loadDocumentsRecursively(Path directoryPath, DocumentParser documentParser) {\n    if (!isDirectory(directoryPath)) {\n        throw illegalArgument(\"'%s' is not a directory\", directoryPath);\n    }\n\n    try (Stream<Path> pathStream = Files.walk(directoryPath)) {\n        return loadDocuments(pathStream, path -> true, directoryPath, documentParser);\n    } catch (IOException e) {\n        throw new RuntimeException(e);\n    }\n}\n```",
+      "extracted_code": "public static List<Document> loadDocumentsRecursively(Path directoryPath, DocumentParser documentParser) {\n    if (!isDirectory(directoryPath)) {\n        throw illegalArgument(\"'%s' is not a directory\", directoryPath);\n    }\n\n    try (Stream<Path> pathStream = Files.walk(directoryPath)) {\n        return loadDocuments(pathStream, path -> true, directoryPath, documentParser);\n    } catch (IOException e) {\n        throw new RuntimeException(e);\n    }\n}",
+      "tests": [
+        {
+          "test_turn": 1,
+          "status": "pass",
+          "detail": "SUCCESS"
+        }
+      ],
+      "cumulatively_correct": true,
+      "usage": {
+        "input_tokens": 21857,
+        "cached_input_tokens": 10624,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 438,
+        "reasoning_output_tokens": 198
+      },
+      "instruction_source_sha256": "1dbdcc52e38018c416f6e347201257bb73959452b1a20caf867942f159e23533",
+      "rendered_prompt_sha256": "9690fcf2704b920ff24381d2183c74f35799cf7b84285324bd10b9b97bfc70b5"
+    },
+    {
+      "turn": 2,
+      "instruction": "[OMITTED FROM PUBLIC ARTIFACT: benchmark-authored prompt text is not redistributed because SR-Eval and MRG-Bench do not state a redistribution license. Use scripts/reconstruct_prompts.py with the separately obtained pinned SR-Eval checkout.]",
+      "prompt": "[OMITTED FROM PUBLIC ARTIFACT: benchmark-authored prompt text is not redistributed because SR-Eval and MRG-Bench do not state a redistribution license. Use scripts/reconstruct_prompts.py with the separately obtained pinned SR-Eval checkout.]",
+      "raw_response": "```java\npublic static List<Document> loadDocumentsRecursively(Path directoryPath, DocumentParser documentParser) {\n    if (directoryPath == null || !isDirectory(directoryPath)) {\n        throw new IllegalArgumentException(\"The directoryPath you provided is illegal.\");\n    }\n\n    try (Stream<Path> pathStream = Files.walk(directoryPath)) {\n        return loadDocuments(pathStream, path -> true, directoryPath, documentParser);\n    } catch (IOException | java.io.UncheckedIOException e) {\n        throw new RuntimeException(\"Failed to traverse directory\", e);\n    }\n}\n```",
+      "extracted_code": "public static List<Document> loadDocumentsRecursively(Path directoryPath, DocumentParser documentParser) {\n    if (directoryPath == null || !isDirectory(directoryPath)) {\n        throw new IllegalArgumentException(\"The directoryPath you provided is illegal.\");\n    }\n\n    try (Stream<Path> pathStream = Files.walk(directoryPath)) {\n        return loadDocuments(pathStream, path -> true, directoryPath, documentParser);\n    } catch (IOException | java.io.UncheckedIOException e) {\n        throw new RuntimeException(\"Failed to traverse directory\", e);\n    }\n}",
+      "tests": [
+        {
+          "test_turn": 1,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "test_turn": 2,
+          "status": "pass",
+          "detail": "SUCCESS"
+        }
+      ],
+      "cumulatively_correct": true,
+      "usage": {
+        "input_tokens": 11913,
+        "cached_input_tokens": 10880,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 563,
+        "reasoning_output_tokens": 440
+      },
+      "instruction_source_sha256": "2578371b7ce18452918cc07ff1d90b70ae6c3bc1eaec259c8ebf902c0adf0950",
+      "rendered_prompt_sha256": "f83f621c150de59a8320afc5d8f92ce27df9fc07c49a261f8fe91a7dcd190378"
+    }
+  ],
+  "public_prompt_policy": {
+    "benchmark_authored_text_included": false,
+    "reconstruction_command": "python3 scripts/reconstruct_prompts.py --sr-eval .cache/SR-Eval --output reconstructed-prompts"
+  }
+}

@@ -1,0 +1,119 @@
+{
+  "schema_version": 1,
+  "batch_id": "pilot-a-20260904T213806Z",
+  "run_id": "pilot-a-20260904T213806Z-loadDocuments-01",
+  "task_hash": "6712ca73ea1cb5649aa72a63",
+  "task_slug": "loadDocuments",
+  "condition": "baseline",
+  "benchmark_commit": "6cf948d69427687bf61042640223d5b318f7bc4c",
+  "product_interface": "Codex CLI 0.153.0",
+  "session_id": "session-ae7710ef0653fe17",
+  "model": {
+    "display_name": "GPT-5.6 Sol",
+    "slug": "gpt-5.6-sol",
+    "reasoning_effort": "High",
+    "automatic_routing": false,
+    "snapshot": null
+  },
+  "started_at": "2026-09-04T22:38:13.246410+00:00",
+  "completed_at": "2026-09-04T22:38:39.690786+00:00",
+  "prompt_sha256": {
+    "experiment/prompts/system.txt": "4875eb8f21bbf16bf8230730213406471017c29630afb9b027ef115f510c66da",
+    "experiment/prompts/turn-1.txt": "493fa28970d6f5b28586e31d468c2243cdbb045a7f21de56582d73bc290688ca",
+    "experiment/prompts/code-edit.txt": "e15919aa205033e555720259b3a3cfa36e17f26dea0a0f8a9423341a22fe8b57",
+    "experiment/prompts/engineering-guardrails.txt": "d24d0f0fc97807691f18afb0529b017abad7761f8a67da858d6e2d0f7e6bbee5"
+  },
+  "turns": [
+    {
+      "turn": 1,
+      "instruction": "[OMITTED FROM PUBLIC ARTIFACT: benchmark-authored prompt text is not redistributed because SR-Eval and MRG-Bench do not state a redistribution license. Use scripts/reconstruct_prompts.py with the separately obtained pinned SR-Eval checkout.]",
+      "prompt": "[OMITTED FROM PUBLIC ARTIFACT: benchmark-authored prompt text is not redistributed because SR-Eval and MRG-Bench do not state a redistribution license. Use scripts/reconstruct_prompts.py with the separately obtained pinned SR-Eval checkout.]",
+      "raw_response": "```java\npublic static List<Document> loadDocuments(Path directoryPath, DocumentParser documentParser){\n    if (!Files.isDirectory(directoryPath)) {\n        throw new IllegalArgumentException(\"Illegal directoryPath.\");\n    }\n    return new ArrayList<>();\n}\n```",
+      "extracted_code": "public static List<Document> loadDocuments(Path directoryPath, DocumentParser documentParser){\n    if (!Files.isDirectory(directoryPath)) {\n        throw new IllegalArgumentException(\"Illegal directoryPath.\");\n    }\n    return new ArrayList<>();\n}",
+      "tests": [
+        {
+          "test_turn": 1,
+          "status": "pass",
+          "detail": "SUCCESS"
+        }
+      ],
+      "cumulatively_correct": true,
+      "usage": {
+        "input_tokens": 11685,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 153,
+        "reasoning_output_tokens": 97
+      },
+      "instruction_source_sha256": "dca24c9b0a7b50a62e21ba86b691ccb39937837a670993802b47c56a7c01d32e",
+      "rendered_prompt_sha256": "30a10a91cfe796c023fafa46f6195c0ddf837edc8f12441720dbb69b8e84c374"
+    },
+    {
+      "turn": 2,
+      "instruction": "[OMITTED FROM PUBLIC ARTIFACT: benchmark-authored prompt text is not redistributed because SR-Eval and MRG-Bench do not state a redistribution license. Use scripts/reconstruct_prompts.py with the separately obtained pinned SR-Eval checkout.]",
+      "prompt": "[OMITTED FROM PUBLIC ARTIFACT: benchmark-authored prompt text is not redistributed because SR-Eval and MRG-Bench do not state a redistribution license. Use scripts/reconstruct_prompts.py with the separately obtained pinned SR-Eval checkout.]",
+      "raw_response": "```java\npublic static List<Document> loadDocuments(Path directoryPath, DocumentParser documentParser) {\n    try (Stream<Path> paths = Files.list(directoryPath)) {\n        return paths.filter(Files::isRegularFile)\n                .map(path -> loadDocument(path, documentParser))\n                .collect(java.util.stream.Collectors.toList());\n    } catch (IOException e) {\n        throw new RuntimeException(e);\n    }\n}\n```",
+      "extracted_code": "public static List<Document> loadDocuments(Path directoryPath, DocumentParser documentParser) {\n    try (Stream<Path> paths = Files.list(directoryPath)) {\n        return paths.filter(Files::isRegularFile)\n                .map(path -> loadDocument(path, documentParser))\n                .collect(java.util.stream.Collectors.toList());\n    } catch (IOException e) {\n        throw new RuntimeException(e);\n    }\n}",
+      "tests": [
+        {
+          "test_turn": 1,
+          "status": "fail",
+          "detail": "[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.166 s <<< FAILURE! -- in dev.langchain4j.data.document.loader.FileSystemDocumentLoaderTest\n[ERROR] dev.langchain4j.data.document.loader.FileSystemDocumentLoaderTest.should_load_documents_including_unknown_document_types -- Time elapsed: 0.118 s <<< ERROR!\ndev.langchain4j.data.document.BlankDocumentException: The document is blank\n\tat dev.langchain4j.data.document.parser.TextDocumentParser.parse(TextDocumentParser.java:30)\n\tat dev.langchain4j.data.document.DocumentLoader.load(DocumentLoader.java:25)\n\tat dev.langchain4j.data.document.loader.FileSystemDocumentLoader.loadDocument(FileSystemDocumentLoader.java:53)\n\tat dev.langchain4j.data.document.loader.FileSystemDocumentLoader.lambda$loadDocuments$1(FileSystemDocumentLoader.java:125)\n\tat java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:212)\n\tat java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:194)\n\tat java.base/java.util.Iterator.forEachRemaining(Iterator.java:133)\n\tat java.base/java.util.Spliterators$IteratorSpliterator.forEachRemaining(Spliterators.java:1939)\n\tat java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:556)\n\tat java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:546)\n\tat java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:921)\n\tat java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:265)\n\tat java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:702)\n\tat dev.langchain4j.data.document.loader.FileSystemDocumentLoader.loadDocuments(FileSystemDocumentLoader.java:126)\n\tat dev.langchain4j.data.document.loader.FileSystemDocumentLoaderTest.should_load_documents_including_unknown_document_types(FileSystemDocumentLoaderTest.java:79)\n\tat java.base/java.lang.reflect.Method.invoke(Method.java:580)\n\tat java.base/java.util.ArrayList.forEach(ArrayList.java:1597)\n\tat java.base/java.util.ArrayList.forEach(ArrayList.java:1597)\n[ERROR] Errors: \n[ERROR]   FileSystemDocumentLoaderTest.should_load_documents_including_unknown_document_types:79 » BlankDocument The document is blank\n[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0\n[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:3.5.2:test (default-test) on project langchain4j: \n[ERROR] \n[ERROR] See /langchain4j/langchain4j/target/surefire-reports for the individual test results.\n[ERROR] See dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.\n[ERROR] -> [Help 1]\n[ERROR] \n[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.\n[ERROR] Re-run Maven using the -X switch to enable full debug logging.\n[ERROR] \n[ERROR] For more information about the errors and possible solutions, please read the following articles:\n[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException"
+        },
+        {
+          "test_turn": 2,
+          "status": "fail",
+          "detail": "[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.132 s <<< FAILURE! -- in dev.langchain4j.data.document.loader.FileSystemDocumentLoaderTest\n[ERROR] dev.langchain4j.data.document.loader.FileSystemDocumentLoaderTest.should_load_documents_including_unknown_document_types -- Time elapsed: 0.097 s <<< ERROR!\ndev.langchain4j.data.document.BlankDocumentException: The document is blank\n\tat dev.langchain4j.data.document.parser.TextDocumentParser.parse(TextDocumentParser.java:30)\n\tat dev.langchain4j.data.document.DocumentLoader.load(DocumentLoader.java:25)\n\tat dev.langchain4j.data.document.loader.FileSystemDocumentLoader.loadDocument(FileSystemDocumentLoader.java:53)\n\tat dev.langchain4j.data.document.loader.FileSystemDocumentLoader.lambda$loadDocuments$1(FileSystemDocumentLoader.java:125)\n\tat java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:212)\n\tat java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:194)\n\tat java.base/java.util.Iterator.forEachRemaining(Iterator.java:133)\n\tat java.base/java.util.Spliterators$IteratorSpliterator.forEachRemaining(Spliterators.java:1939)\n\tat java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:556)\n\tat java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:546)\n\tat java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:921)\n\tat java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:265)\n\tat java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:702)\n\tat dev.langchain4j.data.document.loader.FileSystemDocumentLoader.loadDocuments(FileSystemDocumentLoader.java:126)\n\tat dev.langchain4j.data.document.loader.FileSystemDocumentLoaderTest.should_load_documents_including_unknown_document_types(FileSystemDocumentLoaderTest.java:79)\n\tat java.base/java.lang.reflect.Method.invoke(Method.java:580)\n\tat java.base/java.util.ArrayList.forEach(ArrayList.java:1597)\n\tat java.base/java.util.ArrayList.forEach(ArrayList.java:1597)\n[ERROR] Errors: \n[ERROR]   FileSystemDocumentLoaderTest.should_load_documents_including_unknown_document_types:79 » BlankDocument The document is blank\n[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0\n[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:3.5.2:test (default-test) on project langchain4j: \n[ERROR] \n[ERROR] See /langchain4j/langchain4j/target/surefire-reports for the individual test results.\n[ERROR] See dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.\n[ERROR] -> [Help 1]\n[ERROR] \n[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.\n[ERROR] Re-run Maven using the -X switch to enable full debug logging.\n[ERROR] \n[ERROR] For more information about the errors and possible solutions, please read the following articles:\n[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException"
+        }
+      ],
+      "cumulatively_correct": false,
+      "usage": {
+        "input_tokens": 12093,
+        "cached_input_tokens": 11520,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 339,
+        "reasoning_output_tokens": 247
+      },
+      "instruction_source_sha256": "26902396a8d18bfa72f78034b7a258f2041ce560762e0eedeb3c39a4290c871c",
+      "rendered_prompt_sha256": "0b65250f7837a0b39a43b1460c53f3f8209838e310896404b4e093b9e0b88bf3"
+    },
+    {
+      "turn": 3,
+      "instruction": "[OMITTED FROM PUBLIC ARTIFACT: benchmark-authored prompt text is not redistributed because SR-Eval and MRG-Bench do not state a redistribution license. Use scripts/reconstruct_prompts.py with the separately obtained pinned SR-Eval checkout.]",
+      "prompt": "[OMITTED FROM PUBLIC ARTIFACT: benchmark-authored prompt text is not redistributed because SR-Eval and MRG-Bench do not state a redistribution license. Use scripts/reconstruct_prompts.py with the separately obtained pinned SR-Eval checkout.]",
+      "raw_response": "```java\npublic static List<Document> loadDocuments(Path directoryPath, DocumentParser documentParser) {\n    List<Document> documents = new ArrayList<>();\n\n    try (Stream<Path> paths = Files.list(directoryPath)) {\n        paths.filter(Files::isRegularFile).forEach(path -> {\n            try {\n                documents.add(loadDocument(path, documentParser));\n            } catch (Exception e) {\n                // Skip files that cannot be parsed.\n            }\n        });\n    } catch (IOException e) {\n        throw new RuntimeException(\"Runtime error\", e);\n    }\n\n    return documents;\n}\n```",
+      "extracted_code": "public static List<Document> loadDocuments(Path directoryPath, DocumentParser documentParser) {\n    List<Document> documents = new ArrayList<>();\n\n    try (Stream<Path> paths = Files.list(directoryPath)) {\n        paths.filter(Files::isRegularFile).forEach(path -> {\n            try {\n                documents.add(loadDocument(path, documentParser));\n            } catch (Exception e) {\n                // Skip files that cannot be parsed.\n            }\n        });\n    } catch (IOException e) {\n        throw new RuntimeException(\"Runtime error\", e);\n    }\n\n    return documents;\n}",
+      "tests": [
+        {
+          "test_turn": 1,
+          "status": "fail",
+          "detail": "[ERROR] Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.196 s <<< FAILURE! -- in dev.langchain4j.data.document.loader.FileSystemDocumentLoaderTest\n[ERROR] dev.langchain4j.data.document.loader.FileSystemDocumentLoaderTest.should_load_documents_including_unknown_document_types -- Time elapsed: 0.151 s <<< FAILURE!\njava.lang.AssertionError: \nExpecting empty but was: [DefaultDocument { text = \"this document type is unknown\", metadata = Metadata { metadata = {absolute_directory_path=/langchain4j/langchain4j/src/test/resources, file_name=test-file.banana} } },\n    DefaultDocument { text = \"Miles of Smiles Car Rental Services Terms of Use\n1. Introduction\nThese Terms of Service (“Terms”) govern the access or use by you, an individual, from within any country in the world, of applications, websites, content, products, and services (“Services”) made available by Miles of Smiles Car Rental Services, a company registered in the United States of America.\n2. The Services\nMiles of Smiles rents out vehicles to the end user. We reserve the right to temporarily or permanently discontinue the Services at any time and are not liable for any modification, suspension or discontinuation of the Services.\n3. Bookings\n3.1 Users may make a booking through our website or mobile application.\n3.2 You must provide accurate, current and complete information during the reservation process. You are responsible for all charges incurred under your account.\n3.3 All bookings are subject to vehicle availability.\n4. Cancellation Policy\n4.1 Reservations can be cancelled up to 61 days prior to the start of the booking period.\n4.2 If the booking period is less than 17 days, cancellations are not permitted.\n5. Use of Vehicle\n5.1 All cars rented from Miles of Smiles must not be used:\nfor any illegal purpose or in connection with any criminal offense.\nfor teaching someone to drive.\nin any race, rally or contest.\nwhile under the influence of alcohol or drugs.\n6. Liability\n6.1 Users will be held liable for any damage, loss, or theft that occurs during the rental period.\n6.2 We do not accept liability for any indirect or consequential loss, damage, or expense including but not limited to loss of profits.\n7. Governing Law\nThese terms will be governed by and construed in accordance with the laws of the United States of America, and any disputes relating to these terms will be subject to the exclusive jurisdiction of the courts of United States.\n8. Changes to These Terms\nWe may revise these terms of use at any time by amending this page. You are expected to check this page from time to time to take notice of any changes we made.\n9. Acceptance of These Terms\nBy using the Services, you acknowledge that you have read and understand these Terms and agree to be bound by them.\nIf you do not agree to these Terms, please do not use or access our Services.\", metadata = Metadata { metadata = {absolute_directory_path=/langchain4j/langchain4j/src/test/resources, file_name=miles-of-smiles-terms-of-use.txt} } },\n    DefaultDocument { text = \"test\ncontent\", metadata = Metadata { metadata = {absolute_directory_path=/langchain4j/langchain4j/src/test/resources, file_name=test-file-iso-8859-1.txt} } },\n    DefaultDocument { text = \"Create recipe using only {{it}}\", metadata = Metadata { metadata = {absolute_directory_path=/langchain4j/langchain4j/src/test/resources, file_name=chefs-prompt-based-on-ingredients-in-root.txt} } },\n    DefaultDocument { text = \"test\ncontent\", metadata = Metadata { metadata = {absolute_directory_path=/langchain4j/langchain4j/src/test/resources, file_name=test-file-utf8.txt} } }]\n\tat dev.langchain4j.data.document.loader.FileSystemDocumentLoaderTest.should_load_documents_including_unknown_document_types(FileSystemDocumentLoaderTest.java:82)\n\tat java.base/java.lang.reflect.Method.invoke(Method.java:580)\n\tat java.base/java.util.ArrayList.forEach(ArrayList.java:1597)\n\tat java.base/java.util.ArrayList.forEach(ArrayList.java:1597)\n[ERROR] Failures: \n[ERROR]   FileSystemDocumentLoaderTest.should_load_documents_including_unknown_document_types:82 \nExpecting empty but was: [DefaultDocument { text = \"this document type is unknown\", metadata = Metadata { metadata = {absolute_directory_path=/langchain4j/langchain4j/src/test/resources, file_name=test-file.banana} } },\n    DefaultDocument { text = \"Miles of Smiles Car Rental Services Terms of Use\n1. Introduction\nThese Terms of Service (“Terms”) govern the access or use by you, an individual, from within any country in the world, of applications, websites, content, products, and services (“Services”) made available by Miles of Smiles Car Rental Services, a company registered in the United States of America.\n2. The Services\nMiles of Smiles rents out vehicles to the end user. We reserve the right to temporarily or permanently discontinue the Services at any time and are not liable for any modification, suspension or discontinuation of the Services.\n3. Bookings\n3.1 Users may make a booking through our website or mobile application.\n3.2 You must provide accurate, current and complete information during the reservation process. You are responsible for all charges incurred under your account.\n3.3 All bookings are subject to vehicle availability.\n4. Cancellation Policy\n4.1 Reservations can be cancelled up to 61 days prior to the start of the booking period.\n4.2 If the booking period is less than 17 days, cancellations are not permitted.\n5. Use of Vehicle\n5.1 All cars rented from Miles of Smiles must not be used:\nfor any illegal purpose or in connection with any criminal offense.\nfor teaching someone to drive.\nin any race, rally or contest.\nwhile under the influence of alcohol or drugs.\n6. Liability\n6.1 Users will be held liable for any damage, loss, or theft that occurs during the rental period.\n6.2 We do not accept liability for any indirect or consequential loss, damage, or expense including but not limited to loss of profits.\n7. Governing Law\nThese terms will be governed by and construed in accordance with the laws of the United States of America, and any disputes relating to these terms will be subject to the exclusive jurisdiction of the courts of United States.\n8. Changes to These Terms\nWe may revise these terms of use at any time by amending this page. You are expected to check this page from time to time to take notice of any changes we made.\n9. Acceptance of These Terms\nBy using the Services, you acknowledge that you have read and understand these Terms and agree to be bound by them.\nIf you do not agree to these Terms, please do not use or access our Services.\", metadata = Metadata { metadata = {absolute_directory_path=/langchain4j/langchain4j/src/test/resources, file_name=miles-of-smiles-terms-of-use.txt} } },\n    DefaultDocument { text = \"test\ncontent\", metadata = Metadata { metadata = {absolute_directory_path=/langchain4j/langchain4j/src/test/resources, file_name=test-file-iso-8859-1.txt} } },\n    DefaultDocument { text = \"Create recipe using only {{it}}\", metadata = Metadata { metadata = {absolute_directory_path=/langchain4j/langchain4j/src/test/resources, file_name=chefs-prompt-based-on-ingredients-in-root.txt} } },\n    DefaultDocument { text = \"test\ncontent\", metadata = Metadata { metadata = {absolute_directory_path=/langchain4j/langchain4j/src/test/resources, file_name=test-file-utf8.txt} } }]\n[ERROR] Tests run: 1, Failures: 1, Errors: 0, Skipped: 0\n[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:3.5.2:test (default-test) on project langchain4j: There are test failures.\n[ERROR] \n[ERROR] See /langchain4j/langchain4j/target/surefire-reports for the individual test results.\n[ERROR] See dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.\n[ERROR] -> [Help 1]\n[ERROR] \n[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.\n[ERROR] Re-run Maven using the -X switch to enable full debug logging.\n[ERROR] \n[ERROR] For more information about the errors and possible solutions, please read the following articles:\n[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException"
+        },
+        {
+          "test_turn": 2,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "test_turn": 3,
+          "status": "pass",
+          "detail": "SUCCESS"
+        }
+      ],
+      "cumulatively_correct": false,
+      "usage": {
+        "input_tokens": 12639,
+        "cached_input_tokens": 11904,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 409,
+        "reasoning_output_tokens": 283
+      },
+      "instruction_source_sha256": "cdd32a2cc0e62689eb5ec9599777bc8a5f2c2127f72c6137ee949ebda2e9f719",
+      "rendered_prompt_sha256": "050873ba70b4fa75a5d683bcdc1467a8707f510a5a3b1020eda77edab7c31f31"
+    }
+  ],
+  "public_prompt_policy": {
+    "benchmark_authored_text_included": false,
+    "reconstruction_command": "python3 scripts/reconstruct_prompts.py --sr-eval .cache/SR-Eval --output reconstructed-prompts"
+  }
+}

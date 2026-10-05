@@ -1,0 +1,90 @@
+{
+  "schema_version": 3,
+  "batch_id": "pilot-c-20260927T143502Z",
+  "run_id": "pilot-c-20260927T143502Z-engineering-guardrails-retrieval-merge-r01",
+  "repetition": 1,
+  "task_hash": "0fa49588ebdc16e8fd289f95",
+  "task_slug": "merge",
+  "condition": "engineering-guardrails-retrieval",
+  "benchmark_commit": "6cf948d69427687bf61042640223d5b318f7bc4c",
+  "product_interface": "Codex CLI 0.153.0",
+  "session_id": "session-2321c115cd46cffc",
+  "model": {
+    "display_name": "GPT-5.6 Sol",
+    "slug": "gpt-5.6-sol",
+    "reasoning_effort": "High",
+    "automatic_routing": false,
+    "snapshot": null
+  },
+  "started_at": "2026-09-27T14:52:07.375095+00:00",
+  "completed_at": "2026-09-27T14:53:08.835681+00:00",
+  "prompt_sha256": {
+    "experiment/prompts/system.txt": "4875eb8f21bbf16bf8230730213406471017c29630afb9b027ef115f510c66da",
+    "experiment/prompts/turn-1.txt": "493fa28970d6f5b28586e31d468c2243cdbb045a7f21de56582d73bc290688ca",
+    "experiment/prompts/code-edit.txt": "e15919aa205033e555720259b3a3cfa36e17f26dea0a0f8a9423341a22fe8b57",
+    "experiment/prompts/engineering-guardrails.txt": "d24d0f0fc97807691f18afb0529b017abad7761f8a67da858d6e2d0f7e6bbee5",
+    "experiment/prompts/retrieval-context.txt": "dcd0d2aa88419517f7f1b4d8a07749142ac96ef27c0790175805133e53e1fcca",
+    "experiment/pilot-c/retrieval/merge.txt": "80f8909acfef4fc5ad78d7d83a83aff7a79c2dad4e3182abf300807e50a25d3e"
+  },
+  "prompt_source_sha256": "258138fe575563a5f0880f73d5099451bb2a37cb98f0ac950e1b435edc55e8aa",
+  "retrieval_packet_sha256": "80f8909acfef4fc5ad78d7d83a83aff7a79c2dad4e3182abf300807e50a25d3e",
+  "turns": [
+    {
+      "turn": 1,
+      "instruction": "[OMITTED FROM PUBLIC ARTIFACT: benchmark-authored prompt text is not redistributed because SR-Eval and MRG-Bench do not state a redistribution license. Use scripts/reconstruct_prompts.py with the separately obtained pinned SR-Eval checkout.]",
+      "prompt": "[OMITTED FROM PUBLIC ARTIFACT: benchmark-authored prompt text is not redistributed because SR-Eval and MRG-Bench do not state a redistribution license. Use scripts/reconstruct_prompts.py with the separately obtained pinned SR-Eval checkout.]",
+      "raw_response": "```java\npublic static <T> T merge(Object source, Object target, Class<T> clazz,List<String>acceptedFieldNames){\n\tMap<String, Object> sourceMap = objectToMap(source);\n\tMap<String, Object> targetMap = objectToMap(target);\n\tMap<String, Object> mergedMap = merge(sourceMap, targetMap);\n\n\tList<String> fieldNames = CollectionUtils.isEmpty(acceptedFieldNames)\n\t\t\t? REQUEST_FIELD_NAMES_PER_CLASS.computeIfAbsent(clazz, ModelOptionsUtils::getJsonPropertyValues)\n\t\t\t: acceptedFieldNames;\n\n\tMap<String, Object> filteredMap = mergedMap.entrySet()\n\t\t.stream()\n\t\t.filter(entry -> fieldNames.contains(entry.getKey()))\n\t\t.collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));\n\n\treturn mapToClass(filteredMap, clazz);\n}\n```",
+      "extracted_code": "public static <T> T merge(Object source, Object target, Class<T> clazz,List<String>acceptedFieldNames){\n\tMap<String, Object> sourceMap = objectToMap(source);\n\tMap<String, Object> targetMap = objectToMap(target);\n\tMap<String, Object> mergedMap = merge(sourceMap, targetMap);\n\n\tList<String> fieldNames = CollectionUtils.isEmpty(acceptedFieldNames)\n\t\t\t? REQUEST_FIELD_NAMES_PER_CLASS.computeIfAbsent(clazz, ModelOptionsUtils::getJsonPropertyValues)\n\t\t\t: acceptedFieldNames;\n\n\tMap<String, Object> filteredMap = mergedMap.entrySet()\n\t\t.stream()\n\t\t.filter(entry -> fieldNames.contains(entry.getKey()))\n\t\t.collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));\n\n\treturn mapToClass(filteredMap, clazz);\n}",
+      "tests": [
+        {
+          "test_turn": 1,
+          "status": "fail",
+          "detail": "[ERROR] COMPILATION ERROR : \n[ERROR] /spring-ai/spring-ai-model/src/main/java/org/springframework/ai/model/ModelOptionsUtils.java:[181,49] no suitable method found for merge(java.util.Map<java.lang.String,java.lang.Object>,java.util.Map<java.lang.String,java.lang.Object>)\n    method org.springframework.ai.model.ModelOptionsUtils.<T>merge(java.lang.Object,java.lang.Object,java.lang.Class<T>,java.util.List<java.lang.String>) is not applicable\n      (cannot infer type-variable(s) T\n        (actual and formal argument lists differ in length))\n    method org.springframework.ai.model.ModelOptionsUtils.<T>merge(java.lang.Object,java.lang.Object,java.lang.Class<T>) is not applicable\n      (cannot infer type-variable(s) T\n        (actual and formal argument lists differ in length))\n[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.11.0:compile (java-compile) on project spring-ai-model: Compilation failure\n[ERROR] /spring-ai/spring-ai-model/src/main/java/org/springframework/ai/model/ModelOptionsUtils.java:[181,49] no suitable method found for merge(java.util.Map<java.lang.String,java.lang.Object>,java.util.Map<java.lang.String,java.lang.Object>)\n[ERROR]     method org.springframework.ai.model.ModelOptionsUtils.<T>merge(java.lang.Object,java.lang.Object,java.lang.Class<T>,java.util.List<java.lang.String>) is not applicable\n[ERROR]       (cannot infer type-variable(s) T\n[ERROR]         (actual and formal argument lists differ in length))\n[ERROR]     method org.springframework.ai.model.ModelOptionsUtils.<T>merge(java.lang.Object,java.lang.Object,java.lang.Class<T>) is not applicable\n[ERROR]       (cannot infer type-variable(s) T\n[ERROR]         (actual and formal argument lists differ in length))\n[ERROR] \n[ERROR] -> [Help 1]\n[ERROR] \n[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.\n[ERROR] Re-run Maven using the -X switch to enable full debug logging.\n[ERROR] \n[ERROR] For more information about the errors and possible solutions, please read the following articles:\n[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException"
+        }
+      ],
+      "cumulatively_correct": false,
+      "usage": {
+        "input_tokens": 18453,
+        "cached_input_tokens": 8960,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1840,
+        "reasoning_output_tokens": 1551
+      },
+      "instruction_source_sha256": "1bf6c819656c4855d92ea3f8d7bc63d4cbb8b8291739fd020ef5bbd3dc937ffb",
+      "rendered_prompt_sha256": "7ef80f08e97a6bf06638500a19f76799c1999b9bacdb6ef95f23108ffd223b3a"
+    },
+    {
+      "turn": 2,
+      "instruction": "[OMITTED FROM PUBLIC ARTIFACT: benchmark-authored prompt text is not redistributed because SR-Eval and MRG-Bench do not state a redistribution license. Use scripts/reconstruct_prompts.py with the separately obtained pinned SR-Eval checkout.]",
+      "prompt": "[OMITTED FROM PUBLIC ARTIFACT: benchmark-authored prompt text is not redistributed because SR-Eval and MRG-Bench do not state a redistribution license. Use scripts/reconstruct_prompts.py with the separately obtained pinned SR-Eval checkout.]",
+      "raw_response": "```java\npublic static <T> T merge(Object source, Object target, Class<T> clazz,List<String>acceptedFieldNames){\n\tList<String> jsonPropertyNames = REQUEST_FIELD_NAMES_PER_CLASS.computeIfAbsent(clazz,\n\t\t\tModelOptionsUtils::getJsonPropertyValues);\n\n\tif (jsonPropertyNames.isEmpty()) {\n\t\tthrow new IllegalArgumentException(\n\t\t\t\t\"Class \" + clazz.getName() + \" has no fields annotated with @JsonProperty\");\n\t}\n\n\tList<String> fieldNames = CollectionUtils.isEmpty(acceptedFieldNames)\n\t\t\t? jsonPropertyNames\n\t\t\t: acceptedFieldNames;\n\n\tMap<String, Object> sourceMap = objectToMap(source);\n\tMap<String, Object> targetMap = objectToMap(target);\n\tMap<String, Object> mergedMap = merge(sourceMap, targetMap);\n\n\tMap<String, Object> filteredMap = mergedMap.entrySet()\n\t\t.stream()\n\t\t.filter(entry -> fieldNames.contains(entry.getKey()))\n\t\t.collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));\n\n\treturn mapToClass(filteredMap, clazz);\n}\n```",
+      "extracted_code": "public static <T> T merge(Object source, Object target, Class<T> clazz,List<String>acceptedFieldNames){\n\tList<String> jsonPropertyNames = REQUEST_FIELD_NAMES_PER_CLASS.computeIfAbsent(clazz,\n\t\t\tModelOptionsUtils::getJsonPropertyValues);\n\n\tif (jsonPropertyNames.isEmpty()) {\n\t\tthrow new IllegalArgumentException(\n\t\t\t\t\"Class \" + clazz.getName() + \" has no fields annotated with @JsonProperty\");\n\t}\n\n\tList<String> fieldNames = CollectionUtils.isEmpty(acceptedFieldNames)\n\t\t\t? jsonPropertyNames\n\t\t\t: acceptedFieldNames;\n\n\tMap<String, Object> sourceMap = objectToMap(source);\n\tMap<String, Object> targetMap = objectToMap(target);\n\tMap<String, Object> mergedMap = merge(sourceMap, targetMap);\n\n\tMap<String, Object> filteredMap = mergedMap.entrySet()\n\t\t.stream()\n\t\t.filter(entry -> fieldNames.contains(entry.getKey()))\n\t\t.collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));\n\n\treturn mapToClass(filteredMap, clazz);\n}",
+      "tests": [
+        {
+          "test_turn": 1,
+          "status": "fail",
+          "detail": "[ERROR] COMPILATION ERROR : \n[ERROR] /spring-ai/spring-ai-model/src/main/java/org/springframework/ai/model/ModelOptionsUtils.java:[191,49] no suitable method found for merge(java.util.Map<java.lang.String,java.lang.Object>,java.util.Map<java.lang.String,java.lang.Object>)\n    method org.springframework.ai.model.ModelOptionsUtils.<T>merge(java.lang.Object,java.lang.Object,java.lang.Class<T>,java.util.List<java.lang.String>) is not applicable\n      (cannot infer type-variable(s) T\n        (actual and formal argument lists differ in length))\n    method org.springframework.ai.model.ModelOptionsUtils.<T>merge(java.lang.Object,java.lang.Object,java.lang.Class<T>) is not applicable\n      (cannot infer type-variable(s) T\n        (actual and formal argument lists differ in length))\n[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.11.0:compile (java-compile) on project spring-ai-model: Compilation failure\n[ERROR] /spring-ai/spring-ai-model/src/main/java/org/springframework/ai/model/ModelOptionsUtils.java:[191,49] no suitable method found for merge(java.util.Map<java.lang.String,java.lang.Object>,java.util.Map<java.lang.String,java.lang.Object>)\n[ERROR]     method org.springframework.ai.model.ModelOptionsUtils.<T>merge(java.lang.Object,java.lang.Object,java.lang.Class<T>,java.util.List<java.lang.String>) is not applicable\n[ERROR]       (cannot infer type-variable(s) T\n[ERROR]         (actual and formal argument lists differ in length))\n[ERROR]     method org.springframework.ai.model.ModelOptionsUtils.<T>merge(java.lang.Object,java.lang.Object,java.lang.Class<T>) is not applicable\n[ERROR]       (cannot infer type-variable(s) T\n[ERROR]         (actual and formal argument lists differ in length))\n[ERROR] \n[ERROR] -> [Help 1]\n[ERROR] \n[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.\n[ERROR] Re-run Maven using the -X switch to enable full debug logging.\n[ERROR] \n[ERROR] For more information about the errors and possible solutions, please read the following articles:\n[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException"
+        },
+        {
+          "test_turn": 2,
+          "status": "fail",
+          "detail": "[ERROR] COMPILATION ERROR : \n[ERROR] /spring-ai/spring-ai-model/src/main/java/org/springframework/ai/model/ModelOptionsUtils.java:[191,49] no suitable method found for merge(java.util.Map<java.lang.String,java.lang.Object>,java.util.Map<java.lang.String,java.lang.Object>)\n    method org.springframework.ai.model.ModelOptionsUtils.<T>merge(java.lang.Object,java.lang.Object,java.lang.Class<T>,java.util.List<java.lang.String>) is not applicable\n      (cannot infer type-variable(s) T\n        (actual and formal argument lists differ in length))\n    method org.springframework.ai.model.ModelOptionsUtils.<T>merge(java.lang.Object,java.lang.Object,java.lang.Class<T>) is not applicable\n      (cannot infer type-variable(s) T\n        (actual and formal argument lists differ in length))\n[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.11.0:compile (java-compile) on project spring-ai-model: Compilation failure\n[ERROR] /spring-ai/spring-ai-model/src/main/java/org/springframework/ai/model/ModelOptionsUtils.java:[191,49] no suitable method found for merge(java.util.Map<java.lang.String,java.lang.Object>,java.util.Map<java.lang.String,java.lang.Object>)\n[ERROR]     method org.springframework.ai.model.ModelOptionsUtils.<T>merge(java.lang.Object,java.lang.Object,java.lang.Class<T>,java.util.List<java.lang.String>) is not applicable\n[ERROR]       (cannot infer type-variable(s) T\n[ERROR]         (actual and formal argument lists differ in length))\n[ERROR]     method org.springframework.ai.model.ModelOptionsUtils.<T>merge(java.lang.Object,java.lang.Object,java.lang.Class<T>) is not applicable\n[ERROR]       (cannot infer type-variable(s) T\n[ERROR]         (actual and formal argument lists differ in length))\n[ERROR] \n[ERROR] -> [Help 1]\n[ERROR] \n[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.\n[ERROR] Re-run Maven using the -X switch to enable full debug logging.\n[ERROR] \n[ERROR] For more information about the errors and possible solutions, please read the following articles:\n[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException"
+        }
+      ],
+      "cumulatively_correct": false,
+      "usage": {
+        "input_tokens": 11739,
+        "cached_input_tokens": 9088,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 857,
+        "reasoning_output_tokens": 630
+      },
+      "instruction_source_sha256": "a4cc84f967bf45bdf70ab09c2e2612f79ecf5194e6e699f7e4b2d323eefab2ed",
+      "rendered_prompt_sha256": "ae03f0e0c46ea3857fbb70968c7006c27cff68a41c719b4129bd6a2ff18c1a30"
+    }
+  ],
+  "public_prompt_policy": {
+    "benchmark_authored_text_included": false,
+    "reconstruction_command": "python3 scripts/reconstruct_prompts.py --sr-eval .cache/SR-Eval --output reconstructed-prompts"
+  }
+}

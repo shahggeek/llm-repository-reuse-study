@@ -1,0 +1,158 @@
+{
+  "schema_version": 1,
+  "batch_id": "pilot-a-20260904T213806Z",
+  "run_id": "pilot-a-20260904T213806Z-calculatePhaseTimeGradient-01",
+  "task_hash": "e5d0241661065416a4e451e1",
+  "task_slug": "calculatePhaseTimeGradient",
+  "condition": "baseline",
+  "benchmark_commit": "6cf948d69427687bf61042640223d5b318f7bc4c",
+  "product_interface": "Codex CLI 0.153.0",
+  "session_id": "session-a1f8c839d4c4b82e",
+  "model": {
+    "display_name": "GPT-5.6 Sol",
+    "slug": "gpt-5.6-sol",
+    "reasoning_effort": "High",
+    "automatic_routing": false,
+    "snapshot": null
+  },
+  "started_at": "2026-09-04T22:28:01.067159+00:00",
+  "completed_at": "2026-09-04T22:28:20.628519+00:00",
+  "prompt_sha256": {
+    "experiment/prompts/system.txt": "4875eb8f21bbf16bf8230730213406471017c29630afb9b027ef115f510c66da",
+    "experiment/prompts/turn-1.txt": "493fa28970d6f5b28586e31d468c2243cdbb045a7f21de56582d73bc290688ca",
+    "experiment/prompts/code-edit.txt": "e15919aa205033e555720259b3a3cfa36e17f26dea0a0f8a9423341a22fe8b57",
+    "experiment/prompts/engineering-guardrails.txt": "d24d0f0fc97807691f18afb0529b017abad7761f8a67da858d6e2d0f7e6bbee5"
+  },
+  "turns": [
+    {
+      "turn": 1,
+      "instruction": "[OMITTED FROM PUBLIC ARTIFACT: benchmark-authored prompt text is not redistributed because SR-Eval and MRG-Bench do not state a redistribution license. Use scripts/reconstruct_prompts.py with the separately obtained pinned SR-Eval checkout.]",
+      "prompt": "[OMITTED FROM PUBLIC ARTIFACT: benchmark-authored prompt text is not redistributed because SR-Eval and MRG-Bench do not state a redistribution license. Use scripts/reconstruct_prompts.py with the separately obtained pinned SR-Eval checkout.]",
+      "raw_response": "```java\n@Override\npublic double calculatePhaseTimeGradient(AbstractPhaseScope<Solution_> phaseScope) {\n    var timeGradient = 1.0;\n    for (var termination : phaseTerminationList) {\n        var nextTimeGradient = termination.calculatePhaseTimeGradient(phaseScope);\n        timeGradient = Math.min(timeGradient, nextTimeGradient);\n    }\n    return timeGradient;\n}\n```",
+      "extracted_code": "@Override\npublic double calculatePhaseTimeGradient(AbstractPhaseScope<Solution_> phaseScope) {\n    var timeGradient = 1.0;\n    for (var termination : phaseTerminationList) {\n        var nextTimeGradient = termination.calculatePhaseTimeGradient(phaseScope);\n        timeGradient = Math.min(timeGradient, nextTimeGradient);\n    }\n    return timeGradient;\n}",
+      "tests": [
+        {
+          "test_turn": 1,
+          "status": "pass",
+          "detail": "SUCCESS"
+        }
+      ],
+      "cumulatively_correct": true,
+      "usage": {
+        "input_tokens": 9088,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 84,
+        "reasoning_output_tokens": 0
+      },
+      "instruction_source_sha256": "bee31a54da316eef802c4891e9637b5dd451dee241b87ec32d39daa537cc635f",
+      "rendered_prompt_sha256": "507fc3ef097d883a74b4b7428754efef7230e4d5d1c8e8ffbf1de368fd1f8bb7"
+    },
+    {
+      "turn": 2,
+      "instruction": "[OMITTED FROM PUBLIC ARTIFACT: benchmark-authored prompt text is not redistributed because SR-Eval and MRG-Bench do not state a redistribution license. Use scripts/reconstruct_prompts.py with the separately obtained pinned SR-Eval checkout.]",
+      "prompt": "[OMITTED FROM PUBLIC ARTIFACT: benchmark-authored prompt text is not redistributed because SR-Eval and MRG-Bench do not state a redistribution license. Use scripts/reconstruct_prompts.py with the separately obtained pinned SR-Eval checkout.]",
+      "raw_response": "```java\n@Override\npublic double calculatePhaseTimeGradient(AbstractPhaseScope<Solution_> phaseScope) {\n    var timeGradient = 1.0;\n    for (var termination : phaseTerminationList) {\n        if (termination.isApplicableTo(phaseScope.getClass())) {\n            var nextTimeGradient = termination.calculatePhaseTimeGradient(phaseScope);\n            timeGradient = Math.min(timeGradient, nextTimeGradient);\n        }\n    }\n    return timeGradient;\n}\n```",
+      "extracted_code": "@Override\npublic double calculatePhaseTimeGradient(AbstractPhaseScope<Solution_> phaseScope) {\n    var timeGradient = 1.0;\n    for (var termination : phaseTerminationList) {\n        if (termination.isApplicableTo(phaseScope.getClass())) {\n            var nextTimeGradient = termination.calculatePhaseTimeGradient(phaseScope);\n            timeGradient = Math.min(timeGradient, nextTimeGradient);\n        }\n    }\n    return timeGradient;\n}",
+      "tests": [
+        {
+          "test_turn": 1,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "test_turn": 2,
+          "status": "pass",
+          "detail": "SUCCESS"
+        }
+      ],
+      "cumulatively_correct": true,
+      "usage": {
+        "input_tokens": 9464,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 100,
+        "reasoning_output_tokens": 0
+      },
+      "instruction_source_sha256": "e5e8d594b76b63cd935aa123ec3414390b0c511deb3860766ecf7926fb2aab1e",
+      "rendered_prompt_sha256": "7f2498218accf3413e9f37fc54531a38ef3869ad71ba8372c36c53678daa3f50"
+    },
+    {
+      "turn": 3,
+      "instruction": "[OMITTED FROM PUBLIC ARTIFACT: benchmark-authored prompt text is not redistributed because SR-Eval and MRG-Bench do not state a redistribution license. Use scripts/reconstruct_prompts.py with the separately obtained pinned SR-Eval checkout.]",
+      "prompt": "[OMITTED FROM PUBLIC ARTIFACT: benchmark-authored prompt text is not redistributed because SR-Eval and MRG-Bench do not state a redistribution license. Use scripts/reconstruct_prompts.py with the separately obtained pinned SR-Eval checkout.]",
+      "raw_response": "```java\n@Override\npublic double calculatePhaseTimeGradient(AbstractPhaseScope<Solution_> phaseScope) {\n    var timeGradient = 1.0;\n    for (var termination : phaseTerminationList) {\n        if (termination.isApplicableTo(phaseScope.getClass())) {\n            var nextTimeGradient = termination.calculatePhaseTimeGradient(phaseScope);\n            if (nextTimeGradient >= 0.0) {\n                timeGradient = Math.min(timeGradient, nextTimeGradient);\n            }\n        }\n    }\n    return timeGradient;\n}\n```",
+      "extracted_code": "@Override\npublic double calculatePhaseTimeGradient(AbstractPhaseScope<Solution_> phaseScope) {\n    var timeGradient = 1.0;\n    for (var termination : phaseTerminationList) {\n        if (termination.isApplicableTo(phaseScope.getClass())) {\n            var nextTimeGradient = termination.calculatePhaseTimeGradient(phaseScope);\n            if (nextTimeGradient >= 0.0) {\n                timeGradient = Math.min(timeGradient, nextTimeGradient);\n            }\n        }\n    }\n    return timeGradient;\n}",
+      "tests": [
+        {
+          "test_turn": 1,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "test_turn": 2,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "test_turn": 3,
+          "status": "pass",
+          "detail": "SUCCESS"
+        }
+      ],
+      "cumulatively_correct": true,
+      "usage": {
+        "input_tokens": 9743,
+        "cached_input_tokens": 9344,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 115,
+        "reasoning_output_tokens": 0
+      },
+      "instruction_source_sha256": "a985be7a170cfb5001213fe04f531aed10ac25f44b1c7611f13f22cc6e97d136",
+      "rendered_prompt_sha256": "505ecebd2787126550257f6a6456c6309b87b3a44a34159ffa87b243ceb912dd"
+    },
+    {
+      "turn": 4,
+      "instruction": "[OMITTED FROM PUBLIC ARTIFACT: benchmark-authored prompt text is not redistributed because SR-Eval and MRG-Bench do not state a redistribution license. Use scripts/reconstruct_prompts.py with the separately obtained pinned SR-Eval checkout.]",
+      "prompt": "[OMITTED FROM PUBLIC ARTIFACT: benchmark-authored prompt text is not redistributed because SR-Eval and MRG-Bench do not state a redistribution license. Use scripts/reconstruct_prompts.py with the separately obtained pinned SR-Eval checkout.]",
+      "raw_response": "```java\n@Override\npublic double calculatePhaseTimeGradient(AbstractPhaseScope<Solution_> phaseScope) {\n    var timeGradient = 1.0;\n    for (var termination : phaseTerminationList) {\n        if (termination.isApplicableTo(phaseScope.getClass())) {\n            var nextTimeGradient = termination.calculatePhaseTimeGradient(phaseScope);\n            if (nextTimeGradient >= 0.0) {\n                timeGradient = Math.min(timeGradient, nextTimeGradient);\n            }\n        }\n    }\n    return timeGradient;\n}\n```",
+      "extracted_code": "@Override\npublic double calculatePhaseTimeGradient(AbstractPhaseScope<Solution_> phaseScope) {\n    var timeGradient = 1.0;\n    for (var termination : phaseTerminationList) {\n        if (termination.isApplicableTo(phaseScope.getClass())) {\n            var nextTimeGradient = termination.calculatePhaseTimeGradient(phaseScope);\n            if (nextTimeGradient >= 0.0) {\n                timeGradient = Math.min(timeGradient, nextTimeGradient);\n            }\n        }\n    }\n    return timeGradient;\n}",
+      "tests": [
+        {
+          "test_turn": 1,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "test_turn": 2,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "test_turn": 3,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "test_turn": 4,
+          "status": "pass",
+          "detail": "SUCCESS"
+        }
+      ],
+      "cumulatively_correct": true,
+      "usage": {
+        "input_tokens": 10041,
+        "cached_input_tokens": 9600,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 136,
+        "reasoning_output_tokens": 19
+      },
+      "instruction_source_sha256": "7793aafdc5a611a3b3e2bde61a0c61885788cd74fe615c6a56668120a2869896",
+      "rendered_prompt_sha256": "56795f1a84f388851fac6a81845b099d5ba643ea045e033620513dd15f5ae1fb"
+    }
+  ],
+  "public_prompt_policy": {
+    "benchmark_authored_text_included": false,
+    "reconstruction_command": "python3 scripts/reconstruct_prompts.py --sr-eval .cache/SR-Eval --output reconstructed-prompts"
+  }
+}

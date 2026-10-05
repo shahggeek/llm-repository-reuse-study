@@ -1,0 +1,88 @@
+{
+  "schema_version": 3,
+  "batch_id": "pilot-c-20260927T143502Z",
+  "run_id": "pilot-c-20260927T143502Z-engineering-guardrails-loadDocumentsRecursively-r03",
+  "repetition": 3,
+  "task_hash": "3ac2084e8f23beb3709c38d6",
+  "task_slug": "loadDocumentsRecursively",
+  "condition": "engineering-guardrails",
+  "benchmark_commit": "6cf948d69427687bf61042640223d5b318f7bc4c",
+  "product_interface": "Codex CLI 0.153.0",
+  "session_id": "session-6c5acd284e794afa",
+  "model": {
+    "display_name": "GPT-5.6 Sol",
+    "slug": "gpt-5.6-sol",
+    "reasoning_effort": "High",
+    "automatic_routing": false,
+    "snapshot": null
+  },
+  "started_at": "2026-09-27T14:46:17.867607+00:00",
+  "completed_at": "2026-09-27T14:47:02.177332+00:00",
+  "prompt_sha256": {
+    "experiment/prompts/system.txt": "4875eb8f21bbf16bf8230730213406471017c29630afb9b027ef115f510c66da",
+    "experiment/prompts/turn-1.txt": "493fa28970d6f5b28586e31d468c2243cdbb045a7f21de56582d73bc290688ca",
+    "experiment/prompts/code-edit.txt": "e15919aa205033e555720259b3a3cfa36e17f26dea0a0f8a9423341a22fe8b57",
+    "experiment/prompts/engineering-guardrails.txt": "d24d0f0fc97807691f18afb0529b017abad7761f8a67da858d6e2d0f7e6bbee5"
+  },
+  "prompt_source_sha256": "fb288fcbce3fc44f3e17e3d8cfde5304ab6aa4d5adf829069b1262fe6518fef1",
+  "retrieval_packet_sha256": null,
+  "turns": [
+    {
+      "turn": 1,
+      "instruction": "[OMITTED FROM PUBLIC ARTIFACT: benchmark-authored prompt text is not redistributed because SR-Eval and MRG-Bench do not state a redistribution license. Use scripts/reconstruct_prompts.py with the separately obtained pinned SR-Eval checkout.]",
+      "prompt": "[OMITTED FROM PUBLIC ARTIFACT: benchmark-authored prompt text is not redistributed because SR-Eval and MRG-Bench do not state a redistribution license. Use scripts/reconstruct_prompts.py with the separately obtained pinned SR-Eval checkout.]",
+      "raw_response": "```java\npublic static List<Document> loadDocumentsRecursively(Path directoryPath, DocumentParser documentParser) {\n    if (!isDirectory(directoryPath)) {\n        throw illegalArgument(\"'%s' is not a directory\", directoryPath);\n    }\n\n    try (Stream<Path> pathStream = Files.walk(directoryPath)) {\n        return loadDocuments(pathStream, path -> true, directoryPath, documentParser);\n    } catch (IOException e) {\n        throw new RuntimeException(e);\n    }\n}\n```",
+      "extracted_code": "public static List<Document> loadDocumentsRecursively(Path directoryPath, DocumentParser documentParser) {\n    if (!isDirectory(directoryPath)) {\n        throw illegalArgument(\"'%s' is not a directory\", directoryPath);\n    }\n\n    try (Stream<Path> pathStream = Files.walk(directoryPath)) {\n        return loadDocuments(pathStream, path -> true, directoryPath, documentParser);\n    } catch (IOException e) {\n        throw new RuntimeException(e);\n    }\n}",
+      "tests": [
+        {
+          "test_turn": 1,
+          "status": "pass",
+          "detail": "SUCCESS"
+        }
+      ],
+      "cumulatively_correct": true,
+      "usage": {
+        "input_tokens": 32378,
+        "cached_input_tokens": 21120,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 857,
+        "reasoning_output_tokens": 531
+      },
+      "instruction_source_sha256": "1dbdcc52e38018c416f6e347201257bb73959452b1a20caf867942f159e23533",
+      "rendered_prompt_sha256": "3a7efce5e41b19a6b33d52935270571896856dbbd99fdd425b8f2ebb033f375a"
+    },
+    {
+      "turn": 2,
+      "instruction": "[OMITTED FROM PUBLIC ARTIFACT: benchmark-authored prompt text is not redistributed because SR-Eval and MRG-Bench do not state a redistribution license. Use scripts/reconstruct_prompts.py with the separately obtained pinned SR-Eval checkout.]",
+      "prompt": "[OMITTED FROM PUBLIC ARTIFACT: benchmark-authored prompt text is not redistributed because SR-Eval and MRG-Bench do not state a redistribution license. Use scripts/reconstruct_prompts.py with the separately obtained pinned SR-Eval checkout.]",
+      "raw_response": "```java\npublic static List<Document> loadDocumentsRecursively(Path directoryPath, DocumentParser documentParser) {\n    if (directoryPath == null || !isDirectory(directoryPath)) {\n        throw new IllegalArgumentException(\"The directoryPath you provided is illegal.\");\n    }\n\n    try (Stream<Path> pathStream = Files.walk(directoryPath)) {\n        return loadDocuments(pathStream, path -> true, directoryPath, documentParser);\n    } catch (IOException | java.io.UncheckedIOException e) {\n        throw new RuntimeException(\"Failed to traverse directory\", e);\n    }\n}\n```",
+      "extracted_code": "public static List<Document> loadDocumentsRecursively(Path directoryPath, DocumentParser documentParser) {\n    if (directoryPath == null || !isDirectory(directoryPath)) {\n        throw new IllegalArgumentException(\"The directoryPath you provided is illegal.\");\n    }\n\n    try (Stream<Path> pathStream = Files.walk(directoryPath)) {\n        return loadDocuments(pathStream, path -> true, directoryPath, documentParser);\n    } catch (IOException | java.io.UncheckedIOException e) {\n        throw new RuntimeException(\"Failed to traverse directory\", e);\n    }\n}",
+      "tests": [
+        {
+          "test_turn": 1,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "test_turn": 2,
+          "status": "pass",
+          "detail": "SUCCESS"
+        }
+      ],
+      "cumulatively_correct": true,
+      "usage": {
+        "input_tokens": 24059,
+        "cached_input_tokens": 11776,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 541,
+        "reasoning_output_tokens": 335
+      },
+      "instruction_source_sha256": "2578371b7ce18452918cc07ff1d90b70ae6c3bc1eaec259c8ebf902c0adf0950",
+      "rendered_prompt_sha256": "b22f14fff91363700ee374a54ee83c01e372f38ada9bdb94e42b9c9d2cc6012a"
+    }
+  ],
+  "public_prompt_policy": {
+    "benchmark_authored_text_included": false,
+    "reconstruction_command": "python3 scripts/reconstruct_prompts.py --sr-eval .cache/SR-Eval --output reconstructed-prompts"
+  }
+}

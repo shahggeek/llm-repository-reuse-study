@@ -1,0 +1,1174 @@
+{
+  "schema_version": 1,
+  "benchmark_commit": "6cf948d69427687bf61042640223d5b318f7bc4c",
+  "container": "mrgbench_container_1",
+  "started_at": "2026-09-04T19:02:50.331267+00:00",
+  "tasks": [
+    {
+      "slug": "copyToTarget",
+      "hash_id": "6f8e8f1f18bd0ff1f3419f91",
+      "checks": [
+        {
+          "checkpoint_turn": 1,
+          "test_turn": 1,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "checkpoint_turn": 2,
+          "test_turn": 1,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "checkpoint_turn": 2,
+          "test_turn": 2,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "checkpoint_turn": 3,
+          "test_turn": 1,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "checkpoint_turn": 3,
+          "test_turn": 2,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "checkpoint_turn": 3,
+          "test_turn": 3,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "checkpoint_turn": 4,
+          "test_turn": 1,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "checkpoint_turn": 4,
+          "test_turn": 2,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "checkpoint_turn": 4,
+          "test_turn": 3,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "checkpoint_turn": 4,
+          "test_turn": 4,
+          "status": "pass",
+          "detail": "SUCCESS"
+        }
+      ]
+    },
+    {
+      "slug": "invert",
+      "hash_id": "38770cee6b092a934344568e",
+      "checks": [
+        {
+          "checkpoint_turn": 1,
+          "test_turn": 1,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "checkpoint_turn": 2,
+          "test_turn": 1,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "checkpoint_turn": 2,
+          "test_turn": 2,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "checkpoint_turn": 3,
+          "test_turn": 1,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "checkpoint_turn": 3,
+          "test_turn": 2,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "checkpoint_turn": 3,
+          "test_turn": 3,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "checkpoint_turn": 4,
+          "test_turn": 1,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "checkpoint_turn": 4,
+          "test_turn": 2,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "checkpoint_turn": 4,
+          "test_turn": 3,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "checkpoint_turn": 4,
+          "test_turn": 4,
+          "status": "pass",
+          "detail": "SUCCESS"
+        }
+      ]
+    },
+    {
+      "slug": "nodeArrayMerge",
+      "hash_id": "29066589401870d85f4e87b3",
+      "checks": [
+        {
+          "checkpoint_turn": 1,
+          "test_turn": 1,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "checkpoint_turn": 2,
+          "test_turn": 1,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "checkpoint_turn": 2,
+          "test_turn": 2,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "checkpoint_turn": 3,
+          "test_turn": 1,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "checkpoint_turn": 3,
+          "test_turn": 2,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "checkpoint_turn": 3,
+          "test_turn": 3,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "checkpoint_turn": 4,
+          "test_turn": 1,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "checkpoint_turn": 4,
+          "test_turn": 2,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "checkpoint_turn": 4,
+          "test_turn": 3,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "checkpoint_turn": 4,
+          "test_turn": 4,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "checkpoint_turn": 5,
+          "test_turn": 1,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "checkpoint_turn": 5,
+          "test_turn": 2,
+          "status": "fail",
+          "detail": "19:17:58,472 [ERROR] Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.085 s <<< FAILURE! -- in io.github.jbellis.jvector.graph.TestNodeArray\n19:17:58,474 [ERROR] io.github.jbellis.jvector.graph.TestNodeArray.testMergeCandidatesSimple -- Time elapsed: 0.027 s <<< FAILURE!\narrays first differed at element [2]; expected:<1> but was:<2>\n\tat __randomizedtesting.SeedInfo.seed([55F22F9DBDD50170:87E274C4452400DD]:0)\n\tat org.junit.internal.ComparisonCriteria.arrayEquals(ComparisonCriteria.java:78)\n\tat org.junit.internal.ComparisonCriteria.arrayEquals(ComparisonCriteria.java:28)\n\tat org.junit.Assert.internalArrayEquals(Assert.java:534)\n\tat org.junit.Assert.assertArrayEquals(Assert.java:418)\n\tat org.junit.Assert.assertArrayEquals(Assert.java:429)\n\tat io.github.jbellis.jvector.graph.TestNodeArray.testMergeCandidatesSimple(TestNodeArray.java:242)\n\tat java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)\n\tat java.base/java.lang.reflect.Method.invoke(Method.java:580)\n\tat com.carrotsearch.randomizedtesting.RandomizedRunner.invoke(RandomizedRunner.java:1758)\n\tat com.carrotsearch.randomizedtesting.RandomizedRunner$8.evaluate(RandomizedRunner.java:946)\n\tat com.carrotsearch.randomizedtesting.rules.StatementAdapter.evaluate(StatementAdapter.java:36)\n\tat com.carrotsearch.randomizedtesting.ThreadLeakControl$StatementRunner.run(ThreadLeakControl.java:390)\n\tat com.carrotsearch.randomizedtesting.ThreadLeakControl.forkTimeoutingTask(ThreadLeakControl.java:843)\n\tat com.carrotsearch.randomizedtesting.ThreadLeakControl$3.evaluate(ThreadLeakControl.java:490)\n\tat com.carrotsearch.randomizedtesting.RandomizedRunner.runSingleTest(RandomizedRunner.java:955)\n\tat com.carrotsearch.randomizedtesting.RandomizedRunner$5.evaluate(RandomizedRunner.java:840)\n\tat com.carrotsearch.randomizedtesting.RandomizedRunner$6.evaluate(RandomizedRunner.java:891)\n\tat com.carrotsearch.randomizedtesting.RandomizedRunner$7.evaluate(RandomizedRunner.java:902)\n\tat com.carrotsearch.randomizedtesting.rules.StatementAdapter.evaluate(StatementAdapter.java:36)\n\tat com.carrotsearch.randomizedtesting.ThreadLeakControl$StatementRunner.run(ThreadLeakControl.java:390)\n\tat com.carrotsearch.randomizedtesting.ThreadLeakControl.forkTimeoutingTask(ThreadLeakControl.java:843)\n\tat com.carrotsearch.randomizedtesting.ThreadLeakControl$2.evaluate(ThreadLeakControl.java:426)\n\tat com.carrotsearch.randomizedtesting.RandomizedRunner.runSuite(RandomizedRunner.java:716)\n\tat com.carrotsearch.randomizedtesting.RandomizedRunner.access$200(RandomizedRunner.java:138)\n\tat com.carrotsearch.randomizedtesting.RandomizedRunner$2.run(RandomizedRunner.java:637)\nCaused by: java.lang.AssertionError: expected:<1> but was:<2>\n\tat org.junit.Assert.fail(Assert.java:89)\n\tat org.junit.Assert.failNotEquals(Assert.java:835)\n\tat org.junit.Assert.assertEquals(Assert.java:120)\n\tat org.junit.Assert.assertEquals(Assert.java:146)\n\tat org.junit.internal.ExactComparisonCriteria.assertElementsEqual(ExactComparisonCriteria.java:8)\n\tat org.junit.internal.ComparisonCriteria.arrayEquals(ComparisonCriteria.java:76)\n\t... 24 more\n19:17:58,495 [INFO] \n19:17:58,496 [INFO] Results:\n19:17:58,496 [INFO] \n19:17:58,497 [ERROR] Failures: \n19:17:58,497 [ERROR]   TestNodeArray.testMergeCandidatesSimple:242 arrays first differed at element [2]; expected:<1> but was:<2>\n19:17:58,497 [INFO] \n19:17:58,497 [ERROR] Tests run: 1, Failures: 1, Errors: 0, Skipped: 0\n19:17:58,497 [INFO] \n19:17:58,501 [INFO] ------------------------------------------------------------------------\n19:17:58,501 [INFO] Reactor Summary for JVector parent 4.0.0-rc.3-SNAPSHOT:\n19:17:58,501 [INFO] \n19:17:58,504 [INFO] JVector parent ..................................... SUCCESS [  0.369 s]\n19:17:58,504 [INFO] Base ............................................... SUCCESS [  5.954 s]\n19:17:58,504 [INFO] Twenty ............................................. SUCCESS [  0.556 s]\n19:17:58,504 [INFO] Native ............................................. SUCCESS [  2.241 s]\n19:17:58,504 [INFO] JVector Examples ................................... SUCCESS [  1.471 s]\n19:17:58,505 [INFO] Tests .............................................. FAILURE [  4.012 s]\n19:17:58,505 [INFO] JVector ............................................ SKIPPED\n19:17:58,505 [INFO] benchmarks-jmh ..................................... SKIPPED\n19:17:58,505 [INFO] ------------------------------------------------------------------------\n19:17:58,505 [INFO] BUILD FAILURE\n19:17:58,505 [INFO] ------------------------------------------------------------------------\n19:17:58,506 [INFO] Total time:  14.883 s\n19:17:58,507 [INFO] Finished at: 2026-09-04T19:17:58Z\n19:17:58,507 [INFO] ------------------------------------------------------------------------\n19:17:58,510 [ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:3.1.2:test (simd) on project jvector-tests: There are test failures.\n19:17:58,511 [ERROR] \n19:17:58,511 [ERROR] Please refer to /jvector/jvector-tests/target/surefire-reports for the individual test results.\n19:17:58,511 [ERROR] Please refer to dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.\n19:17:58,511 [ERROR] -> [Help 1]\n19:17:58,511 [ERROR] \n19:17:58,511 [ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.\n19:17:58,511 [ERROR] Re-run Maven using the -X switch to enable full debug logging.\n19:17:58,511 [ERROR] \n19:17:58,511 [ERROR] For more information about the errors and possible solutions, please read the following articles:\n19:17:58,511 [ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException\n19:17:58,511 [ERROR] \n19:17:58,511 [ERROR] After correcting the problems, you can resume the build with the command\n19:17:58,511 [ERROR]   mvn <args> -rf :jvector-tests"
+        },
+        {
+          "checkpoint_turn": 5,
+          "test_turn": 3,
+          "status": "fail",
+          "detail": "19:18:15,882 [ERROR] Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.084 s <<< FAILURE! -- in io.github.jbellis.jvector.graph.TestNodeArray\n19:18:15,884 [ERROR] io.github.jbellis.jvector.graph.TestNodeArray.testMergeCandidatesSimple -- Time elapsed: 0.028 s <<< FAILURE!\narrays first differed at element [2]; expected:<300> but was:<500>\n\tat __randomizedtesting.SeedInfo.seed([6EE0D2E7DEED595C:BCF089BE261C58F1]:0)\n\tat org.junit.internal.ComparisonCriteria.arrayEquals(ComparisonCriteria.java:78)\n\tat org.junit.internal.ComparisonCriteria.arrayEquals(ComparisonCriteria.java:28)\n\tat org.junit.Assert.internalArrayEquals(Assert.java:534)\n\tat org.junit.Assert.assertArrayEquals(Assert.java:418)\n\tat org.junit.Assert.assertArrayEquals(Assert.java:429)\n\tat io.github.jbellis.jvector.graph.TestNodeArray.testMergeCandidatesSimple(TestNodeArray.java:210)\n\tat java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)\n\tat java.base/java.lang.reflect.Method.invoke(Method.java:580)\n\tat com.carrotsearch.randomizedtesting.RandomizedRunner.invoke(RandomizedRunner.java:1758)\n\tat com.carrotsearch.randomizedtesting.RandomizedRunner$8.evaluate(RandomizedRunner.java:946)\n\tat com.carrotsearch.randomizedtesting.rules.StatementAdapter.evaluate(StatementAdapter.java:36)\n\tat com.carrotsearch.randomizedtesting.ThreadLeakControl$StatementRunner.run(ThreadLeakControl.java:390)\n\tat com.carrotsearch.randomizedtesting.ThreadLeakControl.forkTimeoutingTask(ThreadLeakControl.java:843)\n\tat com.carrotsearch.randomizedtesting.ThreadLeakControl$3.evaluate(ThreadLeakControl.java:490)\n\tat com.carrotsearch.randomizedtesting.RandomizedRunner.runSingleTest(RandomizedRunner.java:955)\n\tat com.carrotsearch.randomizedtesting.RandomizedRunner$5.evaluate(RandomizedRunner.java:840)\n\tat com.carrotsearch.randomizedtesting.RandomizedRunner$6.evaluate(RandomizedRunner.java:891)\n\tat com.carrotsearch.randomizedtesting.RandomizedRunner$7.evaluate(RandomizedRunner.java:902)\n\tat com.carrotsearch.randomizedtesting.rules.StatementAdapter.evaluate(StatementAdapter.java:36)\n\tat com.carrotsearch.randomizedtesting.ThreadLeakControl$StatementRunner.run(ThreadLeakControl.java:390)\n\tat com.carrotsearch.randomizedtesting.ThreadLeakControl.forkTimeoutingTask(ThreadLeakControl.java:843)\n\tat com.carrotsearch.randomizedtesting.ThreadLeakControl$2.evaluate(ThreadLeakControl.java:426)\n\tat com.carrotsearch.randomizedtesting.RandomizedRunner.runSuite(RandomizedRunner.java:716)\n\tat com.carrotsearch.randomizedtesting.RandomizedRunner.access$200(RandomizedRunner.java:138)\n\tat com.carrotsearch.randomizedtesting.RandomizedRunner$2.run(RandomizedRunner.java:637)\nCaused by: java.lang.AssertionError: expected:<300> but was:<500>\n\tat org.junit.Assert.fail(Assert.java:89)\n\tat org.junit.Assert.failNotEquals(Assert.java:835)\n\tat org.junit.Assert.assertEquals(Assert.java:120)\n\tat org.junit.Assert.assertEquals(Assert.java:146)\n\tat org.junit.internal.ExactComparisonCriteria.assertElementsEqual(ExactComparisonCriteria.java:8)\n\tat org.junit.internal.ComparisonCriteria.arrayEquals(ComparisonCriteria.java:76)\n\t... 24 more\n19:18:15,904 [INFO] \n19:18:15,904 [INFO] Results:\n19:18:15,904 [INFO] \n19:18:15,904 [ERROR] Failures: \n19:18:15,904 [ERROR]   TestNodeArray.testMergeCandidatesSimple:210 arrays first differed at element [2]; expected:<300> but was:<500>\n19:18:15,904 [INFO] \n19:18:15,904 [ERROR] Tests run: 1, Failures: 1, Errors: 0, Skipped: 0\n19:18:15,904 [INFO] \n19:18:15,908 [INFO] ------------------------------------------------------------------------\n19:18:15,908 [INFO] Reactor Summary for JVector parent 4.0.0-rc.3-SNAPSHOT:\n19:18:15,909 [INFO] \n19:18:15,911 [INFO] JVector parent ..................................... SUCCESS [  0.375 s]\n19:18:15,911 [INFO] Base ............................................... SUCCESS [  5.966 s]\n19:18:15,911 [INFO] Twenty ............................................. SUCCESS [  0.569 s]\n19:18:15,911 [INFO] Native ............................................. SUCCESS [  2.252 s]\n19:18:15,911 [INFO] JVector Examples ................................... SUCCESS [  1.465 s]\n19:18:15,911 [INFO] Tests .............................................. FAILURE [  3.983 s]\n19:18:15,911 [INFO] JVector ............................................ SKIPPED\n19:18:15,911 [INFO] benchmarks-jmh ..................................... SKIPPED\n19:18:15,912 [INFO] ------------------------------------------------------------------------\n19:18:15,912 [INFO] BUILD FAILURE\n19:18:15,912 [INFO] ------------------------------------------------------------------------\n19:18:15,912 [INFO] Total time:  14.899 s\n19:18:15,913 [INFO] Finished at: 2026-09-04T19:18:15Z\n19:18:15,913 [INFO] ------------------------------------------------------------------------\n19:18:15,917 [ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:3.1.2:test (simd) on project jvector-tests: There are test failures.\n19:18:15,919 [ERROR] \n19:18:15,919 [ERROR] Please refer to /jvector/jvector-tests/target/surefire-reports for the individual test results.\n19:18:15,920 [ERROR] Please refer to dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.\n19:18:15,920 [ERROR] -> [Help 1]\n19:18:15,920 [ERROR] \n19:18:15,920 [ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.\n19:18:15,920 [ERROR] Re-run Maven using the -X switch to enable full debug logging.\n19:18:15,920 [ERROR] \n19:18:15,920 [ERROR] For more information about the errors and possible solutions, please read the following articles:\n19:18:15,920 [ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException\n19:18:15,920 [ERROR] \n19:18:15,920 [ERROR] After correcting the problems, you can resume the build with the command\n19:18:15,920 [ERROR]   mvn <args> -rf :jvector-tests"
+        },
+        {
+          "checkpoint_turn": 5,
+          "test_turn": 4,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "checkpoint_turn": 5,
+          "test_turn": 5,
+          "status": "pass",
+          "detail": "SUCCESS"
+        }
+      ]
+    },
+    {
+      "slug": "refine",
+      "hash_id": "fa45139dab549d317045f5c4",
+      "checks": [
+        {
+          "checkpoint_turn": 1,
+          "test_turn": 1,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "checkpoint_turn": 2,
+          "test_turn": 1,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "checkpoint_turn": 2,
+          "test_turn": 2,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "checkpoint_turn": 3,
+          "test_turn": 1,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "checkpoint_turn": 3,
+          "test_turn": 2,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "checkpoint_turn": 3,
+          "test_turn": 3,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "checkpoint_turn": 4,
+          "test_turn": 1,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "checkpoint_turn": 4,
+          "test_turn": 2,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "checkpoint_turn": 4,
+          "test_turn": 3,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "checkpoint_turn": 4,
+          "test_turn": 4,
+          "status": "pass",
+          "detail": "SUCCESS"
+        }
+      ]
+    },
+    {
+      "slug": "encodeAnisotropic",
+      "hash_id": "de0fedd9a18a6ee04611cd53",
+      "checks": [
+        {
+          "checkpoint_turn": 1,
+          "test_turn": 1,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "checkpoint_turn": 2,
+          "test_turn": 1,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "checkpoint_turn": 2,
+          "test_turn": 2,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "checkpoint_turn": 3,
+          "test_turn": 1,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "checkpoint_turn": 3,
+          "test_turn": 2,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "checkpoint_turn": 3,
+          "test_turn": 3,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "checkpoint_turn": 4,
+          "test_turn": 1,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "checkpoint_turn": 4,
+          "test_turn": 2,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "checkpoint_turn": 4,
+          "test_turn": 3,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "checkpoint_turn": 4,
+          "test_turn": 4,
+          "status": "pass",
+          "detail": "SUCCESS"
+        }
+      ]
+    },
+    {
+      "slug": "removeDeletedNodes",
+      "hash_id": "21dcaa4767c22bb361a2b693",
+      "checks": [
+        {
+          "checkpoint_turn": 1,
+          "test_turn": 1,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "checkpoint_turn": 2,
+          "test_turn": 1,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "checkpoint_turn": 2,
+          "test_turn": 2,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "checkpoint_turn": 3,
+          "test_turn": 1,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "checkpoint_turn": 3,
+          "test_turn": 2,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "checkpoint_turn": 3,
+          "test_turn": 3,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "checkpoint_turn": 4,
+          "test_turn": 1,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "checkpoint_turn": 4,
+          "test_turn": 2,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "checkpoint_turn": 4,
+          "test_turn": 3,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "checkpoint_turn": 4,
+          "test_turn": 4,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "checkpoint_turn": 5,
+          "test_turn": 1,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "checkpoint_turn": 5,
+          "test_turn": 2,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "checkpoint_turn": 5,
+          "test_turn": 3,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "checkpoint_turn": 5,
+          "test_turn": 4,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "checkpoint_turn": 5,
+          "test_turn": 5,
+          "status": "pass",
+          "detail": "SUCCESS"
+        }
+      ]
+    },
+    {
+      "slug": "writeInline",
+      "hash_id": "efdbcbf31edb2be45f57c55b",
+      "checks": [
+        {
+          "checkpoint_turn": 1,
+          "test_turn": 1,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "checkpoint_turn": 2,
+          "test_turn": 1,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "checkpoint_turn": 2,
+          "test_turn": 2,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "checkpoint_turn": 3,
+          "test_turn": 1,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "checkpoint_turn": 3,
+          "test_turn": 2,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "checkpoint_turn": 3,
+          "test_turn": 3,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "checkpoint_turn": 4,
+          "test_turn": 1,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "checkpoint_turn": 4,
+          "test_turn": 2,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "checkpoint_turn": 4,
+          "test_turn": 3,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "checkpoint_turn": 4,
+          "test_turn": 4,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "checkpoint_turn": 5,
+          "test_turn": 1,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "checkpoint_turn": 5,
+          "test_turn": 2,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "checkpoint_turn": 5,
+          "test_turn": 3,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "checkpoint_turn": 5,
+          "test_turn": 4,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "checkpoint_turn": 5,
+          "test_turn": 5,
+          "status": "pass",
+          "detail": "SUCCESS"
+        }
+      ]
+    },
+    {
+      "slug": "randomAccessScoreProvider",
+      "hash_id": "a3045dd878c9235e7d26de84",
+      "checks": [
+        {
+          "checkpoint_turn": 1,
+          "test_turn": 1,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "checkpoint_turn": 2,
+          "test_turn": 1,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "checkpoint_turn": 2,
+          "test_turn": 2,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "checkpoint_turn": 3,
+          "test_turn": 1,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "checkpoint_turn": 3,
+          "test_turn": 2,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "checkpoint_turn": 3,
+          "test_turn": 3,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "checkpoint_turn": 4,
+          "test_turn": 1,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "checkpoint_turn": 4,
+          "test_turn": 2,
+          "status": "fail",
+          "detail": "19:39:01,447 [ERROR] Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.401 s <<< FAILURE! -- in io.github.jbellis.jvector.graph.TestNeighbors\n19:39:01,449 [ERROR] io.github.jbellis.jvector.graph.TestNeighbors.testInsertDiverseConcurrent -- Time elapsed: 0.350 s <<< FAILURE!\njava.lang.AssertionError\n\tat __randomizedtesting.SeedInfo.seed([54F1C8D4645C9F0B:A30A7CFFC8AE2BD1]:0)\n\tat io.github.jbellis.jvector.graph.TestNeighbors.testInsertDiverseConcurrent(TestNeighbors.java:109)\n\tat java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)\n\tat java.base/java.lang.reflect.Method.invoke(Method.java:580)\n\tat com.carrotsearch.randomizedtesting.RandomizedRunner.invoke(RandomizedRunner.java:1758)\n\tat com.carrotsearch.randomizedtesting.RandomizedRunner$8.evaluate(RandomizedRunner.java:946)\n\tat com.carrotsearch.randomizedtesting.rules.StatementAdapter.evaluate(StatementAdapter.java:36)\n\tat com.carrotsearch.randomizedtesting.ThreadLeakControl$StatementRunner.run(ThreadLeakControl.java:390)\n\tat com.carrotsearch.randomizedtesting.ThreadLeakControl.forkTimeoutingTask(ThreadLeakControl.java:843)\n\tat com.carrotsearch.randomizedtesting.ThreadLeakControl$3.evaluate(ThreadLeakControl.java:490)\n\tat com.carrotsearch.randomizedtesting.RandomizedRunner.runSingleTest(RandomizedRunner.java:955)\n\tat com.carrotsearch.randomizedtesting.RandomizedRunner$5.evaluate(RandomizedRunner.java:840)\n\tat com.carrotsearch.randomizedtesting.RandomizedRunner$6.evaluate(RandomizedRunner.java:891)\n\tat com.carrotsearch.randomizedtesting.RandomizedRunner$7.evaluate(RandomizedRunner.java:902)\n\tat com.carrotsearch.randomizedtesting.rules.StatementAdapter.evaluate(StatementAdapter.java:36)\n\tat com.carrotsearch.randomizedtesting.ThreadLeakControl$StatementRunner.run(ThreadLeakControl.java:390)\n\tat com.carrotsearch.randomizedtesting.ThreadLeakControl.forkTimeoutingTask(ThreadLeakControl.java:843)\n\tat com.carrotsearch.randomizedtesting.ThreadLeakControl$2.evaluate(ThreadLeakControl.java:426)\n\tat com.carrotsearch.randomizedtesting.RandomizedRunner.runSuite(RandomizedRunner.java:716)\n\tat com.carrotsearch.randomizedtesting.RandomizedRunner.access$200(RandomizedRunner.java:138)\n\tat com.carrotsearch.randomizedtesting.RandomizedRunner$2.run(RandomizedRunner.java:637)\n19:39:01,484 [INFO] \n19:39:01,485 [INFO] Results:\n19:39:01,485 [INFO] \n19:39:01,485 [ERROR] Failures: \n19:39:01,485 [ERROR]   TestNeighbors.testInsertDiverseConcurrent:109\n19:39:01,485 [INFO] \n19:39:01,485 [ERROR] Tests run: 1, Failures: 1, Errors: 0, Skipped: 0\n19:39:01,485 [INFO] \n19:39:01,489 [INFO] ------------------------------------------------------------------------\n19:39:01,489 [INFO] Reactor Summary for JVector parent 4.0.0-rc.3-SNAPSHOT:\n19:39:01,489 [INFO] \n19:39:01,491 [INFO] JVector parent ..................................... SUCCESS [  0.371 s]\n19:39:01,491 [INFO] Base ............................................... SUCCESS [  5.837 s]\n19:39:01,491 [INFO] Twenty ............................................. SUCCESS [  0.546 s]\n19:39:01,491 [INFO] Native ............................................. SUCCESS [  2.090 s]\n19:39:01,492 [INFO] JVector Examples ................................... SUCCESS [  2.081 s]\n19:39:01,492 [INFO] Tests .............................................. FAILURE [  4.165 s]\n19:39:01,492 [INFO] JVector ............................................ SKIPPED\n19:39:01,492 [INFO] benchmarks-jmh ..................................... SKIPPED\n19:39:01,492 [INFO] ------------------------------------------------------------------------\n19:39:01,492 [INFO] BUILD FAILURE\n19:39:01,492 [INFO] ------------------------------------------------------------------------\n19:39:01,492 [INFO] Total time:  15.358 s\n19:39:01,493 [INFO] Finished at: 2026-09-04T19:39:01Z\n19:39:01,493 [INFO] ------------------------------------------------------------------------\n19:39:01,496 [ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:3.1.2:test (simd) on project jvector-tests: There are test failures.\n19:39:01,498 [ERROR] \n19:39:01,498 [ERROR] Please refer to /jvector/jvector-tests/target/surefire-reports for the individual test results.\n19:39:01,498 [ERROR] Please refer to dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.\n19:39:01,498 [ERROR] -> [Help 1]\n19:39:01,498 [ERROR] \n19:39:01,498 [ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.\n19:39:01,498 [ERROR] Re-run Maven using the -X switch to enable full debug logging.\n19:39:01,498 [ERROR] \n19:39:01,499 [ERROR] For more information about the errors and possible solutions, please read the following articles:\n19:39:01,499 [ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException\n19:39:01,499 [ERROR] \n19:39:01,499 [ERROR] After correcting the problems, you can resume the build with the command\n19:39:01,499 [ERROR]   mvn <args> -rf :jvector-tests"
+        },
+        {
+          "checkpoint_turn": 4,
+          "test_turn": 3,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "checkpoint_turn": 4,
+          "test_turn": 4,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "checkpoint_turn": 5,
+          "test_turn": 1,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "checkpoint_turn": 5,
+          "test_turn": 2,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "checkpoint_turn": 5,
+          "test_turn": 3,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "checkpoint_turn": 5,
+          "test_turn": 4,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "checkpoint_turn": 5,
+          "test_turn": 5,
+          "status": "pass",
+          "detail": "SUCCESS"
+        }
+      ]
+    },
+    {
+      "slug": "calculatePhaseTimeGradient",
+      "hash_id": "e5d0241661065416a4e451e1",
+      "checks": [
+        {
+          "checkpoint_turn": 1,
+          "test_turn": 1,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "checkpoint_turn": 2,
+          "test_turn": 1,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "checkpoint_turn": 2,
+          "test_turn": 2,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "checkpoint_turn": 3,
+          "test_turn": 1,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "checkpoint_turn": 3,
+          "test_turn": 2,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "checkpoint_turn": 3,
+          "test_turn": 3,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "checkpoint_turn": 4,
+          "test_turn": 1,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "checkpoint_turn": 4,
+          "test_turn": 2,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "checkpoint_turn": 4,
+          "test_turn": 3,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "checkpoint_turn": 4,
+          "test_turn": 4,
+          "status": "pass",
+          "detail": "SUCCESS"
+        }
+      ]
+    },
+    {
+      "slug": "getCyclesForPermutation",
+      "hash_id": "73b5560db41ec359450f1ff1",
+      "checks": [
+        {
+          "checkpoint_turn": 1,
+          "test_turn": 1,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "checkpoint_turn": 2,
+          "test_turn": 1,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "checkpoint_turn": 2,
+          "test_turn": 2,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "checkpoint_turn": 3,
+          "test_turn": 1,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "checkpoint_turn": 3,
+          "test_turn": 2,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "checkpoint_turn": 3,
+          "test_turn": 3,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "checkpoint_turn": 4,
+          "test_turn": 1,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "checkpoint_turn": 4,
+          "test_turn": 2,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "checkpoint_turn": 4,
+          "test_turn": 3,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "checkpoint_turn": 4,
+          "test_turn": 4,
+          "status": "pass",
+          "detail": "SUCCESS"
+        }
+      ]
+    },
+    {
+      "slug": "diff",
+      "hash_id": "dcb5dab97ac7ba282aeed44a",
+      "checks": [
+        {
+          "checkpoint_turn": 1,
+          "test_turn": 1,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "checkpoint_turn": 2,
+          "test_turn": 1,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "checkpoint_turn": 2,
+          "test_turn": 2,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "checkpoint_turn": 3,
+          "test_turn": 1,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "checkpoint_turn": 3,
+          "test_turn": 2,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "checkpoint_turn": 3,
+          "test_turn": 3,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "checkpoint_turn": 4,
+          "test_turn": 1,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "checkpoint_turn": 4,
+          "test_turn": 2,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "checkpoint_turn": 4,
+          "test_turn": 3,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "checkpoint_turn": 4,
+          "test_turn": 4,
+          "status": "pass",
+          "detail": "SUCCESS"
+        }
+      ]
+    },
+    {
+      "slug": "summarize",
+      "hash_id": "ed043aa2b7edbdb82b5c8faf",
+      "checks": [
+        {
+          "checkpoint_turn": 1,
+          "test_turn": 1,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "checkpoint_turn": 2,
+          "test_turn": 1,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "checkpoint_turn": 2,
+          "test_turn": 2,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "checkpoint_turn": 3,
+          "test_turn": 1,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "checkpoint_turn": 3,
+          "test_turn": 2,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "checkpoint_turn": 3,
+          "test_turn": 3,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "checkpoint_turn": 4,
+          "test_turn": 1,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "checkpoint_turn": 4,
+          "test_turn": 2,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "checkpoint_turn": 4,
+          "test_turn": 3,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "checkpoint_turn": 4,
+          "test_turn": 4,
+          "status": "pass",
+          "detail": "SUCCESS"
+        }
+      ]
+    },
+    {
+      "slug": "ensureCapacity",
+      "hash_id": "b4e1056e5ea2a627db586be4",
+      "checks": [
+        {
+          "checkpoint_turn": 1,
+          "test_turn": 1,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "checkpoint_turn": 2,
+          "test_turn": 1,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "checkpoint_turn": 2,
+          "test_turn": 2,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "checkpoint_turn": 3,
+          "test_turn": 1,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "checkpoint_turn": 3,
+          "test_turn": 2,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "checkpoint_turn": 3,
+          "test_turn": 3,
+          "status": "pass",
+          "detail": "SUCCESS"
+        }
+      ]
+    },
+    {
+      "slug": "mergeBeans",
+      "hash_id": "c9d7e4ce8c67c1b9e7740119",
+      "checks": [
+        {
+          "checkpoint_turn": 1,
+          "test_turn": 1,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "checkpoint_turn": 2,
+          "test_turn": 1,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "checkpoint_turn": 2,
+          "test_turn": 2,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "checkpoint_turn": 3,
+          "test_turn": 1,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "checkpoint_turn": 3,
+          "test_turn": 2,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "checkpoint_turn": 3,
+          "test_turn": 3,
+          "status": "pass",
+          "detail": "SUCCESS"
+        }
+      ]
+    },
+    {
+      "slug": "stream",
+      "hash_id": "cf95a66e04f941a76d4b3552",
+      "checks": [
+        {
+          "checkpoint_turn": 1,
+          "test_turn": 1,
+          "status": "fail",
+          "detail": "[ERROR] COMPILATION ERROR : \n[ERROR] /spring-ai/models/spring-ai-openai/src/main/java/org/springframework/ai/openai/OpenAiChatModel.java:[451,40] constructor AssistantMessage in class org.springframework.ai.chat.messages.AssistantMessage cannot be applied to given types;\n  required: java.lang.String,java.util.Map<java.lang.String,java.lang.Object>,java.util.List<org.springframework.ai.chat.messages.AssistantMessage.ToolCall>,java.util.List<org.springframework.ai.content.Media>\n  found:    java.lang.String,java.util.Map<java.lang.String,java.lang.Object>,java.util.List<org.springframework.ai.chat.messages.AssistantMessage.ToolCall>,java.util.List<org.springframework.ai.content.Media>\n  reason: AssistantMessage(java.lang.String,java.util.Map<java.lang.String,java.lang.Object>,java.util.List<org.springframework.ai.chat.messages.AssistantMessage.ToolCall>,java.util.List<org.springframework.ai.content.Media>) has protected access in org.springframework.ai.chat.messages.AssistantMessage\n[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.11.0:compile (java-compile) on project spring-ai-openai: Compilation failure\n[ERROR] /spring-ai/models/spring-ai-openai/src/main/java/org/springframework/ai/openai/OpenAiChatModel.java:[451,40] constructor AssistantMessage in class org.springframework.ai.chat.messages.AssistantMessage cannot be applied to given types;\n[ERROR]   required: java.lang.String,java.util.Map<java.lang.String,java.lang.Object>,java.util.List<org.springframework.ai.chat.messages.AssistantMessage.ToolCall>,java.util.List<org.springframework.ai.content.Media>\n[ERROR]   found:    java.lang.String,java.util.Map<java.lang.String,java.lang.Object>,java.util.List<org.springframework.ai.chat.messages.AssistantMessage.ToolCall>,java.util.List<org.springframework.ai.content.Media>\n[ERROR]   reason: AssistantMessage(java.lang.String,java.util.Map<java.lang.String,java.lang.Object>,java.util.List<org.springframework.ai.chat.messages.AssistantMessage.ToolCall>,java.util.List<org.springframework.ai.content.Media>) has protected access in org.springframework.ai.chat.messages.AssistantMessage\n[ERROR] \n[ERROR] -> [Help 1]\n[ERROR] \n[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.\n[ERROR] Re-run Maven using the -X switch to enable full debug logging.\n[ERROR] \n[ERROR] For more information about the errors and possible solutions, please read the following articles:\n[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException"
+        },
+        {
+          "checkpoint_turn": 2,
+          "test_turn": 1,
+          "status": "fail",
+          "detail": "[ERROR] COMPILATION ERROR : \n[ERROR] /spring-ai/models/spring-ai-openai/src/main/java/org/springframework/ai/openai/OpenAiChatModel.java:[451,40] constructor AssistantMessage in class org.springframework.ai.chat.messages.AssistantMessage cannot be applied to given types;\n  required: java.lang.String,java.util.Map<java.lang.String,java.lang.Object>,java.util.List<org.springframework.ai.chat.messages.AssistantMessage.ToolCall>,java.util.List<org.springframework.ai.content.Media>\n  found:    java.lang.String,java.util.Map<java.lang.String,java.lang.Object>,java.util.List<org.springframework.ai.chat.messages.AssistantMessage.ToolCall>,java.util.List<org.springframework.ai.content.Media>\n  reason: AssistantMessage(java.lang.String,java.util.Map<java.lang.String,java.lang.Object>,java.util.List<org.springframework.ai.chat.messages.AssistantMessage.ToolCall>,java.util.List<org.springframework.ai.content.Media>) has protected access in org.springframework.ai.chat.messages.AssistantMessage\n[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.11.0:compile (java-compile) on project spring-ai-openai: Compilation failure\n[ERROR] /spring-ai/models/spring-ai-openai/src/main/java/org/springframework/ai/openai/OpenAiChatModel.java:[451,40] constructor AssistantMessage in class org.springframework.ai.chat.messages.AssistantMessage cannot be applied to given types;\n[ERROR]   required: java.lang.String,java.util.Map<java.lang.String,java.lang.Object>,java.util.List<org.springframework.ai.chat.messages.AssistantMessage.ToolCall>,java.util.List<org.springframework.ai.content.Media>\n[ERROR]   found:    java.lang.String,java.util.Map<java.lang.String,java.lang.Object>,java.util.List<org.springframework.ai.chat.messages.AssistantMessage.ToolCall>,java.util.List<org.springframework.ai.content.Media>\n[ERROR]   reason: AssistantMessage(java.lang.String,java.util.Map<java.lang.String,java.lang.Object>,java.util.List<org.springframework.ai.chat.messages.AssistantMessage.ToolCall>,java.util.List<org.springframework.ai.content.Media>) has protected access in org.springframework.ai.chat.messages.AssistantMessage\n[ERROR] \n[ERROR] -> [Help 1]\n[ERROR] \n[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.\n[ERROR] Re-run Maven using the -X switch to enable full debug logging.\n[ERROR] \n[ERROR] For more information about the errors and possible solutions, please read the following articles:\n[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException"
+        },
+        {
+          "checkpoint_turn": 2,
+          "test_turn": 2,
+          "status": "fail",
+          "detail": "[ERROR] COMPILATION ERROR : \n[ERROR] /spring-ai/models/spring-ai-openai/src/main/java/org/springframework/ai/openai/OpenAiChatModel.java:[451,40] constructor AssistantMessage in class org.springframework.ai.chat.messages.AssistantMessage cannot be applied to given types;\n  required: java.lang.String,java.util.Map<java.lang.String,java.lang.Object>,java.util.List<org.springframework.ai.chat.messages.AssistantMessage.ToolCall>,java.util.List<org.springframework.ai.content.Media>\n  found:    java.lang.String,java.util.Map<java.lang.String,java.lang.Object>,java.util.List<org.springframework.ai.chat.messages.AssistantMessage.ToolCall>,java.util.List<org.springframework.ai.content.Media>\n  reason: AssistantMessage(java.lang.String,java.util.Map<java.lang.String,java.lang.Object>,java.util.List<org.springframework.ai.chat.messages.AssistantMessage.ToolCall>,java.util.List<org.springframework.ai.content.Media>) has protected access in org.springframework.ai.chat.messages.AssistantMessage\n[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.11.0:compile (java-compile) on project spring-ai-openai: Compilation failure\n[ERROR] /spring-ai/models/spring-ai-openai/src/main/java/org/springframework/ai/openai/OpenAiChatModel.java:[451,40] constructor AssistantMessage in class org.springframework.ai.chat.messages.AssistantMessage cannot be applied to given types;\n[ERROR]   required: java.lang.String,java.util.Map<java.lang.String,java.lang.Object>,java.util.List<org.springframework.ai.chat.messages.AssistantMessage.ToolCall>,java.util.List<org.springframework.ai.content.Media>\n[ERROR]   found:    java.lang.String,java.util.Map<java.lang.String,java.lang.Object>,java.util.List<org.springframework.ai.chat.messages.AssistantMessage.ToolCall>,java.util.List<org.springframework.ai.content.Media>\n[ERROR]   reason: AssistantMessage(java.lang.String,java.util.Map<java.lang.String,java.lang.Object>,java.util.List<org.springframework.ai.chat.messages.AssistantMessage.ToolCall>,java.util.List<org.springframework.ai.content.Media>) has protected access in org.springframework.ai.chat.messages.AssistantMessage\n[ERROR] \n[ERROR] -> [Help 1]\n[ERROR] \n[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.\n[ERROR] Re-run Maven using the -X switch to enable full debug logging.\n[ERROR] \n[ERROR] For more information about the errors and possible solutions, please read the following articles:\n[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException"
+        },
+        {
+          "checkpoint_turn": 3,
+          "test_turn": 1,
+          "status": "fail",
+          "detail": "[ERROR] COMPILATION ERROR : \n[ERROR] /spring-ai/models/spring-ai-openai/src/main/java/org/springframework/ai/openai/OpenAiChatModel.java:[451,40] constructor AssistantMessage in class org.springframework.ai.chat.messages.AssistantMessage cannot be applied to given types;\n  required: java.lang.String,java.util.Map<java.lang.String,java.lang.Object>,java.util.List<org.springframework.ai.chat.messages.AssistantMessage.ToolCall>,java.util.List<org.springframework.ai.content.Media>\n  found:    java.lang.String,java.util.Map<java.lang.String,java.lang.Object>,java.util.List<org.springframework.ai.chat.messages.AssistantMessage.ToolCall>,java.util.List<org.springframework.ai.content.Media>\n  reason: AssistantMessage(java.lang.String,java.util.Map<java.lang.String,java.lang.Object>,java.util.List<org.springframework.ai.chat.messages.AssistantMessage.ToolCall>,java.util.List<org.springframework.ai.content.Media>) has protected access in org.springframework.ai.chat.messages.AssistantMessage\n[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.11.0:compile (java-compile) on project spring-ai-openai: Compilation failure\n[ERROR] /spring-ai/models/spring-ai-openai/src/main/java/org/springframework/ai/openai/OpenAiChatModel.java:[451,40] constructor AssistantMessage in class org.springframework.ai.chat.messages.AssistantMessage cannot be applied to given types;\n[ERROR]   required: java.lang.String,java.util.Map<java.lang.String,java.lang.Object>,java.util.List<org.springframework.ai.chat.messages.AssistantMessage.ToolCall>,java.util.List<org.springframework.ai.content.Media>\n[ERROR]   found:    java.lang.String,java.util.Map<java.lang.String,java.lang.Object>,java.util.List<org.springframework.ai.chat.messages.AssistantMessage.ToolCall>,java.util.List<org.springframework.ai.content.Media>\n[ERROR]   reason: AssistantMessage(java.lang.String,java.util.Map<java.lang.String,java.lang.Object>,java.util.List<org.springframework.ai.chat.messages.AssistantMessage.ToolCall>,java.util.List<org.springframework.ai.content.Media>) has protected access in org.springframework.ai.chat.messages.AssistantMessage\n[ERROR] \n[ERROR] -> [Help 1]\n[ERROR] \n[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.\n[ERROR] Re-run Maven using the -X switch to enable full debug logging.\n[ERROR] \n[ERROR] For more information about the errors and possible solutions, please read the following articles:\n[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException"
+        },
+        {
+          "checkpoint_turn": 3,
+          "test_turn": 2,
+          "status": "fail",
+          "detail": "[ERROR] COMPILATION ERROR : \n[ERROR] /spring-ai/models/spring-ai-openai/src/main/java/org/springframework/ai/openai/OpenAiChatModel.java:[451,40] constructor AssistantMessage in class org.springframework.ai.chat.messages.AssistantMessage cannot be applied to given types;\n  required: java.lang.String,java.util.Map<java.lang.String,java.lang.Object>,java.util.List<org.springframework.ai.chat.messages.AssistantMessage.ToolCall>,java.util.List<org.springframework.ai.content.Media>\n  found:    java.lang.String,java.util.Map<java.lang.String,java.lang.Object>,java.util.List<org.springframework.ai.chat.messages.AssistantMessage.ToolCall>,java.util.List<org.springframework.ai.content.Media>\n  reason: AssistantMessage(java.lang.String,java.util.Map<java.lang.String,java.lang.Object>,java.util.List<org.springframework.ai.chat.messages.AssistantMessage.ToolCall>,java.util.List<org.springframework.ai.content.Media>) has protected access in org.springframework.ai.chat.messages.AssistantMessage\n[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.11.0:compile (java-compile) on project spring-ai-openai: Compilation failure\n[ERROR] /spring-ai/models/spring-ai-openai/src/main/java/org/springframework/ai/openai/OpenAiChatModel.java:[451,40] constructor AssistantMessage in class org.springframework.ai.chat.messages.AssistantMessage cannot be applied to given types;\n[ERROR]   required: java.lang.String,java.util.Map<java.lang.String,java.lang.Object>,java.util.List<org.springframework.ai.chat.messages.AssistantMessage.ToolCall>,java.util.List<org.springframework.ai.content.Media>\n[ERROR]   found:    java.lang.String,java.util.Map<java.lang.String,java.lang.Object>,java.util.List<org.springframework.ai.chat.messages.AssistantMessage.ToolCall>,java.util.List<org.springframework.ai.content.Media>\n[ERROR]   reason: AssistantMessage(java.lang.String,java.util.Map<java.lang.String,java.lang.Object>,java.util.List<org.springframework.ai.chat.messages.AssistantMessage.ToolCall>,java.util.List<org.springframework.ai.content.Media>) has protected access in org.springframework.ai.chat.messages.AssistantMessage\n[ERROR] \n[ERROR] -> [Help 1]\n[ERROR] \n[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.\n[ERROR] Re-run Maven using the -X switch to enable full debug logging.\n[ERROR] \n[ERROR] For more information about the errors and possible solutions, please read the following articles:\n[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException"
+        },
+        {
+          "checkpoint_turn": 3,
+          "test_turn": 3,
+          "status": "fail",
+          "detail": "[ERROR] COMPILATION ERROR : \n[ERROR] /spring-ai/models/spring-ai-openai/src/main/java/org/springframework/ai/openai/OpenAiChatModel.java:[451,40] constructor AssistantMessage in class org.springframework.ai.chat.messages.AssistantMessage cannot be applied to given types;\n  required: java.lang.String,java.util.Map<java.lang.String,java.lang.Object>,java.util.List<org.springframework.ai.chat.messages.AssistantMessage.ToolCall>,java.util.List<org.springframework.ai.content.Media>\n  found:    java.lang.String,java.util.Map<java.lang.String,java.lang.Object>,java.util.List<org.springframework.ai.chat.messages.AssistantMessage.ToolCall>,java.util.List<org.springframework.ai.content.Media>\n  reason: AssistantMessage(java.lang.String,java.util.Map<java.lang.String,java.lang.Object>,java.util.List<org.springframework.ai.chat.messages.AssistantMessage.ToolCall>,java.util.List<org.springframework.ai.content.Media>) has protected access in org.springframework.ai.chat.messages.AssistantMessage\n[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.11.0:compile (java-compile) on project spring-ai-openai: Compilation failure\n[ERROR] /spring-ai/models/spring-ai-openai/src/main/java/org/springframework/ai/openai/OpenAiChatModel.java:[451,40] constructor AssistantMessage in class org.springframework.ai.chat.messages.AssistantMessage cannot be applied to given types;\n[ERROR]   required: java.lang.String,java.util.Map<java.lang.String,java.lang.Object>,java.util.List<org.springframework.ai.chat.messages.AssistantMessage.ToolCall>,java.util.List<org.springframework.ai.content.Media>\n[ERROR]   found:    java.lang.String,java.util.Map<java.lang.String,java.lang.Object>,java.util.List<org.springframework.ai.chat.messages.AssistantMessage.ToolCall>,java.util.List<org.springframework.ai.content.Media>\n[ERROR]   reason: AssistantMessage(java.lang.String,java.util.Map<java.lang.String,java.lang.Object>,java.util.List<org.springframework.ai.chat.messages.AssistantMessage.ToolCall>,java.util.List<org.springframework.ai.content.Media>) has protected access in org.springframework.ai.chat.messages.AssistantMessage\n[ERROR] \n[ERROR] -> [Help 1]\n[ERROR] \n[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.\n[ERROR] Re-run Maven using the -X switch to enable full debug logging.\n[ERROR] \n[ERROR] For more information about the errors and possible solutions, please read the following articles:\n[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException"
+        }
+      ]
+    },
+    {
+      "slug": "set",
+      "hash_id": "4959408a29d07ab85f1fdf99",
+      "checks": [
+        {
+          "checkpoint_turn": 1,
+          "test_turn": 1,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "checkpoint_turn": 2,
+          "test_turn": 1,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "checkpoint_turn": 2,
+          "test_turn": 2,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "checkpoint_turn": 3,
+          "test_turn": 1,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "checkpoint_turn": 3,
+          "test_turn": 2,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "checkpoint_turn": 3,
+          "test_turn": 3,
+          "status": "pass",
+          "detail": "SUCCESS"
+        }
+      ]
+    },
+    {
+      "slug": "underlineToCamel",
+      "hash_id": "4c84a38cf9b090d553a8095e",
+      "checks": [
+        {
+          "checkpoint_turn": 1,
+          "test_turn": 1,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "checkpoint_turn": 2,
+          "test_turn": 1,
+          "status": "fail",
+          "detail": "[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.102 s <<< FAILURE! -- in com.mybatisflex.coretest.StringUtilTest\n[ERROR] com.mybatisflex.coretest.StringUtilTest.underlineToCamel -- Time elapsed: 0.012 s <<< ERROR!\njava.lang.NullPointerException: Cannot invoke \"String.length()\" because \"string\" is null\n\tat com.mybatisflex.core.util.StringUtil.underlineToCamel(StringUtil.java:111)\n\tat com.mybatisflex.coretest.StringUtilTest.underlineToCamel(StringUtilTest.java:29)\n\tat java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)\n\tat java.base/java.lang.reflect.Method.invoke(Method.java:580)\n\tat org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)\n\tat org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)\n\tat org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)\n\tat org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)\n\tat org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)\n\tat org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)\n\tat org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)\n\tat org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103)\n\tat org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:63)\n\tat org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)\n\tat org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)\n\tat org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)\n\tat org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)\n\tat org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)\n\tat org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)\n\tat org.junit.runners.ParentRunner.run(ParentRunner.java:413)\n\tat org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:316)\n\tat org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:240)\n\tat org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:214)\n\tat org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:155)\n\tat org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)\n\tat org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)\n\tat org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)\n\tat org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)\n[ERROR] Errors: \n[ERROR]   StringUtilTest.underlineToCamel:29 \u00bb NullPointer Cannot invoke \"String.length()\" because \"string\" is null\n[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0\n[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:3.2.5:test (default-test) on project mybatis-flex-core: \n[ERROR] \n[ERROR] Please refer to /mybatis-flex/mybatis-flex-core/target/surefire-reports for the individual test results.\n[ERROR] Please refer to dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.\n[ERROR] -> [Help 1]\n[ERROR] \n[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.\n[ERROR] Re-run Maven using the -X switch to enable full debug logging.\n[ERROR] \n[ERROR] For more information about the errors and possible solutions, please read the following articles:\n[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException"
+        },
+        {
+          "checkpoint_turn": 2,
+          "test_turn": 2,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "checkpoint_turn": 3,
+          "test_turn": 1,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "checkpoint_turn": 3,
+          "test_turn": 2,
+          "status": "fail",
+          "detail": "[ERROR] Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.106 s <<< FAILURE! -- in com.mybatisflex.coretest.StringUtilTest\n[ERROR] com.mybatisflex.coretest.StringUtilTest.underlineToCamel -- Time elapsed: 0.018 s <<< FAILURE!\norg.junit.ComparisonFailure: expected:<[H]elloWorld> but was:<[h]elloWorld>\n\tat org.junit.Assert.assertEquals(Assert.java:117)\n\tat org.junit.Assert.assertEquals(Assert.java:146)\n\tat com.mybatisflex.coretest.StringUtilTest.underlineToCamel(StringUtilTest.java:42)\n\tat java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)\n\tat java.base/java.lang.reflect.Method.invoke(Method.java:580)\n\tat org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)\n\tat org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)\n\tat org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)\n\tat org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)\n\tat org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)\n\tat org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)\n\tat org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)\n\tat org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103)\n\tat org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:63)\n\tat org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)\n\tat org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)\n\tat org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)\n\tat org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)\n\tat org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)\n\tat org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)\n\tat org.junit.runners.ParentRunner.run(ParentRunner.java:413)\n\tat org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:316)\n\tat org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:240)\n\tat org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:214)\n\tat org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:155)\n\tat org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)\n\tat org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)\n\tat org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)\n\tat org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)\n[ERROR] Failures: \n[ERROR]   StringUtilTest.underlineToCamel:42 expected:<[H]elloWorld> but was:<[h]elloWorld>\n[ERROR] Tests run: 1, Failures: 1, Errors: 0, Skipped: 0\n[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:3.2.5:test (default-test) on project mybatis-flex-core: There are test failures.\n[ERROR] \n[ERROR] Please refer to /mybatis-flex/mybatis-flex-core/target/surefire-reports for the individual test results.\n[ERROR] Please refer to dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.\n[ERROR] -> [Help 1]\n[ERROR] \n[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.\n[ERROR] Re-run Maven using the -X switch to enable full debug logging.\n[ERROR] \n[ERROR] For more information about the errors and possible solutions, please read the following articles:\n[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException"
+        },
+        {
+          "checkpoint_turn": 3,
+          "test_turn": 3,
+          "status": "pass",
+          "detail": "SUCCESS"
+        }
+      ]
+    },
+    {
+      "slug": "loadDocuments",
+      "hash_id": "6712ca73ea1cb5649aa72a63",
+      "checks": [
+        {
+          "checkpoint_turn": 1,
+          "test_turn": 1,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "checkpoint_turn": 2,
+          "test_turn": 1,
+          "status": "fail",
+          "detail": "[ERROR] Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.197 s <<< FAILURE! -- in dev.langchain4j.data.document.loader.FileSystemDocumentLoaderTest\n[ERROR] dev.langchain4j.data.document.loader.FileSystemDocumentLoaderTest.should_load_documents_including_unknown_document_types -- Time elapsed: 0.144 s <<< FAILURE!\njava.lang.AssertionError: \nExpecting empty but was: [DefaultDocument { text = \"this document type is unknown\", metadata = Metadata { metadata = {absolute_directory_path=/langchain4j/langchain4j/src/test/resources, file_name=test-file.banana} } },\n    DefaultDocument { text = \"Miles of Smiles Car Rental Services Terms of Use\n1. Introduction\nThese Terms of Service (\u201cTerms\u201d) govern the access or use by you, an individual, from within any country in the world, of applications, websites, content, products, and services (\u201cServices\u201d) made available by Miles of Smiles Car Rental Services, a company registered in the United States of America.\n2. The Services\nMiles of Smiles rents out vehicles to the end user. We reserve the right to temporarily or permanently discontinue the Services at any time and are not liable for any modification, suspension or discontinuation of the Services.\n3. Bookings\n3.1 Users may make a booking through our website or mobile application.\n3.2 You must provide accurate, current and complete information during the reservation process. You are responsible for all charges incurred under your account.\n3.3 All bookings are subject to vehicle availability.\n4. Cancellation Policy\n4.1 Reservations can be cancelled up to 61 days prior to the start of the booking period.\n4.2 If the booking period is less than 17 days, cancellations are not permitted.\n5. Use of Vehicle\n5.1 All cars rented from Miles of Smiles must not be used:\nfor any illegal purpose or in connection with any criminal offense.\nfor teaching someone to drive.\nin any race, rally or contest.\nwhile under the influence of alcohol or drugs.\n6. Liability\n6.1 Users will be held liable for any damage, loss, or theft that occurs during the rental period.\n6.2 We do not accept liability for any indirect or consequential loss, damage, or expense including but not limited to loss of profits.\n7. Governing Law\nThese terms will be governed by and construed in accordance with the laws of the United States of America, and any disputes relating to these terms will be subject to the exclusive jurisdiction of the courts of United States.\n8. Changes to These Terms\nWe may revise these terms of use at any time by amending this page. You are expected to check this page from time to time to take notice of any changes we made.\n9. Acceptance of These Terms\nBy using the Services, you acknowledge that you have read and understand these Terms and agree to be bound by them.\nIf you do not agree to these Terms, please do not use or access our Services.\", metadata = Metadata { metadata = {absolute_directory_path=/langchain4j/langchain4j/src/test/resources, file_name=miles-of-smiles-terms-of-use.txt} } },\n    DefaultDocument { text = \"test\ncontent\", metadata = Metadata { metadata = {absolute_directory_path=/langchain4j/langchain4j/src/test/resources, file_name=test-file-iso-8859-1.txt} } },\n    DefaultDocument { text = \"Create recipe using only {{it}}\", metadata = Metadata { metadata = {absolute_directory_path=/langchain4j/langchain4j/src/test/resources, file_name=chefs-prompt-based-on-ingredients-in-root.txt} } },\n    DefaultDocument { text = \"test\ncontent\", metadata = Metadata { metadata = {absolute_directory_path=/langchain4j/langchain4j/src/test/resources, file_name=test-file-utf8.txt} } }]\n\tat dev.langchain4j.data.document.loader.FileSystemDocumentLoaderTest.should_load_documents_including_unknown_document_types(FileSystemDocumentLoaderTest.java:82)\n\tat java.base/java.lang.reflect.Method.invoke(Method.java:580)\n\tat java.base/java.util.ArrayList.forEach(ArrayList.java:1597)\n\tat java.base/java.util.ArrayList.forEach(ArrayList.java:1597)\n[ERROR] Failures: \n[ERROR]   FileSystemDocumentLoaderTest.should_load_documents_including_unknown_document_types:82 \nExpecting empty but was: [DefaultDocument { text = \"this document type is unknown\", metadata = Metadata { metadata = {absolute_directory_path=/langchain4j/langchain4j/src/test/resources, file_name=test-file.banana} } },\n    DefaultDocument { text = \"Miles of Smiles Car Rental Services Terms of Use\n1. Introduction\nThese Terms of Service (\u201cTerms\u201d) govern the access or use by you, an individual, from within any country in the world, of applications, websites, content, products, and services (\u201cServices\u201d) made available by Miles of Smiles Car Rental Services, a company registered in the United States of America.\n2. The Services\nMiles of Smiles rents out vehicles to the end user. We reserve the right to temporarily or permanently discontinue the Services at any time and are not liable for any modification, suspension or discontinuation of the Services.\n3. Bookings\n3.1 Users may make a booking through our website or mobile application.\n3.2 You must provide accurate, current and complete information during the reservation process. You are responsible for all charges incurred under your account.\n3.3 All bookings are subject to vehicle availability.\n4. Cancellation Policy\n4.1 Reservations can be cancelled up to 61 days prior to the start of the booking period.\n4.2 If the booking period is less than 17 days, cancellations are not permitted.\n5. Use of Vehicle\n5.1 All cars rented from Miles of Smiles must not be used:\nfor any illegal purpose or in connection with any criminal offense.\nfor teaching someone to drive.\nin any race, rally or contest.\nwhile under the influence of alcohol or drugs.\n6. Liability\n6.1 Users will be held liable for any damage, loss, or theft that occurs during the rental period.\n6.2 We do not accept liability for any indirect or consequential loss, damage, or expense including but not limited to loss of profits.\n7. Governing Law\nThese terms will be governed by and construed in accordance with the laws of the United States of America, and any disputes relating to these terms will be subject to the exclusive jurisdiction of the courts of United States.\n8. Changes to These Terms\nWe may revise these terms of use at any time by amending this page. You are expected to check this page from time to time to take notice of any changes we made.\n9. Acceptance of These Terms\nBy using the Services, you acknowledge that you have read and understand these Terms and agree to be bound by them.\nIf you do not agree to these Terms, please do not use or access our Services.\", metadata = Metadata { metadata = {absolute_directory_path=/langchain4j/langchain4j/src/test/resources, file_name=miles-of-smiles-terms-of-use.txt} } },\n    DefaultDocument { text = \"test\ncontent\", metadata = Metadata { metadata = {absolute_directory_path=/langchain4j/langchain4j/src/test/resources, file_name=test-file-iso-8859-1.txt} } },\n    DefaultDocument { text = \"Create recipe using only {{it}}\", metadata = Metadata { metadata = {absolute_directory_path=/langchain4j/langchain4j/src/test/resources, file_name=chefs-prompt-based-on-ingredients-in-root.txt} } },\n    DefaultDocument { text = \"test\ncontent\", metadata = Metadata { metadata = {absolute_directory_path=/langchain4j/langchain4j/src/test/resources, file_name=test-file-utf8.txt} } }]\n[ERROR] Tests run: 1, Failures: 1, Errors: 0, Skipped: 0\n[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:3.5.2:test (default-test) on project langchain4j: There are test failures.\n[ERROR] \n[ERROR] See /langchain4j/langchain4j/target/surefire-reports for the individual test results.\n[ERROR] See dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.\n[ERROR] -> [Help 1]\n[ERROR] \n[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.\n[ERROR] Re-run Maven using the -X switch to enable full debug logging.\n[ERROR] \n[ERROR] For more information about the errors and possible solutions, please read the following articles:\n[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException"
+        },
+        {
+          "checkpoint_turn": 2,
+          "test_turn": 2,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "checkpoint_turn": 3,
+          "test_turn": 1,
+          "status": "fail",
+          "detail": "[ERROR] Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.205 s <<< FAILURE! -- in dev.langchain4j.data.document.loader.FileSystemDocumentLoaderTest\n[ERROR] dev.langchain4j.data.document.loader.FileSystemDocumentLoaderTest.should_load_documents_including_unknown_document_types -- Time elapsed: 0.155 s <<< FAILURE!\njava.lang.AssertionError: \nExpecting empty but was: [DefaultDocument { text = \"this document type is unknown\", metadata = Metadata { metadata = {absolute_directory_path=/langchain4j/langchain4j/src/test/resources, file_name=test-file.banana} } },\n    DefaultDocument { text = \"Miles of Smiles Car Rental Services Terms of Use\n1. Introduction\nThese Terms of Service (\u201cTerms\u201d) govern the access or use by you, an individual, from within any country in the world, of applications, websites, content, products, and services (\u201cServices\u201d) made available by Miles of Smiles Car Rental Services, a company registered in the United States of America.\n2. The Services\nMiles of Smiles rents out vehicles to the end user. We reserve the right to temporarily or permanently discontinue the Services at any time and are not liable for any modification, suspension or discontinuation of the Services.\n3. Bookings\n3.1 Users may make a booking through our website or mobile application.\n3.2 You must provide accurate, current and complete information during the reservation process. You are responsible for all charges incurred under your account.\n3.3 All bookings are subject to vehicle availability.\n4. Cancellation Policy\n4.1 Reservations can be cancelled up to 61 days prior to the start of the booking period.\n4.2 If the booking period is less than 17 days, cancellations are not permitted.\n5. Use of Vehicle\n5.1 All cars rented from Miles of Smiles must not be used:\nfor any illegal purpose or in connection with any criminal offense.\nfor teaching someone to drive.\nin any race, rally or contest.\nwhile under the influence of alcohol or drugs.\n6. Liability\n6.1 Users will be held liable for any damage, loss, or theft that occurs during the rental period.\n6.2 We do not accept liability for any indirect or consequential loss, damage, or expense including but not limited to loss of profits.\n7. Governing Law\nThese terms will be governed by and construed in accordance with the laws of the United States of America, and any disputes relating to these terms will be subject to the exclusive jurisdiction of the courts of United States.\n8. Changes to These Terms\nWe may revise these terms of use at any time by amending this page. You are expected to check this page from time to time to take notice of any changes we made.\n9. Acceptance of These Terms\nBy using the Services, you acknowledge that you have read and understand these Terms and agree to be bound by them.\nIf you do not agree to these Terms, please do not use or access our Services.\", metadata = Metadata { metadata = {absolute_directory_path=/langchain4j/langchain4j/src/test/resources, file_name=miles-of-smiles-terms-of-use.txt} } },\n    DefaultDocument { text = \"test\ncontent\", metadata = Metadata { metadata = {absolute_directory_path=/langchain4j/langchain4j/src/test/resources, file_name=test-file-iso-8859-1.txt} } },\n    DefaultDocument { text = \"Create recipe using only {{it}}\", metadata = Metadata { metadata = {absolute_directory_path=/langchain4j/langchain4j/src/test/resources, file_name=chefs-prompt-based-on-ingredients-in-root.txt} } },\n    DefaultDocument { text = \"test\ncontent\", metadata = Metadata { metadata = {absolute_directory_path=/langchain4j/langchain4j/src/test/resources, file_name=test-file-utf8.txt} } }]\n\tat dev.langchain4j.data.document.loader.FileSystemDocumentLoaderTest.should_load_documents_including_unknown_document_types(FileSystemDocumentLoaderTest.java:82)\n\tat java.base/java.lang.reflect.Method.invoke(Method.java:580)\n\tat java.base/java.util.ArrayList.forEach(ArrayList.java:1597)\n\tat java.base/java.util.ArrayList.forEach(ArrayList.java:1597)\n[ERROR] Failures: \n[ERROR]   FileSystemDocumentLoaderTest.should_load_documents_including_unknown_document_types:82 \nExpecting empty but was: [DefaultDocument { text = \"this document type is unknown\", metadata = Metadata { metadata = {absolute_directory_path=/langchain4j/langchain4j/src/test/resources, file_name=test-file.banana} } },\n    DefaultDocument { text = \"Miles of Smiles Car Rental Services Terms of Use\n1. Introduction\nThese Terms of Service (\u201cTerms\u201d) govern the access or use by you, an individual, from within any country in the world, of applications, websites, content, products, and services (\u201cServices\u201d) made available by Miles of Smiles Car Rental Services, a company registered in the United States of America.\n2. The Services\nMiles of Smiles rents out vehicles to the end user. We reserve the right to temporarily or permanently discontinue the Services at any time and are not liable for any modification, suspension or discontinuation of the Services.\n3. Bookings\n3.1 Users may make a booking through our website or mobile application.\n3.2 You must provide accurate, current and complete information during the reservation process. You are responsible for all charges incurred under your account.\n3.3 All bookings are subject to vehicle availability.\n4. Cancellation Policy\n4.1 Reservations can be cancelled up to 61 days prior to the start of the booking period.\n4.2 If the booking period is less than 17 days, cancellations are not permitted.\n5. Use of Vehicle\n5.1 All cars rented from Miles of Smiles must not be used:\nfor any illegal purpose or in connection with any criminal offense.\nfor teaching someone to drive.\nin any race, rally or contest.\nwhile under the influence of alcohol or drugs.\n6. Liability\n6.1 Users will be held liable for any damage, loss, or theft that occurs during the rental period.\n6.2 We do not accept liability for any indirect or consequential loss, damage, or expense including but not limited to loss of profits.\n7. Governing Law\nThese terms will be governed by and construed in accordance with the laws of the United States of America, and any disputes relating to these terms will be subject to the exclusive jurisdiction of the courts of United States.\n8. Changes to These Terms\nWe may revise these terms of use at any time by amending this page. You are expected to check this page from time to time to take notice of any changes we made.\n9. Acceptance of These Terms\nBy using the Services, you acknowledge that you have read and understand these Terms and agree to be bound by them.\nIf you do not agree to these Terms, please do not use or access our Services.\", metadata = Metadata { metadata = {absolute_directory_path=/langchain4j/langchain4j/src/test/resources, file_name=miles-of-smiles-terms-of-use.txt} } },\n    DefaultDocument { text = \"test\ncontent\", metadata = Metadata { metadata = {absolute_directory_path=/langchain4j/langchain4j/src/test/resources, file_name=test-file-iso-8859-1.txt} } },\n    DefaultDocument { text = \"Create recipe using only {{it}}\", metadata = Metadata { metadata = {absolute_directory_path=/langchain4j/langchain4j/src/test/resources, file_name=chefs-prompt-based-on-ingredients-in-root.txt} } },\n    DefaultDocument { text = \"test\ncontent\", metadata = Metadata { metadata = {absolute_directory_path=/langchain4j/langchain4j/src/test/resources, file_name=test-file-utf8.txt} } }]\n[ERROR] Tests run: 1, Failures: 1, Errors: 0, Skipped: 0\n[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:3.5.2:test (default-test) on project langchain4j: There are test failures.\n[ERROR] \n[ERROR] See /langchain4j/langchain4j/target/surefire-reports for the individual test results.\n[ERROR] See dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.\n[ERROR] -> [Help 1]\n[ERROR] \n[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.\n[ERROR] Re-run Maven using the -X switch to enable full debug logging.\n[ERROR] \n[ERROR] For more information about the errors and possible solutions, please read the following articles:\n[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException"
+        },
+        {
+          "checkpoint_turn": 3,
+          "test_turn": 2,
+          "status": "pass",
+          "detail": "SUCCESS"
+        },
+        {
+          "checkpoint_turn": 3,
+          "test_turn": 3,
+          "status": "pass",
+          "detail": "SUCCESS"
+        }
+      ]
+    }
+  ],
+  "completed_at": "2026-09-04T21:14:25.328127+00:00",
+  "status": "fail"
+}

@@ -1,0 +1,4 @@
+{"type":"thread.started","thread_id":"session-4cf7da746a29598b"}
+{"type":"turn.started"}
+{"type":"item.completed","item":{"id":"item_0","type":"agent_message","text":"```java\npublic static List<Document> loadDocumentsRecursively(Path directoryPath, DocumentParser documentParser) {\n    if (directoryPath == null || !isDirectory(directoryPath)) {\n        throw new IllegalArgumentException(\"The directoryPath you provided is illegal.\");\n    }\n\n    try (Stream<Path> pathStream = Files.walk(directoryPath)) {\n        return loadDocuments(pathStream, path -> true, directoryPath, documentParser);\n    } catch (IOException | java.io.UncheckedIOException e) {\n        throw new RuntimeException(\"Failed to traverse directory\", e);\n    }\n}\n```"}}
+{"type":"turn.completed","usage":{"input_tokens":11878,"cached_input_tokens":10624,"cache_write_input_tokens":0,"output_tokens":445,"reasoning_output_tokens":322}}

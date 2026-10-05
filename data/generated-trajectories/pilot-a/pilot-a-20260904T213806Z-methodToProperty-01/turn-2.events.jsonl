@@ -1,0 +1,4 @@
+{"type":"thread.started","thread_id":"session-dd0dc117d7a79331"}
+{"type":"turn.started"}
+{"type":"item.completed","item":{"id":"item_0","type":"agent_message","text":"```java\npublic static String methodToProperty(String name) {\n    if (name == null || (!name.startsWith(\"get\") && !name.startsWith(\"set\"))) {\n        throw new IllegalArgumentException(String.format(\n                \"Error parsing property name '%s'.  Didn't start with 'is', 'get' or 'set'.\",\n                name));\n    }\n\n    String property = name.substring(3);\n    if (property.isEmpty()) {\n        return property;\n    }\n\n    return Character.toLowerCase(property.charAt(0)) + property.substring(1);\n}\n```"}}
+{"type":"turn.completed","usage":{"input_tokens":9904,"cached_input_tokens":8960,"cache_write_input_tokens":0,"output_tokens":121,"reasoning_output_tokens":0}}
