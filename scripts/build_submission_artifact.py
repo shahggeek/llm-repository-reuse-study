@@ -22,6 +22,7 @@ ARTIFACT_DIR = ROOT / "artifacts"
 PACKAGE_ID = "saner-2027-public-evidence-candidate-2026-10-05"
 
 PUBLIC_FILE_MAP = {
+    "artifacts/PUBLIC_GITIGNORE": ".gitignore",
     "artifacts/PUBLIC_MAKEFILE": "Makefile",
     "artifacts/PUBLIC_REPOSITORY_README.md": "README.md",
     "artifacts/PUBLIC_VERIFY_WORKFLOW.yml": ".github/workflows/verify.yml",
@@ -34,6 +35,7 @@ INCLUDE_FILES = (
     "NOTICE",
     "THIRD_PARTY_LICENSES.md",
     "pyproject.toml",
+    "artifacts/PUBLIC_GITIGNORE",
     "artifacts/PUBLIC_MAKEFILE",
     "artifacts/PUBLIC_REPOSITORY_README.md",
     "artifacts/SUBMISSION_ARTIFACT_README.md",

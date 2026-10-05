@@ -48,6 +48,13 @@ class SubmissionArtifactTests(unittest.TestCase):
             self.assertNotIn(private_target, content)
         self.assertNotIn("artifacts/PUBLIC_MAKEFILE", self.by_path)
 
+    def test_public_gitignore_protects_reconstructed_and_local_material(self):
+        content = self.by_path[".gitignore"].decode("utf-8")
+        self.assertIn("reconstructed-prompts/", content)
+        self.assertIn(".cache/", content)
+        self.assertNotIn("data/generated-trajectories/**", content)
+        self.assertNotIn("artifacts/PUBLIC_GITIGNORE", self.by_path)
+
     def test_public_ci_requires_complete_evidence_inventory(self):
         content = self.by_path[".github/workflows/verify.yml"].decode("utf-8")
         self.assertIn("make evidence-check", content)
