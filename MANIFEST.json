@@ -481,8 +481,8 @@
     },
     {
       "path": "analysis/rq2/industry-expert-validation-findings.md",
-      "bytes": 2818,
-      "sha256": "e3de3afb981f1abe4fee2479124368bf3feaeb3ffc7633ad5ba74823177bde69"
+      "bytes": 3131,
+      "sha256": "529c83d6247d903e8a304c4d34c911a309070c194ec568e3a0a4fd7ece21eedb"
     },
     {
       "path": "analysis/rq2/industry-expert-validation-protocol.md",
@@ -506,8 +506,8 @@
     },
     {
       "path": "analysis/rq2/pilot-reuse-findings.md",
-      "bytes": 5365,
-      "sha256": "9f1443c314c2aa56e6a0b1e898b878fe23b723a635c3cccf447446604fde0f72"
+      "bytes": 5517,
+      "sha256": "641c8d134d670677e0046fe30ed9feeaedaf76c910baf2e90f73a58f8f5ba04d"
     },
     {
       "path": "analysis/rq2/reuse-rubric.md",
@@ -526,8 +526,8 @@
     },
     {
       "path": ".gitignore",
-      "bytes": 315,
-      "sha256": "9f9392788f6bc3063c8a218300a90fd905c4de42a032f6eac7a41c9a9091ed6d"
+      "bytes": 504,
+      "sha256": "86e0437369ad9683e1e0d643ce6676778c4a7c02a21a2a260fa242ee411a3764"
     },
     {
       "path": "Makefile",
@@ -5520,8 +5520,8 @@
     },
     {
       "path": "docs/decisions.md",
-      "bytes": 35708,
-      "sha256": "e52d13e61414a8fd2214d830c854d48f6334e2254812d0d08cb69e7961064454"
+      "bytes": 36088,
+      "sha256": "7aa222aa54b19732bbe8457a556e13c01e945293a131014993b8c1c6dfca26f0"
     },
     {
       "path": "docs/methodology.md",
@@ -5535,8 +5535,8 @@
     },
     {
       "path": "docs/practitioner-ethics-record.md",
-      "bytes": 5048,
-      "sha256": "d532b3a2a8519c76f330f3be0a6a642a8fe71e14ec4e5f2baf8ae5bd465f1127"
+      "bytes": 5548,
+      "sha256": "cb23b5027637f198b1c3a1f9150299f14393cdc88a90d514e78f91633a9e4f95"
     },
     {
       "path": "docs/prompt-context-audit.md",

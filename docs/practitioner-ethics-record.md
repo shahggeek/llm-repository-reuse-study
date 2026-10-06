@@ -26,6 +26,8 @@ approved or IRB-exempt. A venue-guidance inquiry is prepared in
 
 - Recruitment was purposive and based on professional Java and code-review
   experience.
+- All four practitioners held bachelor's degrees in engineering and had
+  substantial software-development experience specializing in Java.
 - Four practitioners returned complete workbooks. The planned target was five,
   and the protocol's exploratory minimum was three.
 - The supplied instructions estimated 45--60 minutes for the review.
@@ -78,7 +80,12 @@ review.
 
 - The A/B treatment key remained concealed until the four completed responses
   and their hashes were frozen.
-- Reviewers worked independently and reported no AI assistance.
+- Reviewers were instructed to use unaided human judgment and not to use AI;
+  all four reported no AI assistance.
+- The author converted the returned spreadsheet files into Apple Numbers
+  working copies because Microsoft Excel was unavailable on the author's Mac.
+  The original returns are retained separately in their received formats; the
+  converted copies, not reviewer resubmissions, were used for local extraction.
 - Results are descriptive because the reviewer and case samples are small and
   purposive.
 - Two selected contrasts are checkpoints from one trajectory and are reported

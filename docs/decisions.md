@@ -593,10 +593,15 @@ support a broad cross-repository causal claim.
 
 Close recruitment at four complete reviewers after satisfying the
 preregistered exploratory minimum of three; record that the target of five was
-not reached. Preserve the four returned Numbers workbooks unchanged and freeze
-their SHA-256 hashes in `industry-expert-review-intake-frozen.json` before
-opening the concealed A/B key. All four reviewers consented, completed all six
-cases with rationales, and reported no AI assistance.
+not reached. The author converted the returned spreadsheet files into Apple
+Numbers working copies because Microsoft Excel was unavailable on the author's
+Mac; these were format conversions, not reviewer resubmissions. Preserve the
+original returns separately in their received formats, and freeze the working
+copies' SHA-256 hashes in `industry-expert-review-intake-frozen.json` before
+opening the concealed A/B key. All four reviewers held bachelor's degrees in
+engineering, had substantial software-development experience specializing in
+Java, consented, completed all six cases with rationales, and reported no AI
+assistance after being instructed not to use AI.
 
 Report only descriptive evidence. In the three preselected reuse-sensitive
 contrasts, all four reviewers preferred the retrieval-supported implementation
