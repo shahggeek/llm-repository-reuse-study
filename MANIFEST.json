@@ -4,7 +4,7 @@
   "status": "privacy-filtered-public-evidence-candidate",
   "built_on": "2026-10-05",
   "source_repository": "private-working-repository",
-  "source_commit": "dcd3f1e34204b1e48cd08cd8158cbce7b9692e33",
+  "source_commit": "f0179f61918c4fdc2b26bcce88d04391546456b8",
   "benchmark": {
     "name": "SR-Eval",
     "repository": "https://github.com/AjaxZhan/SR-Eval.git",
@@ -427,7 +427,7 @@
     "Upload the verified archive to a stable repository and add its DOI to the manuscript."
   ],
   "file_count": 790,
-  "total_uncompressed_bytes": 3985545,
+  "total_uncompressed_bytes": 3987543,
   "files": [
     {
       "path": "CITATION.cff",
@@ -481,8 +481,8 @@
     },
     {
       "path": "analysis/rq2/industry-expert-validation-findings.md",
-      "bytes": 3131,
-      "sha256": "529c83d6247d903e8a304c4d34c911a309070c194ec568e3a0a4fd7ece21eedb"
+      "bytes": 3088,
+      "sha256": "a538cbcd155dc8fe2a1c1a7d5742aeb5c407dfcbf94a92535cfcb5cf5e5bb9a7"
     },
     {
       "path": "analysis/rq2/industry-expert-validation-protocol.md",
@@ -506,8 +506,8 @@
     },
     {
       "path": "analysis/rq2/pilot-reuse-findings.md",
-      "bytes": 5517,
-      "sha256": "641c8d134d670677e0046fe30ed9feeaedaf76c910baf2e90f73a58f8f5ba04d"
+      "bytes": 5470,
+      "sha256": "07ebda6ffdaa0a8c096ba65a610545336c21589c1415d912405c8472a2e2c870"
     },
     {
       "path": "analysis/rq2/reuse-rubric.md",
@@ -526,8 +526,8 @@
     },
     {
       "path": ".gitignore",
-      "bytes": 504,
-      "sha256": "86e0437369ad9683e1e0d643ce6676778c4a7c02a21a2a260fa242ee411a3764"
+      "bytes": 612,
+      "sha256": "ceead7ce683f1ca98732304be521891744597e37aa7109841bbee4392138772b"
     },
     {
       "path": "Makefile",
@@ -5520,8 +5520,8 @@
     },
     {
       "path": "docs/decisions.md",
-      "bytes": 36088,
-      "sha256": "7aa222aa54b19732bbe8457a556e13c01e945293a131014993b8c1c6dfca26f0"
+      "bytes": 36048,
+      "sha256": "0fa1105de980c2304d3b780d396d0683605195d124a54712ac3fcff29f6fb151"
     },
     {
       "path": "docs/methodology.md",
@@ -5535,8 +5535,8 @@
     },
     {
       "path": "docs/practitioner-ethics-record.md",
-      "bytes": 5548,
-      "sha256": "cb23b5027637f198b1c3a1f9150299f14393cdc88a90d514e78f91633a9e4f95"
+      "bytes": 5505,
+      "sha256": "83efbc822b3b368da9b70f4bcf4de94addc84a1d222eeb7bf60cc3800f53e419"
     },
     {
       "path": "docs/prompt-context-audit.md",
@@ -6110,8 +6110,8 @@
     },
     {
       "path": "tests/test_submission_artifact.py",
-      "bytes": 6309,
-      "sha256": "7970ff2c19d9ba9276746f1e4e79590b143319dffb82c90071d079d27050b194"
+      "bytes": 6838,
+      "sha256": "dc410b4fd3548243029c808212688e8597225c75073a42ef392f7fc8e6f3a869"
     },
     {
       "path": "tests/test_summarize_pilot_a.py",

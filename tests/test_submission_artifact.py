@@ -13,11 +13,18 @@ class SubmissionArtifactTests(unittest.TestCase):
         cls.by_path = {entry.path: entry.content for entry in cls.entries}
 
     def test_private_paths_and_internal_notes_are_excluded(self):
+        self.assertNotIn("AGENTS.md", self.by_path)
+        self.assertNotIn("agents.md", self.by_path)
+        self.assertNotIn("docs/PROJECT_CONTEXT.md", self.by_path)
+        self.assertNotIn("docs/STATUS.md", self.by_path)
         self.assertNotIn("docs/resume-handoff.md", self.by_path)
         self.assertNotIn("docs/saner-industrial-ethics-inquiry-email.md", self.by_path)
         self.assertNotIn("paper/mock-review-2026-10-03.md", self.by_path)
         self.assertNotIn("paper/saner-readiness-audit.md", self.by_path)
         self.assertFalse(any(path.startswith("paper/") for path in self.by_path))
+        self.assertFalse(
+            any(path.lower().endswith((".tex", ".pdf")) for path in self.by_path)
+        )
         self.assertFalse(any(path.startswith("outputs/") for path in self.by_path))
         private_root = "Reviewers" + "Work/"
         self.assertFalse(any(path.startswith(private_root) for path in self.by_path))
@@ -52,6 +59,10 @@ class SubmissionArtifactTests(unittest.TestCase):
         content = self.by_path[".gitignore"].decode("utf-8")
         self.assertIn("reconstructed-prompts/", content)
         self.assertIn(".cache/", content)
+        self.assertIn("/AGENTS.md", content)
+        self.assertIn("/docs/PROJECT_CONTEXT.md", content)
+        self.assertIn("*.tex", content)
+        self.assertIn("*.pdf", content)
         self.assertNotIn("data/generated-trajectories/**", content)
         self.assertNotIn("artifacts/PUBLIC_GITIGNORE", self.by_path)
 

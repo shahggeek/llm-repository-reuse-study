@@ -26,8 +26,8 @@ approved or IRB-exempt. A venue-guidance inquiry is prepared in
 
 - Recruitment was purposive and based on professional Java and code-review
   experience.
-- All four practitioners held bachelor's degrees in engineering and had
-  substantial software-development experience specializing in Java.
+- All four practitioners had substantial software-development experience
+  specializing in Java.
 - Four practitioners returned complete workbooks. The planned target was five,
   and the protocol's exploratory minimum was three.
 - The supplied instructions estimated 45--60 minutes for the review.

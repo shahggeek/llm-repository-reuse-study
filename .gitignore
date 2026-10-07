@@ -15,12 +15,19 @@ __pycache__/
 # Locally reconstructed benchmark-authored prompts (not redistributed)
 reconstructed-prompts/
 
-# Manuscript sources and builds stay in the private working repository
+# Internal Codex context and manuscript material stay in the private repository
+/AGENTS.md
+/agents.md
+/docs/PROJECT_CONTEXT.md
+/docs/STATUS.md
+/docs/resume-handoff.md
 /paper/
 /manuscript/
 /submission/
 /main.tex
 /main.pdf
+*.tex
+*.pdf
 *.aux
 *.bbl
 *.blg

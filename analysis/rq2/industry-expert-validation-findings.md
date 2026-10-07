@@ -6,12 +6,12 @@ Recruitment closed on 2026-10-03 with four complete independent responses,
 above the protocol minimum of three but below the target of five. All four
 reviewers consented to anonymized research use, completed all six cases with
 rationales, and reported no AI assistance after being instructed not to use
-AI. All held bachelor's degrees in engineering and had professional Java and
-large multi-module codebase experience. The author converted the returned
+AI. All had professional Java and large multi-module codebase experience. The
+author converted the returned
 spreadsheet files into Numbers working copies for local extraction because
 Excel was unavailable on the author's Mac; the original returns remain
-separately preserved in their received formats. The working copies and their
-SHA-256 hashes were frozen before the concealed A/B key was opened.
+separately preserved in their received formats. The working copies and their SHA-256 hashes
+were frozen before the concealed A/B key was opened.
 
 The 24 judgments are purposively selected descriptive evidence, not a random
 sample. IE-RV-104 and IE-RV-105 are checkpoints from the same

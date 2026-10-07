@@ -50,11 +50,11 @@ retrieval-supported condition.
 
 ## Calibration reliability
 
-Before the full review, a primary analyst and an independent blinded reviewer
-classified one generated checkpoint from each trajectory. The independent
-reviewer held a bachelor's degree in engineering and had substantial
-professional software-development experience specializing in Java.
-Pre-adjudication agreement was:
+Before the full review, a primary analyst and a second blinded reviewer
+classified one generated checkpoint from each trajectory. The second blinded
+reviewer had substantial professional software-development experience
+specializing in Java. Pre-adjudication
+agreement was:
 
 - 9/10 exact R0–R3 labels (90%);
 - linearly weighted Cohen's κ = 0.889;

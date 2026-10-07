@@ -1,7 +1,7 @@
 # SANER 2027 reproducibility artifact
 
 Package: `saner-2027-public-evidence-candidate-2026-10-05`  
-Source commit: `dcd3f1e34204b1e48cd08cd8158cbce7b9692e33`  
+Source commit: `f0179f61918c4fdc2b26bcce88d04391546456b8`  
 SR-Eval commit: `6cf948d69427687bf61042640223d5b318f7bc4c`
 
 This privacy- and license-filtered public evidence candidate covers Pilots A, B, and C plus the

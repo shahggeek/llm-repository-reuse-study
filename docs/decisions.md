@@ -598,10 +598,10 @@ Numbers working copies because Microsoft Excel was unavailable on the author's
 Mac; these were format conversions, not reviewer resubmissions. Preserve the
 original returns separately in their received formats, and freeze the working
 copies' SHA-256 hashes in `industry-expert-review-intake-frozen.json` before
-opening the concealed A/B key. All four reviewers held bachelor's degrees in
-engineering, had substantial software-development experience specializing in
-Java, consented, completed all six cases with rationales, and reported no AI
-assistance after being instructed not to use AI.
+opening the concealed A/B key. All four reviewers had substantial
+software-development experience specializing in Java, consented, completed all
+six cases with rationales, and reported no AI assistance after being instructed
+not to use AI.
 
 Report only descriptive evidence. In the three preselected reuse-sensitive
 contrasts, all four reviewers preferred the retrieval-supported implementation
