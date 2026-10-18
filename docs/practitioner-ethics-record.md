@@ -1,4 +1,4 @@
-# Practitioner-validation ethics record
+# Human-review ethics and consent record
 
 Status: paper-facing disclosure prepared; venue guidance pending.
 
@@ -21,6 +21,12 @@ institution that provided an applicable ethics-review body for this research.
 The paper must state this fact and must not describe the activity as IRB-
 approved or IRB-exempt. A venue-guidance inquiry is prepared in
 `docs/saner-industrial-ethics-inquiry-email.md`.
+
+This record also covers the second blinded reuse reviewer who applied the
+author-directed reuse rubric to randomized implementation samples. The reviewer
+was personally known to the author, had no role in study design, and had no
+supervisory relationship with the author. Condition names, the A/B mapping, and
+the primary classifications were concealed during the review.
 
 ## Recruitment and participation
 
@@ -56,6 +62,13 @@ instructions described:
 The Reviewer Profile sheet required an explicit Yes/No consent response. All
 four included reviewers recorded Yes. The frozen intake record preserves that
 fact, and the original returned workbooks remain unchanged.
+
+The second blinded reuse reviewer separately provided documented consent for
+the anonymized use of the review classifications and rationales in the research
+paper and evidence artifact. The consent record is retained privately and must
+not be included in the public artifact. Collectively, all human reviewers in
+the study provided documented consent for the reported anonymized use of their
+contributions.
 
 ## Data minimization and confidentiality
 
@@ -113,7 +126,8 @@ be retained by the author but must not be placed in the public artifact.
 ## Required paper disclosure
 
 The manuscript must report that no formal institutional ethics-board review
-was obtained, explain the independent-research context, describe written
-consent and voluntary participation, disclose the declined compensation, and
-summarize data minimization. Any later guidance from the SANER Industrial Track
-chairs must be preserved and reflected accurately before submission.
+was obtained, explain the independent-research context, describe the documented
+consent of all human reviewers and the practitioners' voluntary participation,
+disclose the declined practitioner compensation, and summarize data
+minimization. Any later guidance from the SANER Industrial Track chairs must be
+preserved and reflected accurately before submission.

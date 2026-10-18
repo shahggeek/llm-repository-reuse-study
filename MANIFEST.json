@@ -4,7 +4,7 @@
   "status": "privacy-filtered-public-evidence-candidate",
   "built_on": "2026-10-05",
   "source_repository": "private-working-repository",
-  "source_commit": "f0179f61918c4fdc2b26bcce88d04391546456b8",
+  "source_commit": "4edede84445c9b2a9013303ade9a4a561b6c9a44",
   "benchmark": {
     "name": "SR-Eval",
     "repository": "https://github.com/AjaxZhan/SR-Eval.git",
@@ -427,7 +427,7 @@
     "Upload the verified archive to a stable repository and add its DOI to the manuscript."
   ],
   "file_count": 790,
-  "total_uncompressed_bytes": 3987543,
+  "total_uncompressed_bytes": 3988387,
   "files": [
     {
       "path": "CITATION.cff",
@@ -5535,8 +5535,8 @@
     },
     {
       "path": "docs/practitioner-ethics-record.md",
-      "bytes": 5505,
-      "sha256": "83efbc822b3b368da9b70f4bcf4de94addc84a1d222eeb7bf60cc3800f53e419"
+      "bytes": 6349,
+      "sha256": "2f01819f181d1ee7b01f7d17fd6dd2f462be4987a4a3029a077391d9bc29880c"
     },
     {
       "path": "docs/prompt-context-audit.md",
